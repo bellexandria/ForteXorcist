@@ -546,7 +546,7 @@ function FW:SSFrame_OnClick(button)
 	else
 		FW:ScrollTo(FWL.SOULSTONE_TRACKER);
 	end
-	PlaySound("igMainMenuOptionCheckBoxOn");
+	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
 end
 
 function FW:SoulstoneOnload()
