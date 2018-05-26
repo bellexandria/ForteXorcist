@@ -22,18 +22,18 @@ local FWL = FW.L;
 -- THESE ARE INTERFACE STRINGS ONLY AND TRANSLATING THEM IS OPTIONAL
 
 -- French
-if GetLocale() == "frFR" then 
+if GetLocale() == "frFR" then
 	FWL.TS = "Talent Spy";
 	FWL.TS_USE = "You can use the new spy dropdown menu from your Talent frame.";
 	FWL.TS_HINT = "For now you have to inspect people that aren't using the addon to store their talents.";
 	FWL.TALENT_OFFSETX = "X-offset dropdown";
 	FWL.TALENT_OFFSETY = "Y-offset dropdown";
 	FWL.TALENT_OFFSET_TT = "Use this in case you're using a customized Talent Frame and need to change the position of the dropdown and buttons.";
-	
+
 	FWL.TS_DISABLED = "THE TALENT SPY IS CURRENTLY DISABLED";
 
 -- Russian
-elseif GetLocale() == "ruRU" then 
+elseif GetLocale() == "ruRU" then
 
 	FWL.TS = "Монитор Талантов";
 	FWL.TS_USE = "Вы можете использовать новое выпадающий список монитора в окне Талантов.";
@@ -87,7 +87,7 @@ elseif GetLocale() == "koKR" then
 	FWL.TALENT_OFFSETX = "X-축 위치";
 	FWL.TALENT_OFFSETY = "Y-축 위치";
 	FWL.TALENT_OFFSET_TT = "임의로 제작된 특성 프레임을 사용할 때 목록이나 버튼이 제대로 안나올 경우 위치를 조정할 수 있습니다..";
-	
+
 --[[>>]]FWL.TS_DISABLED = "THE TALENT SPY IS CURRENTLY DISABLED";
 -- ENGLISH
 else
@@ -98,6 +98,6 @@ else
 	FWL.TALENT_OFFSETX = "X-offset dropdown";
 	FWL.TALENT_OFFSETY = "Y-offset dropdown";
 	FWL.TALENT_OFFSET_TT = "Use this in case you're using a customized Talent Frame and need to change the position of the dropdown and buttons.";
-	
+
 	FWL.TS_DISABLED = "THE TALENT SPY IS CURRENTLY DISABLED";
 end

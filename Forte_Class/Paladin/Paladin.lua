@@ -6,14 +6,14 @@ if FW.CLASS == "PALADIN" then
 	local FW = FW;
 	local FWL = FW.L;
 	local PA = FW:ClassModule("Paladin");
-	
+
 	local ST = FW:Module("Timer");
 	local CA = FW:Module("Casting");
 	local CD = FW:Module("Cooldown");
 
 	-- Tier 7
 	--FW:RegisterSet("Redemption Plate",39638, 39639, 39640, 39641, 39642, 40579, 40580, 40581, 40583, 40584);
-	                                               
+
 	if ST then
 		local F = ST.F;
 		ST:SetDefaultHasted(1)
@@ -28,34 +28,34 @@ if FW.CLASS == "PALADIN" then
 		:AddSpell(  879, 000, "Default",F.TICKS):SetTickSpeed(2):SetHasted(0) -- Exorcism
 		:AddSpell(114163, 30, "Heal",	F.HOT) -- Eternal Flame
 		:AddSpell(76669,   8, "Buff",	F.BUFF) -- Illuminated Healing (Shield)
-		
-		
+
+
 		-- Protection Spells
 		:AddSpell(31935,   3, "Crowd") -- Avenger's Shield (silence)
 		:AddSpell(114153, 60, "Default") -- Divine Intervention	MOP
 		:AddSpell(  853,   6, "Crowd") -- Hammer of Justice (stun)
 		:AddSpell(62124,   3, "Crowd") -- Reckoning
-		
+
 		:AddSpell( 1044,   6, "Buff",	F.BUFF+F.UNIQUE) -- Hand of Freedom
 		:AddSpell( 1022,  10, "Buff",	F.BUFF+F.UNIQUE) -- Hand of Protection
 		:AddSpell( 6940,  12, "Buff",	F.BUFF+F.UNIQUE) -- Hand of Sacrifice
 		:AddSpell( 1038,  10, "Buff",	F.BUFF+F.UNIQUE) -- Hand of Salvation
 		:AddSpell(114039,  6, "Buff",	F.BUFF+F.UNIQUE) -- Hand of Purity
-		
+
 		:AddSpell(26017, 000, "Default") -- Vindication
 		:AddSpell(31803,  15, "Default",F.TICKS) -- Censure
 		--:AddSpell(88063,   6, "Buff",	F.BUFF) -- Guarded by the Light (Shield)
-		
+
 		-- Retribution Spells
 		:AddSpell(20066,  60, "Crowd",	F.UNIQUE) -- Repentance (stun)
-		
-		
-		
+
+
+
 		:AddSpell(86273,   15, "Buff",	F.BUFF) -- Illuminated Healing
 		:AddSpell(105593,   6, "Crowd", F.UNIQUE) -- Fist of Justice
 
 		-- Holy Buffs
-		:AddBuff(31821) -- Aura Mastery	
+		:AddBuff(31821) -- Aura Mastery
 		:AddBuff(31842) -- Divine Favor
 		:AddBuff(43837) -- Enlightenment (T5 4-Set)
 		:AddBuff(64891) -- Holy Mending (T8 2-Set)
@@ -65,8 +65,8 @@ if FW.CLASS == "PALADIN" then
 		:AddBuff(90311) -- Radiant (T11 4-Set)
 		:AddBuff(88819) -- Daybreak
 		:AddBuff(105809) -- Holy Avenger
-	
-		
+
+
 		-- Protection Buffs
 		:AddBuff(64883) -- Aegis (T8 4-Set)
 		:AddBuff(37193) -- Infused Shield (T5 4-Set)
@@ -76,13 +76,13 @@ if FW.CLASS == "PALADIN" then
 
 		:AddBuff(31850) -- Ardent Defender
 		:AddBuff(  498) -- Divine Protection
-		
+
 		:AddBuff(85416) -- Grand Crusader
 		:AddBuff(25780) -- Righteous Fury
 		:AddBuff(84839) -- Vengeance
 		:AddBuff(114637) -- Bastion of Glory
 		:AddBuff(53600) -- Shield of the Righteous
-		
+
 		-- Retribution Buffs
 		:AddBuff(59578):SetStacks(0) -- The Art of War
 		:AddBuff(57669) -- Replenishment
@@ -92,13 +92,13 @@ if FW.CLASS == "PALADIN" then
 		:AddBuff(114250) -- Selfless Healer
 		:AddBuff(87173) -- Long Arm of the Law
 		:AddBuff(86700) -- Ancient Power
-		
+
 		:AddCooldown(35395, 4.5) -- Crusader Strike
 		:AddCooldown(96231,  10) -- Rebuke
 		:AddCooldown(20473,   6) -- Holy Shock
-		
+
 		:AddDebuff(25771) -- Forbearance
-		
+
 		:AddCasterBuffs()
 		:AddMeleeBuffs()
 	end
@@ -115,13 +115,13 @@ if FW.CLASS == "PALADIN" then
 		-- Retribution Buffs
 		CD:AddCooldownBuff(19740); -- Blessing of Might
 		CD:AddCooldownBuff(31801); -- Seal of Truth
-		
+
 		CD:AddCasterPowerupCooldowns();
 		CD:AddMeleePowerupCooldowns();
 	end
-	
+
 	if CA then -- added by 'fakeh'
-	
+
 		local am = FW:SpellName(31821);
 		local salv = FW:SpellName(1038);
 		local sac = FW:SpellName(6940);
@@ -143,30 +143,29 @@ if FW.CLASS == "PALADIN" then
 				elseif s == ad then CA:CastShow('ADStart'); end
 			end
 		);
-		
+
 		FW:SetMainCategory(FWL.RAID_MESSAGES);
 
 			FW:SetSubCategory("Raid Damage Reduction",FW.ICON.SPECIFIC,2);
-				FW:AddOption("MS2",am,	 "",	"AMStart"); 
+				FW:AddOption("MS2",am,	 "",	"AMStart");
 				FW.Default.AMStart = {[0]=1,"+++ Aura Mastery (6sec) +++"};
 
 			FW:SetSubCategory("Hands",FW.ICON.SPECIFIC,3);
-				FW:AddOption("MS2",salv,	 "",	"SalvStart"); 
+				FW:AddOption("MS2",salv,	 "",	"SalvStart");
 				FW.Default.SalvStart = {[0]=1,"+++ Salvation on %s (10sec) +++"};
-				FW:AddOption("MS2",sac,	 "",	"SacStart"); 
+				FW:AddOption("MS2",sac,	 "",	"SacStart");
 				FW.Default.SacStart = {[0]=1,"+++ Sacrifice on %s (12sec) +++"};
-				FW:AddOption("MS2",free,	 "",	"FreeStart"); 
+				FW:AddOption("MS2",free,	 "",	"FreeStart");
 				FW.Default.FreeStart = {[0]=1,"+++ Freedom on %s (6sec) +++"};
-				FW:AddOption("MS2",bop,	 "",	"BOPStart"); 
+				FW:AddOption("MS2",bop,	 "",	"BOPStart");
 				FW.Default.BOPStart = {[0]=1,"+++ Hand of Protection on %s (12sec) +++"};
 
 			FW:SetSubCategory("Self Damage Reduction",FW.ICON.SPECIFIC,4);
-				FW:AddOption("MS2",dp,	 "",	"DPStart"); 
+				FW:AddOption("MS2",dp,	 "",	"DPStart");
 				FW.Default.DPStart = {[0]=1,"+++ Divine Protection (10sec) +++"};
-				FW:AddOption("MS2",gotak,	"",	"GOTAKStart"); 
+				FW:AddOption("MS2",gotak,	"",	"GOTAKStart");
 				FW.Default.GOTAKStart = {[0]=1,"+++ Guardian of Ancient Kings (12sec) +++"};
-				FW:AddOption("MS2",ad,	"",	"ADStart"); 
+				FW:AddOption("MS2",ad,	"",	"ADStart");
 				FW.Default.ADStart = {[0]=1,"+++ Ardent Defender (10sec) +++"};
 	end
 end
-

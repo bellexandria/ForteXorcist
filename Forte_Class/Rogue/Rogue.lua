@@ -4,24 +4,24 @@ if FW.CLASS == "ROGUE" then
 	local FW = FW;
 	local FWL = FW.L;
 	local PR = FW:ClassModule("Rogue");
-	
+
 	local ST = FW:Module("Timer");
 	local CA = FW:Module("Casting");
 	local CD = FW:Module("Cooldown");
-	
+
 	--FW:SetCustomName(89775,FWL.HEMORRHAGE_GLYPH);
-	
+
 	if ST then
 		local F = ST.F;
 		ST:SetDefaultHasted(0) -- set abilities to not use haste in their durations by default
-		
+
 		-- Abilities
 		:AddSpell(  408, 000,"Crowd",	F.UNIQUE) -- Kidney Shot
 		:AddSpell(108210, 000,"Crowd",	F.UNIQUE) -- Nerve Strike
 		:AddSpell( 2094, 000,"Crowd",	F.UNIQUE) -- Blind
 		:AddSpell( 6770, 000,"Crowd",	F.UNIQUE) -- Sap
 		:AddSpell(32748, 000,"Crowd",	F.UNIQUE) -- Deadly Throw interrupt
-		:AddSpell( 1330, 000,"Crowd",	F.UNIQUE) -- Garrote silence	
+		:AddSpell( 1330, 000,"Crowd",	F.UNIQUE) -- Garrote silence
 		:AddSpell( 1833, 004,"Crowd",	F.UNIQUE) -- Cheap Shot
 		:AddSpell( 1776, 000,"Crowd",	F.UNIQUE) -- Gouge
 		:AddSpell(51722, 000,"Crowd",	F.UNIQUE) -- Dismantle
@@ -31,9 +31,9 @@ if FW.CLASS == "ROGUE" then
 		:AddSpell(  703, 000,"Default",	F.TICKS) -- Garrote
 		:AddSpell( 1943, 000,"Default",	F.TICKS):SetTickSpeed(2) -- Rupture
 		:AddSpell(16511,  24,"Default",	F.TICKS) -- Hemorrhage
-		
+
 		:AddSpell(121411, 12,"Default",	F.TICKS):SetTickSpeed(2) -- Crimson Tempest
-				
+
 		-- Poisons
 		:AddSpell(30981, 000,"Crowd") -- Crippling Poison
 		:AddSpell( 5760, 000,"Crowd") -- Mind-numbing Poison
@@ -42,7 +42,7 @@ if FW.CLASS == "ROGUE" then
 		:AddSpell(113953,000,"Crowd") -- Paralysis
 		:AddSpell(108211,000,"Default") -- Leeching Poison
 		:AddSpell( 2818, 000,"Default",	F.TICKS) -- Deadly Poison
-	
+
 		-- Self buffs
 		:AddBuff(13750) -- Adrenaline Rush
 		:AddBuff(13877) -- Blade Flurry
@@ -56,7 +56,7 @@ if FW.CLASS == "ROGUE" then
 		:AddBuff(5171) -- Slice and Dice
 		:AddBuff(32645) -- Envenom
 		:AddBuff(73651):SetTickSpeed(3) -- Recuperate
-		
+
 		:AddBuff(84745) -- Shallow Insight
 		:AddBuff(84746) -- Moderate Insight
 		:AddBuff(84747) -- Deep Insight
@@ -64,10 +64,10 @@ if FW.CLASS == "ROGUE" then
 		:AddBuff(74001) -- Combat Readiness
 		:AddBuff(108212) -- Burst of Speed
 		:AddBuff(51713) -- Shadow Dance
-		
+
 		:AddDebuff(113953) -- Paralysis
 		:AddDebuff(108210) -- Nerve Strike
-		
+
 		:AddMeleeBuffs()
 
 		local sap = FW:SpellName(6770);
@@ -77,7 +77,7 @@ if FW.CLASS == "ROGUE" then
 				CA:CastShow("SapBreak",unit);
 			end
 		end);
-		ST:RegisterOnTimerFade(sap,"SapFade");		
+		ST:RegisterOnTimerFade(sap,"SapFade");
 	end
 	if CD then
 		-- Poisons
@@ -87,7 +87,7 @@ if FW.CLASS == "ROGUE" then
 		:AddCooldownBuff( 2818) -- Deadly Poison
 		:AddCooldownBuff(108215) -- Paralytic Poison
 		:AddCooldownBuff(108211) -- Leeching Poison
-	
+
 		:AddMeleePowerupCooldowns()
 	end
 
@@ -100,5 +100,5 @@ if FW.CLASS == "ROGUE" then
 
 	FW.Default.SapBreak = 	{[0]=0,">> Sap on %s Broke Early! <<"};
 	FW.Default.SapFade = 	{[0]=0,">> Sap on %s Fading in 3 seconds! <<"};
-	
+
 end

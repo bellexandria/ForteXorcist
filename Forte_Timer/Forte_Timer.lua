@@ -165,7 +165,7 @@ local function UpdateSortOrder(powerup,selfdebuff,debuff,cooldown,none)
 	sortSwapTable[PRIOR_DEBUFF] = debuff;
 	sortSwapTable[PRIOR_SELF_DEBUFF] = selfdebuff;
 	sortSwapTable[PRIOR_POWERUP] = powerup;
-	
+
 	-- swap the priorities
 	for i=1,st.rows,1 do
 		if st[i][13] <= 0 or st[i][13] >= maxi then
@@ -179,7 +179,7 @@ local function UpdateSortOrder(powerup,selfdebuff,debuff,cooldown,none)
 	PRIOR_DEBUFF = debuff;
 	PRIOR_SELF_DEBUFF = selfdebuff;
 	PRIOR_POWERUP = powerup;
-	
+
 	ST.PRIOR_NONE = PRIOR_NONE;
 	ST.PRIOR_COOLDOWN = PRIOR_COOLDOWN;
 	ST.PRIOR_DEBUFF = PRIOR_DEBUFF;
@@ -234,7 +234,7 @@ end
 Critical strike chance increase (general)
 
     * Paladin Heart of the Crusader: Tier 2 Retribution talent, 2 ranks, causes judgements to increase critical strike chance against the target by 3% at max rank.
-    * Shaman Totem of Wrath: Tier 9 Elemental talent ability, 3% to attacks and offensive spells, each shaman can only have one active Fire Totem at a time. 
+    * Shaman Totem of Wrath: Tier 9 Elemental talent ability, 3% to attacks and offensive spells, each shaman can only have one active Fire Totem at a time.
 ]]
 --FW.STACK_CRIT_MAGIC = 2;
 --[[
@@ -242,14 +242,14 @@ Critical strike chance increase (spell)
 
     * Mage Enduring Winter: Tier 6 frost talent, 3 ranks, gives frost talent spells a 100% chance to apply the Winter's Chill debuff @ max rank, increasing spell critical strike chance by 1% per stack, stacks up to 5 times.
     * Mage Improved Scorch: Tier 4 fire talent, 3 ranks, gives Scorch a 100% chance to apply the Improved Scorch debuff (or applications of the Improved Scorch debuff if glyphed) @ max rank, increasing spell critical strike chance by 1% per stack, stacks up to 5 times.
-    * Warlock Improved Shadow Bolt: Tier 1 Destruction talent, 5 ranks, causes Shadow Bolt to increase spell critical strike damage against the target by 5% @ max rank. 
+    * Warlock Improved Shadow Bolt: Tier 1 Destruction talent, 5 ranks, causes Shadow Bolt to increase spell critical strike damage against the target by 5% @ max rank.
 ]]
 --FW.STACK_DAMAGE_BLEED = 3;
 --[[
 Damage increase (bleed)
 
     * Druid Mangle (Bear) / Mangle (Cat): Tier 9 Feral Combat talent abilities, +30%.
-    * Warrior Trauma: Tier 6 Arms talent, +30%, triggered by melee critical strikes. 
+    * Warrior Trauma: Tier 6 Arms talent, +30%, triggered by melee critical strikes.
 ]]
 --FW.STACK_DAMAGE_MAGIC = 4;
 --[[
@@ -257,14 +257,14 @@ Damage increase (magic)
 
     * Death knight Ebon Plaguebringer: Tier 9 Unholy talent, 3 ranks, requires 3 ranks of Crypt Fever. The death knight's diseases cause Ebon Plague instead of Crypt Fever, in addition to Crypt Fever's disease damage increase, Ebon Plague increases magic damage by 13% @ max rank.
     * Druid Earth and Moon: Tier 10 Balance talent, 3 ranks. Causes the druid's Starfire and Wrath spells to apply the Earth and Moon debuff, which increases magic damage taken by 13% @ max rank.
-    * Warlock Curse of the Elements: +13% @ max rank, also reduces Arcane, Fire, Frost, Nature and Shadow resistance. 
+    * Warlock Curse of the Elements: +13% @ max rank, also reduces Arcane, Fire, Frost, Nature and Shadow resistance.
 ]]
 --FW.STACK_DAMAGE_PHYSICAL = 5;
 --[[
 Damage increase (physical)
 
     * Rogue Savage Combat: Tier 9 Combat talent, 2 ranks, causes the rogue's poison debuffs to increase physical damage caused to the target by 4%.
-    * Warrior Blood Freny: Tier 9 Arms talent, 2 ranks, causes Deep Wounds and Rend to increase phyical damage caused to the target by 4%. 
+    * Warrior Blood Freny: Tier 9 Arms talent, 2 ranks, causes Deep Wounds and Rend to increase phyical damage caused to the target by 4%.
 ]]
 --FW.STACK_HEALING_DECREASE = 6;
 --[[
@@ -273,21 +273,21 @@ Healing decrease
     * Hunter Aimed Shot: Tier 3 Marksmanship talent ability, -50%.
     * Rogue Wound Poison: -50%, each weapon can only have one poison applied to it at a time.
     * Warrior Furious Attacks: Tier 8 Fury talent, 2 ranks, gives whit melee attacks a chance to reduce healing by 25%, stacks 2 times, higher proc rate @ rank 2.
-    * Warrior Mortal Strike: Tier 7 Arms talent ability, -50%. 
+    * Warrior Mortal Strike: Tier 7 Arms talent ability, -50%.
 ]]
 --FW.STACK_HIT_DECREASE = 7;
 --[[
 Hit chance decrease (melee and ranged)
 
     * Druid Insect Swarm: Tier 5 Balance talent ability, -3%.
-    * Hunter Scorpid Sting: -3%, each hunter can only have one sting active on each target. 
+    * Hunter Scorpid Sting: -3%, each hunter can only have one sting active on each target.
 ]]
 --FW.STACK_HIT_INCREASE = 8;
 --[[
 Hit chance increase (spell)
 
     * Druid Improved Faerie Fire: Tier 7 Balance talent, 3 ranks, causes Faerie Fire to increase spell hit chance against the target by 3% @ max rank.
-    * Priest Misery: Tier 8 Shadow talent, 3 ranks, causes Mind Flay, Shadow Word: Pain and Vampiric Touch spells to increase spell hit chance against the target by 3% @ max rank. 
+    * Priest Misery: Tier 8 Shadow talent, 3 ranks, causes Mind Flay, Shadow Word: Pain and Vampiric Touch spells to increase spell hit chance against the target by 3% @ max rank.
 ]]
 
 --[[Armor reduction
@@ -300,9 +300,9 @@ Hit chance increase (spell)
     * Major (stacks with minor)
           o Hunter Acid Spit: Worm (Exotic Hunter pet) ability, -10%, stacks twice.
           o Rogue Expose Armor: -4% per application, stacks up to 5 times.
-          o Warrior Sunder Armor: -4% per application, stacks up to 5 times. 
+          o Warrior Sunder Armor: -4% per application, stacks up to 5 times.
     * Unknown
-          o Warrior Shattering Throw: -20%, known to stack with Sunder Armor, unsustainable. 
+          o Warrior Shattering Throw: -20%, known to stack with Sunder Armor, unsustainable.
 
 Attack interval increase (melee)
 
@@ -310,27 +310,27 @@ Attack interval increase (melee)
     * Druid Infected Wounds: Tier 8 Feral Combat talent, 3 ranks, causes Mangle, Maul and Shred to apply the Infected Wound debuff, which stacks 2 times, and increases melee attack interval by 10% per application @ max rank, also reduces movement speed.
     * Mage Slow (mage): Tier 7 Arcane talent ability, increases melee and ranged attack intervals by 60%, also increases casting time, each mage can only have one Slow spell active at a time.
     * Paladin Judgements of the Just: Tier 9 Protection talent, 2 ranks, causes Judgements to increase melee attack intervals 20% @ max rank.
-    * Warrior Thunder Clap: Reduces melee and ranged attack intervals by 10%. 
+    * Warrior Thunder Clap: Reduces melee and ranged attack intervals by 10%.
 
 Attack interval increase (ranged)
 
     * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold, glyphed Howling Blast and glyphed Scourge Strike. Increases casting time and melee and ranged attack intervals by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
     * Mage Slow (mage): Tier 7 Arcane talent ability, increases melee and ranged attack intervals by 60%, also increases casting time.
-    * Warrior Thunder Clap: Increases melee and ranged attack intervals by 10%. 
+    * Warrior Thunder Clap: Increases melee and ranged attack intervals by 10%.
 
 Attack power reduction (melee)
 
     * Druid Demoralizing Roar: -408 @ max rank (~571.2 fully talented with Feral Aggression, a tier 1 Feral Combat talent with 5 ranks), Bear Form and Dire Bear form only.
     * Hunter Demoralizing Screech: Carrion Bird ability, -210 @ max rank.
     * Warlock Curse of Weakness: -478 @ max rank (573 fully talented w/ Improved Curse of Weakness, a tier 2 Affliction talent with 2 ranks), also reduces armor.
-    * Warrior Demoralizing Shout: -410 @ max rank (-574 fully talented with Improved Demoralizing Shout, a tier 2 Fury talent with 5 ranks). 
+    * Warrior Demoralizing Shout: -410 @ max rank (-574 fully talented with Improved Demoralizing Shout, a tier 2 Fury talent with 5 ranks).
 
 Casting time increase
 
     * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold, glyphed Howling Blast and glyphed Scourge Strike. Increases casting, melee and ranged speed by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
     * Mage Slow (mage): Tier 7 Arcane talent ability, +30%, also increases attack intervals, each mage can only have one Slow spell active at a time.
     * Rogue Mind-Numbing Poison: +30%, each weapon can only have one poison applied to it at a time.
-    * Warlock Curse of Tongues: +30% @ max rank, each warlock can only have one active curse per target. 
+    * Warlock Curse of Tongues: +30% @ max rank, each warlock can only have one active curse per target.
 ]]
 
 --[[local ST_Diminish = {
@@ -341,19 +341,19 @@ Casting time increase
 	["Hibernate"] =  		{1,0,"Sleep"},
 	["Cyclone"] =  			{1,1,"Blind/Cyclone"},
 	["Celestial Focus"] =  	{1,1,"Stun Proc "},
-	--Hunter  
-	--Freezing Trap  No  No  None  
-	--Entrapment  Yes  TBD  None  
+	--Hunter
+	--Freezing Trap  No  No  None
+	--Entrapment  Yes  TBD  None
 	--Wyvern Sting  TBD  TBD  Sleep
 	--Mage
 	["Frost Nova"] = 		{1,0,"Root"},
 	["Polymorph"] = 		{1,0,"Gouge/Polymorph/Sap"},
 	["Impact"] = 			{1,1,"Stun"},
 	["Frostbite"] = 		{1,0,"Root Proc"},
-	--Shaman  
-	--Frost Shock  No (in 2.3)  No  None 
+	--Shaman
+	--Frost Shock  No (in 2.3)  No  None
 	["Stoneclaw Totem"] = 	{1,1,"Stun Proc"},
-	--Earth Shock  No  No  None  
+	--Earth Shock  No  No  None
 	--Paladin
 	["Hammer of Justice"] = {1,1,"Stun"},
 	["Seal of Justice"] = 	{1,1,"Stun Proc"},
@@ -368,7 +368,7 @@ Casting time increase
 	["Cheap Shot"] = 		{1,1,"Stun"},
 	["Kidney Shot"] = 		{1,1,"Kidney Shot"},
 	["Mace Specialization"] = {1,1,"Stun Proc"},
-	--Warlock 
+	--Warlock
 	["Fear"] = 				{1,0,"Fear"},
 	["Seduction"] = 		{1,0,"Fear"},
 	["Howl of Terror"] = 	{1,0,"Fear"},
@@ -379,7 +379,7 @@ Casting time increase
 	["Charge"] = 			{1,1,"Stun"},
 	["Intercept"] = 		{1,1,"Stun"},
 	["Concussion"] = 		{1,1,"Stun"},
-	--Hamstring  No  No  None  
+	--Hamstring  No  No  None
 };]]
 
 local FW_RaidIconCoords  = {
@@ -416,7 +416,7 @@ st
 18:Show tick time
 19:Raid target icon
 20:Expire Time I'm using (#1 is always the real time)
-21:OPTION GROUP (AND SHARED GROUP) Magic/Curse/Crowd Control etc 
+21:OPTION GROUP (AND SHARED GROUP) Magic/Curse/Crowd Control etc
 22:Haste duration factor (so lower than or equal to 1 usually)
 23:isfriendly
 24:isshared
@@ -448,7 +448,7 @@ local function fbit(val,flag)
 end
 
 local SORT_TIMER_ORDER=		{3};
-local SORT_TIMER_ASC=		{true};	
+local SORT_TIMER_ASC=		{true};
 local SORT_TIMER_ORDER2=	{2,3};
 local SORT_TIMER_ASC2=		{true,true};
 
@@ -574,7 +574,7 @@ local function FlagToAction(frame,spell,flag,group,ignore_default)
 		-- if no frame is given, check for custom filters in all instances
 		-- this gives the addon a list of only the spells that are possible to show up
 		-- don't check if enabled for default spells because of sound queues etc!!
-		for i=1,instances.rows do 
+		for i=1,instances.rows do
 			local filter = FlagToFilter(instances[i][2],spell,flag);
 			if ( not ignore_default and addedByDefault(spell,flag) ) or (filter and ( filter[1] == FILTER_SHOW or filter[1] == FILTER_SHOW_COLOR )) then
 				return FILTER_SHOW;
@@ -763,7 +763,7 @@ local function ST_CooldownDuration(s)
 				end
 			end
 		end
-	
+
 		-- % change based on talents removed
 	end
 	return dura;
@@ -776,7 +776,7 @@ local function ST_AddNewCooldown(spell,dura,prior,texture)
 	--if prior == 2 then FW:Show("cd");else FW:Show("st");end
 	if not index or prior >= st[index][9] then
 		st:remove(index);
-		st:insert(dura+GetTime(),FW:CastTime(spell),dura,spell,0,COOLDOWN,texture,spell,prior,0,"none",0,PRIOR_COOLDOWN,0,1,0,0,00000,0,dura+GetTime(),"Cooldown",1.0,0,0,0,0,"",0);		
+		st:insert(dura+GetTime(),FW:CastTime(spell),dura,spell,0,COOLDOWN,texture,spell,prior,0,"none",0,PRIOR_COOLDOWN,0,1,0,0,00000,0,dura+GetTime(),"Cooldown",1.0,0,0,0,0,"",0);
 	end
 end
 
@@ -798,7 +798,7 @@ local function ST_OnCooldownUpdate(spell,dura,flag,texture,end_time)
 		else
 			--ST_OnCooldownUsed(spell,dura,flag,texture); -- is a bit ineffient here, make sure to update code below!
 			if FlagToAction(nil,spell,COOLDOWN,"Cooldown") == FILTER_SHOW then
-				st:insert(dura+GetTime(),FW:CastTime(spell),dura,spell,0,COOLDOWN,texture,spell,2,0,"none",0,PRIOR_COOLDOWN,0,1,0,0,00000,0,dura+GetTime(),"Cooldown",1.0,0,0,0,0,"",0);		
+				st:insert(dura+GetTime(),FW:CastTime(spell),dura,spell,0,COOLDOWN,texture,spell,2,0,"none",0,PRIOR_COOLDOWN,0,1,0,0,00000,0,dura+GetTime(),"Cooldown",1.0,0,0,0,0,"",0);
 			end
 		end
 	end
@@ -868,9 +868,9 @@ end
 
 function ST:AddNewTimerSimple(expire,total,targetname,spell,targettype,id,icon,guid,haste,texture,stacks)--only use for non-(de)buff based adding
 	local found = ST_FindSimilarSimple(spell,guid,0);
-	
+
 	if found then -- found a spell i may need to remove - if it's an exact match keep using it
-		if st[found][8] == spell and st[found][11] == guid and abs(st[found][1]-expire)<maxlag then 
+		if st[found][8] == spell and st[found][11] == guid and abs(st[found][1]-expire)<maxlag then
 			st[found][1] = expire;
 			if abs(st[found][20]-expire)>maxlag then
 				st[found][3] = total;
@@ -892,9 +892,9 @@ function ST:AddNewTimer(expire,total,targetname,spell,targettype,id,icon,guid,ha
 		local i=1;
 		local exact = false;
 		local extratime = 0;
-		while i<=st.rows do 
+		while i<=st.rows do
 			if st[i][14] <= REMOVE then -- only if this isnt a resist
-				
+
 				-- REMOVE OTHER ACTIVE UNIQUE OR SHARED SPELLS
 				if st[i][8] == spell and st[i][11] == guid then -- spell match on same unit
 					if abs(st[i][1]-expire)<maxlag then -- exact match, just correct time
@@ -928,7 +928,7 @@ function ST:AddNewTimer(expire,total,targetname,spell,targettype,id,icon,guid,ha
 				else
 					i=i+1;
 				end
-				
+
 			else
 				i=i+1;
 			end
@@ -937,7 +937,7 @@ function ST:AddNewTimer(expire,total,targetname,spell,targettype,id,icon,guid,ha
 			st:insert(expire+extratime,FW:CastTime(spell),total,targetname,Track[spell][3],DEFAULT,Track[spell][5],spell,targettype,0,guid,ST_GetFadeTime(spell),id,0,1,stacks,0,00000,icon,expire,group,haste,friendly,shared,unique,keep,"",0);
 		end
 		ST_OnTick(targetname,guid,spell,true);
-	end	
+	end
 end
 
 local function ST_Exception(set)
@@ -962,7 +962,7 @@ local function ST_TimerShow(instance)
 	end
 end
 local function ST_SpellFail(s,resist,target,typ,id,icon,guid,...)
-	if FW.Settings.TimerResistsColor[0] then 
+	if FW.Settings.TimerResistsColor[0] then
 		FW:Show(_G.CombatLog_OnEvent(_G.Blizzard_CombatLog_Filters.filters[_G.Blizzard_CombatLog_Filters.currentFilter], ...),unpack(FW.Settings.TimerResistsColor));
 	end
 	FW:PlaySound("TimerResistSound");
@@ -972,7 +972,7 @@ local function ST_SpellFail(s,resist,target,typ,id,icon,guid,...)
 			break;
 		end
 	end
-	st:insert(GetTime(),0,1,target,Track[s][3],DEFAULT,Track[s][5],s,typ,0,guid,0,id,resist,1,0,GetTime(),00000,icon,GetTime(),Track[s][6],1.0,Track[s][7],Track[s][8],Track[s][9],Track[s][11]);	
+	st:insert(GetTime(),0,1,target,Track[s][3],DEFAULT,Track[s][5],s,typ,0,guid,0,id,resist,1,0,GetTime(),00000,icon,GetTime(),Track[s][6],1.0,Track[s][7],Track[s][8],Track[s][9],Track[s][11]);
 end
 
 local function ST_TrackedSuccess(spell,target,realduration,rank,targettype,s,p,id,icon,guid,delay,haste_old)
@@ -1039,7 +1039,7 @@ local function ST_UpdateSpellTimers()--preferably only remove timers in this fun
 	local t = GetTime();
 	local smooth = FW.Settings.TimerSmooth;
 	local i = 1;
-	
+
 	while i <= st.rows do
 		local t6,t14 = st[i][6],st[i][14];
 		local timeleft = st[i][1]-t;
@@ -1048,12 +1048,12 @@ local function ST_UpdateSpellTimers()--preferably only remove timers in this fun
 		-- fade messages if time <= X sec
 		if st[i][12] > 0 and timeleft <= st[i][12] and t14<=NORMAL then -- marked as not expiring
 			st[i][12] = 0;
-			
+
 			local unit,mark = st[i][4],st[i][19];
 			if mark~=0 then unit=FW.RaidIcons[mark]..unit;end
 			CA:CastShow(ST_OnTimerFade[ st[i][8] ],unit);
 			FW:PlaySound("TimerFadeSound");
-		end	
+		end
 
 		if t14 == IGNORE then -- instantly remove ignored timers on expire
 			if timeleft <= 0 then
@@ -1065,7 +1065,7 @@ local function ST_UpdateSpellTimers()--preferably only remove timers in this fun
 			if timeleft <= 0 and st[i][3] > 0 then
 				-- normal fade and instant fade
 				ST:Fade(i, (t6 == DRAIN or t6 == DEBUFF or t6 == POWERUP or t6 == SELF_DEBUFF) and FADING_INSTANT or FADING);
-			end		
+			end
 			i=i+1;
 		else -- keep expired timers alive for X sec max
 			if st[i][17] + ((t6 == DRAIN or t6 == DEBUFF or t6 == POWERUP or t6 == SELF_DEBUFF) and maxdelay_instant or maxdelay) < t then
@@ -1122,7 +1122,7 @@ local function ST_ScanForMissing(unit,guid,filter)
 end
 
 local function UnitHasYourAura(unit,buff,filter)
-	--name 1, rank 2, icon 3, count 4, debuffType 5, duration 6, expirationTime 7, unitCaster 8, isStealable, shouldConsolidate 9, spellId 10		
+	--name 1, rank 2, icon 3, count 4, debuffType 5, duration 6, expirationTime 7, unitCaster 8, isStealable, shouldConsolidate 9, spellId 10
 	local b = 1;
 	local _,d,t,m,s,tt;--buff name, texture
 	while true do
@@ -1170,14 +1170,14 @@ local function ST_CorrectionScan(unit)
 								end
 							end
 							FW:Debug("correct uncertain");
-						end	
-						
+						end
+
 					elseif st[i][11] == guid then
-					
+
 						local t6 = st[i][6];
 						if spell_type == DEFAULT then -- only check the 'normal' buff/debuff types
 							local expire,index,stacks,total,rank = UnitHasYourAura(unit,spell_name,friendly == 1 and "HELPFUL" or "HARMFUL");
-							
+
 							if st[i][10] == 0 then -- makes early (de)buff removing faster and hopefully bug free
 								if expire then -- no need to match for duration here because i already have a fixed id
 									st[i][10] = 1;-- i have already seen this debuff
@@ -1185,7 +1185,7 @@ local function ST_CorrectionScan(unit)
 									--st[i][1] = expire;
 								elseif (st[i][3]-st[i][1]+t) >= BuffDelay then
 									st[i][10] = 1;-- it should have been on already at this time
-								end						
+								end
 							end
 
 							-- do the other 'normal' stuff
@@ -1199,11 +1199,11 @@ local function ST_CorrectionScan(unit)
 								st[i][1] = expire;
 								st[i][16] = (Stacks[spell_name] ~= 0 and stacks) or 0;
 								st[i][3] = total;
-								
+
 								st[i][19] = GetRaidTargetIndex(unit) or 0;
 								st[i][27] = unit;
 								st[i][28] = index;
-								
+
 							elseif st[i][10] == 1 and (st[i][1]==0 or st[i][1]-t>maxlag) then -- dont remove if only maxlag left
 								if not UnitIsDead(unit) then
 									ST_BreakMessages(st[i][4],st[i][19],spell_name);
@@ -1212,7 +1212,7 @@ local function ST_CorrectionScan(unit)
 								--FW:Debug("remove");
 							end
 						end
-					end	
+					end
 				end
 			end
 			i=i+1;
@@ -1223,7 +1223,7 @@ local function ST_CorrectionScan(unit)
 end
 
 local function ST_TargetDebuffs()
-	local i = 1;	
+	local i = 1;
 	-- remove any faded debuffs that i'm tracking
 	while i<= st.rows do
 		if st[i][14] <= NORMAL and st[i][6] == DEBUFF then
@@ -1255,7 +1255,7 @@ local function ST_TargetDebuffs()
 					st[index][16] = count or 0;
 					st[index][19] = GetRaidTargetIndex("target") or 0;
 					st[index][28] = i;
-					
+
 					--FW:Debug("tdebuff correct");
 				elseif not st:find2(debuff,8,guid,11) then -- don't add when i already have this debuff added, but as my own cast
 					--FW:Show("tdebuff insert");
@@ -1274,7 +1274,7 @@ local function ST_PlayerBuffs()
 	-- remove any faded buffs that i'm tracking
 	local i = 1;
 	while i<= st.rows do
-		if st[i][14] <= NORMAL then 
+		if st[i][14] <= NORMAL then
 			if st[i][6] == POWERUP then
 				if not UnitAura("player",st[i][8]) then
 					ST:Fade(i,FADING_INSTANT);
@@ -1316,7 +1316,7 @@ local function ST_PlayerBuffs()
 			break;
 		end
 	end
-	
+
 	i = 1;
 	while true do
 		local buff,_,texture,count,_,total,expire = UnitAura("player",i,"HARMFUL");
@@ -1346,8 +1346,8 @@ local function ST_PlayerBuffs()
 			break;
 		end
 	end
-	
-	
+
+
 end
 local function checkWeaponEnchant(has,left,count,name,slotname)
 	local index = st:find2(ENCHANT,6,name,8);
@@ -1367,7 +1367,7 @@ local function checkWeaponEnchant(has,left,count,name,slotname)
 			st:insert(expire,0,left,name,0,ENCHANT,GetInventoryItemTexture("player",select(1,GetInventorySlotInfo(slotname))),name,0,0,"none",0,PRIOR_POWERUP,0,1,count or 0,0,00000,0,expire,"Enchant",1.0,0,0,0,0,"",0);
 		end
 	else
-		if index and st[index][14] <= NORMAL then 
+		if index and st[index][14] <= NORMAL then
 			ST:Fade(index,FADING_INSTANT);
 		end
 	end
@@ -1383,7 +1383,7 @@ end
 local function ST_ScanWeaponEnchantTrottle(event,arg1)
 	if arg1=="player" then FW:RegisterThrottle(ST_ScanWeaponEnchant);end
 end
-	
+
 local function ST_AuraChanged(event,unit) -- triggered by "UNIT_AURA"
 	-- do special stuff
 	--FW:Show("aura "..unit);
@@ -1403,7 +1403,7 @@ local function ST_TargetChanged()
 	FW:Changed("target");
 	ST_TargetDebuffs();
 	ST_CorrectionScan("target");
-	
+
 	rebuildLinks(); -- IMPORTANT
 	local t = GetTime();
 	for i=1,st.rows,1 do -- spelltimer part
@@ -1416,7 +1416,7 @@ end
 local function ST_FocusChanged()
 	FW:Changed("focus");
 	ST_CorrectionScan("focus");
-	
+
 	rebuildLinks(); -- IMPORTANT
 	local t = GetTime();
 	for i=1,st.rows,1 do -- spelltimer part
@@ -1454,17 +1454,17 @@ end
 -- also USED TO DO a normal scan on target, focus, mouseover, pet and pettarget
 local function ST_ExtraScan()
 	--FW:Show("extra scan");
-	
+
 	-- those never triggered by unitaura event:
 	ST_CorrectionScan("mouseover");
 	ST_CorrectionScan("pettarget");
-	
+
 	-- also scan the rest to make sure...
 	ST_CorrectionScan("player");
 	ST_CorrectionScan("target");
 	ST_CorrectionScan("focus");
 	ST_CorrectionScan("pet");
-	
+
 	-- and new unit tokens...
 	ST_CorrectionScan("arena1");
 	ST_CorrectionScan("arena2");
@@ -1498,14 +1498,14 @@ local function ST_RemoveDots()
 			if ActiveDots[i][3] < t then
 				local t1,t2 = unpack(ActiveDots[i]);
 				ActiveDots:remove(i);
-				
+
 				if strfind(t1,"^0x") then
 					for j=1,st.rows,1 do
 						if st[j][11] == t1 and st[j][14] <= NORMAL and st[j][8] == t2 then
 							ST:Fade(j,REMOVE);
 							break;
 						end
-					end			
+					end
 				else
 					for j=1,st.rows,1 do
 						if st[j][4] == t1 and st[j][14] <= NORMAL and st[j][8] == t2 then
@@ -1531,7 +1531,7 @@ local function ColorVal(frame,v,total,flag,flag2,custom,spell,group)
 		end
 	elseif flag2 == REMOVE then
 		r,g,b = unpack(frame.s.Fail);
-	else	
+	else
 		if frame.s.HighlightColor[0] and total-v<0.5 then
 			if custom == FILTER_COLOR or custom == FILTER_SHOW_COLOR then
 				local filter = FlagToFilter(frame,spell,flag);
@@ -1581,7 +1581,7 @@ end
 
 local function ST_ShowTimeFor(id)
 	local target = st[id][4];
-	if st[id][19] ~= 0 then 
+	if st[id][19] ~= 0 then
 		target = FW.RaidIcons[st[id][19]]..target;
 	end
 	FW:ShowTimeFor(st[id][8],target,st[id][1]-GetTime(),st[id][6] == COOLDOWN);
@@ -1592,7 +1592,7 @@ function ST_GetFadeTime(spellname)
 	if what then
 		local _,_,t = strfind(FW.Settings[what][1],"([%.%d]+)");
 		if t then t = tonumber(t); end
-		return t or 0.1;	
+		return t or 0.1;
 	else
 		return 0;
 	end
@@ -1617,7 +1617,7 @@ local function NewTick(parent,n)
 	tick.parent = parent;
 	tick:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark");
 	tick:SetBlendMode("ADD");
-	
+
 	tick.Update = function(self)
 		local s = self.parent.parent.parent.s;
 		self:SetWidth(s.Height*0.5);
@@ -1632,7 +1632,7 @@ local function NewStatusBar(parent)
 	bar.parent = parent;
 	bar.texture = bar:CreateTexture(nil,"ARTWORK");
 	--bar.texture:SetPoint("TOPLEFT", bar, "TOPLEFT", 0, 0);
-	
+
 	bar.origSetWidth = bar.SetWidth;
 	bar.SetWidth = function(self,val)
 		self:origSetWidth(val);
@@ -1681,10 +1681,10 @@ local function NewBar(parent,n)
 	parent.bars[n] = NewStatusBar(parent);
 	bar = parent.bars[n];
 	bar.ticks = {};
-	
+
 	-- clickable icon
-	bar.button = CreateFrame("Button",nil,bar);	
-	
+	bar.button = CreateFrame("Button",nil,bar);
+
 	bar.button.spark = bar.button:CreateTexture(nil,"OVERLAY");
 	bar.button.spark:SetPoint("CENTER",bar.button,"CENTER");
 	bar.button.spark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark2");
@@ -1692,27 +1692,27 @@ local function NewBar(parent,n)
 	bar.button:SetNormalTexture("Interface\\AddOns\\Forte_Core\\Textures\\ST");
 	bar.button.texture = bar.button:GetNormalTexture();
 	bar.button.texture:SetTexCoord(0.133,0.867,0.133,0.867);
-	
+
 	bar.tag = bar.button:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
-	bar.tag:SetJustifyH("CENTER");	
-	bar.tag:SetPoint("BOTTOMRIGHT", bar.button, "BOTTOMRIGHT", 0, 0);	
+	bar.tag:SetJustifyH("CENTER");
+	bar.tag:SetPoint("BOTTOMRIGHT", bar.button, "BOTTOMRIGHT", 0, 0);
 
 	-- texts
 	bar.name = bar:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
 	bar.name:SetPoint("CENTER", bar, "CENTER",0,0);
-	
+
 	bar.time = bar:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
 	bar.time:SetJustifyH("LEFT");
 	bar.timedummy = bar:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
 	bar.timedummy:SetJustifyH("LEFT");
 	bar.timedummy:Hide();
-	
+
 	--sparks
 	bar.spark = bar:CreateTexture(nil,"OVERLAY");
 	bar.spark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark");
 	bar.spark:SetBlendMode("ADD");
 	bar.spark:SetPoint("CENTER",bar,"CENTER");
-	
+
 	bar.castarea = bar:CreateTexture(nil,"OVERLAY");
 	bar.castarea:SetBlendMode("ADD");
 
@@ -1720,12 +1720,12 @@ local function NewBar(parent,n)
 	bar.raidicon = bar:CreateTexture(nil,"OVERLAY");
 	bar.raidicon:SetTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcons");
 	bar.raidicon:SetPoint("CENTER", bar, "CENTER",0,0);
-	
+
 	--background
 	bar.back = bar:CreateTexture(nil,"BACKGROUND");
 	bar.back:SetAllPoints(bar);
 	bar.back:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-Skills-Bar");
-		
+
 	--scripts
 	bar.button:SetScript("OnClick",function(self,button)
 		if button == "RightButton" then
@@ -1766,7 +1766,7 @@ local function NewBar(parent,n)
 	bar.SetTicks = function(self,totaltime,interval,barval,r,g,b)
 		local s = self.parent.parent.s;
 		if s.Ticks[0] then
-			
+
 			if totaltime > 0 then
 				local w = bar:GetWidth();
 				interval = w/(totaltime/interval);
@@ -1790,7 +1790,7 @@ local function NewBar(parent,n)
 					else
 						tick:Hide();
 					end
-					
+
 				else -- all ticks
 					local i=1;
 					while dist<barval and dist<w do
@@ -1826,13 +1826,13 @@ local function NewBar(parent,n)
 	end
 	bar.Update = function(self)
 		local s = self.parent.parent.s;
-	
+
 		self:ClearAllPoints();
 		self:SetHeight(s.Height);
 		self:SetStatusBarTexture(s.Texture);
 		self.castarea:SetTexture(s.Texture);
 		self.back:SetTexture(s.Texture);
-		
+
 		self.button:SetWidth(s.Height);
 		self.button.spark:SetWidth(s.Height*2.2);
 		self.tag:SetFont(unpack(s.StacksFont));
@@ -1846,17 +1846,17 @@ local function NewBar(parent,n)
 			self.spark:Hide();
 		end
 		self.castarea:SetAlpha(s.CastSpark[1]);
-		
+
 		self.raidicon:SetWidth(s.Height);
 		self.raidicon:SetAlpha(s.RaidTargets[1]);
-		
+
 		self.name:SetFont(unpack(s.Font));
 		self.time:SetFont(unpack(s.Font));
 		self.timedummy:SetFont(unpack(s.Font));
 		self.time:SetTextColor(unpack(s.NormalColor));
-		
+
 		self:SetFlipped(s.Flip);
-		
+
 		if s.Icon then -- icon is placed outside of the actual bar!!
 			self:SetWidth(s.Width-s.Height-1);
 			self.button:ClearAllPoints();
@@ -1902,18 +1902,18 @@ local function NewGroup(parent,n)
 	group = parent.groups[n];
 	group.bars = {};
 	group.parent = parent;
-	
+
 	group.usewidth = 0;
-	
+
 	group.background = CreateFrame("Frame",nil,group);
 	group.background:SetAllPoints(group);
-	group.background:SetFrameLevel(1);	
-		
+	group.background:SetFrameLevel(1);
+
 	group.label = group:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
 	group.raidicon = group:CreateTexture(nil,"OVERLAY");
 	group.raidicon:SetTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcons");
 	group.raidicon:SetPoint("CENTER", group, "CENTER",0,0);
-	
+
 	group.NewBar = NewBar;
 	group.NewLabel = NewLabel;
 
@@ -1923,23 +1923,23 @@ local function NewGroup(parent,n)
 			i=i+1;
 		end
 	end;
-	
+
 	group.Update = function(self)
 		local s = self.parent.s;
-		
+
 		self:ClearAllPoints();
 		self.label:ClearAllPoints();
 		self.raidicon:ClearAllPoints();
-		if s.Expand == true then 
+		if s.Expand == true then
 			self:SetPoint("BOTTOM",self.parent,"BOTTOM");
 		else
 			self:SetPoint("TOP",self.parent,"TOP");
 		end
 		self:SetWidth(s.Width+s.Backdrop[6]*2);
-		
+
 		self.label:SetFont(unpack(s.LabelFont));
 		self.background:SetBackdrop(self.parent.header.backdrop);
-		
+
 		self.raidicon:SetWidth(s.LabelHeight);
 		self.raidicon:SetAlpha(s.RaidTargets[1]);
 	end;
@@ -1954,14 +1954,14 @@ local function ST_NewTimerFrame(index,root)
 	frame.root = root;
 	--frame.displayname = displayname;
 	frame.groups = {};
-	frame:SetPoint("CENTER",UIParent,"CENTER");	
+	frame:SetPoint("CENTER",UIParent,"CENTER");
 	frame:SetHeight(20);
-	
+
 	frame.header = CreateFrame("Frame",nil,frame);
 	frame.header:SetAllPoints(frame);
 	frame.header.title = frame.header:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 	frame.header.title:SetAllPoints(frame);
-	
+
 	--scripts
 	frame:SetScript("OnMouseDown",function(self,button)
 		FW:StartMoving(self, button);
@@ -1977,7 +1977,7 @@ local function ST_NewTimerFrame(index,root)
 
 	--functions
 	frame.NewGroup = NewGroup;
-	
+
 	local links = FW:NEW2D();
 
 	local function VisibleUnit(id,guid)
@@ -1987,7 +1987,7 @@ local function ST_NewTimerFrame(index,root)
 			else
 				if id == PRIOR_NONE then
 					return frame.s.NoTarget;
-				elseif id == PRIOR_DEBUFF then	
+				elseif id == PRIOR_DEBUFF then
 					return frame.s.RaidDebuffs;
 				else
 					return frame.s.You;
@@ -1997,14 +1997,14 @@ local function ST_NewTimerFrame(index,root)
 		elseif guid==FW.target or guid==FW.focus then
 			return (guid==FW.target and frame.s.Target) or (guid==FW.focus and frame.s.Focus);
 		else
-			return frame.s.Other;	
+			return frame.s.Other;
 		end
 	end
-	
+
 	local function Alpha(trigger,t)
 		if t <= trigger then
 			return 1;
-		elseif t<trigger+FW.Settings.TimerFadeSpeed then 
+		elseif t<trigger+FW.Settings.TimerFadeSpeed then
 			return 1 - pow( ((t-trigger)/FW.Settings.TimerFadeSpeed),3);
 		else
 			return 0;
@@ -2056,10 +2056,10 @@ local function ST_NewTimerFrame(index,root)
 			end
 		end
 	end
-	
+
 	local function drawLabel(s,group,label,baroffset,groupsize,vis,t4,t9,t11,t13)
 		if t13 > 0 and t13 < maxi and s.Label then -- add a name label
-			
+
 			if s.ShowID and t9 == 0 then
 				label:SetText("#"..t13.." "..t4);
 			else
@@ -2098,7 +2098,7 @@ local function ST_NewTimerFrame(index,root)
 		end
 		return baroffset, groupsize;
 	end
-		
+
 	frame.Draw = function(self)
 		local s = self.s;
 		if s.Enable and (not s.Hide or not s.lock or STATES.INCOMBAT) then -- auto-hide only
@@ -2115,7 +2115,7 @@ local function ST_NewTimerFrame(index,root)
 				self:Hide();
 			end
 		end
-	
+
 		if not self:IsShown() then return; end
 		local smooth = FW.Settings.TimerSmooth;
 		local baroffset = s.Backdrop[6];
@@ -2135,14 +2135,14 @@ local function ST_NewTimerFrame(index,root)
 		local groupvisibility = 0;
 		local group;
 		local t = GetTime();
-		local highestduration = 0; 
+		local highestduration = 0;
 		--pre-compute stuff
 		local k = 1;
 		-- copy some values from st to sort links by
 		for k=1, links.rows do
 			i = links[k][1];
 			links[k][2],links[k][3] = st[i][13],st[i][20]; -- set these for sorting only
-			
+
 			-- calc visibility
 			t14,t17 = st[i][14],st[i][17];
 			if t14 == IGNORE then
@@ -2154,18 +2154,18 @@ local function ST_NewTimerFrame(index,root)
 					end
 				else
 					links[k][7] = 0;
-				end			
+				end
 				if links[k][7] == 0 then
 					links[k][4] = 1;
 				else
-					links[k][4] = Alpha(links[k][7]+s.HideTime,t); 
+					links[k][4] = Alpha(links[k][7]+s.HideTime,t);
 				end
 			elseif t14 == FADING_INSTANT then
-				links[k][4] = Alpha(t17,t); 
+				links[k][4] = Alpha(t17,t);
 			elseif t14 == FADING then
-				links[k][4] = Alpha(t17+s.FadeTime,t); 
+				links[k][4] = Alpha(t17+s.FadeTime,t);
 			else -- removed/failed
-				links[k][4] = Alpha(t17+s.FailTime,t); 
+				links[k][4] = Alpha(t17+s.FailTime,t);
 			end
 		end
 		if s.GroupID then
@@ -2183,12 +2183,12 @@ local function ST_NewTimerFrame(index,root)
 			end
 			links:sort(SORT_TIMER_ORDER,SORT_TIMER_ASC);
 		end
-		
+
 		local visible = 0;
 
 		for k=1, links.rows do
 			i = links[k][1];
-			
+
 			if (not s.Max[0] or visible < s.Max[1]) and links[k][4] > 0 then -- visibility (yes or no) based on num timers and alpha
 				visible = visible + 1;
 
@@ -2224,7 +2224,7 @@ local function ST_NewTimerFrame(index,root)
 				links[k][4] = 0;
 			end
 		end
-		
+
 		if s.ForceMax then
 			highestduration = s.MaxTime[1];
 			for k=1,links.rows do
@@ -2239,12 +2239,12 @@ local function ST_NewTimerFrame(index,root)
 				end
 			end
 		end
-		
+
 		lastid = nil;
 		group = nil;
 		g = 1;
 		i=1;
-		
+
 
 		for k=1,links.rows do -- stuff to make it 'skip' certain timers for display
 			vis = links[k][4];
@@ -2252,7 +2252,7 @@ local function ST_NewTimerFrame(index,root)
 				_,t2,t3,t4,_,t6,t7,t8,t9,t10,t11,_,t13,t14,_,t16,_,t18,t19,t20,t21,t22,t23,_,_,_,t27,t28 = unpack(st[ links[k][1] ]);
 				-- add linked instance values
 				filter,maxtime = links[k][5],links[k][6];
-				
+
 				-- GROUP AND BAR CREATION
 				t1 = t20 - t;
 				if maxtime == 0 then
@@ -2275,7 +2275,7 @@ local function ST_NewTimerFrame(index,root)
 
 							groupoffset = groupoffset + group:GetHeight() + s.SpacingHeight*group.factor;
 						end
-						
+
 						group = self.groups[g] or self:NewGroup(g);
 						label = group.label;
 						group.bordersize = s.Backdrop[6]*group.factor;
@@ -2284,11 +2284,11 @@ local function ST_NewTimerFrame(index,root)
 						i=1;
 						g=g+1; -- new group number for next group
 						groupvisibility = 0;
-						
+
 						if not s.LabelFlip then
 							baroffset,groupsize = drawLabel(s,group,label,baroffset,groupsize,group.factor,t4,t9,t11,t13);
 						end
-						
+
 						if s.TargetBgColor[0] and t11 == FW.target then
 							group.background:SetBackdropBorderColor(unpack(s.TargetBgColor));
 							group.background:SetBackdropColor(unpack(s.TargetBgColor));
@@ -2312,10 +2312,10 @@ local function ST_NewTimerFrame(index,root)
 					group.background:SetBackdropBorderColor(unpack(s.NormalBgColor));
 					group.background:SetBackdropColor(unpack(s.NormalBgColor));
 				end
-				
+
 				bar = group.bars[i] or group:NewBar(i);
 				spark = bar.spark;
-				
+
 				-- SIZE AND ALPHA STUFF
 				if s.Expand == true then
 					if s.Icon and not s.IconRight then
@@ -2332,7 +2332,7 @@ local function ST_NewTimerFrame(index,root)
 					end
 					group:SetPoint("TOP",self,"TOP",0, -groupoffset);
 				end
-				
+
 				baroffset = baroffset + vis*s.Height;
 				groupsize = baroffset;
 				baroffset = baroffset + vis*s.Space;
@@ -2345,8 +2345,8 @@ local function ST_NewTimerFrame(index,root)
 				if barvisibility > groupvisibility then
 					groupvisibility = barvisibility;
 				end
-				bar:SetAlpha(barvisibility); 
-				
+				bar:SetAlpha(barvisibility);
+
 				-- ALL OTHER STUFF
 				if t19 == 0 or not s.RaidTargets[0] then
 					bar.raidicon:Hide();
@@ -2365,7 +2365,7 @@ local function ST_NewTimerFrame(index,root)
 				end
 				local r,g,b,a = ColorVal(self,t1,t3,t6,t14,filter,t8,t21);
 				bar:SetStatusBarColor(r,g,b);
-				bar.back:SetVertexColor(r,g,b,a);		
+				bar.back:SetVertexColor(r,g,b,a);
 				r,g,b = FW:FixIntensity(r,g,b);
 				if t1<0 then
 					t1=0;
@@ -2397,8 +2397,8 @@ local function ST_NewTimerFrame(index,root)
 				bar.button.friendly = t23;
 				bar.button.token = t27;
 				bar.button.buffid = t28;
-			
-				--t1 = curent time, t3 = total time, maxtime = adapted time			
+
+				--t1 = curent time, t3 = total time, maxtime = adapted time
 				if t1>maxtime then
 					barval=1;
 				else
@@ -2414,7 +2414,7 @@ local function ST_NewTimerFrame(index,root)
 				-- t1 = remaining, t2 = cast time, t3 = total time, maxtime = maximum used (end of bar)
 				local offset = 0;
 				if s.CastSparkTickOverlap and Tick[t8] then
-					offset = -Tick[t8]*t22	
+					offset = -Tick[t8]*t22
 				end
 				local from,to = barval,barval;
 				-- from is the original spark, to is the cast spark
@@ -2447,7 +2447,7 @@ local function ST_NewTimerFrame(index,root)
 					to = from+length;
 					if to > 1 then
 						to = 1;
-					end					
+					end
 				else
 					bar.button.spark:Hide();
 				end
@@ -2463,7 +2463,7 @@ local function ST_NewTimerFrame(index,root)
 					bar.castarea:SetPoint("BOTTOMRIGHT",bar,"BOTTOMLEFT",to*bar:GetWidth(),0);
 					bar.castarea:Show();
 				end
-				
+
 				if s.IconStacks and t16 ~= 0 and s.Icon then
 					bar.tag:SetText(t16);
 					t16 = 0;
@@ -2526,22 +2526,22 @@ local function ST_NewTimerFrame(index,root)
 						bar.name:SetTextColor(unpack(s.FocusColor));
 					else
 						bar.name:SetTextColor(unpack(s.NormalColor));
-					end		
+					end
 
 					bar.name:SetWidth(bar:GetWidth()-2*group.usewidth-4); -- 4 margin (2 on both sizes)
 				end
 				bar:SetHeight(vis*s.Height);
 				bar.button.spark:SetHeight(vis*s.Height*2.2);
-				
+
 				if bar.flipped then
 					spark:SetPoint("CENTER", bar, "LEFT",(1-barval)*bar:GetWidth(), 0);
 				else
 					spark:SetPoint("CENTER", bar, "LEFT",barval*bar:GetWidth(), 0);
 				end
-				
+
 				bar.button.texture:SetTexture(t7);
 				lastid = t13;
-			
+
 				bar:Show();
 				group:Show();
 				i=i+1;
@@ -2557,17 +2557,17 @@ local function ST_NewTimerFrame(index,root)
 			group:SetHeight( groupsize+group.bordersize );
 			label:SetHeight( group.labelsize );
 			label:SetAlpha(groupvisibility);
-			
+
 			group.raidicon:SetAlpha(s.RaidTargets[1]*groupvisibility);
 			group.raidicon:SetHeight(group.labelsize);
-			
+
 			self.header:Hide();
 		elseif not s.lock then
 			self.header:Show();
 		else
 			self.header:Hide();
 		end
-		
+
 		while self.groups[g] and self.groups[g]:IsShown() do
 			self.groups[g]:Hide();
 			g=g+1;
@@ -2581,7 +2581,7 @@ local function ST_NewTimerFrame(index,root)
 					tick:Hide();
 				end
 			end
-		end	
+		end
 	end
 	frame.ResetDurationTextSize = function(self)
 		for g, group in ipairs(self.groups) do
@@ -2601,11 +2601,11 @@ local function ST_NewTimerFrame(index,root)
 			self:SetScale(self.s.scale);
 			self.header.title:SetFont(unpack(self.s.LabelFont));
 			self.header.title:SetText(FW:InstanceIndexToName(self.index,FW.Settings.Timer)..FWL._RIGHTCLICK_FOR_OPTIONS);
-			
+
 			FW:SetBackdrop(self.header,unpack(self.s.Backdrop));
 			self.header:SetBackdropBorderColor(unpack(self.s.NormalBgColor));
 			self.header:SetBackdropColor(unpack(self.s.NormalBgColor));
-			
+
 			for g, group in ipairs(self.groups) do
 				group:Update();
 				for b, bar in ipairs(group.bars) do
@@ -2622,7 +2622,7 @@ local function ST_NewTimerFrame(index,root)
 		else
 			self:Hide();
 		end
-		
+
 	end
 	return frame;
 end
@@ -2631,7 +2631,7 @@ end
 local function ST_NewTimerInstance(index) -- create new timer instance for index
 	FW:CopyCloneSettings(FW.InstanceDefault.Timer,FW.Settings.Timer.Instances[index]); -- init the config of this instance
 	local frame_name, frame = "FX_Timer"..index;
-	
+
 	if instances.rows < #instances then
 		--FW:Show("recycling");
 		local n = instances.rows+1;
@@ -2644,7 +2644,7 @@ local function ST_NewTimerInstance(index) -- create new timer instance for index
 		frame = ST_NewTimerFrame(index);
 		instances:insert(frame_name,frame);
 	end
-	
+
 	FW:RegisterFrame(frame_name,frame,false,"Timer");
 	frame:Init();
 	frame:rebuildLinks();
@@ -2658,7 +2658,7 @@ end
 local function ST_CreateTimerInstance() -- create and permanently SAVE a new frame instance
 	local active = FW.Settings.Timer.Active;
 	local index = FW:InstanceCreate("Clone of "..FW.Settings.Timer.Data[active].name,FW.Settings.Timer,FW.Settings.Timer.Instances[active]);
-	
+
 	FW.Settings.Timer.Active = index;
 	FW.Settings.Timer.Instances[index].lock = false; -- make sure a new instance is always unlocked!
 	ST_NewTimerInstance(index); -- create the new frame and its options
@@ -2683,7 +2683,7 @@ local function ST_RemoveTimerInstance(dialog,obj) -- permanently delete a SAVED 
 			for i, v in ipairs(FW.Settings.Timer.Instances) do -- load custom instances
 				ST_NewTimerInstance(i);
 			end
-			
+
 			FW:BuildOptions();
 			FW:RefreshOptions();
 		end
@@ -2731,7 +2731,7 @@ local function ST_TimerFilterChange(instance)
 		ST_PlayerBuffs();
 		ST_TargetDebuffs();
 		ST_ScanWeaponEnchant();
-		
+
 		rebuildLinks();
 	end
 end
@@ -2742,7 +2742,7 @@ do
 	local PLAYER = FW.PLAYER;
 	local select = select;
 	local dura = 30;
-	
+
 	local function ST_CombatLogEvent(event,...)
 		local arg2 = select(2,...);
 		--combat_log_active = true;
@@ -2804,10 +2804,10 @@ do
 			FW:UnregisterTimedEvent("SpellTimerInterval",		ST_RemoveDots);
 			FW:UnregisterTimedEvent("UpdateInterval",			ST_RaidTargetScan);
 
-			FW:RegisterTimedEvent("SpellTimerInterval",			ST_UpdateTest);		
+			FW:RegisterTimedEvent("SpellTimerInterval",			ST_UpdateTest);
 		else
 			FW:UnregisterTimedEvent("SpellTimerInterval",		ST_UpdateTest);
-			
+
 			st:erase(); -- remove all timers
 			FW:RegisterToEvent("UPDATE_MOUSEOVER_UNIT",			ST_MouseOverChanged);
 			FW:RegisterToEvent("UNIT_AURA", 					ST_AuraChanged);
@@ -2817,12 +2817,12 @@ do
 			FW:RegisterTimedEvent("SpellTimerInterval",			ST_ExtraScan);
 			FW:RegisterTimedEvent("SpellTimerInterval",			ST_RemoveDots);
 			FW:RegisterTimedEvent("UpdateInterval",				ST_RaidTargetScan);
-			
+
 			ST_PlayerBuffs(); -- add real timers back
 			ST_TargetDebuffs();
 		end
 	end
-	
+
 	-- create default timer frame
 	FW:RegisterLoadClones(function()
 		if not FW.Settings.Timer then
@@ -2830,7 +2830,7 @@ do
 			FW.Settings.Timer = {Active=1,Instance="Timer",Instances={}, Links={}, Data={}};
 			FW:InstanceCreate(FWL.SPELL_TIMER,FW.Settings.Timer,FW.InstanceDefault.Timer);
 		end
-		
+
 		ST_RemoveAllInstances(); -- 'remove' all current instance frames
 		-- add the right ones
 		for i, v in ipairs(FW.Settings.Timer.Instances) do -- load custom instances
@@ -2838,9 +2838,9 @@ do
 		end
 
 	end);
-	
+
 	FW:RegisterVariablesEvent(function()
-	
+
 		FW:RegisterToEvent("PLAYER_TARGET_CHANGED",			ST_TargetChanged);
 		FW:RegisterToEvent("PLAYER_FOCUS_CHANGED",			ST_FocusChanged);
 		FW:RegisterToEvent("UPDATE_MOUSEOVER_UNIT",			ST_MouseOverChanged);
@@ -2853,30 +2853,30 @@ do
 		FW:RegisterTimedEvent("SpellTimerInterval",	ST_RemoveDots);
 		FW:RegisterTimedEvent("AnimationInterval",	ST_DrawTimers);
 		FW:RegisterTimedEvent("UpdateInterval",		ST_RaidTargetScan);
-		
+
 		FW:RegisterTimedEvent("TimerSmartSpace",function()
 			for i=1,instances.rows,1 do
 				instances[i][2]:ResetDurationTextSize();
 			end
 		end);
-		
+
 		ST_CreateSortOrder();--init sorting direction (advanced settings)
-		ST_CalculateMaxDelay();		
+		ST_CalculateMaxDelay();
 	end);
-	
+
 	CA:RegisterOnSelfCastFail(ST_SpellFail);
 	CA:RegisterOnSelfCastTracked(ST_TrackedSuccess);
 	CA:RegisterOnSelfCastEnd(ST_SelfSuccess); -- always triggered regardless of resists
-	
+
 	FW:RegisterDelayedLoadEvent(ST_PlayerBuffs);
 	FW:RegisterDelayedLoadEvent(ST_ScanWeaponEnchant);
-	
+
 	if CD then
 		CD:RegisterOnCooldownUsed(ST_OnCooldownUsed);
 		CD:RegisterOnCooldownUpdate(ST_OnCooldownUpdate);
 		CD:RegisterOnCooldownReady(ST_OnCooldownReady);
 	end
-	
+
 	FW:RegisterOnLeaveCombat(function()
 		if FW.Settings.RemoveAfterCombat and not UnitIsDeadOrGhost("player") and not UnitAura("player",feign) then --  remove non-player timers when dropped from combat, keep if player died
 			ST_ClearMobTimers();
@@ -2892,11 +2892,11 @@ do
 		end
 	end);
 	--FW:Show("Timer Module Loaded");
-	
+
 	--FW:RegisterOnProfileChange(function() tab_actions[6] = FW.Settings.TimerInstances; end);
 	FW:RegisterOnProfileChange(ST_TimerFilterChange);
 	FW:RegisterOnProfileChange(Test);
-	
+
 	FW:RegisterOnProfileChange(ST_CreateSortOrder);
 	FW:RegisterOnProfileChange(ST_CalculateMaxDelay);
 end
@@ -2928,8 +2928,8 @@ function ST:AddMeleeBuffs()
 	:AddBuff(57330) -- Horn of Winter (DK raid buff)
 	:AddBuff(60305) -- Heart of a Dragon
 	:AddBuff(60065) -- Reflection of Torment (mirror of thruth procc)
-	:AddBuff(60054) -- Valor Medal of the First War 
-	:AddBuff(60218) -- Essence of Gossamer 
+	:AddBuff(60054) -- Valor Medal of the First War
+	:AddBuff(60218) -- Essence of Gossamer
 	:AddBuff(65014) -- Pyrite Infuser
 	:AddBuff(60437) -- Grim Toll
 	:AddBuff(59620) -- Berserk, Enchant Weapon - Berserking
@@ -2942,7 +2942,7 @@ function ST:AddMeleeBuffs()
 	:AddBuff(53908) -- Speed (potion)
 	:AddBuff(28494) -- Insane Strength Potion
 	:AddBuff(60229) -- Greatness, str
-	:AddBuff(60233) -- Greatness, agi	
+	:AddBuff(60233) -- Greatness, agi
 	:AddBuff(54758) -- Hyperspeed Acceleration
 	:AddBuff(50198) -- Fatal Flaws
 	:AddBuff(72414) -- Frostforged Defender
@@ -2960,54 +2960,54 @@ function ST:AddMeleeBuffs()
 	:AddBuff(53762) -- Indestructible (potion)
 	:AddBuff(75456) -- Piercing Twilight
 	:AddBuff(75480) -- Scaly Nimbleness
-	
+
 	:AddBuff(79633) -- Tol'vir Agility
 	:AddBuff(79476) -- Volcanic Power
 	:AddBuff(79475) -- Earthen Armor
 	:AddBuff(79634) -- Golem's Strength
 	:AddBuff(92104) -- Fluid Death, River of Death
-	
-	:AddBuff(92096) -- Left Eye of Rajh, Eye of Vengeance 
+
+	:AddBuff(92096) -- Left Eye of Rajh, Eye of Vengeance
 	:AddBuff(92069) -- Key to the Endless Chamber, Final Key
-	:AddBuff(92126) -- Essence of the Cyclone, Twisted 
-	:AddBuff(92108) -- Unheeded Warning, Heedless Carnage 
-	:AddBuff(92124) -- Prestor's Talisman of Machination, Nefarious Plot 
+	:AddBuff(92126) -- Essence of the Cyclone, Twisted
+	:AddBuff(92108) -- Unheeded Warning, Heedless Carnage
+	:AddBuff(92124) -- Prestor's Talisman of Machination, Nefarious Plot
 	:AddBuff(92052) -- Grace of the Herald, Herald of Doom
 	:AddBuff(91821) -- Crushing Weight, Race Against Death
 	:AddBuff(91816) -- Heart of Rage, Rageheart
 	:AddBuff(125489) -- Enchant Cloak - Swordguard Embroidery
-	
+
 	:AddBuff(85032) -- Vicious Gladiator's Insignia of Victory, Surge of Victory
-	
+
 	:AddBuff(92213) -- Vial of Stolen Memories, Memory of Invincibility
 	:AddBuff(96977) -- Matrix Restabilizer, Matrix Restabilized
 	:AddBuff(96911) -- The Hungerer, Devour
 	:AddBuff(49016) -- Unholy Frenzy (DK raid buff)
 	:AddBuff(96923) -- Titanic Power
-	
-	
+
+
 	-- IMPORTANT DEBUFFS FROM OTHERS I WANT TO TRACK
 	-- Death Knight
 	:AddDebuff(81326) -- Physical Vulnerability
 	:AddDebuff(73975) -- Necrotic Strike
-		
+
 	--warrior
  	:AddDebuff(113746) -- Weakened Armor
 	:AddDebuff(115804) -- Mortal Wounds
 
 	--shaman
 	:AddBuff(30809) -- Unleashed Rage
-	
+
 	--paladin
-	
+
 	--druid
 	:AddDebuff(  770) -- Faerie Fire
 	:AddDebuff(102355) -- Faerie Swarm
 	:AddDebuff(33878) -- Mangle - Bear
 	:AddDebuff(33876) -- Mangle - Cat
-	
+
 	:AddDebuff(115798) -- Weakened Blows
-	
+
 	--rogue
 	:AddDebuff(60842) -- Expose Armor
 
@@ -3071,7 +3071,7 @@ function ST:AddCasterBuffs()
 	:AddBuff(75473) -- Twilight Flames
 	:AddBuff(75494) -- Twilight Renewal
 	:AddBuff(64741) -- Pandora's Plea
-	
+
 	:AddBuff(91138) -- Tear of Blood, Cleansing Tears
 	:AddBuff(91147) -- Blood of Isiset, Blessing of Isiset
 	:AddBuff(91047) -- Stump of Time, Battle Magic
@@ -3080,28 +3080,28 @@ function ST:AddCasterBuffs()
 	:AddBuff(91041) -- Heart of Ignacious, Heart's Judgement
 	:AddBuff(74241) -- Enchant Weapon - Power Torrent
 	:AddBuff(91024) -- Theralion's Mirror, Revelation
-	
+
 	:AddBuff(91007) -- Bell of Enraging Resonance, Dire Magic
-	
+
 	:AddBuff(91192) -- Mandala of Stirring Patterns, Pattern of Light
 	:AddBuff(90887) -- Witching Hourglass, Witching Hour
 	:AddBuff(91184) -- Fall of Mortality, Grounded Soul
 	:AddBuff(100403) -- Moonwell Chalice, Blessing of the Moonwell
 	:AddBuff(107982) -- Seal of the Seven Signs/Insignia of the Corrupted Mind, Velocity
 	:AddBuff(107804) -- Ti'tahk, the Steps of Time, Slowing the Sands
-	
+
 	:AddBuff(107970) -- Will of Unbinding, Combat Mind
-	
+
 	:AddBuff(109908) -- Foul Gift (immolate), Foul Gift of the Demon Lord
 	:AddBuff(102662) -- Foul Gift (procc), Foul Gift of the Demon Lord
-	
+
 	:AddBuff(96962) -- Soul Fragment, Necromantic Focus
-	
+
 	:AddBuff(109773) -- Dark Intent	(Warlock raid buff)
-	
+
 	-- IMPORTANT DEBUFFS FROM OTHERS I WANT TO TRACK
 	:AddDebuff(26017) -- Vindication, Retribution Debuff -10/20% stats on target
-	
+
 	:AddDebuff(51339) -- Decimate +5% dmg
 
 	--:AddDebuff(33196) -- Misery
@@ -3109,8 +3109,8 @@ function ST:AddCasterBuffs()
 	--:AddDebuff(85547) -- Jinx: Curse of the Elements
 	--:AddDebuff(65142) -- Ebon Plague
 	--:AddDebuff(60433) -- Earth and Moon
-	
-	--:AddDebuff(17800) -- Shadow and Flame +5% crit all schools	
+
+	--:AddDebuff(17800) -- Shadow and Flame +5% crit all schools
 	--:AddDebuff(22959) -- Improved Scorch, +5% crit all schools
 	--:AddDebuff(12579) -- Winter's Chill, +1% crit all schools per stack (5max)
 	return self;
@@ -3133,15 +3133,15 @@ elseif FW.RACE == "Dwarf" then
 end
 ST:AddBuff(55503); -- Lifeblood
 ST:AddBuff(7001); -- Lightwell Renew
-	
+
 -- create options
 FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
-	
+
 	:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1)
 		:AddOption("INF",FWL.ST_HINT1)
 		:AddOption("INF",FWL.ST_HINT2)
 		:AddOption("INF",FWL.ST_HINT3)
-		
+
 	:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND)
 		:AddOption("CHK",FWL.ENABLE,			FWL.ST_BASIC1_TT ,			"Enable"):SetFunc(ST_TimerShow)
 		:AddOption("CHK",FWL.EXPAND_UP,			FWL.EXPAND_UP_TT,			"Expand"):SetFunc(ST_TimerShow)
@@ -3149,7 +3149,7 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("CHK",FWL.FLIP_BAR,			FWL.FLIP_BAR_TT,			"Flip"):SetFunc(ST_TimerShow)
 		:AddOption("CHK",FWL.TEST_BARS,			FWL.TEST_BARS_TT,			"Test"):SetFunc(Test)
 		:AddOption("CHK",FWL.TIMER_HIDE,		FWL.TIMER_HIDE_TT,			"Hide")
-	
+
 	:SetSubCategory(FWL.TIMER_FORMATS,FW.ICON.SPECIFIC,3)
 		:AddOption("NU2",FWL.EXTRA1,			FWL.EXTRA1_TT,				"RaidTargets"):SetRange(0,1):SetFunc(ST_TimerShow)
 		:AddOption("CHK",FWL.TIMER_COUNTDOWN,	FWL.TIMER_COUNTDOWN_TT,		"Time"):SetFunc(ST_TimerShow)
@@ -3188,12 +3188,12 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("NU2",FWL.DISPLAY_TYPES3,FWL.DISPLAY_TYPES3_TT,	"HideLonger"):SetRange(0)
 		:AddOption("CHK",FWL.DISPLAY_TYPES11,FWL.DISPLAY_TYPES11_TT,"HideLongerNoBoss"):SetEnabled("HideLonger")
 		:AddOption("NUM",FWL.DISPLAY_TYPES4,FWL.DISPLAY_TYPES4_TT,	"HideTime"):SetRange(0):SetEnabled("HideLonger")
-	
+
 	:SetSubCategory(FWL.FADING,FW.ICON.FADE,3)
 		:AddOption("NUM",FWL.FADING3,		FWL.FADING3_TT,			"FadeTime"):SetRange(0,120):SetFunc(ST_CalculateMaxDelay)
 		:AddOption("NUM",FWL.DISPLAY_TYPES6,FWL.DISPLAY_TYPES6_TT,	"FailTime"):SetRange(0,120):SetFunc(ST_CalculateMaxDelay)
 		:AddOption("NU2",FWL.FADING1,		FWL.FADING1_TT,			"Blink"):SetRange(0)
-		:AddOption("NUM",FWL.BAR_BG_ALPHA,	FWL.BAR_BG_ALPHA_TT,	"BarBackgroundAlpha"):SetRange(0,1)	
+		:AddOption("NUM",FWL.BAR_BG_ALPHA,	FWL.BAR_BG_ALPHA_TT,	"BarBackgroundAlpha"):SetRange(0,1)
 		:AddOption("CO2",FWL.EXPIRED,		FWL.EXPIRED_TT,			"ExpiredColor")
 		:AddOption("CO2",FWL.HIGHLIGHT,		FWL.FADING5_TT,			"HighlightColor")
 
@@ -3206,10 +3206,10 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("CHK",FWL.SHOW_WITHOUT_UNIT,	FWL.SHOW_WITHOUT_UNIT_TT,	"NoTarget"):SetFunc(ST_TimerFilterChange)
 		:AddOption("CHK",FWL.TIMER_SHOW_YOU,	FWL.TIMER_SHOW_YOU_TT,		"You"):SetFunc(ST_TimerFilterChange)
 		:AddOption("NUM",FWL.FADING6,			FWL.FADING6_TT,				"NormalAlpha"):SetRange(0.1,1):SetFunc(ST_TimerFilterChange)
-		
+
 	:SetSubCategory(FWL.COLORING_FILTERING,FW.ICON.FILTER,7)
 		:AddOption("FIL",FWL.CUSTOMIZE,		FWL.ST_CUSTOMIZE_TT,	"Filter",99):SetRange(FW.FilterListOptions, FW.STFilterListOptions):SetFunc(ST_TimerFilterChange)
-		
+
 	:SetSubCategory(FWL.MY_SPELLS,FW.ICON.FILTER,7,nil,FW.REDUCED_ALPHA)
 		:AddOption("CO2",FWL.NORMAL_TYPE,	FWL.NORMAL_TYPE_TT,		"Default"):SetFunc(ST_TimerFilterChange):SetSpellList(Track,6)
 		:AddOption("CO2",FWL.CC,			FWL.CC_TT,				"Crowd",99):SetFunc(ST_TimerFilterChange):SetSpellList(Track,6)
@@ -3218,12 +3218,12 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("CO2",FWL.CHANNEL,		FWL.CHANNEL_TT,			"Channel",99):SetFunc(ST_TimerFilterChange):SetSpellList(Drain,3)
 		:AddOption("CO2",FWL.PET,			FWL.DISPLAY_TYPES10_TT,	"Pet",99):SetFunc(ST_TimerFilterChange):SetSpellList(Track,6)
 		:AddOption("CO2",FWL.FAIL,			FWL.DISPLAY_TYPES5_TT,	"Fail",99):SetFunc(ST_TimerFilterChange)
-	
+
 	:SetSubCategory(FWL.MY_COOLDOWNS,FW.ICON.FILTER,7,nil,FW.REDUCED_ALPHA)
 		:AddOption("CO2",FWL.COOLDOWNS,		FWL.COOLDOWNS_TT,		"Cooldown"):SetFunc(ST_TimerFilterChange):SetSpellList(TrackCooldowns,3)
 		:AddOption("CO2",FWL.ALL_OTHER_COOLDOWNS,	"",				"CooldownOther"):SetFunc(ST_TimerFilterChange):SetEnabled(false)
-		
-	:SetSubCategory(FWL.BUFFS_DEBUFFS_ON_ME,FW.ICON.FILTER,7,nil,FW.REDUCED_ALPHA)	
+
+	:SetSubCategory(FWL.BUFFS_DEBUFFS_ON_ME,FW.ICON.FILTER,7,nil,FW.REDUCED_ALPHA)
 		:AddOption("CO2",FWL.POWERUP_BUFFS,	FWL.DISPLAY_TYPES1_TT,	"SelfBuff"):SetFunc(ST_TimerFilterChange):SetSpellList(TrackBuffs)
 		:AddOption("CO2",FWL.ALL_OTHER_BUFFS,"",					"SelfBuffOther"):SetFunc(ST_TimerFilterChange):SetEnabled(false)
 		:AddOption("CO2",FWL.DEBUFFS,		FWL.DEBUFFS_TT,			"SelfDebuff"):SetFunc(ST_TimerFilterChange):SetSpellList(TrackSelfDebuffs)
@@ -3234,7 +3234,7 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("CO2",FWL.OTHER_DEBUFFS,	FWL.OTHER_DEBUFFS_TT,	"TargetDebuff"):SetFunc(ST_TimerFilterChange):SetSpellList(TrackDebuffs)
 		:AddOption("CO2",FWL.ALL_OTHER_DEBUFFS,			"",			"TargetDebuffOther"):SetFunc(ST_TimerFilterChange):SetEnabled(false)
 
-	:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,8)	
+	:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,8)
 		:AddOption("NUM",FWL.BAR_WIDTH,					"",					"Width"):SetRange(0):SetFunc(ST_TimerShow)
 		:AddOption("NUM",FWL.BAR_HEIGHT,				"",					"Height"):SetRange(0):SetFunc(ST_TimerShow)
 		:AddOption("NUM",FWL.BAR_SPACING,				"",					"Space"):SetRange(0):SetFunc(ST_TimerShow)
@@ -3243,25 +3243,25 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		--:AddOption("CHK",FWL.MAXIMIZE_SPACE,	FWL.MAXIMIZE_SPACE_TT,		"MaximizeName"):SetFunc(ST_TimerShow)
 		:AddOption("NU2",FWL.MAX_SHOWN,					"",					"Max"):SetRange(0)
 
-	:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,9)	
+	:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,9)
 		:AddOption("COL",FWL.NORMAL_TEXT,	FWL.NORMAL_TEXT_TT,	"NormalColor"):SetFunc(ST_TimerShow)
 		:AddOption("COL",FWL.FRAME_BACKGROUND,	"",				"NormalBgColor"):SetFunc(ST_TimerShow)
 		:AddOption("CO2",FWL.TARGET_TEXT,	FWL.TARGET_TEXT_TT,	"TargetColor")
-		:AddOption("CO2",FWL.FOCUS_TEXT,	FWL.FOCUS_TEXT_TT,	"FocusColor")		
+		:AddOption("CO2",FWL.FOCUS_TEXT,	FWL.FOCUS_TEXT_TT,	"FocusColor")
 		:AddOption("CO2",FWL.TARGET_BACKGROUND,"",				"TargetBgColor"):SetFunc(ST_TimerShow)
 		:AddOption("CO2",FWL.FOCUS_BACKGROUND,	"",				"FocusBgColor"):SetFunc(ST_TimerShow)
 		:AddOption("FNT",FWL.BAR_FONT,			"",				"Font",99):SetFunc(ST_TimerShow)
 		:AddOption("FNT",FWL.LABEL_FONT,	FWL.LABEL_FONT_TT,	"LabelFont",99):SetFunc(ST_TimerShow)
 		:AddOption("TXT",FWL.BAR_TEXTURE,		"",				"Texture",99):SetFunc(ST_TimerShow)
 		:AddOption("BAC",FWL.BACKDROP,			"",				"Backdrop",99):SetFunc(ST_TimerShow)
-		
+
 -- non-intance-specific options
 :SetMainCategory(FWL.RAID_MESSAGES)
 	:SetSubCategory(FWL.FADING,FW.ICON.SPECIFIC,2)
 		:AddOption("INF",FWL.TIME_LEFT_HINT)
 		:AddOption("MS2",FWL.TIME_LEFT,	"",	"TimeLeft")
 		:AddOption("MS2",FWL.TIME_LEFT_NOTARGET,"",	"TimeLeftNoTarg")
-	
+
 :SetMainCategory(FWL.SELF_MESSAGES)
 	:SetSubCategory(FWL.SPELL_TIMER,FW.ICON.DEFAULT,2)
 		:AddOption("CO2",FWL.SHOW_FAILED,	FWL.SHOW_FAILED_TT,"TimerResistsColor")
@@ -3271,7 +3271,7 @@ FW:SetMainCategory(FWL.SPELL_TIMER,FW.ICON.ST,3,"TIMER",nil,"Timer",tab_actions)
 		:AddOption("SND",FWL.FADE,"","TimerFadeSound")
 		:AddOption("SND",FWL.BREAK,"","TimerBreakSound")
 		:AddOption("SND",FWL.RESIST,"","TimerResistSound")
-		
+
 :SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT")
 	:SetSubCategory(FWL.SPELL_TIMER,FW.ICON.DEFAULT,3)
 		:AddOption("STR",FWL.FRAME_LEVEL,FWL.FRAME_LEVEL_TT,	"TimerStrata"):SetFunc(ST_TimerShow)
@@ -3370,10 +3370,10 @@ FW.InstanceDefault.Timer = {
 
 	ExpiredColor = 		{[0]=false,0.50,0.50,0.50,1.00},
 	HighlightColor =	{[0]=true,1.00,1.00,1.00},
-	
+
 	Channel = 			{[0]=true,0.42,0.00,1.00},
 	Fail =				{[0]=true,1.00,0.00,0.30},
-	
+
 	Curse = 			{[0]=true,0.64,0.21,0.93},
 	Bane = 				{[0]=true,0.00,0.54,0.42},
 

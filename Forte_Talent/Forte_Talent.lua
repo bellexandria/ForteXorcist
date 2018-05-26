@@ -30,7 +30,7 @@ local function TA_SelectSpecc(name)
 	else
 		SelectedSpecc = nil;
 	end
-	if PlayerTalentFrame then 
+	if PlayerTalentFrame then
 		TalentFrame_Update(PlayerTalentFrame);
 	end
 end
@@ -90,7 +90,7 @@ local function TA_TalentFrame_Update(TalentFrame)
 			tab = _G["PlayerTalentFrameTab"..i];
 			if ( i <= numTabs ) then
 				local name = GetTalentTabInfo(i);
-				
+
 				if ( i == PanelTemplates_GetSelectedTab(PlayerTalentFrame) ) then
 					-- If tab is the selected tab set the points spent info
 					TalentFrame.pointsSpent = BuiltSpecc[i][0];
@@ -108,9 +108,9 @@ local function TA_TalentFrame_Update(TalentFrame)
 		PanelTemplates_UpdateTabs(PlayerTalentFrame);
 
 		SetPortraitTexture(PlayerTalentFramePortrait, PlayerTalentFrame.unit);
-		
+
 		PlayerTalentFrame.currentSelectedTab = PanelTemplates_GetSelectedTab(PlayerTalentFrame);
-		
+
 		TalentFrame_UpdateTalentPoints(TalentFrame);
 
 		-- Setup Frame
@@ -140,11 +140,11 @@ local function TA_TalentFrame_Update(TalentFrame)
 				name, iconTexture, tier, column, rank, maxRank, isExceptional, meetsPrereq = GetTalentInfo(TalentFrame.currentSelectedTab, i);
 				if ( name ) then
 					rank = BuiltSpecc[TalentFrame.currentSelectedTab][i] or 0;
-					
+
 					_G[TalentFrame:GetName().."Talent"..i.."Rank"]:SetText(rank);
 					SetTalentButtonLocation(button, tier, column);
 					TalentFrame.TALENT_BRANCH_ARRAY[tier][column].id = button:GetID();
-					
+
 					-- If player has no talent points then show only talents with points in them
 					if ( rank == 0 ) then
 						forceDesaturated = 1;
@@ -159,7 +159,7 @@ local function TA_TalentFrame_Update(TalentFrame)
 					end
 					SetItemButtonTexture(button, iconTexture);
 					-- Talent must meet prereqs or the player must have no points to spend
--->>>>		
+-->>>>
 					if ( TA_TalentFrame_SetPrereqs(TalentFrame, tier, column, forceDesaturated, tierUnlocked, GetTalentPrereqs(TalentFrame.currentSelectedTab, i)) and meetsPrereq ) then
 						SetItemButtonDesaturated(button, nil);
 						if ( rank < maxRank ) then
@@ -205,11 +205,11 @@ local function TA_TalentFrame_Update(TalentFrame)
 		for i=1, MAX_NUM_TALENT_TIERS do
 			for j=1, NUM_TALENT_COLUMNS do
 				node = TalentFrame.TALENT_BRANCH_ARRAY[i][j];
-				
+
 				-- Setup offsets
 				xOffset = ((j - 1) * 63) + INITIAL_TALENT_OFFSET_X + 2;
 				yOffset = -((i - 1) * 63) - INITIAL_TALENT_OFFSET_Y - 2;
-			
+
 				if ( node.id ) then
 					-- Has talent
 					if ( node.up ~= 0 ) then
@@ -227,13 +227,13 @@ local function TA_TalentFrame_Update(TalentFrame)
 					end
 					if ( node.right ~= 0 ) then
 						-- See if any connecting branches are gray and if so color them gray
-						tempNode = TalentFrame.TALENT_BRANCH_ARRAY[i][j+1];	
+						tempNode = TalentFrame.TALENT_BRANCH_ARRAY[i][j+1];
 						if ( tempNode.left ~= 0 and tempNode.down < 0 ) then
 							TalentFrame_SetBranchTexture(i, j-1, TALENT_BRANCH_TEXTURECOORDS["right"][tempNode.down], xOffset + TALENT_BUTTON_SIZE, yOffset, TalentFrame);
 						else
 							TalentFrame_SetBranchTexture(i, j, TALENT_BRANCH_TEXTURECOORDS["right"][node.right], xOffset + TALENT_BUTTON_SIZE + 1, yOffset, TalentFrame);
 						end
-						
+
 					end
 					-- Draw arrows
 					if ( node.rightArrow ~= 0 ) then
@@ -321,7 +321,7 @@ local function TA_CreateSpeccDropDown(frame)
 			CreateFrame("Frame", "FWSpeccDropDown", PlayerTalentFrame, "UIDropDownMenuTemplate");
 			UIDropDownMenu_Initialize(FWSpeccDropDown, TA_SpeccDropDown_Initialize);
 			UIDropDownMenu_SetSelectedValue(FWSpeccDropDown,SelectedSpecc or FW.PLAYER);
-			UIDropDownMenu_SetText(FWSpeccDropDown,SelectedSpecc or FW.PLAYER);	
+			UIDropDownMenu_SetText(FWSpeccDropDown,SelectedSpecc or FW.PLAYER);
 
 			UIDropDownMenu_SetWidth(FWSpeccDropDown, 140);
 			UIDropDownMenu_JustifyText(FWSpeccDropDown, "LEFT");
@@ -342,11 +342,11 @@ local function TA_CreateSpeccDropDown(frame)
 			FWSpeccReset:SetHeight(18);
 			FWSpeccReset:SetText("Reset");
 			FWSpeccReset:SetScript("OnClick",TA_ResetSpecc);
-			
+
 			TA_SetAnchors();
 			TA_OriginalTalentFrame_Update = TalentFrame_Update;
 			TalentFrame_Update = TA_TalentFrame_Update;
-			
+
 			local button;
 			for i=1, MAX_NUM_TALENTS do
 				button = _G["PlayerTalentFrameTalent"..i];

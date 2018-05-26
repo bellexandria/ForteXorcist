@@ -3,7 +3,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Script file="Forte_Core.lua"/>
 	<Script file="Options.lua"/>
 	<Script file="Localization.lua"/>
-	
+
 	<Font name="FWFontHighlight" inherits="GameFontHighlightSmall" virtual="true"/>
 	<Font name="FWFontNormal" inherits="GameFontNormalSmall" virtual="true"/>
 	<Font name="FWFontDisable" inherits="GameFontDisableSmall" virtual="true"/>

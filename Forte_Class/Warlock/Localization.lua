@@ -18,7 +18,7 @@
 
 if FW.CLASS == "WARLOCK" then
 	local FWL = FW.L;
-	
+
 	-- THESE ARE INTERFACE STRINGS ONLY AND TRANSLATING THEM IS OPTIONAL
 
 	-- French
@@ -29,8 +29,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "Summoning Failed";
 		FWL.SUMMON_SUCCESS = "Summoning Successfull";
 
-		FWL.SUMMON_START_W = "Summoning Start whisper";	
-		FWL.SUMMON_CANCEL_W = "Summoning Cancel whisper";	
+		FWL.SUMMON_START_W = "Summoning Start whisper";
+		FWL.SUMMON_CANCEL_W = "Summoning Cancel whisper";
 		FWL.SUMMON_FAILED_W = "Summoning Failed whisper";
 
 		FWL.SUMMONING = "Summoning";
@@ -49,7 +49,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SEDUCE_FAILED = "Seduce cast Failed";
 		FWL.SEDUCE_BREAK = "Seduce Break";
 		FWL.SEDUCE_FADE = "Seduce Fade";
-		
+
 		FWL.FEAR_BREAK = "Fear Break";
 		FWL.FEAR_FADE = "Fear Fade";
 		FWL.BANISH_BREAK = "Banish Break";
@@ -60,11 +60,11 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SPELL_LOCK_SUCCESS = "Spell Lock cast Success";
 		FWL.SPELL_LOCK_FAILED = "Spell Lock cast Failed";
 		FWL.SPELL_LOCK_READY = "Spell Lock Ready";
-		
+
 		FWL.DEVOUR_MAGIC_SUCCESS = "Devour Magic cast Success";
 		FWL.DEVOUR_MAGIC_FAILED = "Devour Magic cast Failed";
 		FWL.DEVOUR_MAGIC_READY = "Devour Magic Ready";
-		
+
 		FWL.BLOOD_PACT = "Blood Pact";
 		FWL.BLOOD_PACT_ON = "Blood Pact on";
 		FWL.BLOOD_PACT_GAIN = "Blood Pact gain";
@@ -75,9 +75,9 @@ if FW.CLASS == "WARLOCK" then
 		FWL._LOST_BLOOD_PACT = "%s lost Blood Pact.";
 
 		FWL.DELAY_PET_TARGET = "Delay pet target";
-	
+
 		FWL.RITUAL_OF_DOOM = "Ritual of Doom";
-	
+
 	-- Russian
 	elseif GetLocale() == "ruRU" then
 
@@ -87,8 +87,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "Призывание неудачно";
 		FWL.SUMMON_SUCCESS = "Призывание успешно";
 
-		FWL.SUMMON_START_W = "Шепот начала Призывания";	
-		FWL.SUMMON_CANCEL_W = "Шепот отмены Призывания";	
+		FWL.SUMMON_START_W = "Шепот начала Призывания";
+		FWL.SUMMON_CANCEL_W = "Шепот отмены Призывания";
 		FWL.SUMMON_FAILED_W = "Шепот неудачи Призывания";
 
 		FWL.SUMMONING = "Призывание";
@@ -107,7 +107,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SEDUCE_FAILED = "Соблазнение неудачно";
 		FWL.SEDUCE_BREAK = "Соблазнение прервано";
 		FWL.SEDUCE_FADE = "Соблазнение рассеивается";
-		
+
 		FWL.FEAR_BREAK = "Страх прерван";
 		FWL.FEAR_FADE = "Страх рассеивается";
 		FWL.BANISH_BREAK = "Изгнание прервано";
@@ -118,11 +118,11 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SPELL_LOCK_SUCCESS = "Запрет Чар прочитан успешно";
 		FWL.SPELL_LOCK_FAILED = "Запрет чар прочитан неудачно";
 		FWL.SPELL_LOCK_READY = "Запрет чар готов";
-		
+
 		FWL.DEVOUR_MAGIC_SUCCESS = "Пожирание магии прочитано успешно";
 		FWL.DEVOUR_MAGIC_FAILED = "Пожирание магии прочитано неудачно";
 		FWL.DEVOUR_MAGIC_READY = "Пожиравние магии готово";
-		
+
 		FWL.BLOOD_PACT = "Кровавый союз";
 		FWL.BLOOD_PACT_ON = "Кровавый союз включен";
 		FWL.BLOOD_PACT_GAIN = "Кровавый союз получен";
@@ -135,7 +135,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.DELAY_PET_TARGET = "Задержка цели прислужника";
 
 --[[>>]]FWL.RITUAL_OF_DOOM = "Ritual of Doom";
-		
+
 	-- simple chinese
 	elseif GetLocale() == "zhCN" then
 
@@ -145,8 +145,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "召唤失败";
 		FWL.SUMMON_SUCCESS = "召唤成功";
 
-		FWL.SUMMON_START_W = "召唤开始M语";	
-		FWL.SUMMON_CANCEL_W = "召唤取消M语";	
+		FWL.SUMMON_START_W = "召唤开始M语";
+		FWL.SUMMON_CANCEL_W = "召唤取消M语";
 		FWL.SUMMON_FAILED_W = "召唤失败M语";
 
 		FWL.SUMMONING = "召唤";
@@ -190,9 +190,9 @@ if FW.CLASS == "WARLOCK" then
 		FWL._LOST_BLOOD_PACT = " 失去血之契印.";
 
 		FWL.DELAY_PET_TARGET = "Pet目标延迟";
-		
+
 		FWL.RITUAL_OF_DOOM = "末日仪式";
-	
+
 	-- tradition chinese
 	elseif GetLocale() == "zhTW" then
 
@@ -202,8 +202,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "召喚失敗";
 		FWL.SUMMON_SUCCESS = "召喚成功";
 
-		FWL.SUMMON_START_W = "召喚開始M語";	
-		FWL.SUMMON_CANCEL_W = "召喚取消M語";	
+		FWL.SUMMON_START_W = "召喚開始M語";
+		FWL.SUMMON_CANCEL_W = "召喚取消M語";
 		FWL.SUMMON_FAILED_W = "召喚失敗M語";
 
 		FWL.SUMMONING = "召喚";
@@ -236,7 +236,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.DEVOUR_MAGIC_SUCCESS = "吞噬魔法施放成功";
 		FWL.DEVOUR_MAGIC_FAILED = "吞噬魔法釋放失敗";
 		FWL.DEVOUR_MAGIC_READY = "吞噬魔法就緒";
-		
+
 		FWL.BLOOD_PACT = "血之契印";
 		FWL.BLOOD_PACT_ON = "血之契印打開";
 		FWL.BLOOD_PACT_GAIN = "獲得血之契印";
@@ -249,7 +249,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.DELAY_PET_TARGET = "Pet目標延遲";
 
 		FWL.RITUAL_OF_DOOM = "末日儀式";
-		
+
 	-- DE by DeaTHCorE (found a error? have a better translation? send me a email at dhaft@gmx.de)
 	elseif GetLocale() == "deDE" then
 		FWL.SUMMON_START = "Beschwörung Starten";
@@ -258,7 +258,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "Beschwörung fehlgeschlagen";
 		FWL.SUMMON_SUCCESS = "Beschwörung erfolgreich";
 
-		FWL.SUMMON_START_W = "Beschwörung Starten flüstern";	
+		FWL.SUMMON_START_W = "Beschwörung Starten flüstern";
 		FWL.SUMMON_CANCEL_W = "Beschwörung Abbrechen flüstern";
 		FWL.SUMMON_FAILED_W = "Beschwörung Fehlgeschlagen flüstern";
 
@@ -278,7 +278,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SEDUCE_FAILED = "Verführung zaubern Fehlgeschlagen";
 		FWL.SEDUCE_BREAK = "Verführung Unterbrochen";
 		FWL.SEDUCE_FADE = "Verführung Endet";
-		
+
 		FWL.FEAR_BREAK = "Furcht Unterbrochen";
 		FWL.FEAR_FADE = "Furcht Endet";
 		FWL.BANISH_BREAK = "Verbannung Unterbrochen";
@@ -289,11 +289,11 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SPELL_LOCK_SUCCESS = "Zaubersperre zaubern Erfolgreich";
 		FWL.SPELL_LOCK_FAILED = "Zaubersperre zaubern Fehlgeschlagen";
 		FWL.SPELL_LOCK_READY = "Zaubersperre zaubern Bereit";
-		
+
 		FWL.DEVOUR_MAGIC_SUCCESS = "Magie Verschlingen zaubern Erfolgreich";
 		FWL.DEVOUR_MAGIC_FAILED = "Magie Verschlingen zaubern Fehlgeschlagen";
 		FWL.DEVOUR_MAGIC_READY = "Magie Verschlingen Bereit";
-		
+
 		FWL.BLOOD_PACT = "Blutpackt";
 		FWL.BLOOD_PACT_ON = "Blutpackt an";
 		FWL.BLOOD_PACT_GAIN = "Blutpackt erhalten";
@@ -304,9 +304,9 @@ if FW.CLASS == "WARLOCK" then
 		FWL._LOST_BLOOD_PACT = "%s verlor Blutpackt.";
 
 		FWL.DELAY_PET_TARGET = "Pet-Ziel-Verzögerung";
-	
+
 		FWL.RITUAL_OF_DOOM = "Ritual der Verdammnis";
-		
+
 	-- korean
 	elseif GetLocale() == "koKR" then
 		FWL.SUMMON_START = "소환 시작";
@@ -315,8 +315,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "소환 실패";
 		FWL.SUMMON_SUCCESS = "소환 성공";
 
-		FWL.SUMMON_START_W = "귓속말 : 소환 시작";	
-		FWL.SUMMON_CANCEL_W = "귓속말 : 소환 취소";	
+		FWL.SUMMON_START_W = "귓속말 : 소환 시작";
+		FWL.SUMMON_CANCEL_W = "귓속말 : 소환 취소";
 		FWL.SUMMON_FAILED_W = "귓속말 : 소환 실패";
 
 		FWL.SUMMONING = "소환중";
@@ -335,7 +335,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SEDUCE_FAILED = "유혹 실패";
 		FWL.SEDUCE_BREAK = "유혹 풀림";
 		FWL.SEDUCE_FADE = "유혹 사라짐";
-		
+
 		FWL.FEAR_BREAK = "공포 풀림";
 		FWL.FEAR_FADE = "공포 사라짐";
 		FWL.BANISH_BREAK = "추방 풀림";
@@ -346,11 +346,11 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SPELL_LOCK_SUCCESS = "주문잠금 성공";
 		FWL.SPELL_LOCK_FAILED = "주문잠금 실패";
 		FWL.SPELL_LOCK_READY = "주문잠금 준비";
-		
+
 		FWL.DEVOUR_MAGIC_SUCCESS = "마법삼키기 시전 성공";
 		FWL.DEVOUR_MAGIC_FAILED = "마법삼키기 시전 실패";
 		FWL.DEVOUR_MAGIC_READY = "마법삼키기 준비";
-		
+
 		FWL.BLOOD_PACT = "피의서약";
 		FWL.BLOOD_PACT_ON = "피의 서약 얻음";
 		FWL.BLOOD_PACT_GAIN = "피의 서약효과 발동";
@@ -363,7 +363,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.DELAY_PET_TARGET = "펫의 대상 지연";
 
         FWL.RITUAL_OF_DOOM = "파멸의 의식";
-		
+
 	-- ENGLISH
 	else	-- standard english version
 		FWL.SUMMON_START = "Summoning Start";
@@ -372,8 +372,8 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SUMMON_FAILED = "Summoning Failed";
 		FWL.SUMMON_SUCCESS = "Summoning Successfull";
 
-		FWL.SUMMON_START_W = "Summoning Start whisper";	
-		FWL.SUMMON_CANCEL_W = "Summoning Cancel whisper";	
+		FWL.SUMMON_START_W = "Summoning Start whisper";
+		FWL.SUMMON_CANCEL_W = "Summoning Cancel whisper";
 		FWL.SUMMON_FAILED_W = "Summoning Failed whisper";
 
 		FWL.SUMMONING = "Summoning";
@@ -392,7 +392,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SEDUCE_FAILED = "Seduce cast Failed";
 		FWL.SEDUCE_BREAK = "Seduce Break";
 		FWL.SEDUCE_FADE = "Seduce Fade";
-		
+
 		FWL.FEAR_BREAK = "Fear Break";
 		FWL.FEAR_FADE = "Fear Fade";
 		FWL.BANISH_BREAK = "Banish Break";
@@ -403,11 +403,11 @@ if FW.CLASS == "WARLOCK" then
 		FWL.SPELL_LOCK_SUCCESS = "Spell Lock cast Success";
 		FWL.SPELL_LOCK_FAILED = "Spell Lock cast Failed";
 		FWL.SPELL_LOCK_READY = "Spell Lock Ready";
-		
+
 		FWL.DEVOUR_MAGIC_SUCCESS = "Devour Magic cast Success";
 		FWL.DEVOUR_MAGIC_FAILED = "Devour Magic cast Failed";
 		FWL.DEVOUR_MAGIC_READY = "Devour Magic Ready";
-		
+
 		FWL.BLOOD_PACT = "Blood Pact";
 		FWL.BLOOD_PACT_ON = "Blood Pact on";
 		FWL.BLOOD_PACT_GAIN = "Blood Pact gain";
@@ -418,7 +418,7 @@ if FW.CLASS == "WARLOCK" then
 		FWL._LOST_BLOOD_PACT = "%s lost Blood Pact.";
 
 		FWL.DELAY_PET_TARGET = "Delay pet target";
-	
+
 		FWL.RITUAL_OF_DOOM = "Ritual of Doom";
 	end
 end

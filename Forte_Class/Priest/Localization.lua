@@ -20,7 +20,7 @@
 	if GetLocale() == "ruRU" then
 	-- FR
 	elseif GetLocale() == "frFR" then
-	-- DE 
+	-- DE
 	elseif GetLocale() == "deDE" then
 	-- SPANISH
 	elseif GetLocale() == "esES" then

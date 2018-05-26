@@ -208,18 +208,18 @@ local total,matched = 0,0;
 
 function SetMatchCloneFunc(t,o,root,parent_root)
 	--[[if parent_root then -- this options belongs to instances
-		if GetOptionsMatch2(t,o,root,parent_root) then -- 
+		if GetOptionsMatch2(t,o,root,parent_root) then --
 			SetLinkedOption2
 		end
 	end
 	if GetOptionsMatch2(t,o,root) then
-	
+
 	end
 	]]
 end
 
 function SetMatchFunc(index,o,root,parent_root,parent_index)
-	if GetOptionsMatch2(index,o,root,parent_root,parent_index) then -- 
+	if GetOptionsMatch2(index,o,root,parent_root,parent_index) then --
 		SetLinkedOption2(index,o,true,root,parent_root,parent_index);
 		matched = matched + 1;
 	end
@@ -288,7 +288,7 @@ function FW:SetLinkedOptions(index,o,root,parent_root,parent_index,func) -- use 
 				if pd[instance] then
 					for i,d in ipairs(pd[instance].Data) do
 						if d.name == name then
-							CopyOption(s, pd[instance].Instances[i], o);	
+							CopyOption(s, pd[instance].Instances[i], o);
 						end
 					end
 				end
@@ -355,12 +355,12 @@ function GetOptionsMatch(obj,profile)
 end
 
 local function OptionFunction(obj,refresh)
-	
+
 	FW:SetLinkedOptions(obj.main_data.root.Active,obj.o,obj.main_data.root,obj.main_data.parent_root,obj.main_data.parent_root and obj.main_data.parent_root.Active,obj.option_func);
-	
+
 	obj.cross_profile_match = GetOptionsMatch(obj,true);
 	obj.cross_clone_match = GetOptionsMatch(obj,false);
-		
+
 	if obj.option_func then
 		--FW:Show("run func");
 		obj.option_func(obj.instance);
@@ -616,7 +616,7 @@ local function FW_DragFrames()
 								x = r + hw + FW.Settings.FrameDistance;
 							elseif l < vl+FW.Settings.FrameSnapDistance and l > vl-FW.Settings.FrameSnapDistance then
 								x = l + hw;
-							end								
+							end
 						end
 					end
 				end
@@ -631,7 +631,7 @@ local function FW_DragFrames()
 					x = hw + FW.Settings.FrameDistance;
 				end
 			end
-			FW:SetPosition(frame,x,y);			
+			FW:SetPosition(frame,x,y);
 			frame.s.x,frame.s.y = x,y;
 			for main_index, main_data in ipairs(FW_Options) do -- MAIN OPTION LEVEL
 				if main_data.option and main_data.option.frame == f then
@@ -648,7 +648,7 @@ end
 
 function FW:StartMoving(frame,button)
 	cx,cy = GetCursorPosition();
-	if not FW:IsLocked(frame) and button=="LeftButton" and (not frame.combat_sensitive or not STATES.INCOMBAT) then 
+	if not FW:IsLocked(frame) and button=="LeftButton" and (not frame.combat_sensitive or not STATES.INCOMBAT) then
 		FW:RegisterUpdatedEvent(FW_DragFrames);
 		local tx,ty = FW:GetCenter(frame);
 		frame.fwmovingx = tx-cx;
@@ -735,7 +735,7 @@ local function FW_StringToCoordinates(s)
 	s1,s2 = tonumber(s1),tonumber(s2);
 	if s1 and s2 then
 		return s1,s2;
-	end	
+	end
 end
 
 local function FW_StringToColor(s) -- used for filters and normal coloring
@@ -808,7 +808,7 @@ local function FC_BuildFilterList(obj)
 	local y = 0;
 	local i = 1;
 	--FW:Show(s:GetName());
-	
+
 	local list1 = obj.actionbutton.list;
 	local list2 = obj.typebutton.list;
 
@@ -818,44 +818,44 @@ local function FC_BuildFilterList(obj)
 			for key, val in pairs(v) do
 				if val[1] ~= 0 then -- ignore filters set to 'none'
 					l = obj.items[i] or obj:NewFilterListItem(i);
-					
+
 					l.o = obj.o;
 					l.s = obj.s;
 					l.d = obj.d;
-					
+
 					l.editbox:SetText(k);
 					l.actionbutton.list = list1;
 					l.typebutton.list = list2;
 					l.typebutton.val = key;
 					l.typebutton:SetText(FW:TypeName(key,list2));
-					
+
 					l.typebutton:SetFont(fo,si,fl);
 					l.actionbutton:SetFont(fo,si,fl);
 					l.editbox2:SetFont(fo,si-2,fl);
 					l.editbox:SetFont(fo,si,fl);
-					
+
 					FW_FilterSpellUpdate(l);
-					
+
 					y = y - 20;
-					
+
 					l:SetPoint("TOPLEFT", obj, "TOPLEFT",0,y);
 					l:Show();
-					
+
 					i = i + 1;
 				end
 			end
 		end
 	end
-	
+
 	-- hide the rest of the list
-	
+
 	obj:Finalize(i);
 	FW_ColorSelectedSpell(obj);
 	return y;
 end
 
 
-local function FW_SetFilterType(t) -- receives the value number 
+local function FW_SetFilterType(t) -- receives the value number
 	-- the standard code that actually updates the value displayed on the button etc
 	local spell = filterdropdown.button.parent.editbox:GetText();
 	local filter = filterdropdown.button.parent.o;
@@ -864,9 +864,9 @@ local function FW_SetFilterType(t) -- receives the value number
 	-- actually do something with this change
 	local s = filterdropdown.button.parent.s;
 	local typ = filterdropdown.button.parent.typebutton.val or 1;
-	
+
 	if filterdropdown.button.list == FW.FilterListOptions then -- this is the ACTION selection dropdown
-		
+
 		if not s[filter][spell] then
 			s[filter][spell] = {};
 		end
@@ -874,17 +874,17 @@ local function FW_SetFilterType(t) -- receives the value number
 			s[filter][spell][typ] = {};
 		end
 		s[filter][spell][typ][1]=t;
-		
+
 		if filterdropdown.button.parent.expand == null then
 			filterdropdown.button.parent.parent:func();
 		else
 			filterdropdown.button.parent:func();
 		end
-		
+
 		FW_ToggleFilterList();  -- rebuild filter list
-		
+
 	else -- this is the TYPE selection dropdown
-		
+
 		if filterdropdown.button.parent.expand == nil then -- this is a list item edit!!
 			-- i want to change the actual type and keep the rest of the settings...
 			local old = filterdropdown.button.val;
@@ -894,12 +894,12 @@ local function FW_SetFilterType(t) -- receives the value number
 			s[filter][spell][t][1] = s[filter][spell][old][1];
 			s[filter][spell][t][2] = s[filter][spell][old][2];
 			s[filter][spell][t][3] = s[filter][spell][old][3];
-			s[filter][spell][t][4] = s[filter][spell][old][4];	
+			s[filter][spell][t][4] = s[filter][spell][old][4];
 			s[filter][spell][old] = nil;
-			
+
 			filterdropdown.button.parent.parent:func();
-			
-			FW_ToggleFilterList();  -- rebuild filter list			
+
+			FW_ToggleFilterList();  -- rebuild filter list
 		end
 	end
 	filterdropdown.button.val = t; -- <<-- the easiest way... stores the value INDEX that's selected
@@ -935,7 +935,7 @@ local function FW_FilterColorPickerCancel()
 	_G.ColorPickerFrame.setting[2],_G.ColorPickerFrame.setting[3],_G.ColorPickerFrame.setting[4]=_G.ColorPickerFrame.previousValues[1],_G.ColorPickerFrame.previousValues[2],_G.ColorPickerFrame.previousValues[3];
 	_G.ColorPickerFrame.colorswatch.normaltexture:SetVertexColor(_G.ColorPickerFrame.setting[2],_G.ColorPickerFrame.setting[3],_G.ColorPickerFrame.setting[4],1);
 	_G.ColorPickerFrame.colorswatch.parent.editbox2:SetText(FW_FilterColorString(_G.ColorPickerFrame.setting));
-	
+
 	if _G.ColorPickerFrame.colorswatch.parent.func then
 		_G.ColorPickerFrame.colorswatch.parent:func();
 	else
@@ -990,11 +990,11 @@ local function FW_ColorPickerCancel()
 	local s = _G.ColorPickerFrame.colorswatch.parent.s;
 	s[o][1],s[o][2],s[o][3] = _G.ColorPickerFrame.previousValues[1],_G.ColorPickerFrame.previousValues[2],_G.ColorPickerFrame.previousValues[3];
 	s[o][4] = _G.ColorPickerFrame.previousValues[4];
-	
+
 	_G.ColorPickerFrame.colorswatch.normaltexture:SetVertexColor(s[o][1],s[o][2],s[o][3],s[o][4]);
 	_G.ColorPickerFrame.colorswatch.fullalphatexture:SetVertexColor(s[o][1],s[o][2],s[o][3]);
 	_G.ColorPickerFrame.colorswatch.parent.editbox:SetText(FW_ColorString(s[o]));
-	
+
 	_G.ColorPickerFrame.colorswatch.parent:func();
 end
 
@@ -1011,7 +1011,7 @@ local function FW_RestorePosition(button)
 		instance:ClearAllPoints();
 		instance:SetPoint("CENTER",UIParent, "CENTER",0,0);
 		instance.s.x,instance.s.y = FW:GetCenter(instance);
-		
+
 		button.parent.coordinates:SetText(FW_CoordinatesString(instance));
 	end
 end
@@ -1049,12 +1049,12 @@ end
 local function FW_AutoComplete(self,...) -- auto complete editbox with keys from x tables
 	local text = self:GetText();
 	local textlen = strlen(text);
-	
+
 	-- fix special characters here if needed
 	text = gsub(text, "%(", "%%(");
 	text = gsub(text, "%)", "%%)");
 	text = gsub(text, "%-", "%%-");
-	
+
 	for i=1,select("#",...),1 do
 		local t = (select(i,...));
 		if t then
@@ -1096,14 +1096,14 @@ local function NewColorSwatch(parent)
 	local o = obj.parent.o;
 	obj:SetWidth(18);
 	obj:SetHeight(18);
-	
+
 	obj.fullalphatexture = obj:CreateTexture(nil,"OVERLAY");
 	obj.fullalphatexture:SetTexture("Interface\\ChatFrame\\ChatFrameColorSwatch");
 	obj.fullalphatexture:SetWidth(18);
 	obj.fullalphatexture:SetHeight(18);
 	obj.fullalphatexture:SetPoint("CENTER",obj,"CENTER",0,0);
-	obj.fullalphatexture:SetTexCoord(0,0, 0,1, 1,0, 1000,1000);	
-	
+	obj.fullalphatexture:SetTexCoord(0,0, 0,1, 1,0, 1000,1000);
+
 	obj.backgroundtexture = obj:CreateTexture(nil,"BACKGROUND");
 	obj.backgroundtexture:SetTexture(0.8,0.8,0.8);
 	obj.backgroundtexture:SetWidth(16);
@@ -1113,12 +1113,12 @@ local function NewColorSwatch(parent)
 
 	obj:SetNormalTexture("Interface\\ChatFrame\\ChatFrameColorSwatch");
 	obj.normaltexture = obj:GetNormalTexture();
-	
+
 	--scripts
 
 	obj.title = FWL.CLICK_TO_EDIT;
 	obj.tip = FWL.CLICK_TO_EDIT_TT;
-	
+
 	obj.SetEnabled = function(self,enabled)
 		obj:EnableMouse(enabled);
 		if enabled then
@@ -1129,11 +1129,11 @@ local function NewColorSwatch(parent)
 	end
 
 	obj:SetScript("OnClick",function(self)
-				
+
 		CloseMenus();
 		_G.ColorPickerFrame.func = FW_ColorPickerApply;
 		_G.ColorPickerFrame.colorswatch = self;
-		
+
 		if obj.parent.d[o] and obj.parent.d[o][4] then
 			_G.ColorPickerFrame.hasOpacity = 1;
 			_G.ColorPickerFrame.opacityFunc = FW_AlphaApply;
@@ -1143,18 +1143,18 @@ local function NewColorSwatch(parent)
 			_G.ColorPickerFrame.opacityFunc = nil;
 			obj.parent.s[o][4] = nil;
 		end
-		
+
 		_G.ColorPickerFrame:SetColorRGB(obj.parent.s[o][1],obj.parent.s[o][2],obj.parent.s[o][3]);
-		
+
 		if not _G.ColorPickerFrame.previousValues then _G.ColorPickerFrame.previousValues = {}; end
 		_G.ColorPickerFrame.previousValues[1] = obj.parent.s[o][1];
 		_G.ColorPickerFrame.previousValues[2] = obj.parent.s[o][2];
 		_G.ColorPickerFrame.previousValues[3] = obj.parent.s[o][3];
 		_G.ColorPickerFrame.previousValues[4] = obj.parent.s[o][4];
-		
+
 		_G.ColorPickerFrame.cancelFunc = FW_ColorPickerCancel;
 		ShowUIPanel(_G.ColorPickerFrame);
-		
+
 	end);
 
 	obj:SetScript("OnEnter",function(self)
@@ -1179,7 +1179,7 @@ local function NewButton(parent)
 	obj.parent = parent;
 	obj:SetWidth(14);
 	obj:SetHeight(14);
-	
+
 	return obj;
 end
 
@@ -1187,17 +1187,17 @@ local function NewDropdownShowButton(parent,dropdown)
 	local obj = CreateFrame("Frame",nil,parent);
 	obj.parent = parent;
 	obj.dropdown = dropdown;
-	
+
 	obj:SetHeight(14);
 	obj:EnableMouse(1);
 	obj.text = NewTextString(obj);
 	obj.text:SetJustifyH("CENTER");
 	obj.text:SetAllPoints(obj);
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetAllPoints(obj);
 	obj.background:SetTexture(0,0,0,0.1);
-	
+
 	--scripts
 	obj.SetText = function(self,text)
 		obj.text:SetText(text);
@@ -1239,11 +1239,11 @@ local function NewTextButton(parent)
 	obj.text:SetPoint(obj.anchor,obj,obj.anchor,0,0);
 	obj.high = obj:CreateFontString(nil,"HIGHLIGHT","FWFontHighlight");
 	obj.high:SetPoint(obj.anchor,obj,obj.anchor,0,0);
-	
+
 	obj.texture = obj:CreateTexture(nil,"BACKGROUND");
 	obj.texture:SetPoint("TOPLEFT",obj,"TOPLEFT",1,-1);
 	obj.texture:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-1,1);
-	
+
 	-- scripts
 	obj.SetText = function(self,text)
 		obj.text:SetText(text);
@@ -1271,7 +1271,7 @@ local function NewTextButton(parent)
 			obj.text:SetFontObject("FWFontNormal");
 		else
 			obj.text:SetFontObject("FWFontDisable");
-		end	
+		end
 	end
 	obj.SetTextColor = function(self,...)
 		obj.text:SetTextColor(...);
@@ -1287,7 +1287,7 @@ local function NewTextButton(parent)
 		obj.high:SetPoint(obj.anchor,obj,obj.anchor,0,0);
 		--obj.texture:SetRotation(0);
 		obj.texture:SetTexCoord(0,0,0,1,1,0,1,1);
-	end);	
+	end);
 	obj:SetScript("OnLeave",function(self)
 		obj.text:SetPoint(obj.anchor,obj,obj.anchor,0,0);
 		obj.high:SetPoint(obj.anchor,obj,obj.anchor,0,0);
@@ -1298,13 +1298,13 @@ local function NewTextButton(parent)
 		obj.text:Hide();
 		FW:ShowOptionsTip(self);
 	end);
-	
+
 	return obj;
 end
 
 local function NewDropdownListButton(parent)
 	local obj = NewTextButton(parent);
-	
+
 	obj:SetScript("OnEnter",function(self)
 		obj.parent:Show();
 		obj.text:Hide();
@@ -1339,12 +1339,12 @@ local function NewTexturedButton(parent,texture)
 	obj.highlighttexture = obj:GetHighlightTexture();
 	obj.highlighttexture:SetBlendMode("ADD");
 	obj.highlighttexture:SetDesaturated(1);
-	
-	obj:SetDisabledTexture(texture);	
+
+	obj:SetDisabledTexture(texture);
 	obj.disabledtexture = obj:GetDisabledTexture();
 	obj.disabledtexture:SetDesaturated(1);
 	obj.disabledtexture:SetVertexColor(0.5,0.5,0.5);
-	
+
 	obj.SetEnabled = function(self,enabled)
 		if enabled then
 			self:Enable();
@@ -1352,14 +1352,14 @@ local function NewTexturedButton(parent,texture)
 			self:Disable();
 		end
 	end
-	
+
 	obj:SetScript("OnEnter",function(self)
 		FW:ShowOptionsTip(self);
 	end);
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -1379,7 +1379,7 @@ function FW:RefreshFields(obj)
 		"button","overbutton","tilesize","bg","edge","inset","border",
 		"colorswatch"
 	};
-	
+
 	for i, field in ipairs(fields) do
 		if obj[field] then
 			obj[field]:Hide();
@@ -1414,11 +1414,11 @@ local function NewDefaultButton(parent)
 	obj.disabledtexture:SetVertexColor(0.5,0.5,0.5,0.3);
 	obj.title = FWL.DEFAULT;
 	obj.tip = FWL.DEFAULT_TT;
-	
+
 	obj:SetScript("OnEnter",DefaultOnEnter);
 	obj:SetScript("OnLeave",DefaultOnLeave);
 	obj.SetEnabled = function(self,enabled)
-	
+
 		if enabled and not (self.parent.s and MatchOption( self.parent.s, self.parent.d, self.parent.o)) then
 			self:Enable();
 		else
@@ -1443,16 +1443,16 @@ local function NewEditBox(parent)
 	obj:SetAutoFocus(false)
 	obj:SetMaxLetters(64);
 	obj:SetJustifyH("RIGHT");
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetAllPoints(obj);
 	obj.background:SetTexture(0,0,0,0.1);
-	
-	obj:SetFontObject("FWFontHighlight"); -- 
-			
+
+	obj:SetFontObject("FWFontHighlight"); --
+
 	obj.title = FWL.CLICK_TO_EDIT;
-	obj.tip = FWL.CLICK_TO_EDIT_TT;	
-	
+	obj.tip = FWL.CLICK_TO_EDIT_TT;
+
 	--scripts
 	obj.SetEnabled = function(self,enabled)
 		if enabled then
@@ -1483,7 +1483,7 @@ local function NewEditBox(parent)
 	end);
 	obj:SetScript("OnEnterPressed",function(self)
 		self:ClearFocus();
-	end);	
+	end);
 	obj:SetScript("OnEditFocusGained",function(self)
 		self:HighlightText();
 	end);
@@ -1491,7 +1491,7 @@ local function NewEditBox(parent)
 		self:HighlightText(0,0);
 		self:SetText(obj.parent.s[obj.parent.o]);
 	end);
-	
+
 	return obj;
 end
 
@@ -1505,7 +1505,7 @@ local function NewTextureButton(parent,n)
 	obj:SetNormalTexture("Interface\\PaperDollInfoFrame\\UI-Character-Skills-Bar");
 	obj.normaltexture = obj:GetNormalTexture();
 	obj.normaltexture:SetVertexColor(1.00,0.88,0.50);
-	
+
 	--scripts
 	obj:SetScript("OnClick",function(self)
 		FW_TextureApply(self.val);
@@ -1521,7 +1521,7 @@ local function NewTextureButton(parent,n)
 			texturedropdown:Hide();
 		end
 	end);
-	
+
 	return obj;
 end
 
@@ -1531,7 +1531,7 @@ local function NewBackdropButton(parent,n)
 	obj.parent.items[n] = obj;
 	obj:SetWidth(140);
 	obj:SetHeight(32);
-	
+
 	obj:SetNormalTexture("Interface\\PaperDollInfoFrame\\UI-Character-Skills-Bar");
 	obj.normaltexture = obj:GetNormalTexture();
 	obj.normaltexture:SetVertexColor(1.00,0.88,0.50);
@@ -1553,17 +1553,17 @@ local function NewBackdropButton(parent,n)
 			backdropdropdown:Hide();
 		end
 	end);
-	
+
 	return obj;
 end
 
 local function NewShortcutButton(parent)
 	local obj = NewTextButton(parent);
-	
+
 	obj.texture = obj:CreateTexture(nil,"BACKGROUND");
 	obj.texture:SetPoint("TOPLEFT",obj,"TOPLEFT",1,-1);
 	obj.texture:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-1,1);
-	
+
 	obj:SetNormalTexture("Interface\\GossipFrame\\BinderGossipIcon");
 	obj.normaltexture = obj:GetNormalTexture();
 	obj.normaltexture:SetWidth(12);
@@ -1592,7 +1592,7 @@ local function NewFilterButton(parent,n)
 	obj.parent.items[n] = obj;
 	obj:SetWidth(70);
 	obj:SetHeight(16);
-	
+
 	--scripts
 	obj:SetScript("OnClick",function(self)
 		FW_SetFilterType(self.val);
@@ -1605,7 +1605,7 @@ end
 
 local function NewPlaySound(parent)
 	local obj = NewTexturedButton(parent,"Interface\\Buttons\\UI-GuildButton-MOTD-Up");
-	
+
 	--scripts
 	obj:SetScript("OnClick",function(self)
 		if obj.parent.s and obj.parent.s[obj.parent.o] then
@@ -1628,7 +1628,7 @@ local function NewSoundButton(parent,n)
 
 	obj.play = NewPlaySound(obj);
 	obj.play:SetPoint("LEFT",obj);
-	
+
 	--scripts
 	obj:SetScript("OnClick",function(self)
 		FW_SoundApply(self.o);
@@ -1663,14 +1663,14 @@ local function NewDropdown(parent,build)
 	obj.NewFilterButton = NewFilterButton;
 	obj.NewTextureButton = NewTextureButton;
 	obj.NewBackdropButton = NewBackdropButton
-	
+
 	obj.Finalize = function(self,i)
 		while obj.items[i] and obj.items[i]:IsShown() do
 			obj.items[i]:Hide();
 			i=i+1;
 		end
 	end
-		
+
 	--scripts
 	obj:SetScript("OnEnter",function(self)
 		self:Show();
@@ -1680,7 +1680,7 @@ local function NewDropdown(parent,build)
 		self:Hide();
 		self.over = false;
 	end);
-	
+
 	return obj;
 end
 
@@ -1689,15 +1689,15 @@ local function NewCheckButton(parent)
 	obj.parent = parent;
 	obj:SetWidth(20);
 	obj:SetHeight(20);
-	
+
 	obj:SetNormalTexture("Interface\\AddOns\\Forte_Core\\Textures\\CheckButton");
 	obj.normaltexture = obj:GetNormalTexture();
 	obj.normaltexture:ClearAllPoints();
 	obj.normaltexture:SetWidth(16);
 	obj.normaltexture:SetHeight(16);
 	obj.normaltexture:SetPoint("CENTER",obj,"CENTER",0,0);
-	
-	obj:SetDisabledTexture("Interface\\AddOns\\Forte_Core\\Textures\\CheckButton");	
+
+	obj:SetDisabledTexture("Interface\\AddOns\\Forte_Core\\Textures\\CheckButton");
 	obj.disabledtexture = obj:GetDisabledTexture();
 	obj.disabledtexture:ClearAllPoints();
 	obj.disabledtexture:SetWidth(16);
@@ -1705,27 +1705,27 @@ local function NewCheckButton(parent)
 	obj.disabledtexture:SetPoint("CENTER",obj,"CENTER",0,0);
 	obj.disabledtexture:SetVertexColor(0.5,0.5,0.5);
 	--obj.disabledtexture:SetDesaturated(1);
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetTexture(0,0,0,0.2);
 	obj.background:SetWidth(10);
 	obj.background:SetHeight(10);
 	obj.background:SetPoint("CENTER",obj,"CENTER",0,0);
-	
+
 	obj.texture = obj:CreateTexture(nil,"OVERLAY");
 	obj.texture:SetTexture("Interface\\Buttons\\UI-CheckBox-Check");
 	obj.texture:SetAllPoints(obj);
-	
+
 	obj.title = "[click to toggle]";
 	obj.tip = "";
 	obj.SetEnabled = function(self,enabled)
 		if enabled then
 			obj.texture:SetDesaturated(false);
-			self:Enable();	
+			self:Enable();
 		else
 			self:Disable();
-			obj.texture:SetDesaturated(true);	
-		end		
+			obj.texture:SetDesaturated(true);
+		end
 	end
 	obj.SetChecked = function(self,checked)
 		if checked then
@@ -1734,7 +1734,7 @@ local function NewCheckButton(parent)
 			obj.texture:SetVertexColor(1,1,1,0);
 		end
 	end
-	
+
 	obj:SetScript("OnEnter",function(self)
 		obj.background:SetTexture(1,1,1,0.05);
 		FW:ShowOptionsTip(self);
@@ -1754,7 +1754,7 @@ local function ClickOption(obj,button)
 	local root = obj.main_data.root;
 	local parent_link = parent_root and GetLink(parent_root.Active,parent_root);
 	local link = root and GetLink(root.Active,root);
-	
+
 	local d = false;
 	if IsShiftKeyDown() and (parent_root and parent_link or not parent_root and link) then
 		obj.cross_profile = not obj.cross_profile;
@@ -1780,13 +1780,13 @@ local function NewLinker(parent)
 	obj.background:SetPoint("TOPLEFT",obj,"TOPLEFT",4,-1);
 	obj.background:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-4,1);
 	obj.background:SetTexture(1,1,1);
-	
+
 	obj.line = obj:CreateTexture(nil,"BACKGROUND");
 	obj.line:SetPoint("BOTTOMLEFT",obj,"BOTTOMLEFT",4,0);
 	obj.line:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-4,0);
 	obj.line:SetHeight(2);
 	obj.line:SetTexture(1,1,1);
-	
+
 	obj:SetScript("OnShow",function(self)
 		self:SetLinked();
 	end);
@@ -1794,7 +1794,7 @@ local function NewLinker(parent)
 		--if profile_link then
 		obj.background:Show();
 		obj.line:Show();
-		
+
 		if not obj.parent.cross_profile_match then
 			if not obj.parent.cross_clone_match then
 				obj.line:SetVertexColor(unpack(FW.Settings.DiffBothColor));
@@ -1827,7 +1827,7 @@ local function NewLinker(parent)
 		--end
 	end
 	obj.parent:SetScript("OnMouseUp",ClickOption); -- USES PARENT OPTION ONMOUSEUP !!!!
-	
+
 	return obj;
 end
 
@@ -1837,11 +1837,11 @@ local function NewOption(parent,o,s,d) -- create a default option frame
 	obj.s = s or FW.Settings;
 	obj.d = d or FW.Default;
 	--obj.orig_s =  s or FW.Settings;
-	
+
 	obj.parent = parent;
 	obj.default = NewDefaultButton(obj);
 	obj.linker = NewLinker(obj);
-	
+
 	return obj;
 end
 
@@ -1855,9 +1855,9 @@ local function NewButtonOption(parent,o,s,d)
 
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextButton(obj);
-	
+
 	obj.text:SetNormalTexture("Interface\\GossipFrame\\BinderGossipIcon");
 	obj.text:SetPoint("TOPLEFT",obj,"TOPLEFT",7,-2);
 	obj.text:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-7,2);
@@ -1866,13 +1866,13 @@ local function NewButtonOption(parent,o,s,d)
 	obj.text.normaltexture:SetHeight(12);
 	obj.text.normaltexture:ClearAllPoints();
 	obj.text.normaltexture:SetPoint("LEFT",obj.text,"LEFT",2,0);
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetPoint("TOPLEFT",obj,"TOPLEFT",7,-2);
 	obj.background:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-7,2);
 	obj.background:SetTexture(0.8,0.8,0.8);
 	obj.background:SetVertexColor(1.00,0.82,0.00);
-	
+
 	obj.SetEnabled = function(self,enabled)
 		obj.text:SetEnabled(enabled);
 		if enabled then
@@ -1882,9 +1882,9 @@ local function NewButtonOption(parent,o,s,d)
 			obj.background:SetVertexColor(0.5,0.5,0.5);
 			obj.text.normaltexture:SetDesaturated(true);
 		end
-		
+
 	end
-	
+
 	obj.text:SetScript("OnClick",function(self)
 		obj:func(true);
 	end);
@@ -1911,17 +1911,17 @@ end
 
 local function NewCheckOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
-	obj:EnableMouse(1);	
+
+	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",28,0);
-	
+
 	obj.checkbutton = NewCheckButton(obj);
 	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);
-		
+
 	-- scripts
 	obj.checkbutton:SetScript("OnClick",function(self)
 		obj.s[obj.o] = not obj.s[obj.o];
@@ -1948,23 +1948,23 @@ local function NewCheckOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
 local function NewBackdropOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
 
-	obj:EnableMouse(1);	
+	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(40);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetWidth(65);
 	obj.text:SetHeight(40);
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-	
+
 	if not backdropdropdown then
 		backdropdropdown = NewDropdown(OptionsPanel,function()
 			local j=0;
@@ -1982,49 +1982,49 @@ local function NewBackdropOption(parent,o,s,d)
 			backdropdropdown:Finalize(j+1);
 		end);
 	end
-	
+
 	obj.button = CreateFrame("Frame",nil,obj);
 	obj.button:SetWidth(140);
 	obj.button:SetHeight(34);
 	obj.button:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.button:EnableMouse(1);
-	
-	obj.overbutton = CreateFrame("Frame",nil,obj.button); 
+
+	obj.overbutton = CreateFrame("Frame",nil,obj.button);
 	obj.overbutton:SetWidth(120);
 	obj.overbutton:SetHeight(14);
 	obj.overbutton:SetPoint("CENTER",obj.button,"CENTER",0,0);
 	obj.overbutton:EnableMouse(1);
-	
-	obj.checkbutton = NewCheckButton(obj);	
+
+	obj.checkbutton = NewCheckButton(obj);
 	obj.checkbutton:SetPoint("LEFT",obj.button,"RIGHT",5,10);
 	obj.checkbutton:SetWidth(22);
 	obj.checkbutton.title = "[tile background, click to toggle]";
-	
+
 	obj.tilesize = NewEditBox(obj);
 	obj.tilesize:SetPoint("LEFT",obj.checkbutton,"RIGHT",5,0);
 	obj.tilesize:SetWidth(22);
 	obj.tilesize.title = "[tile size background, click to edit]";
-	
+
 	obj.bg = NewEditBox(obj);
 	obj.bg:SetPoint("LEFT",obj.tilesize,"RIGHT",5,0);
 	obj.bg:SetPoint("RIGHT",obj.default,"LEFT",-5,10);
 	obj.bg.title = "[background, click to edit]";
-	
+
 	obj.edge = NewEditBox(obj);
 	obj.edge:SetPoint("LEFT",obj.button,"RIGHT",5,-10);
 	obj.edge:SetWidth(22);
 	obj.edge.title = "[border size, click to edit]";
-	
+
 	obj.inset = NewEditBox(obj);
 	obj.inset:SetPoint("LEFT",obj.edge,"RIGHT",5,0);
 	obj.inset:SetWidth(22);
 	obj.inset.title = "[edge-content spacing, click to edit]";
-	
+
 	obj.border = NewEditBox(obj);
 	obj.border:SetPoint("LEFT",obj.inset,"RIGHT",5,0);
 	obj.border:SetPoint("RIGHT",obj.default,"LEFT",-5,-10);
 	obj.border.title = "[border, click to edit]";
-	
+
 	-- scripts
 	obj.default:SetScript("OnClick",function(self)
 		for k, v in ipairs(obj.d[obj.o]) do
@@ -2205,22 +2205,22 @@ end
 local function NewSoundOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
 
-	obj:EnableMouse(1);	
+	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetWidth(65);
 	obj.text:SetHeight(20);
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",45,0);
-	
-	obj.checkbutton = NewCheckButton(obj);	
-	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);	
-	
+
+	obj.checkbutton = NewCheckButton(obj);
+	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);
+
 	obj.play = NewPlaySound(obj);
 	obj.play:SetPoint("LEFT",obj,"LEFT",25,0);
-	
+
 	if not sounddropdown then
 		sounddropdown = NewDropdown(OptionsPanel,function()
 		local j=0;
@@ -2235,7 +2235,7 @@ local function NewSoundOption(parent,o,s,d)
 			j=j+1;
 		end
 		sounddropdown:SetWidth((142)*3+8);
-		sounddropdown:SetHeight(floor((j-1)/3)*18+26);	
+		sounddropdown:SetHeight(floor((j-1)/3)*18+26);
 		sounddropdown:Finalize(j+1);
 	end);
 
@@ -2243,17 +2243,17 @@ local function NewSoundOption(parent,o,s,d)
 	obj.button = NewDropdownShowButton(obj,sounddropdown)
 	obj.button:SetWidth(140);
 	obj.button:SetPoint("LEFT",obj.text,"RIGHT",5,0);
-	
+
 	obj.editbox2 = NewEditBox(obj);
 	obj.editbox2:SetWidth(22);
 	obj.editbox2:SetPoint("LEFT",obj.button,"RIGHT",5,0);
 	obj.editbox2.minimum = 1;
 	obj.editbox2.maximum = 8;
-	
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.editbox2,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	--scripts
 	--obj.title = FW.L.CLICK_TO_EDIT;
 	--obj.tip= "";
@@ -2315,28 +2315,28 @@ local function NewSoundOption(parent,o,s,d)
 		end
 		self:ClearFocus();
 	end);
-	
+
 	obj:SetScript("OnEnter",function(self)
 		FW:ShowOptionsTip(self);
 	end);
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
 --[[local function NewCreateTabFrame(parent)
 	local obj = CreateFrame("Frame",nil,parent);
 	obj.parent = parent;
-	
+
 	obj.button = NewTextButton(obj);
 	obj.button:SetPoint("TOPLEFT",obj,"TOPLEFT",0,-2);
-	
+
 	FW:SetBackdrop(obj,unpack(FW.Settings.OptionsBackdrop));
-	
+
 	obj:SetHeight(35);
-	
+
 	obj.SetText = function(self,txt)
 		obj.button:SetText(txt);
 		obj.button:SetWidth(obj.button.text:GetWidth()+FW.Settings.OptionsBackdrop[6]+3);
@@ -2351,12 +2351,12 @@ local function NewTabFrame(parent)
 	obj.parent = parent;
 	obj.edit = false;
 	obj.editing = false;
-	
+
 	obj.button = NewTextButton(obj);
 	obj.button:SetPoint("TOPLEFT",obj,"TOPLEFT",0,-2);
 	obj.button.title = FWL.SELECT_CLONE;
 	obj.button.tip = "";
-	
+
 	obj.delete = NewTexturedButton(obj,"Interface\\Glues\\Login\\Glues-CheckBox-Check");
 	obj.delete:SetPoint("TOPRIGHT",obj,"TOPRIGHT",-5,-5);
 	obj.delete:SetHeight(10);
@@ -2365,14 +2365,14 @@ local function NewTabFrame(parent)
 	obj.delete.title = FWL.DELETE_CLONE;
 	obj.delete.tip = "";
 	obj:SetHeight(35);
-	
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetJustifyH("LEFT");
 	obj.editbox:SetPoint("TOPLEFT",obj,"TOPLEFT",5,-2);
 	obj.editbox:Hide();
 	obj.editbox.title = FWL.RENAMING_CLONE;
 	obj.editbox.tip = FWL.CLICK_TO_EDIT_TT;
-	
+
 	obj.SetEditable = function(self,edit)
 		if edit ~= obj.edit then
 			obj.edit = edit;
@@ -2396,7 +2396,7 @@ local function NewTabFrame(parent)
 				obj.editbox:Show();
 				obj.editbox:SetText(obj.button.text:GetText());
 				obj.editbox:SetFocus(true);
-				
+
 			else
 				obj.button:SetWidth(obj.button.text:GetWidth()+8);
 				obj:SetWidth(obj.button:GetWidth()+rightspace);
@@ -2405,16 +2405,16 @@ local function NewTabFrame(parent)
 			end
 		end
 	end
-	
+
 	obj.SetText = function(self,txt)
 		obj.displayname = txt; -- for easier access
 		obj.button:SetText(txt);
 		obj.button:SetWidth(obj.button.text:GetWidth()+5+3);
 		obj:SetWidth(obj.button:GetWidth()+rightspace);
-		
+
 	end
 	obj.button:SetScript("OnClick",function(self)
-		
+
 		if IsShiftKeyDown() or IsControlKeyDown() then
 			if obj.link_func then
 				obj:link_func();
@@ -2445,7 +2445,7 @@ local function NewTabFrame(parent)
 			obj.rename_func(obj,txt);
 		end
 		self:ClearFocus();
-	end);	
+	end);
 	obj.editbox:SetScript("OnShow",function(self)
 	end);
 	obj.editbox:SetScript("OnEditFocusLost",function(self)
@@ -2461,15 +2461,15 @@ local function NewOptionsFrame(parent)
 	obj.normalheader = NewOptionsHeader(obj);
 	obj.frameheader = CreateFrame("Frame",nil,obj);
 	obj.frameheader.parent = obj;
-	
+
 	obj.frameheader.midframe = NewOptionsHeader(obj.frameheader);
 	obj.frameheader.leftframe = NewOptionsHeader(obj.frameheader);
 	obj.frameheader.rightframe = NewOptionsHeader(obj.frameheader);
 	obj.frameheader.rightmidframe = NewOptionsHeader(obj.frameheader);
 	obj.frameheader.leftmidframe = NewOptionsHeader(obj.frameheader);
-	
+
 	obj.frameheader.default = NewDefaultAllButton(obj.frameheader);
-	obj.frameheader.default:SetPoint("RIGHT",obj.frameheader,"RIGHT",-32,0);	
+	obj.frameheader.default:SetPoint("RIGHT",obj.frameheader,"RIGHT",-32,0);
 
 	obj.frameheader.position = NewTexturedButton(obj.frameheader,"Interface\\Glues\\LoadingScreens\\DynamicElements");
 	obj.frameheader.position:SetPoint("RIGHT",obj.frameheader.default,"LEFT",-5,0);
@@ -2477,17 +2477,17 @@ local function NewOptionsFrame(parent)
 	obj.frameheader.position.highlighttexture:SetTexCoord(0.5,1.0,0.0,0.5);
 	obj.frameheader.position:SetWidth(14);
 	obj.frameheader.position:SetHeight(14);
-	
+
 	obj.frameheader.coordinates = NewEditBox(obj.frameheader);
 	obj.frameheader.coordinates:SetWidth(60);
 	obj.frameheader.coordinates:SetHeight(12);
 	obj.frameheader.coordinates:SetPoint("RIGHT",obj.frameheader.position,"LEFT",-3,0);
-	
+
 	obj.frameheader.alpharestore = NewTexturedButton(obj.frameheader,"Interface\\Icons\\Spell_Magic_LesserInvisibilty");
 	obj.frameheader.alpharestore:SetPoint("RIGHT",obj.frameheader.coordinates,"LEFT",-3,0);
 	obj.frameheader.alpharestore:SetWidth(12);
-	obj.frameheader.alpharestore:SetHeight(12);	
-	
+	obj.frameheader.alpharestore:SetHeight(12);
+
 	obj.frameheader.alpha = NewEditBox(obj.frameheader);
 	obj.frameheader.alpha:SetWidth(24);
 	obj.frameheader.alpha:SetHeight(12);
@@ -2497,7 +2497,7 @@ local function NewOptionsFrame(parent)
 	obj.frameheader.scalerestore:SetPoint("RIGHT",obj.frameheader.alpha,"LEFT",-3,0);
 	obj.frameheader.scalerestore:SetWidth(12);
 	obj.frameheader.scalerestore:SetHeight(12);
-	
+
 	obj.frameheader.scale = NewEditBox(obj.frameheader);
 	obj.frameheader.scale:SetWidth(24);
 	obj.frameheader.scale:SetHeight(12);
@@ -2519,7 +2519,7 @@ local function NewOptionsFrame(parent)
 
 	obj.frameheader.lock = NewTexturedButton(obj.frameheader,"Interface\\Glues\\CharacterSelect\\Glues-AddOn-Icons");
 	obj.frameheader.lock:SetPoint("LEFT",obj.header.icon,"RIGHT",5,0);
-	
+
 	obj.frameheader.midframe:SetPoint("LEFT",obj.header.title,"LEFT",-10,0);
 	obj.frameheader.midframe:SetPoint("RIGHT",obj.header.title,"RIGHT",10,0);
 	obj.frameheader.leftframe:SetPoint("LEFT",obj.frameheader,"LEFT",0,0);
@@ -2530,10 +2530,10 @@ local function NewOptionsFrame(parent)
 	obj.frameheader.rightmidframe:SetPoint("RIGHT",obj.frameheader.rightframe,"LEFT",0,0);
 	obj.frameheader.leftmidframe:SetPoint("LEFT",obj.frameheader.leftframe,"RIGHT",0,0);
 	obj.frameheader.leftmidframe:SetPoint("RIGHT",obj.frameheader.midframe,"LEFT",0,0);
-	
+
 	obj.frameheader:SetAllPoints(obj.header);
 	obj.normalheader:SetAllPoints(obj.header);
-	
+
 	--scripts
 	obj.frameheader.position.tip = FWL.POSITION_TT;
 	obj.frameheader.position.title = FWL.POSITION;
@@ -2543,16 +2543,16 @@ local function NewOptionsFrame(parent)
 	obj.frameheader.scalerestore.title = FWL.RESTORE_SCALE;
 	obj.frameheader.default.tip = FWL.DEFAULT_FRAME_TT;
 	obj.frameheader.default.title = FWL.DEFAULT_FRAME;
-	
+
 	obj:SetScript("OnMouseUp",function(self)
 		local parent_root = obj.main_data.parent_root;
 		local root = obj.main_data.root;
 		local parent_link = parent_root and GetLink(parent_root.Active,parent_root);
 		local link = root and GetLink(root.Active,root);
-	
+
 		local modi = false;
 		local alt = IsAltKeyDown();
-		
+
 		if IsShiftKeyDown() then
 			if parent_root and parent_link or not parent_root and link then
 				--FW:Show("smart toggle cross profile");
@@ -2585,7 +2585,7 @@ local function NewOptionsFrame(parent)
 						end
 					end
 				end
-				
+
 			end
 			modi = true;
 		end
@@ -2623,7 +2623,7 @@ local function NewOptionsFrame(parent)
 				end
 			end
 			modi = true;
-		end	
+		end
 		if not modi then -- smart expand / collapse all
 			local expand,e,c = false,0,0;
 			for sub_index, sub_data in ipairs(FW_Options[obj.index][MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
@@ -2645,8 +2645,8 @@ local function NewOptionsFrame(parent)
 		end
 		OptionsPanel:Draw();  -- rebuild options
 		OptionsPanel:Refresh();
-	end);				
-	
+	end);
+
 	obj.header.default:SetScript("OnClick",function(self)
 		FW_RestoreDefaults(obj);
 	end);
@@ -2741,45 +2741,45 @@ local function NewSubOptionsFrame(parent)
 	--obj.expand = false;
 	obj.tip = "";
 	obj.title = "";
-	
+
 	obj.parent = parent;
 	obj:SetHeight(20);
-	
+
 	obj.header = CreateFrame("Frame",nil,obj);
 	obj.header:SetHeight(20);
 	obj.header:SetPoint("TOPLEFT",obj,"TOPLEFT",0,0);
-	
+
 	obj.header.texture = obj:CreateTexture(nil,"BACKGROUND");
 	obj.header.texture:SetPoint("TOPLEFT",obj.header,"TOPLEFT",2,-2);
 	obj.header.texture:SetPoint("BOTTOMRIGHT",obj.header,"BOTTOMRIGHT",-2,2);
-	
+
 	obj.header.icon = obj.header:CreateTexture(nil,"ARTWORK");
 	obj.header.icon:SetTexture("Interface\\GossipFrame\\BinderGossipIcon");
 	obj.header.icon:SetWidth(12);
 	obj.header.icon:SetHeight(12);
 	obj.header.icon:SetPoint("LEFT",obj.header,"LEFT",4,0);
-	
+
 	obj.header.title = obj.header:CreateFontString(nil,"ARTWORK","FWFontHighlight");
 	obj.header.title:SetPoint("LEFT",obj.header,"LEFT",20,0);
 	obj.header.title:SetJustifyH("LEFT");
-	
+
 	obj.default = NewDefaultAllButton(obj);
 	obj.default:SetPoint("RIGHT",obj.header,"RIGHT",-5,0);
-	
+
 	-- scripts
 	obj.default:SetScript("OnClick",function(self)
 		FW_RestoreDefaults(obj);
 	end);
-	
+
 	obj:SetScript("OnMouseUp",function(self)
 		local parent_root = obj.main_data.parent_root;
 		local root = obj.main_data.root;
 		local parent_link = parent_root and GetLink(parent_root.Active,parent_root);
 		local link = root and GetLink(root.Active,root);
-	
+
 		local modi = false;
 		local alt = IsAltKeyDown();
-		
+
 		if IsShiftKeyDown() then
 			if parent_root and parent_link or not parent_root and link then
 				--FW:Show("smart toggle cross profile");
@@ -2807,7 +2807,7 @@ local function NewSubOptionsFrame(parent)
 							end
 						end
 					end
-			
+
 				end
 			end
 			modi = true;
@@ -2857,7 +2857,7 @@ local function NewSubOptionsFrame(parent)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -2867,7 +2867,7 @@ local function NewInfoOption(parent,o,s,d)
 	obj.s = s or FW.Settings;
 	obj.d = d or FW.Default;
 	obj.parent = parent;
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
@@ -2875,30 +2875,30 @@ local function NewInfoOption(parent,o,s,d)
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontHighlight");
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
 	obj.text:SetJustifyH("LEFT");
-	
+
 	return obj;
 end
 
 local function NewColor2Option(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
 	local o = obj.o;
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",45,0);
 
-	obj.checkbutton = NewCheckButton(obj);	
-	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);	
+	obj.checkbutton = NewCheckButton(obj);
+	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);
 	obj.colorswatch = NewColorSwatch(obj);
-	obj.colorswatch:SetPoint("LEFT",obj,"LEFT",25,0);	
-	
+	obj.colorswatch:SetPoint("LEFT",obj,"LEFT",25,0);
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	--scripts
 	obj.default:SetScript("OnClick",function(self)
 		obj.s[o][0] = obj.d[o][0];
@@ -2954,7 +2954,7 @@ local function NewColor2Option(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -2965,18 +2965,18 @@ local function NewColorOption(parent,o,s,d)
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",28,0);
-	
+
 	obj.colorswatch = NewColorSwatch(obj);
-	obj.colorswatch:SetPoint("LEFT",obj,"LEFT",6,0);	
-	
+	obj.colorswatch:SetPoint("LEFT",obj,"LEFT",6,0);
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	--scripts
 	--
 	obj.default:SetScript("OnClick",function(self)
@@ -3020,7 +3020,7 @@ local function NewColorOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -3028,25 +3028,25 @@ local function NewFilterListItem(parent,n)
 	local obj = CreateFrame("Frame",nil,parent);
 	obj.parent = parent;
 	obj.parent.items[n] = obj;
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.default = NewDefaultButton(obj);
-	
+
 	obj.expandtexture = obj:CreateTexture(nil,"BACKGROUND");
 	obj.expandtexture:SetTexture("Interface\\TalentFrame\\UI-TalentBranches");
 	obj.expandtexture:SetWidth(20);
 	obj.expandtexture:SetHeight(20);
 	obj.expandtexture:SetPoint("LEFT",obj,"LEFT",2,0);
 	obj.expandtexture:SetTexCoord(0.0,0.1,0.0,0.5);
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetPoint("TOPLEFT",obj,"TOPLEFT",16,-1);
 	obj.background:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-4,1);
 	obj.background:SetTexture(0,1,0,0.2);
-		
+
 	obj.editbox2 = NewEditBox(obj);
 	obj.editbox2:SetWidth(80);
 	obj.editbox2:SetHeight(14);
@@ -3061,46 +3061,46 @@ local function NewFilterListItem(parent,n)
 	obj.colorswatch.backgroundtexture = obj.colorswatch:CreateTexture(nil,"BACKGROUND");
 	obj.colorswatch.backgroundtexture:SetWidth(16);
 	obj.colorswatch.backgroundtexture:SetHeight(16);
-	obj.colorswatch.backgroundtexture:SetPoint("CENTER",obj.colorswatch,"CENTER",0,0);	
+	obj.colorswatch.backgroundtexture:SetPoint("CENTER",obj.colorswatch,"CENTER",0,0);
 	obj.colorswatch.backgroundtexture:SetTexture(0.8,0.8,0.8);
 	obj.colorswatch.backgroundtexture:SetVertexColor(1.0,0.82,0.0);
 
 	obj.actionbutton = NewDropdownShowButton(obj,filterdropdown);
 	obj.actionbutton:SetWidth(70);
 	obj.actionbutton:SetPoint("RIGHT",obj.colorswatch,"LEFT",-5,0);
-	
+
 	obj.typebutton = NewDropdownShowButton(obj,filterdropdown);
 	obj.typebutton:SetWidth(70);
 	obj.typebutton:SetPoint("RIGHT",obj.actionbutton,"LEFT",-5,0);
-	
+
 	obj.editbox = NewTextButton(obj);
 	obj.editbox:SetPoint("LEFT",obj.expandtexture,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.typebutton,"LEFT",-5,0);
 	obj.editbox:SetJustifyH("LEFT");
 	obj.editbox:SetHeight(20);
-	
+
 	-- scripts
 	obj.val = 1; -- ????
 	obj.actionbutton.val = 0;
 	obj.typebutton.val = 1;
-	
+
 	obj.colorswatch.title = FWL.CLICK_TO_EDIT;
 	obj.colorswatch.tip = FWL.CLICK_TO_EDIT_TT;
 	--
 	obj.default:SetScript("OnClick",function(self)
 		-- list items should only reset the current spell - type pair to their default action!
-		local spell = obj.editbox:GetText();		
+		local spell = obj.editbox:GetText();
 		local typ = obj.typebutton.val or 1;
-		
+
 		if obj.d[obj.o][spell] and obj.d[obj.o][spell][typ] then
 			obj.s[obj.o][spell][typ][1] = obj.d[obj.o][spell][typ][1];
 			obj.s[obj.o][spell][typ][2] = obj.d[obj.o][spell][typ][2];
 			obj.s[obj.o][spell][typ][3] = obj.d[obj.o][spell][typ][3];
-			obj.s[obj.o][spell][typ][4] = obj.d[obj.o][spell][typ][4];									
+			obj.s[obj.o][spell][typ][4] = obj.d[obj.o][spell][typ][4];
 		else
 			obj.s[obj.o][spell][typ] = nil;
 		end
-		
+
 		obj.parent:func();
 		FW_ToggleFilterList();  -- rebuild obj.o list
 		FW_FilterSpellUpdate(obj.parent)
@@ -3140,14 +3140,14 @@ local function NewFilterListItem(parent,n)
 		_G.ColorPickerFrame.colorswatch = self;
 		_G.ColorPickerFrame.setting = obj.s[obj.o][spell][typ];
 		_G.ColorPickerFrame.hasOpacity = nil;
-		
+
 		_G.ColorPickerFrame:SetColorRGB(_G.ColorPickerFrame.setting[2],_G.ColorPickerFrame.setting[3],_G.ColorPickerFrame.setting[4]);
-		
+
 		if not _G.ColorPickerFrame.previousValues then _G.ColorPickerFrame.previousValues = {}; end
 		_G.ColorPickerFrame.previousValues[1] = _G.ColorPickerFrame.setting[2];
 		_G.ColorPickerFrame.previousValues[2] = _G.ColorPickerFrame.setting[3];
 		_G.ColorPickerFrame.previousValues[3] = _G.ColorPickerFrame.setting[4];
-		_G.ColorPickerFrame.previousValues[4] = nil;	
+		_G.ColorPickerFrame.previousValues[4] = nil;
 		_G.ColorPickerFrame.cancelFunc = FW_FilterColorPickerCancel;
 		ShowUIPanel(_G.ColorPickerFrame);
 	end);
@@ -3177,34 +3177,34 @@ local function NewFilterListItem(parent,n)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);]]
-	
+
 	return obj;
 end
 
 local function NewFilterOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
+
 	local filter = obj.o;
-	
+
 	obj.items = {};
 	obj.NewFilterListItem = NewFilterListItem;
-	
+
 	obj.Finalize = function(self,i)
 		while obj.items[i] and obj.items[i]:IsShown() do
 			obj.items[i]:Hide();
 			i=i+1;
 		end
 	end
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetHeight(20);
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",24,0);
-	
+
 	obj.editbox2 = NewEditBox(obj);
 	obj.editbox2:SetWidth(80);
 	obj.editbox2:SetHeight(14);
@@ -3219,10 +3219,10 @@ local function NewFilterOption(parent,o,s,d)
 	obj.colorswatch.backgroundtexture = obj.colorswatch:CreateTexture(nil,"BACKGROUND");
 	obj.colorswatch.backgroundtexture:SetWidth(16);
 	obj.colorswatch.backgroundtexture:SetHeight(16);
-	obj.colorswatch.backgroundtexture:SetPoint("CENTER",obj.colorswatch,"CENTER",0,0);	
+	obj.colorswatch.backgroundtexture:SetPoint("CENTER",obj.colorswatch,"CENTER",0,0);
 	obj.colorswatch.backgroundtexture:SetTexture(0.8,0.8,0.8);
 	obj.colorswatch.backgroundtexture:SetVertexColor(1.0,0.82,0.0);
-	
+
 	if not filterdropdown then
 		filterdropdown = NewDropdown(OptionsPanel,function()
 			filterdropdown:SetWidth(80);
@@ -3231,7 +3231,7 @@ local function NewFilterOption(parent,o,s,d)
 			for key,val in ipairs(filterdropdown.button.list) do
 				i=i+1;
 				f = filterdropdown.items[i] or filterdropdown:NewFilterButton(i);
-				
+
 				f:SetPoint("TOPLEFT",filterdropdown, "TOPLEFT",5,13-i*18);
 				f:SetText(val[2]);
 				f:SetFont(unpack(FW.Settings.OptionsFont));
@@ -3242,21 +3242,21 @@ local function NewFilterOption(parent,o,s,d)
 			filterdropdown:Finalize(i+1);
 		end);
 	end
-	
+
 	obj.actionbutton = NewDropdownShowButton(obj,filterdropdown)
 	obj.actionbutton:SetWidth(70);
 	obj.actionbutton:SetPoint("RIGHT",obj.colorswatch,"LEFT",-5,0);
-	
+
 	obj.typebutton = NewDropdownShowButton(obj,filterdropdown)
 	obj.typebutton:SetWidth(70);
 	obj.typebutton:SetPoint("RIGHT",obj.actionbutton,"LEFT",-5,0);
-	
+
 	obj.expandbutton = NewTexturedButton(obj,"Interface\\Buttons\\UI-GuildButton-PublicNote-Up")
 	obj.expandbutton:SetWidth(16);
 	obj.expandbutton:SetHeight(16);
 	obj.expandbutton:SetPoint("LEFT",obj,"LEFT",7,0);
 	obj.expandbutton:EnableMouse(false);
-	
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.typebutton,"LEFT",-5,0);
@@ -3268,14 +3268,14 @@ local function NewFilterOption(parent,o,s,d)
 	obj.actionbutton.val = 0;
 	obj.typebutton.val = 1;
 	obj.expand = false;
-	
+
 	obj.editbox.val = "enter ability/spell/item name";
-	
+
 	obj.colorswatch.title = FWL.CLICK_TO_EDIT;
 	obj.colorswatch.tip = FWL.CLICK_TO_EDIT_TT;
 	--obj.expandbutton.title = FWL.TOGGLE_FILTER_LIST;
 	--obj.expandbutton.tip = "";
-	
+
 	--
 	obj.default:SetScript("OnClick",function(self)
 		-- resets als filters of this spell name!!!
@@ -3310,7 +3310,7 @@ local function NewFilterOption(parent,o,s,d)
 		obj.actionbutton:SetText(FW:TypeName(action,obj.actionbutton.list));
 		obj.typebutton:SetText(FW:TypeName(typ,obj.typebutton.list));
 		FW_SetFilterColor(obj.s[filter][spell] and obj.s[filter][spell][typ],obj);
-		
+
 		FW_ToggleFilterList();  -- rebuild filter list
 	end);
 	--
@@ -3348,14 +3348,14 @@ local function NewFilterOption(parent,o,s,d)
 		_G.ColorPickerFrame.colorswatch = self;
 		_G.ColorPickerFrame.setting = obj.s[filter][spell][typ];
 		_G.ColorPickerFrame.hasOpacity = nil;
-		
+
 		_G.ColorPickerFrame:SetColorRGB(_G.ColorPickerFrame.setting[2],_G.ColorPickerFrame.setting[3],_G.ColorPickerFrame.setting[4]);
-		
+
 		if not _G.ColorPickerFrame.previousValues then _G.ColorPickerFrame.previousValues = {}; end
 		_G.ColorPickerFrame.previousValues[1] = _G.ColorPickerFrame.setting[2];
 		_G.ColorPickerFrame.previousValues[2] = _G.ColorPickerFrame.setting[3];
 		_G.ColorPickerFrame.previousValues[3] = _G.ColorPickerFrame.setting[4];
-		_G.ColorPickerFrame.previousValues[4] = nil;	
+		_G.ColorPickerFrame.previousValues[4] = nil;
 		_G.ColorPickerFrame.cancelFunc = FW_FilterColorPickerCancel;
 		ShowUIPanel(_G.ColorPickerFrame);
 	end);
@@ -3378,7 +3378,7 @@ local function NewFilterOption(parent,o,s,d)
 			obj.expand = not obj.expand;
 			FW_ToggleFilterList();  -- rebuild filter list
 		end
-	end);	
+	end);
 	--
 	obj.editbox:SetScript("OnShow",function(self)
 		obj.editbox:SetText(self.val);
@@ -3409,20 +3409,20 @@ end
 
 local function NewStringOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetHeight(14);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	-- scripts
 	obj:SetScript("OnShow",function(self)
 		local enabled = obj:enabled();
@@ -3430,7 +3430,7 @@ local function NewStringOption(parent,o,s,d)
 		obj.default:SetEnabled(enabled);
 		obj.editbox:SetEnabled(enabled);
 	end);
-	
+
 	obj.default:SetScript("OnClick",function(self)
 		obj.s[obj.o] = obj.d[obj.o];
 		obj:func();
@@ -3454,23 +3454,23 @@ end
 
 local function NewMessage1Option(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",30,0);
-	
+
 	obj.checkbutton = NewCheckButton(obj);
 	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetHeight(14);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	-- scripts
 	obj.checkbutton:SetScript("OnClick",function(self)
 		obj.s[obj.o][0] = not obj.s[obj.o][0];
@@ -3513,7 +3513,7 @@ local function NewMessage1Option(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -3523,22 +3523,22 @@ local function NewMessage2Option(parent,o,s,d)
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",50,0);
-	
+
 	obj.checkbutton1 = NewCheckButton(obj);
 	obj.checkbutton1:SetPoint("LEFT",obj,"LEFT",5,0);
 
 	obj.checkbutton2 = NewCheckButton(obj);
 	obj.checkbutton2:SetPoint("LEFT",obj.checkbutton1,"RIGHT",0,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetHeight(14);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	-- scripts
 	obj.checkbutton1:SetScript("OnClick",function(self)
 		if bit.band(1,obj.s[obj.o][0]) == 0 then
@@ -3598,7 +3598,7 @@ local function NewMessage2Option(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -3607,26 +3607,26 @@ local function NewLinkOption(parent,o,s,d)
 	obj.o = o;
 	obj.parent = parent;
 	obj.default = NewDefaultButton(obj);
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetHeight(14);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
 	obj.editbox:SetMaxLetters(128);
-	
+
 	-- scripts
 	obj.editbox.title = FW.L.CLICK_TO_COPY;
 	obj.editbox.tip = "";
-	
+
 	obj.default:SetScript("OnClick",function(self)
 		obj.editbox:SetFocus();
 		obj.editbox:HighlightText();
@@ -3653,20 +3653,20 @@ local function NewLinkOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
 local function NewNumberOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
-	obj:EnableMouse(1);	
+
+	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
@@ -3679,7 +3679,7 @@ local function NewNumberOption(parent,o,s,d)
 		obj.editbox:SetEnabled(enabled);
 		obj.default:SetEnabled(enabled);
 	end);
-	
+
 	obj.default:SetScript("OnClick",function(self)
 		obj.editbox:SetText(obj.d[obj.o]);
 		obj.s[obj.o] = obj.d[obj.o];
@@ -3703,29 +3703,29 @@ local function NewNumberOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
 local function NewNumber2Option(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
-	obj:EnableMouse(1);	
+
+	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetPoint("LEFT",obj,"LEFT",30,0);
-	
+
 	obj.checkbutton = NewCheckButton(obj);
 	obj.checkbutton:SetPoint("LEFT",obj,"LEFT",5,0);
-			
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetWidth(70);
 	obj.editbox:SetHeight(14);
 	obj.editbox:SetPoint("LEFT",obj.text,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
-	
+
 	-- scripts
 	obj.checkbutton:SetScript("OnClick",function(self)
 		obj.s[obj.o][0] = not obj.s[obj.o][0];
@@ -3772,7 +3772,7 @@ local function NewNumber2Option(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -3810,16 +3810,16 @@ end
 
 local function NewFontOption(parent,o,s,d)
 	local obj = NewOption(parent,o,s,d);
-	
+
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = NewTextString(obj);
 	obj.text:SetWidth(65);
 	obj.text:SetHeight(20);
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-	
+
 	if not fontdropdown then
 		fontdropdown = NewDropdown(OptionsPanel,function()
 			local j=0;
@@ -3833,7 +3833,7 @@ local function NewFontOption(parent,o,s,d)
 				f:Show();
 				j=j+1;
 			end
-			fontdropdown:SetHeight(floor((j-1)/3)*18+26);	
+			fontdropdown:SetHeight(floor((j-1)/3)*18+26);
 			fontdropdown:SetWidth((142)*3+8);
 			fontdropdown:Finalize(j+1);
 		end);
@@ -3841,17 +3841,17 @@ local function NewFontOption(parent,o,s,d)
 	obj.button = NewDropdownShowButton(obj,fontdropdown)
 	obj.button:SetWidth(140);
 	obj.button:SetPoint("LEFT",obj.text,"RIGHT",5,0);
-	
+
 	obj.editbox2 = NewEditBox(obj);
 	obj.editbox2:SetWidth(22);
 	obj.editbox2:SetPoint("LEFT",obj.button,"RIGHT",5,0);
 	obj.editbox2.minimum = 1;
 	obj.editbox2.maximum = 64;
-	
+
 	obj.editbox3 = NewEditBox(obj);
 	obj.editbox3:SetWidth(22);
 	obj.editbox3:SetPoint("LEFT",obj.editbox2,"RIGHT",5,0);
-	
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.editbox3,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
@@ -3933,7 +3933,7 @@ local function NewFontOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -3943,13 +3943,13 @@ local function NewTextureOption(parent,o,s,d)
 	obj:EnableMouse(1);
 	obj:SetWidth(560);
 	obj:SetHeight(20);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetWidth(65);
 	obj.text:SetHeight(20);
 	obj.text:SetJustifyH("LEFT");
 	obj.text:SetPoint("LEFT",obj,"LEFT",10,0);
-	
+
 	if not texturedropdown then
 		texturedropdown = NewDropdown(OptionsPanel,function()
 			local j=0;
@@ -3967,7 +3967,7 @@ local function NewTextureOption(parent,o,s,d)
 			texturedropdown:Finalize(j+1);
 		end);
 	end
-	
+
 	obj.button = NewButton(obj)
 	obj.button:SetWidth(140);
 	obj.button:SetHeight(14);
@@ -3975,7 +3975,7 @@ local function NewTextureOption(parent,o,s,d)
 	obj.button:SetNormalTexture("Interface\\PaperDollInfoFrame\\UI-Character-Skills-Bar");
 	obj.button.normaltexture = obj.button:GetNormalTexture();
 	obj.button.normaltexture:SetVertexColor(1.00,0.88,0.50);
-	
+
 	obj.editbox = NewEditBox(obj);
 	obj.editbox:SetPoint("LEFT",obj.button,"RIGHT",5,0);
 	obj.editbox:SetPoint("RIGHT",obj.default,"LEFT",-5,0);
@@ -4011,7 +4011,7 @@ local function NewTextureOption(parent,o,s,d)
 	obj.editbox:SetScript("OnEnterPressed",function(self)
 		local txt = self:GetText();
 		if txt and txt~="" then
-		
+
 			if string.find(txt,"\\") then
 				obj.s[obj.o] = txt;
 			else
@@ -4032,7 +4032,7 @@ local function NewTextureOption(parent,o,s,d)
 	obj:SetScript("OnLeave",function(self)
 		FW:HideTip(self);
 	end);
-	
+
 	return obj;
 end
 
@@ -4042,7 +4042,7 @@ local function NewScrollFrame(parent)
 	obj:SetWidth(560);
 	obj:SetHeight(460);
 	obj:SetPoint("TOPLEFT",obj.parent,"TOPLEFT",10,-30);
-	
+
 	--obj.scrollbar = CreateFrame("Slider", nil, obj.scrollframe--[[, "UIPanelScrollBarTemplate"]]);
 	obj.scrollbar = CreateFrame("Slider", nil, obj, "UIPanelScrollBarTemplate");
 	obj.scrollbar:SetPoint("TOPLEFT", obj, "TOPRIGHT", 4, -16);
@@ -4051,7 +4051,7 @@ local function NewScrollFrame(parent)
 	--obj.scrollbar:SetValueStep(1);
 	--obj.scrollbar.scrollStep = 1;
 	--obj.scrollbar:SetValue(0);
-	
+
 	obj.scrollbar:SetWidth(14);
 	obj.scrollbar.scrollbg = obj.scrollbar:CreateTexture(nil, "BACKGROUND");
 	obj.scrollbar.scrollbg:SetAllPoints(obj.scrollbar);
@@ -4061,7 +4061,7 @@ local function NewScrollFrame(parent)
 	obj.content:SetWidth(560);
 	obj.content:SetHeight(360);
 	obj:SetScrollChild(obj.content);
-	
+
 	obj:SetScript("OnMouseWheel",function(self,value)
 		if ( value > 0 ) then
 			obj.scrollbar:SetValue(obj.scrollbar:GetValue() - (obj.scrollbar:GetHeight() / 2));
@@ -4069,30 +4069,30 @@ local function NewScrollFrame(parent)
 			obj.scrollbar:SetValue(obj.scrollbar:GetValue() + (obj.scrollbar:GetHeight() / 2));
 		end
 	end);
-	
-	obj.scrollbar:SetScript("OnValueChanged",function (self, value) 
+
+	obj.scrollbar:SetScript("OnValueChanged",function (self, value)
 		obj:SetVerticalScroll(value);
 	end);
-	
+
 	return obj;
 end
 
 local function NewImageOption(parent,o,s,d)
 	local obj = CreateFrame("Frame",nil,parent);
 	obj.parent = parent;
-	
+
 	obj.image = obj:CreateTexture(nil,"ARTWORK");
 	obj.image:SetTexture(o);
 	--obj.image:SetAllPoints(obj);
 	obj.image:SetPoint("CENTER",obj,"CENTER");
 	--obj.image:SetPoint("TOPLEFT",obj,"TOPLEFT",5,-5);
 	--obj.image:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",-5,5);
-	
+
 	obj.text = obj:CreateFontString(nil,"ARTWORK","FWFontNormal");
 	obj.text:SetHeight(20);
 	obj.text:SetJustifyH("CENTER");
 	obj.text:SetPoint("BOTTOM",obj,"BOTTOM",0,-5);
-	
+
 	return obj;
 end
 
@@ -4165,7 +4165,7 @@ function FW:ShowOptionsTip(option)
 	if option.title then
 		_G.GameTooltip_SetDefaultAnchor(_G.GameTooltip, option);
 		_G.GameTooltip:SetText(option.title, 1.0, 1.0, 1.0);
-		
+
 		local tip = "";
 		if option.tip then
 			tip = option.tip;
@@ -4175,7 +4175,7 @@ function FW:ShowOptionsTip(option)
 				local c = "|cff888888";
 				local ot = option.option_type;
 				tip = d[5];
-				
+
 				if FW.Settings.TimerSpellsTooltip and d[11] then
 					--if not options_built then
 					local spell_list = "\n\n|cff00ff00Registered Spells|r|cffffffff";
@@ -4187,7 +4187,7 @@ function FW:ShowOptionsTip(option)
 								tinsert(spells,data[ d[13] ] );
 							end
 						end
-					else -- table keys are the spell names, if flag is given data is table, otherwise always add		
+					else -- table keys are the spell names, if flag is given data is table, otherwise always add
 						for spell,data in pairs(d[11]) do
 							if not d[12] or data[ d[12] ] == d[6] then
 								tinsert(spells,spell);
@@ -4200,17 +4200,17 @@ function FW:ShowOptionsTip(option)
 							spell_list = spell_list.."\n"..spell;
 						end
 					end
-					
+
 					if #spells == 0 then
 						spell_list = spell_list.."\nNone";
 					elseif(#spells>m) then
 						spell_list = spell_list.."\n...and "..(#spells-m).." more";
 					end
-					
+
 					spell_list = spell_list.."|r";
 					tip = tip..spell_list;
 				end
-				
+
 				if ot == "NUM" or ot == "NU2" then
 					if option.editbox.minimum then
 						if option.editbox.maximum then
@@ -4248,7 +4248,7 @@ function FW:ShowOptionsTip(option)
 					if tip ~= "" then tip=tip.."\n\n";end
 					tip = tip..c..FWL.USE_MSG2;
 				end
-				
+
 			end
 		end
 		_G.GameTooltip:AddLine(tip, _G.NORMAL_FONT_COLOR.r, _G.NORMAL_FONT_COLOR.g, _G.NORMAL_FONT_COLOR.b, 1);
@@ -4260,7 +4260,7 @@ do
 	local maincat,mainicon,mainindex,color,frame,defaults,tab_data;
 	local subcat,subicon,subindex,reduce_alpha,expand;
 	local last_option;
-	
+
 	function FW:SetMainCategory(a1,a2,a3,a4,a5,a6,a7)
 		maincat,mainicon,mainindex,color,frame,defaults,tab_data = a1,a2,a3,a4,a5,a6,a7;
 		return self;
@@ -4290,25 +4290,25 @@ do
 		-- mainicon: icon for main category (nil for none)
 		-- mainindex: priority index of this category
 		-- frame: frame belonging to this category (nil for none)
-		
+
 		-- subcat: sub category ("" for not adding a sub category)
 		-- subicon (nil for none)
 		-- subindex: priority index of this sub category
-		
+
 		-- typ: the template to use
 		-- width: the number of rows the option will take up (1 or 2)
 		-- pos: preferred postion (0 = none)
 		-- text: text for this option
 		-- tip: tooltip displayed for this option (nil for none)
 		-- func: function to execute after change (nil for none)
-		
+
 		local mc = FW_FindCategory(FW_Options,maincat);
 		if not mc then
 			mc = 1;
 			while(mc<=#FW_Options and FW_Options[mc][3]<=mainindex) do
 				mc=mc+1;
 			end
-			tinsert(FW_Options,mc,{maincat,mainicon,mainindex,color,frame,defaults,tab_data,{}});	
+			tinsert(FW_Options,mc,{maincat,mainicon,mainindex,color,frame,defaults,tab_data,{}});
 		end
 		local sc = FW_FindCategory(FW_Options[mc][MAIN_DATA_TABLE],subcat);
 		if not sc then
@@ -4471,42 +4471,42 @@ end
 function FW:NewOptionsPanel()
 	local obj = CreateFrame("Frame",nil,UIParent);
 	OptionsPanel = obj;
-	
+
 	obj.parent = UIParent;
 	obj:SetWidth(600);
 	obj:SetHeight(500);
-	
+
 	obj.background2 = obj:CreateTexture(nil, "BACKGROUND");
 	obj.background2:SetPoint("TOPLEFT",obj,"TOPLEFT",0,0);
 	obj.background2:SetPoint("BOTTOMRIGHT",obj,"BOTTOMRIGHT",0,0);
 	obj.background2:SetTexture(0,0,0,0.4) ;
-	
+
 	obj.background = obj:CreateTexture(nil,"BACKGROUND");
 	obj.background:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\XusLogo");
 	obj.background:SetWidth(512);
 	obj.background:SetHeight(256);
 	obj.background:SetPoint("CENTER",obj,"CENTER",0,0);
 	obj.background:SetVertexColor(1,1,1,0.3);
-	
+
 	obj.header = CreateFrame("Frame",nil,obj);
 	obj.header:SetWidth(600);
 	obj.header:SetHeight(20);
 	obj.header:SetPoint("TOPLEFT",obj,"TOPLEFT",0,0);
-	
+
 	obj.header.icon = obj.header:CreateTexture(nil,"ARTWORK");
 	obj.header.icon:SetTexture("Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes");
 	obj.header.icon:SetWidth(14);
 	obj.header.icon:SetHeight(14);
 	obj.header.icon:SetPoint("LEFT",obj.header,"LEFT",3,0);
-	
+
 	obj.header.title = obj.header:CreateFontString(nil,"ARTWORK","FWFontHighlight");
 	obj.header.title:SetPoint("CENTER",obj.header,"CENTER",0,0);
-	
+
 	obj.header.background = obj.header:CreateTexture(nil,"BACKGROUND");
 	obj.header.background:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Otravi");
 	obj.header.background:SetPoint("TOPLEFT",obj.header,"TOPLEFT",1,-1);
 	obj.header.background:SetPoint("BOTTOMRIGHT",obj.header,"BOTTOMRIGHT",-1,1);
-	
+
 	obj.close = CreateFrame("Button",nil,obj);
 	obj.close:SetWidth(20);
 	obj.close:SetHeight(20);
@@ -4517,7 +4517,7 @@ function FW:NewOptionsPanel()
 	obj.close.highlighttexture = obj.close:GetHighlightTexture();
 	obj.close.highlighttexture:SetBlendMode("ADD");
 	obj.close.highlighttexture:SetDesaturated(1);
-	
+
 	obj.scrollframe = NewScrollFrame(obj);
 
 	--scripts
@@ -4542,7 +4542,7 @@ function FW:NewOptionsPanel()
 		obj.SetBackdrop = function(self)
 			self.header.background:SetTexture(FW.Settings.OptionsHeaderTexture);
 			FW:MakeBackdrop(bgbackdrop,unpack(FW.Settings.OptionsBackdrop));
-			
+
 			-- dropdowns
 			texturedropdown:SetBackdrop(bgbackdrop);
 			fontdropdown:SetBackdrop(bgbackdrop);
@@ -4553,31 +4553,31 @@ function FW:NewOptionsPanel()
 			if sounddropdown then
 				sounddropdown:SetBackdrop(bgbackdrop);
 			end
-			
+
 			for main_index, main_data in ipairs(FW_Options) do -- MAIN OPTION LEVEL
-				
+
 				if main_data.tabs then
 					for i, t in ipairs(main_data.tabs) do
 						t:SetBackdrop(bgbackdrop);
 					end
 				end
 				main_data.option:SetBackdrop(bgbackdrop);
-			
+
 				main_data.shortcut.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
 				main_data.option.normalheader.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
-				
+
 				main_data.option.frameheader.leftframe.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
 				main_data.option.frameheader.leftmidframe.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
 				main_data.option.frameheader.midframe.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
 				main_data.option.frameheader.rightmidframe.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
 				main_data.option.frameheader.rightframe.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
-				
+
 				for sub_index, sub_data in ipairs(main_data[MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
 					if sub_data[1] and sub_data[1] ~= "" then
 						sub_data.option.header.texture:SetTexture(FW.Settings.OptionsSubHeaderTexture);
 					end
 					for i, d in ipairs(sub_data[SUB_DATA_TABLE]) do -- OPTION LEVEL
-							
+
 						if d[1] then
 							if d[1] == "BTN" then
 								d.option.text.texture:SetTexture(FW.Settings.OptionsHeaderTexture);
@@ -4598,7 +4598,7 @@ function FW:NewOptionsPanel()
 			r,g,b = FW:MixColors2(0.5,FW.OPTION_COLOR.CLASS[1],FW.OPTION_COLOR.CLASS[2],FW.OPTION_COLOR.CLASS[3],r,g,b);
 		end
 		self.header.background:SetVertexColor(r,g,b,a);
-		
+
 		-- dropdowns
 		texturedropdown:SetBackdropBorderColor(r,g,b,a);
 		fontdropdown:SetBackdropBorderColor(r,g,b,a);
@@ -4621,7 +4621,7 @@ function FW:NewOptionsPanel()
 			else
 				r,g,b = unpack(FW.Settings.OptionHeaderColor);
 			end
-			
+
 			if main_data.tabs then
 				for i, t in ipairs(main_data.tabs) do
 					if main_data.root.Active == t.index then -- selected tab
@@ -4641,25 +4641,25 @@ function FW:NewOptionsPanel()
 
 			main_data.shortcut.texture:SetVertexColor(r,g,b,1);
 			main_data.option.normalheader.texture:SetVertexColor(r,g,b,a);
-			
+
 			main_data.option.frameheader.leftframe.texture:SetVertexColor(r,g,b,a);
 			main_data.option.frameheader.leftmidframe.texture:SetVertexColor(r,g,b,a);
 			main_data.option.frameheader.midframe.texture:SetVertexColor(r,g,b,a);
 			main_data.option.frameheader.rightmidframe.texture:SetVertexColor(r,g,b,a);
 			main_data.option.frameheader.rightframe.texture:SetVertexColor(r,g,b,a);
-			
+
 			for sub_index, sub_data in ipairs(main_data[MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
 				if sub_data[1] and sub_data[1] ~= "" then
 					sub_data.option.header.texture:SetVertexColor(r,g,b,(sub_data[5] and (a or 1)*sub_data[5]) or a or 1);
 				end
-				
+
 				for i, d in ipairs(sub_data[SUB_DATA_TABLE]) do -- OPTION LEVEL
 					local ot = d[1];
 					if ot then
 						if ot == "CHK" or ot == "NU2" or ot == "MSG" or ot == "SND" or ot == "CO2" or ot == "BAC" then
-							d.option.checkbutton.normaltexture:SetVertexColor(r,g,b);		
+							d.option.checkbutton.normaltexture:SetVertexColor(r,g,b);
 						elseif ot == "MS2" then
-							d.option.checkbutton1.normaltexture:SetVertexColor(r,g,b);	
+							d.option.checkbutton1.normaltexture:SetVertexColor(r,g,b);
 							d.option.checkbutton2.normaltexture:SetVertexColor(r,g,b);
 						elseif ot == "BTN" then
 							d.option.text.texture:SetVertexColor(r,g,b);
@@ -4672,7 +4672,7 @@ function FW:NewOptionsPanel()
 			obj.extrabutton.texture:SetVertexColor(r,g,b,1);
 		end
 		a = 0.8;
-		
+
 		r,g,b = unpack(FW.Settings.OptionBackgroundColor);
 
 		texturedropdown:SetBackdropColor(r,g,b,a);
@@ -4685,11 +4685,11 @@ function FW:NewOptionsPanel()
 		local fo,si,fl = unpack(FW.Settings.OptionsFont);
 		local ss = si-2;
 		local foh,sih,flh = unpack(FW.Settings.OptionsHeaderFont);
-		
+
 		self.header.title:SetFont(foh,sih,flh);
 
 		for main_index, main_data in ipairs(FW_Options) do -- MAIN OPTION LEVEL
-		
+
 			if main_data.tabs then
 				for i, t in ipairs(main_data.tabs) do
 					t.button:SetFont(fo,ss,fl);
@@ -4697,7 +4697,7 @@ function FW:NewOptionsPanel()
 					t:SetText(t.button.text:GetText()); -- do this to update tab sizes
 				end
 			end
-			
+
 			main_data.shortcut:SetFont(fo,si,fl);
 			main_data.option.header.title:SetFont(foh,sih,flh);
 			main_data.option.frameheader.coordinates:SetFont(fo,ss,fl);
@@ -4705,22 +4705,22 @@ function FW:NewOptionsPanel()
 			main_data.option.frameheader.scale:SetFont(fo,ss,fl);
 
 			for sub_index, sub_data in ipairs(main_data[MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
-				
+
 				if sub_data[1] and sub_data[1] ~= "" then
 					sub_data.option.header.title:SetFont(foh,sih,flh);
 				end
-				
+
 				for i, d in ipairs(sub_data[SUB_DATA_TABLE]) do -- OPTION LEVEL
 					local ot = d[1];
 					if ot and ot ~= "" then
-						
+
 						d.option.text:SetFont(fo,si,fl);
-						
+
 						if ot == "URL" or ot == "FIL" or ot == "MSG" or ot == "NUM" or ot == "MS2" or ot == "NU2" then
 							d.option.editbox:SetFont(fo,si,fl);
 						end
-						
-						if ot == "COL" or ot == "CO2" or ot == "SND" or ot == "TXT" or ot == "FNT" then 
+
+						if ot == "COL" or ot == "CO2" or ot == "SND" or ot == "TXT" or ot == "FNT" then
 							d.option.editbox:SetFont(fo,ss,fl);
 						end
 						if ot == "FNT" or ot == "SND" then
@@ -4733,7 +4733,7 @@ function FW:NewOptionsPanel()
 							d.option.actionbutton:SetFont(fo,si,fl);
 							d.option.typebutton:SetFont(fo,si,fl);
 							d.option.editbox2:SetFont(fo,ss,fl);
-							
+
 							FC_BuildFilterList(d.option); -- calling this because the font apply is embedded here
 						end
 						if ot == "BAC" then
@@ -4751,7 +4751,7 @@ function FW:NewOptionsPanel()
 			end
 		end
 	end
-	
+
 	obj.RefreshNoStyle = function(self)
 		if optionsbuilt then
 			if self:IsVisible() then self:Hide();self:Show();self.show = 1; end
@@ -4777,7 +4777,7 @@ function FW:NewOptionsPanel()
 		self.s.alpha = 1.0;
 		self.s.lock = false;
 		self.s.scale = 1.0;
-		
+
 		FW.Settings.OptionsColums = 2;
 
 		self:Draw();
@@ -4814,7 +4814,7 @@ function FW:NewOptionsPanel()
 	end
 
 	obj.Draw = function(self)
-		
+
 		local f,s,sub;
 		local offset = 0;
 		local x,y = 0,0;
@@ -4845,7 +4845,7 @@ function FW:NewOptionsPanel()
 			local root = instanceof and FW.Settings[instanceof] or FW.Saved.Profiles;
 			main_data.root = root;
 			main_data.parent_root = instanceof and FW.Saved.Profiles;
-			
+
 			if tab_actions ~= nil then -- has tabs enabled!
 				if not main_data.tabs then
 					main_data.tabs = {};
@@ -4860,13 +4860,13 @@ function FW:NewOptionsPanel()
 					t =  main_data.tabs[n] or NewTabFrame(main_data.tabs_frame);
 					t:ClearAllPoints();
 					main_data.tabs[n] = t;
-				
+
 					t.link_func = InstanceLink;
 					t:SetEditable(true);
 					t:SetEditing(false);
 					t.delete:SetEnabled( #root.Data > 1 );
 					t.delete_func,t.rename_func,t.select_func = tab_actions[2],tab_actions[3],tab_actions[4];
-					t.index = i;	
+					t.index = i;
 					t.link = GetLink(t.index,root);
 					if i == root.Active then
 						t:SetText(v.name);
@@ -4876,7 +4876,7 @@ function FW:NewOptionsPanel()
 						t.button.title = FWL.SELECT_CLONE;
 					end
 					t.button.tip = "table index: "..t.index;
-					
+
 					tabsx=tabsx+t:GetWidth();
 					if n==1 or (tabsx > width) then
 						t:SetPoint("TOPLEFT", main_data.tabs_frame, "TOPLEFT",0,-tabs);
@@ -4891,7 +4891,7 @@ function FW:NewOptionsPanel()
 				t =  main_data.tabs[n] or NewTabFrame(main_data.tabs_frame); -- create 'create' tab
 				t:ClearAllPoints();
 				main_data.tabs[n] = t;
-				
+
 				t:SetEditable(false);
 				t:SetEditing(false);
 				t:SetText(NEW_INSTANCE_STRING);
@@ -4907,7 +4907,7 @@ function FW:NewOptionsPanel()
 					tabsx=t:GetWidth();
 				else
 					t:SetPoint("TOPLEFT", main_data.tabs[n-1], "TOPRIGHT",0,0);
-				end			
+				end
 				t:Show();
 				n=n+1;
 				for i=n,#main_data.tabs,1 do
@@ -4916,7 +4916,7 @@ function FW:NewOptionsPanel()
 				main_data.tabs_frame:SetHeight(tabs);
 				offset=offset-tabs;
 			end --END TAB CODE
-			
+
 			if not main_data.option then
 				main_data.option = NewOptionsFrame(self.scrollframe.content);
 			end
@@ -4925,7 +4925,7 @@ function FW:NewOptionsPanel()
 			f.header.title:SetText(main_data[1]);
 			f.header.icon.normaltexture:SetTexture(main_data[2]);
 			f.header.icon.highlighttexture:SetTexture(main_data[2]);
-			
+
 			f:SetWidth(width);
 			f.frame = frame or instanceof and "FX_"..instanceof..root.Active; -- set associated frame name
 			if f.frame then
@@ -4940,7 +4940,7 @@ function FW:NewOptionsPanel()
 			f:ClearAllPoints();
 			f:SetPoint("TOPLEFT", self.scrollframe.content, "TOPLEFT",0,offset);
 			f.index = main_index;
-			
+
 			for sub_index, sub_data in ipairs(main_data[MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
 				if sub_data[1] and sub_data[1] ~= "" then
 					if x>0 then
@@ -4953,23 +4953,23 @@ function FW:NewOptionsPanel()
 						sub_data.option = NewSubOptionsFrame(f);
 					end
 					sub = sub_data.option;
-					
+
 					sub.sub_data = sub_data;
 					sub.main_data = main_data;
 					local st = FW.Settings.LoadExpandSubcats and FW_GetSubSaveTable(sub);
 					if st and st.expand ~= nil then
 						sub.expand = st.expand;
 					elseif sub.expand == nil then
-						sub.expand = sub_data[4] or FW.Settings.ExpandSubcats;		
+						sub.expand = sub_data[4] or FW.Settings.ExpandSubcats;
 					end
-					
+
 					sub:SetWidth(width);
 					sub.header:SetWidth(width);
 					sub:ClearAllPoints();
 					sub:SetPoint("TOPLEFT",sub.parent,"TOPLEFT",x,y);
 					sub.header.title:SetText(sub_data[1]);
 					sub.header.icon:SetTexture(sub_data[2]);
-					
+
 					if sub_data[1] == FWL.COLORING_FILTERING then
 						Anchors[main_data[1].." Color"] = sub; --save anchor for filters too!
 					end
@@ -5008,7 +5008,7 @@ function FW:NewOptionsPanel()
 						s.sub_data = sub_data;
 						s.option_type = ot;
 						s.title = d[4] or "";
-						
+
 						if ot == "NUM" or ot == "NU2" then
 							s.editbox.minimum = d[8];
 							s.editbox.maximum = d[9];
@@ -5018,20 +5018,20 @@ function FW:NewOptionsPanel()
 							s.actionbutton.list = d[8];
 							s.typebutton.list = d[9];
 						end
-						
+
 						if sub.tip == "" then
 							sub.tip = s.title;
 						else
 							sub.tip = sub.tip.."\n"..s.title;
 						end
-						
+
 						s.instance = f.instance;
 						--s.instanceof = f.instanceof;
 						s.func = OptionFunction;
 						s.option_func = d[7];
 						s.enabled = OptionEnabled;
 						s.option_enabled = d[10];
-						 
+
 						if s.linker then
 							s.cross_profile = GetLinkedOption(s,true);
 							s.cross_clone = GetLinkedOption(s,false);
@@ -5045,7 +5045,7 @@ function FW:NewOptionsPanel()
 						s.top = -offset-y;
 						s:SetPoint("TOPLEFT",s.parent, "TOPLEFT",x,y);
 						s.text:SetText(d[4]);
-						if ot == "FIL" then 
+						if ot == "FIL" then
 							if vis then
 								y = y + FC_BuildFilterList(s);
 							end
@@ -5068,7 +5068,7 @@ function FW:NewOptionsPanel()
 							y = y -s:GetHeight();
 						end
 					end
-				end		
+				end
 			end
 			if x>0 then
 				x = 0;
@@ -5077,16 +5077,16 @@ function FW:NewOptionsPanel()
 				end
 			end
 			Anchors[main_data[1]] = f;
-			
+
 			f.top = -offset-tabs;
 			offset = offset + y;
 			f.bottom = -offset;
-			
+
 			offset = offset - 10;
 			f:SetHeight(-y+5);
 			--f:Show();
 		end
-		
+
 		-- build shortcuts
 		columns = columns*2;
 		w = (ow)/columns;
@@ -5098,7 +5098,7 @@ function FW:NewOptionsPanel()
 		--FW:Show(FW_Options[1].tabs_frame:GetTop());
 		--FW:Show(FW_Options[1].tabs_frame:GetTop()-FW_Options[#FW_Options].option:GetBottom());
 		--FW:Show(offset);
-		
+
 		self.scrollframe.maxscroll = -offset-self.scrollframe:GetHeight()-5;
 		self.scrollframe.scrollbar:SetMinMaxValues(0, self.scrollframe.maxscroll);
 
@@ -5116,13 +5116,13 @@ function FW:NewOptionsPanel()
 			s.tip = FWL.SCROLL_TO_..main_data[1];
 			s.title = main_data[1];
 			s:SetNormalTexture(main_data[2]);
-		
+
 			s:SetScript("OnClick",ScrollTo);
 
 			x=x+w;
 			if x >= width-0.1 then -- stupid shit
 				x=0;y=y-h;
-			end		
+			end
 		end
 		if x ~= 0 then
 			self.extrabutton = self.extrabutton or NewOptionsHeader(self);
@@ -5155,7 +5155,7 @@ function FW:NewOptionsPanel()
 		end
 		]]
 		self:HideUnneeded();
-		
+
 		if not optionsbuilt then
 			optionsbuilt = true;
 			self:SetFont();
@@ -5166,7 +5166,7 @@ function FW:NewOptionsPanel()
 	obj.close:SetScript("OnClick",function(self)
 		obj.show = 0;
 	end);
-	
+
 	local maxd = 0.5;-- AUTOSCROLL CODE
 	obj:SetScript("OnUpdate",function(self)
 		if self.scrollto then
@@ -5182,7 +5182,7 @@ function FW:NewOptionsPanel()
 					self.newval = val+d/8;
 					self.scrollframe.scrollbar:SetValue(self.newval);
 					self.scrollframe:UpdateScrollChildRect();
-				end	
+				end
 			else
 				self.scrollframe.scrollbar:SetValue(self.scrollto);
 				self.scrollframe:UpdateScrollChildRect();
@@ -5192,7 +5192,7 @@ function FW:NewOptionsPanel()
 			end
 		end
 	end);
-	
+
 	do
 		local vis = 0;
 		local function EditboxFix() -- fixes 4.1 editbox problem on show
@@ -5245,16 +5245,16 @@ function FW:NewOptionsPanel()
 	obj.HideUnneeded = function(self)
 		-- fixes 4.1 editbox problem on scroll
 		for main_index, main_data in ipairs(FW_Options) do -- MAIN OPTION LEVEL
-		
+
 			if main_data.option then
 				main_data.option:Hide(); -- also contains the options as children
-				
+
 				for sub_index, sub_data in ipairs(main_data[MAIN_DATA_TABLE]) do -- SUB OPTION LEVEL
 					for i, d in ipairs(sub_data[SUB_DATA_TABLE]) do -- OPTION LEVEL
 						if d.option then
 							d.option:Hide();
 						end
-					end					
+					end
 					if sub_data.option then
 						sub_data.option:Hide();
 					end
@@ -5269,7 +5269,7 @@ function FW:NewOptionsPanel()
 		bottom=bottom+1;
 		--if not FW.Saved.BLOCK then
 		for main_index, main_data in ipairs(FW_Options) do -- MAIN OPTION LEVEL
-		
+
 			if main_data.option then
 				if main_data.option.bottom<top or main_data.option.top>bottom then
 					if main_data.option:IsShown() then
@@ -5295,7 +5295,7 @@ function FW:NewOptionsPanel()
 									end
 								end
 							end
-						end					
+						end
 						if sub_data.option then
 							if sub_data.option.bottom<top or sub_data.option.top>bottom then
 								if sub_data.option:IsShown() then
@@ -5345,14 +5345,14 @@ function FW:NewOptionsPanel()
 			if instance and Anchors[v].main_data.root.Active ~= instance then -- switch tab if needed
 				Anchors[v].main_data.root.Active = instance;
 				refresh = true;
-			end		
+			end
 			if refresh then
 				self:Draw();
 				self:Refresh(); -- for tab color only
 			end
 		end
 	end
-	
+
 	obj.scrollframe:HookScript("OnVerticalScroll", function() obj:HideUnneeded(); end);
 	--
 	obj:SetScript("OnMouseDown",function(self,button)
@@ -5450,7 +5450,7 @@ function FW:LocalizedData()
 	}
 
 	FW.ClassModules = FWL.MODULE_NONE;
-	
+
 	local tab_actions = {
 		function(obj) -- create
 			FW:UseProfile( FW:InstanceCreate(FW:FullName(),FW.Saved.Profiles,FW.Settings) );
@@ -5497,7 +5497,7 @@ function FW:LocalizedData()
 		whileDead = true,
 		hideOnEscape = 1
 	};
-	
+
 	_G.StaticPopupDialogs["FX_CONFIRM_DELETE_CLONE"] = {
 		text = FWL.CONFIRM_DELETE_CLONE,
 		button1 = _G.ACCEPT,
@@ -5507,7 +5507,7 @@ function FW:LocalizedData()
 		whileDead = true,
 		hideOnEscape = 1
 	};
-	
+
 	_G.StaticPopupDialogs["FX_MULTI_PURPOSE"] = {
 		text = "%s",
 		button1 = _G.ACCEPT,
@@ -5540,7 +5540,7 @@ function FW:LocalizedData()
 			:AddOption("INF",	FWL.GENERAL_TIPS4)
 			:AddOption("INF",	FWL.GENERAL_TIPS6)
 			:AddOption("INF",	FWL.GENERAL_TIPS7)
-			
+
 		:SetSubCategory(FWL.GENERAL_MO,FW.ICON.DEFAULT,2,FW.EXPAND)
 			:AddOption("CHK",FWL.GENERAL_MO1,	FWL.GENERAL_MO1_TT,	"RightClickOptions")
 			:AddOption("CHK",FWL.GENERAL_MO6,	FWL.GENERAL_MO6_TT,	"RightClickIconOptions")
@@ -5562,7 +5562,7 @@ function FW:LocalizedData()
 		:SetSubCategory(FWL.WHERE_TO_SHOW,FW.ICON.DEFAULT,1)
 			:AddOption("CHK",FWL.SHOW_IN_RAID,	FWL.SHOW_IN_RAID_TT,	"OutputRaid"):SetSpan(2)
 			:AddOption("MSG",FWL.SHOW_IN_CHANNEL,FWL.SHOW_IN_CHANNEL_TT,"Output"):SetSpan(2)
-	
+
 	:SetMainCategory(FWL.SELF_MESSAGES,FW.ICON.SELFMESSAGE,11,"SELFMESSAGES")
 		:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1)
 			:AddOption("INF",FWL.SELF_MESSAGES_HINT1)
@@ -5570,20 +5570,20 @@ function FW:LocalizedData()
 	:SetMainCategory(FWL.SOUND,FW.ICON.SOUND,12,"SOUND")
 		:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1)
 			:AddOption("INF",FWL.SOUND_HINT1)
-			
+
 	:SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT")
 
 		:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1)
 			:AddOption("INF",FWL.ADVANCED_HINT1)
 			:AddOption("INF",FWL.ADVANCED_HINT2)
-			
+
 		:SetSubCategory(FWL.GENERAL_MO,FW.ICON.DEFAULT,1)
 			:AddOption("CHK",FWL.GENERAL_MO3,	FWL.GENERAL_MO3_TT,	"FrameSnap")
 			:AddOption("NUM",FWL.GENERAL_MO4,	FWL.GENERAL_MO4_TT,	"FrameSnapDistance"):SetEnabled("FrameSnap")
 			:AddOption("NUM",FWL.GENERAL_MO5,	FWL.GENERAL_MO5_TT,	"FrameDistance"):SetEnabled("FrameSnap")
 			:AddOption("CHK",FWL.SHOW_STARTUP,FWL.SHOW_STARTUP_TT,	"ShowStartupText")
 			:AddOption("CHK",FWL.GLOBAL_FRAME_NAMES,FWL.GLOBAL_FRAME_NAMES_TT,	"GlobalFrameNames")
-		
+
 		:SetSubCategory(FWL.OPTIONS_BEHAVIOR,FW.ICON.DEFAULT,1)
 			:AddOption("NUM",FWL.OPTIONS_COLUMNS,FWL.OPTIONS_COLUMNS_TT,	"OptionsColums"):SetRange(2,4):SetFunc(FW.BuildOptions)
 			:AddOption("NUM",FWL.OPTIONS_HEIGHT,	FWL.OPTIONS_HEIGHT_TT,	"OptionsHeight"):SetRange(200):SetFunc(FW.BuildOptions)
@@ -5595,21 +5595,21 @@ function FW:LocalizedData()
 		:SetSubCategory(FWL.OPTIONS_LINKING,FW.ICON.DEFAULT,1)
 			:AddOption("INF",	FWL.LINK_HINT1)
 			:AddOption("INF",	FWL.LINK_HINT2)
-			
+
 			:AddOption("CO2",FWL.LINKED_NONE,"",	"LinkNoneColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.LINKED_PROFILES,"","LinkProfileColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.LINKED_CLONES,"",	"LinkCloneColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.LINKED_BOTH,"",	"LinkBothColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("BTN",FWL.CROSS_PROFILE_LINK,FWL.CROSS_PROFILE_LINK_TT,""):SetFunc(AutoLinkProfiles)
 			:AddOption("BTN",FWL.CROSS_CLONE_LINK,	FWL.CROSS_CLONE_LINK_TT,""):SetFunc(AutoLinkClones)
-			
+
 			:AddOption("CO2",FWL.DIFFERS_NONE,"",	"DiffNoneColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.DIFFERS_PROFILES,"","DiffProfileColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.DIFFERS_CLONES,"",	"DiffCloneColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			:AddOption("COL",FWL.DIFFERS_BOTH,"",	"DiffBothColor"):SetFunc(FW_RefreshOptionsNoStyleThrottle)
 			--:AddOption("BTN",FWL.CROSS_PROFILE_CORRECT,FWL.CROSS_PROFILE_CORRECT_TT,	"",	AutoFixProfiles)
 			--:AddOption("BTN",FWL.CROSS_CLONE_CORRECT,	FWL.CROSS_CLONE_CORRECT_TT,		"",	AutoFixClones)
-			
+
 			:AddOption("CHK",FWL.ALWAYS_LINK_PROFILE,FWL.ALWAYS_LINK_PROFILE_TT,	"LinkProfile")
 			:AddOption("CHK",FWL.ALWAYS_LINK_CLONE,	FWL.ALWAYS_LINK_CLONE_TT,	"LinkClone")
 
@@ -5644,7 +5644,7 @@ function FW:LocalizedData()
 			:AddOption("INF"," ")
 			:AddOption("INF","If you want to donate anything for the work on this addon, feel free to use PayPal. Thanks! :)")
 			:AddOption("URL","PayPal","Donate using PayPal","https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2083371")
-		
+
 		:SetSubCategory("Special Thanks",FW.ICON.HINT,2)
 			:AddOption("INF","I would like to thank the following people:")
 			:AddOption("INF","   Everyone in Forte in its last years. Forte was the perfect AddOn testing playground ;)")
@@ -5677,7 +5677,7 @@ function FW:LocalizedData()
 			:AddOption("INF","- Diminishing returns tracking @ spell timer")
 			:AddOption("INF","- Some pet summon buttons etc so you can dump necrosis? :p")
 			:AddOption("INF","- Docking with Fubar?")
-			
+
 	BINDING_HEADER_FORTEXORCIST = FW.TITLE;
 	BINDING_NAME_FX_OPTIONS = FWL.TOGGLE_OPTIONS;
 end

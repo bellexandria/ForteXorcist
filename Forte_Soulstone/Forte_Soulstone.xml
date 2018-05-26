@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Script file="Forte_Soulstone.lua"/>
-	
+
 	<StatusBar name="FWSSBarTemplate" virtual="true" minValue="0" maxValue="1" defaultValue="1" hidden="true">
 		<Size>
 			<AbsDimension x="100" y="12"/>
@@ -103,7 +103,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 					</Size>
 				</Texture>
 			</Layer>
-	
+
 		</Layers>
 		<Scripts>
 			<OnEnter>
@@ -118,7 +118,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		<BarTexture file="Interface\PaperDollInfoFrame\UI-Character-Skills-Bar"/>
 		<BarColor r=".64" g=".21" b=".93"/>
 	</StatusBar>
-	
+
 	<Frame name="FWSSFrame" movable="true" toplevel="true" parent="UIParent" hidden="false">
 		<Size>
 			<AbsDimension x="106" y="20" />
@@ -144,12 +144,12 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 								<AbsDimension x="-4" y="0"/>
 							</Offset>
 						</Anchor>
-						
+
 					</Anchors>
 				</FontString>
 			</Layer>
 		</Layers>
-		
+
 		<Frames>
 			<Button name="FWSSButton" inherits="SecureActionButtonTemplate">
 				<Size>
@@ -182,13 +182,13 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				<NormalTexture file="Interface\AddOns\Forte_Core\Textures\SS1"/>
 				<HighlightTexture file="Interface\AddOns\Forte_Core\Textures\SS3"/>
 			</Button>
-			
+
 		</Frames>
-		
+
 		<Scripts>
 			<OnMouseDown>
 				FW:StartMoving(self,button);
-				
+
 			</OnMouseDown>
 			<OnMouseUp>
 				FW:SSFrame_OnClick(button);
@@ -197,7 +197,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			<OnLoad>
 				FW:SoulstoneOnload();
 			</OnLoad>
-		</Scripts> 
+		</Scripts>
 	</Frame>
 	<Frame name="FWSSBackground" parent="UIParent" hidden="false">
 		<Size>

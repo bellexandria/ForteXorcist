@@ -79,7 +79,7 @@ local CD_SpecialCooldown = {
 	{FWL.HEALING_POTION,	FLAG_POTION},
 	{FWL.PROTECTION_POTION,	FLAG_POTION},
 	{(FW:SpellName(20707)),	FLAG_SOULSTONE},
-	
+
 	{FWL.HEALTHSTONE,		FLAG_HEALTHSTONE}, -- all healthstone types
 	{(FW:ItemName(22797)),	FLAG_HEALTHSTONE}, -- nightmare seed
 	{(FW:ItemName(22795)),	FLAG_HEALTHSTONE}, -- fel blossom
@@ -98,7 +98,7 @@ local Masters = {
 	{FWL.MANA_POTION,		MASTER_MANA_POTION},
 	{FWL.HEALING_POTION,	MASTER_HEALING_POTION},
 	{FWL.PROTECTION_POTION,	MASTER_PROTECTION_POTION},
-	
+
 	{FWL.HEALTHSTONE,				MASTER_HEALTHSTONE}, -- all healthstone types
 	{"^"..FW:ItemName(22797).."$",	MASTER_HEALTHSTONE}, -- nightmare seed
 	{"^"..FW:ItemName(22795).."$",	MASTER_HEALTHSTONE}, -- fel blossom
@@ -136,7 +136,7 @@ end
 
 --function FW:RegisterGroupMasterItem(item)
 --	item = FW:ItemName(item)
---	
+--
 --end
 
 --function FW:RegisterGroupMaster(spell)
@@ -159,7 +159,7 @@ function FixNameForFind(name)
 end
 
 function CD:AddCooldownPowerup(item,buff)	-- these are items
-	
+
 	tinsert(CD_SpecialCooldown,{"^"..(FixNameForFind(FW:ItemName(item))),FLAG_POWERUP,(FW:SpellName(buff))});
 	return self;
 end
@@ -238,7 +238,7 @@ local function FlagToAction(frame,spell,flag)
 			return FILTER_NONE; -- using this instead of FILTER_SHOW so i can still see if a custom buff needs to be added
 		else
 			return FILTER_HIDE;
-		end		
+		end
 	end
 end
 
@@ -260,11 +260,11 @@ end
 
 local function CD_MakeMasters(frame)
 	local frame = frame1;
-	
+
 	for j=1,cd.rows,1 do -- reset all
 		cd[j][19] = "";
 	end
-	
+
 	if frame.s.GroupOverride then -- recalculate masters
 		for j=1,cd.rows,1 do
 			-- set master texture if any
@@ -298,11 +298,11 @@ local function CD_MakeMasters(frame)
 							cd[j][17] = cd[i][17];
 							break;
 						end
-					
+
 					end
 				end
 				cd[j][19] = master;
-				
+
 			--end
 		end
 	end
@@ -326,14 +326,14 @@ local function CD_EndCooldown(i)
 	local flag = cd[i][6];
 
 	CD_MakeMasters(); -- can be a huge performance impact for nothing, will be fixed
-	
+
 	if flag == FLAG_PET then
 		CooldownsPet[spell][1] = 0;
 		CooldownsPet[spell][2] = 0;
 	elseif flag == FLAG_BUFF or flag == FLAG_DEBUFF then
 		CooldownsBuffs[spell][1] = 0;
 		CooldownsBuffs[spell][2] = 0;
-	else	
+	else
 		CooldownsSpells[spell][1] = 0;
 		CooldownsSpells[spell][2] = 0;
 	end
@@ -353,7 +353,7 @@ local function CD_EndCooldown(i)
 	cd[i][15] = -1; -- expired
 	cd[i][14] = 1;
 	cd[i][20] = 0; -- undo any focussing by cast attempts
-	
+
 	for i,f in ipairs(FW_OnCooldownReady) do
 		f(spell,flag);
 	end
@@ -391,14 +391,14 @@ function CD:CheckCooldown(spell,start,duration,texture,flag)
 		cooldowns = CooldownsPet;
 	else
 		cooldowns = CooldownsSpells;
-	end			
+	end
 	--if spell == "Haunt" then
 	--	FW:Show(GetTime()..": "..start.." "..duration);
 	--end
 	local end_time = start+duration;
 	if cooldowns[spell] then
 		if start ~= cooldowns[spell][1] or duration ~= cooldowns[spell][2] then -- something changed in the duration
-			
+
 			if duration == 0 then -- no event fired when cd is over :|
 
 				index = cd:find3(spell,1, flag,6, 0,15) or cd:find3(spell,1, flag,6, 1,15);
@@ -408,13 +408,13 @@ function CD:CheckCooldown(spell,start,duration,texture,flag)
 					cd[index][4] = duration;
 					if texture~="" then
 						cd[index][5] = texture;
-					end			
+					end
 					CD_EndCooldown(index);
 				end
-				
+
 			-- greater than the hard minimum duration
 			-- or if it decreased the already running cooldown, even if it's shorten than the hard minimum
-			elseif duration > IgnoreCooldown or end_time < cooldowns[spell][1]+cooldowns[spell][2] then 
+			elseif duration > IgnoreCooldown or end_time < cooldowns[spell][1]+cooldowns[spell][2] then
 				--FW:Debug("DIFF: "..start-cooldowns[spell][1]);
 				index = cd:find3(spell,1, flag,6, 0,15) or cd:find3(spell,1, flag,6, 1,15);
 				if index then
@@ -485,12 +485,12 @@ end
 20: grab attention time remaining (Change to not use lastupdate plx)
 21: hidden based on standard filter (0 or 1) 0 actually means visible (not being filtered)
 ]]
-local function CD_TimeFilterRemaining(frame,t) 
+local function CD_TimeFilterRemaining(frame,t)
 	return (not frame.s.MinRemaining[0] or frame.s.MinRemaining[1] <= t)
-		and (not frame.s.MaxRemaining[0] or frame.s.MaxRemaining[1] >= t); 
+		and (not frame.s.MaxRemaining[0] or frame.s.MaxRemaining[1] >= t);
 end
 
-local function CD_TimeFilterDuration(frame,d) 
+local function CD_TimeFilterDuration(frame,d)
 	return (not frame.s.MinRange[0] or frame.s.MinRange[1] <= d)
 		and (not frame.s.MaxRange[0] or frame.s.MaxRange[1] >= d);
 end
@@ -524,20 +524,20 @@ local function CD_CreateCooldowns(frame)
 			cd[i][9] = v;
 			cd[i][10] = v-ih*0.5;
 			cd[i][11] = v-ih;
-			
+
 			if cd[i][20] > 1 then -- this timer is focussed by attempting to cast it
 				cd[i][20] = cd[i][20] - (tim-cd[i][16]);
 			end
-			
+
 			i=i+1;
 		end
 	end
 	if not frame.s.Enable and not frame2.s.Enable then return; end
-	
+
 	cd:sort(SORT_CD_ORDER,SORT_CD_ASC);
 
 	local s3,s7,s8,s9,s12 = 0,0,0,0,0;
-	
+
 	local group = 0;
 	erase(first);
 	erase(last);
@@ -556,7 +556,7 @@ local function CD_CreateCooldowns(frame)
 	while i<=cd.rows do
 		local t1,t2,t3,t4,_,_,t7,t8,t9,t10,_,t12,_,_,t15,_,t17,_,t19,t20 = unpack(cd[i]);
 		if t17 == 0 then -- determine if this timer will be visible
-		
+
 			if i > 1 and ((s9 > t10 and t2~=0) or (t2==0 and abs(t3-s3)<GROUP_TIME) ) then -- more than half an icon overlap
 				-- for runes t3==s3 seems not to work well enough, a margin is needed
 				last[group] = i;
@@ -571,7 +571,7 @@ local function CD_CreateCooldowns(frame)
 				t8,t12=s7,s9;
 				cooldownString[group] = FW:SecToTime(t2).." "..t1;
 			end
-			
+
 			cd[i][8] = t8;
 			cd[i][12] = t12;
 			cd[i][13] = group;
@@ -603,7 +603,7 @@ local function CD_CreateCooldowns(frame)
 	-- add group specific code below
 	-- if at least one group master icon is present, only switch between those!
 	while i<=cd.rows do
-		local t13,t14 = cd[i][13],cd[i][14];	
+		local t13,t14 = cd[i][13],cd[i][14];
 		if cd[i][15] == 1 and cd[i][17] == 0 then
 			--if not CD_TimeFilterRemaining(frame,cd[i][2]) or not CD_TimeFilterDuration(frame,cd[i][4]) then
 			--	FW:Show("have to fix");
@@ -630,7 +630,7 @@ local function CD_CreateCooldowns(frame)
 			end
 		else
 			t14 = t14-tim+cd[i][16];
-			if t14 < 0 then t14 = 0; end	
+			if t14 < 0 then t14 = 0; end
 		end
 		cd[i][14] = t14;
 		cd[i][16] = tim;
@@ -715,7 +715,7 @@ local function CD_ScanActionCooldowns()
 		elseif what == "spell" then
 			spell,texture = FW:SpellName(id);
 			start,duration,enabled = GetSpellCooldown(id);
-			if enabled == 1 then -- Number - 0 if the spell is active (Stealth, Shadowmeld, Presence of Mind, etc) and the cooldown will begin as soon as the spell is used/cancelled; 1 otherwise. 
+			if enabled == 1 then -- Number - 0 if the spell is active (Stealth, Shadowmeld, Presence of Mind, etc) and the cooldown will begin as soon as the spell is used/cancelled; 1 otherwise.
 				CD:CheckCooldown(spell,start,duration,texture,(CD_IsSpecialCooldown(spell)) or FLAG_SPELL);
 			end
 		end
@@ -745,11 +745,11 @@ local function CD_ScanBookCooldowns()
 	while i <= m do
 		--FW:Show(i);
 		spell = select(2,GetSpellBookItemInfo(i,"player"));
-		
+
 		if spell then
 			spell,texture = FW:SpellName(spell);--FW:Show(spell);
 			start,duration,enabled = GetSpellCooldown(i,"player");
-			if enabled == 1 then -- Number - 0 if the spell is active (Stealth, Shadowmeld, Presence of Mind, etc) and the cooldown will begin as soon as the spell is used/cancelled; 1 otherwise. 
+			if enabled == 1 then -- Number - 0 if the spell is active (Stealth, Shadowmeld, Presence of Mind, etc) and the cooldown will begin as soon as the spell is used/cancelled; 1 otherwise.
 				CD:CheckCooldown(spell,start,duration,texture,(CD_IsSpecialCooldown(spell)) or FLAG_SPELL);
 			end
 			i=i+1;
@@ -757,12 +757,12 @@ local function CD_ScanBookCooldowns()
 			break;
 		end
 	end
-	
+
 	i=1;
 	while true do -- NOT WORKING AT ALL
 		--FW:Show(i);
 		spell = select(2,GetSpellBookItemInfo(i,"pet"));
-		
+
 		if spell then
 			spell,texture = FW:SpellName(spell);--FW:Show(spell);
 			start,duration,enabled = GetSpellCooldown(i,"pet");
@@ -775,7 +775,7 @@ local function CD_ScanBookCooldowns()
 			break;
 		end
 	end
-	
+
 end
 
 local function CD_ScanBuffCooldowns()
@@ -872,7 +872,7 @@ local function CD_FocusTimer(i)
 		cd[i][15] = 1;
 		cd[i][14] = 1;
 		cd[i][20] = 1 + focustime;
-		
+
 	end
 end
 
@@ -965,16 +965,16 @@ local function NewIcon(parent,n)
 	icon = parent.icons[n];
 	icon.parent = parent;
 	icon:SetPoint("CENTER",parent,"CENTER",0,0);
-	
+
 	icon.texture = icon:CreateTexture(nil,"ARTWORK");
 	icon.texture:SetTexture("Interface\\Icons\\Spell_Shadow_LastingAfflictions");
 	icon.texture:SetAllPoints(icon);
-	
+
 	icon.spark = icon:CreateTexture(nil,"OVERLAY");
 	icon.spark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark2");
 	icon.spark:SetBlendMode("ADD");
 	icon.spark:SetPoint("CENTER",icon,"CENTER",0,0);
-	
+
 	icon.Update = function(self)
 		if self.parent.s.SplashGlow then
 			self.texture:SetTexCoord(0.133,0.867,0.133,0.867);
@@ -993,7 +993,7 @@ local function CD_NewSplashFrame(index)
 	frame.parent = UIParent;
 	frame.index = index;
 	frame.icons = {};
-		
+
 	--scripts
 	frame:SetScript("OnMouseDown",function(self,button) FW:StartMoving(self,button); end);
 	frame:SetScript("OnMouseUp",function(self,button) FW:StopMoving(self);	Splash_OnClick(button); end);
@@ -1079,7 +1079,7 @@ local function NewBar(parent,n)
 	parent.bars[n] = CreateFrame("Frame",nil,parent);
 	bar = parent.bars[n];
 	bar.parent = parent;
-	
+
 	bar.splashiconspark = bar:CreateTexture(nil,"OVERLAY");
 	bar.splashiconspark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark2");
 	bar.splashiconspark:SetBlendMode("ADD");
@@ -1090,7 +1090,7 @@ local function NewBar(parent,n)
 
 	bar.texture = bar:CreateTexture(nil,"ARTWORK");
 	bar.texture:SetAllPoints(bar);
-	
+
 	-- icon
 	bar.icon = CreateFrame("Button",nil,bar);
 	bar.icon:SetPoint("CENTER",bar,"CENTER",0,0);
@@ -1099,22 +1099,22 @@ local function NewBar(parent,n)
 	bar.icon.attentionspark:SetPoint("CENTER",bar.icon,"CENTER");
 	bar.icon.attentionspark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark2");
 	bar.icon.attentionspark:SetBlendMode("ADD");
-	
+
 	bar.icon.spark = bar.icon:CreateTexture(nil,"OVERLAY");
 	bar.icon.spark:SetPoint("CENTER",bar.icon,"CENTER");
 	bar.icon.spark:SetTexture("Interface\\AddOns\\Forte_Core\\Textures\\Spark2");
 	bar.icon.spark:SetBlendMode("ADD");
-	
+
 	bar.icon:SetNormalTexture("Interface\\TutorialFrame\\TutorialFrameAlert");
 	bar.icon.texture = bar.icon:GetNormalTexture();
 	bar.icon.texture:SetTexCoord(0.133,0.867,0.133,0.867);
-	
+
 	bar.tag = bar.icon:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall");
 	bar.tag:SetJustifyH("CENTER");
 	bar.tag:SetPoint("BOTTOMLEFT", bar.icon, "BOTTOMLEFT", 0, 0);
-	
+
 	--scripts
-	bar.icon:SetScript("OnClick",function(self,button) 
+	bar.icon:SetScript("OnClick",function(self,button)
 		if button == "RightButton" then
 			if FW.Settings.RightClickIconOptions then
 				FW:ScrollTo(FWL.COOLDOWN_TIMER.." Color",1);
@@ -1166,10 +1166,10 @@ local function NewBar(parent,n)
 			self.tag:Show();
 		else
 			self.tag:Hide();
-		end		
+		end
 		self:SetPoint("TOPLEFT", self.parent, "TOPLEFT", s.Backdrop[6],-s.Backdrop[6]);
 		self:SetPoint("BOTTOMRIGHT", self.parent, "BOTTOMRIGHT", -s.Backdrop[6],s.Backdrop[6]);
-		
+
 		--local d = ih*0.5;
 		local d = s.Height*0.5;
 		local a,b,c;
@@ -1210,18 +1210,18 @@ local function CD_NewCooldownFrame(index)
 	---frame.displayname = displayname;
 	frame.bars = {};
 	frame.tags = {};
-	
+
 	frame.tagsframe = CreateFrame("Frame",nil,frame);
 	frame.tagsframe:SetAllPoints(frame);
-	
-	frame:SetPoint("CENTER",UIParent,"CENTER");	
+
+	frame:SetPoint("CENTER",UIParent,"CENTER");
 	frame:SetHeight(20);
 
 	frame.back = frame:CreateTexture(nil,"OVERLAY");
 	frame.back:SetPoint("TOPLEFT",frame,"TOPLEFT",3,-3);
 	frame.back:SetPoint("BOTTOMRIGHT",frame,"BOTTOMRIGHT",-3,3);
 	frame.back:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-Skills-Bar");
-	
+
 	--scripts
 	frame:SetScript("OnMouseDown",function(self,button) FW:StartMoving(self, button);end);
 	frame:SetScript("OnMouseUp",function(self,button) FW:StopMoving(self);	Frame_OnClick(button); end);
@@ -1229,12 +1229,12 @@ local function CD_NewCooldownFrame(index)
 	--functions
 	frame.NewBar = NewBar;
 	frame.NewTag = NewTag;
-	
+
 	frame.SetTimeTags = function(self)
-		
+
 		local s = self.s;
 		local ih = s.Height;
-		
+
 		if s.CustomTags[0] then
 			--local ih = s.IconSizeEnable and s.IconSize or s.Height;
 			local f1 = (s.Width-ih)/s.Width;
@@ -1243,7 +1243,7 @@ local function CD_NewCooldownFrame(index)
 			local a,b,c;
 			local tag;
 			local i = 1;
-			
+
 			while #tags > 0 do
 				tremove(tags);
 			end
@@ -1304,9 +1304,9 @@ local function CD_NewCooldownFrame(index)
 
 				local v = pow( i*interval, 1/s.Loga); -- 0-1 value factor on the tags
 				local d = s.Backdrop[6] + ih*0.5;
-				
+
 				v=v*s.Max; -- convert to actual time
-				
+
 				if v>60 then
 					v=(v/60);
 					v = FW:RoundTo(v,0.5); -- round v down to a whole number
@@ -1315,7 +1315,7 @@ local function CD_NewCooldownFrame(index)
 					v = FW:RoundTo(v,1); -- round v down to a whole number
 					d = d + pow(v/s.Max,s.Loga)*f1;
 				end
-				
+
 				if s.Vertical then
 					if s.Flip then a,b,c = "TOP",0,-d;else a,b,c = "BOTTOM",0,d;end
 				else
@@ -1324,7 +1324,7 @@ local function CD_NewCooldownFrame(index)
 				i = i + 1;
 				tag = self.tags[i] or self:NewTag(i);
 				tag:SetPoint("CENTER",self,a,b,c);
-					
+
 				tag:SetText(v);
 				tag:SetFont(unpack(s.Font));
 				tag:SetTextColor(unpack(s.TextColor));
@@ -1360,7 +1360,7 @@ local function CD_NewCooldownFrame(index)
 			end
 		end
 		if not self:IsShown() then return; end
-		
+
 		local ih = s.IconSize[0] and s.IconSize[1] or s.Height;
 		local _,t1,t2,t5,t6,t7,t8,t9,t10,t12,t13,t14,t15,t17,t18,t19,t20;
 		local index=1;
@@ -1371,7 +1371,7 @@ local function CD_NewCooldownFrame(index)
 			if t14 > 0 and t17==0 then
 				bar = self.bars[i] or self:NewBar(i);
 				if type(t19) ~= "number" and t19 ~= "" then -- use master texture if i have one
-					t5 = t19; 
+					t5 = t19;
 				end
 				bar.icon:EnableMouse( t15==1 );
 				bar.icon.title = FW:SecToTime(t2).." "..t1;
@@ -1381,7 +1381,7 @@ local function CD_NewCooldownFrame(index)
 					local size = s.SplashFactor*ih*(1-t14);
 					bar.splashicon:SetTexture(t5);
 					bar.splashicon:SetWidth(size);
-					bar.splashicon:SetHeight(size);				
+					bar.splashicon:SetHeight(size);
 					if s.Spark[0] then
 						bar.splashiconspark:SetWidth( 2.2*size);
 						bar.splashiconspark:SetHeight( 2.2*size);
@@ -1428,12 +1428,12 @@ local function CD_NewCooldownFrame(index)
 					if s.Flip then
 						bar.texture:SetTexCoord(t8,0,t7,0, t8,1, t7,1);
 						bar.texture:SetPoint("BOTTOMLEFT", bar, "BOTTOMLEFT", 0, s.Width-t9);
-						bar.texture:SetPoint("TOPRIGHT", bar, "TOPRIGHT", 0, -t12);	
+						bar.texture:SetPoint("TOPRIGHT", bar, "TOPRIGHT", 0, -t12);
 						bar.icon:SetPoint("CENTER", bar, "TOP", 0, -t10);
 					else
 						bar.texture:SetTexCoord(t7,0,t8,0, t7,1, t8,1);
 						bar.texture:SetPoint("TOPLEFT", bar, "TOPLEFT", 0, t9-s.Width);
-						bar.texture:SetPoint("BOTTOMRIGHT", bar, "BOTTOMRIGHT", 0, t12);	
+						bar.texture:SetPoint("BOTTOMRIGHT", bar, "BOTTOMRIGHT", 0, t12);
 						bar.icon:SetPoint("CENTER", bar, "BOTTOM", 0, t10);
 					end
 				else
@@ -1460,7 +1460,7 @@ local function CD_NewCooldownFrame(index)
 		self.s = FW.Settings.Cooldown.Instances[self.index];
 		FW:InitFrameVars(self);
 	end
-	
+
 	frame.Update = function(self)
 		if self.s.Enable then
 			self:EnableMouse( not self.s.lock );
@@ -1472,7 +1472,7 @@ local function CD_NewCooldownFrame(index)
 			FW:SetBackdrop(self,unpack(self.s.Backdrop));
 			self:SetBackdropColor(unpack(self.s.BgColor));
 			self:SetBackdropBorderColor(unpack(self.s.BgColor));
-			
+
 			if self.s.Vertical then
 				self:SetWidth(self.s.Height+self.s.Backdrop[6]*2);
 				self:SetHeight(self.s.Width+self.s.Backdrop[6]*2);
@@ -1481,7 +1481,7 @@ local function CD_NewCooldownFrame(index)
 				self:SetWidth(self.s.Width+self.s.Backdrop[6]*2);
 				self:SetHeight(self.s.Height+self.s.Backdrop[6]*2);
 				self.back:SetTexCoord(0,0, 0,1, 1,0, 1,1);
-			end	
+			end
 			for b, bar in ipairs(self.bars) do
 				bar:Update();
 			end
@@ -1509,7 +1509,7 @@ local function CD_CooldownFilterChange(frame) --this needs to include the entire
 			i=i+1;
 		end
 	end
-	
+
 	for i=1,cd.rows,1 do
 		local action = FlagToAction(frame1,cd[i][1],cd[i][6]);
 		if action == FILTER_HIDE then
@@ -1565,10 +1565,10 @@ FW:RegisterVariablesEvent(function()
 	FW:RegisterToEvent("UNIT_AURA",					function(event,arg1) if arg1=="player" then FW:RegisterThrottle(CD_ScanBuffCooldowns);end end);
 	FW:RegisterToEvent("UNIT_INVENTORY_CHANGED",	function(event,arg1) if arg1=="player" then FW:RegisterThrottle(CD_ScanWeaponEnchant);end end);
 	FW:RegisterTimedEvent("AnimationInterval",	CD_CreateCooldowns);
-	
+
 	CD_FixItemNames(); -- WORKS WHEN TRIGGERED HERE :)
 	CD_SpellFailed();
-	
+
 end);
 
 FW:RegisterOnProfileChange(CD_CooldownFilterChange);
@@ -1582,11 +1582,11 @@ function CD:AddMeleePowerupCooldowns()
 	self:AddCooldownPowerup(37166,60305) -- Sphere of Red Dragon's Blood,  Heart of a Dragon
 	:AddCooldownPowerup(38259,50263) -- First Mate's Pocketwatch, Quickness of the Sailor
 	:AddCooldownPowerup(45263,64800) -- Wrathstone, Wrathstone
-	:AddCooldownPowerup(48020,67746) -- Vengeance of the Forsaken, Risen Fury	
-	:AddCooldownPowerup(41093,54758) -- Hyperspeed Accelerators, Hyperspeed Acceleration	
+	:AddCooldownPowerup(48020,67746) -- Vengeance of the Forsaken, Risen Fury
+	:AddCooldownPowerup(41093,54758) -- Hyperspeed Accelerators, Hyperspeed Acceleration
 	:AddCooldownPowerup(48722,67683) -- Shard of the Crystal Heart, Celerity
 	:AddCooldownPowerup(59515,92213) -- Vial of Stolen Memories, Memory of Invincibility
-	
+
 	:AddHiddenCooldown(29301,35081,45) -- Band of the Eternal Champion, Band of the Eternal Champion
 	:AddHiddenCooldown(40684,60065,45) -- Mirror of Truth, Reflection of Torment
 	:AddHiddenCooldown(45286,65014,45) -- Pyrite Infuser, Pyrite Infusion
@@ -1609,26 +1609,26 @@ function CD:AddMeleePowerupCooldowns()
 	:AddHiddenCooldown(50402,72412,60) -- Ashen Band of Endless Vengeance, Frostforged Champion
 	:AddHiddenCooldown(54590,75456,45) -- Sharpened Twilight Scale, Piercing Twilight
 	:AddHiddenCooldown(54591,75480,45) -- Petrified Twilight Scale, Scaly Nimbleness
-	
-	:AddHiddenCooldown(56102,92096,50) -- Left Eye of Rajh, Eye of Vengeance 
+
+	:AddHiddenCooldown(56102,92096,50) -- Left Eye of Rajh, Eye of Vengeance
 	:AddHiddenCooldown(55795,92069,75) -- Key to the Endless Chamber, Final Key
-	:AddHiddenCooldown(59473,92126,50) -- Essence of the Cyclone, Twisted 
-	:AddHiddenCooldown(59520,92108,50) -- Unheeded Warning, Heedless Carnage 
-	:AddHiddenCooldown(59441,92124,75) -- Prestor's Talisman of Machination, Nefarious Plot 
+	:AddHiddenCooldown(59473,92126,50) -- Essence of the Cyclone, Twisted
+	:AddHiddenCooldown(59520,92108,50) -- Unheeded Warning, Heedless Carnage
+	:AddHiddenCooldown(59441,92124,75) -- Prestor's Talisman of Machination, Nefarious Plot
 	:AddHiddenCooldown(55266,92052,100) -- Grace of the Herald, Herald of Doom
 	:AddHiddenCooldown(59506,91821,75) -- Crushing Weight, Race Against Death
 	:AddHiddenCooldown(59224,91816,100) -- Heart of Rage, Rageheart
-	
+
 	:AddHiddenCooldown(61046,85032,45) -- Vicious Gladiator's Insignia of Victory, Surge of Victory
 	:AddHiddenCooldown(68994,96977,105) -- Matrix Restabilizer, Matrix Restabilized
 	:AddHiddenCooldown(68927,96911,60) -- The Hungerer, Devour
 	:AddHiddenCooldown(77202,107982,115) -- Starcatcher Compass, Velocity
 	:AddHiddenCooldown(77205,107988,115) -- Creche of the Final Dragon, Find Weakness
-	
+
 	:AddHiddenCooldown(nil,59626,35) -- Black Magic
 	:AddHiddenCooldown(nil,59620,35) -- Berserk, Enchant Weapon - Berserking
 	:AddHiddenCooldown(nil,28093,35) -- Lightning Speed, Enchant Weapon - Mongoose
-	
+
 	:AddHiddenCooldown(nil,125489,55) -- Enchant Cloak - Swordguard Embroidery
 end
 
@@ -1648,11 +1648,11 @@ function CD:AddCasterPowerupCooldowns()
 	:AddCooldownPowerup(45148,64712) -- Living Flame, Living Flame
 	:AddCooldownPowerup(50259,71564) -- Nevermelting Ice Crystal, Deadly Precision
 	:AddCooldownPowerup(48722,67683) -- Shard of the Crystal Heart, Celerity
-	:AddCooldownPowerup(41093,54758) -- Hyperspeed Accelerators, Hyperspeed Acceleration	
-	:AddCooldownPowerup(37873,60480) -- Mark of the War Prisoner, Mark of the War Prisoner	
+	:AddCooldownPowerup(41093,54758) -- Hyperspeed Accelerators, Hyperspeed Acceleration
+	:AddCooldownPowerup(37873,60480) -- Mark of the War Prisoner, Mark of the War Prisoner
 	:AddCooldownPowerup(59514,91041) -- Heart of Ignacious, Heart's Judgement
 	:AddCooldownPowerup(70142,100403) -- Moonwell Chalice, Blessing of the Moonwell
-	
+
 	:AddHiddenCooldown(27683,44605,18) -- Quagmirran's Eye, Spell Haste
 	:AddHiddenCooldown(30626,38348,45) -- Sextant of Unstable Currents, Unstable Currents
 	:AddHiddenCooldown(29305,35084,45) -- Band of the Eternal Sage, Band of the Eternal Sage
@@ -1660,7 +1660,7 @@ function CD:AddCasterPowerupCooldowns()
 	:AddHiddenCooldown(39229,60492,45) -- Embrace of the Spider, Embrace of the Spider
 	:AddHiddenCooldown(44254,60234,45) -- Darkmoon Card: Greatness, Greatness, int
 	:AddHiddenCooldown(44255,60235,45) -- Darkmoon Card: Greatness, Greatness, spi
-	:AddHiddenCooldown(46017,64411,45) -- Val'anyr, Hammer of Ancient Kings, Blessing of Ancient Kings 
+	:AddHiddenCooldown(46017,64411,45) -- Val'anyr, Hammer of Ancient Kings, Blessing of Ancient Kings
 	:AddHiddenCooldown(50398,72416,60) -- Ashen Band of Endless Destruction, Frostforged Sage
 	:AddHiddenCooldown(50400,72418,60) -- Ashen Band of Endless Wisdom, Item - Icecrown Reputation Ring Healer Effect
 	:AddHiddenCooldown(50353,71601,45) -- Dislodged Foreign Object, Surge of Power
@@ -1668,23 +1668,23 @@ function CD:AddCasterPowerupCooldowns()
 	:AddHiddenCooldown(50360,71605,90) -- Phylactery of the Nameless Lich, Siphoned Power
 	:AddHiddenCooldown(54588,75473,45) -- Charred Twilight Scale, Twilight Flames
 	:AddHiddenCooldown(54589,75494,45) -- Glowing Twilight Scale, Twilight Renewal
-	
+
 	:AddHiddenCooldown(55819,91138,45) -- Tear of Blood, Cleansing Tears
 	:AddHiddenCooldown(55995,91147,105) -- Blood of Isiset, Blessing of Isiset
 	:AddHiddenCooldown(62470,91047,75) -- Stump of Time, Battle Magic
 	:AddHiddenCooldown(62047,89091,45) -- Darkmoon Card: Volcano, Volcanic Destruction
-	
+
 	:AddHiddenCooldown(59326,91007,100) -- Bell of Enraging Resonance, Dire Magic
 	:AddHiddenCooldown(59519,91024,90) -- Theralion's Mirror, Revelation
 	:AddHiddenCooldown(62472,91192,50) -- Mandala of Stirring Patterns, Pattern of Light
-	
+
 	:AddHiddenCooldown(56320,90887,75) -- Witching Hourglass, Witching Hour
 	:AddHiddenCooldown(59500,91184,75) -- Fall of Mortality, Grounded Soul
 	:AddHiddenCooldown(77204,107982,120) -- Seal of the Seven Signs, Velocity
 	:AddHiddenCooldown(77203,107982,110) -- Insignia of the Corrupted Mind, Velocity
 	:AddHiddenCooldown(77190,107804,45) -- Ti'tahk, the Steps of Time, Slowing the Sands
 	:AddHiddenCooldown(72898,102662,45) -- Foul Gift of the Demon Lord, Foul Gift
-	
+
 	:AddHiddenCooldown(69149,96966,45) -- Eye of Blazing Power, Blaze of Life -- WONT WORK BECAUSE NO BUFF
     :AddHiddenCooldown(77209,108000,20) -- Windward Heart, Nick of Time -- WONT WORK BECAUSE NO BUFF
 
@@ -1698,7 +1698,7 @@ FW:SetMainCategory(FWL.COOLDOWN_TIMER,FW.ICON.CD,4,"COOLDOWN",nil,"Cooldown")
 		:AddOption("INF",FWL.CD_HINT1)
 		:AddOption("INF",FWL.CD_HINT2)
 		:AddOption("INF",FWL.CD_HINT3)
-		
+
 	:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND)
 		:AddOption("CHK",FWL.ENABLE,	FWL.CD_BASIC1_TT,	"Enable"):SetFunc(CD_CooldownShow)
 		--:AddOption("CHK","Test Bars",	"",	"CooldownTest",CD_Test)
@@ -1718,12 +1718,12 @@ FW:SetMainCategory(FWL.COOLDOWN_TIMER,FW.ICON.CD,4,"COOLDOWN",nil,"Cooldown")
 		:AddOption("CHK",FWL.ICON_TEXT,		FWL.ICON_TEXT_TT,		"IconTime"):SetFunc(CD_CooldownShow)
 		:AddOption("CO2",FWL.ICON_TEXT_COLOR,FWL.ICON_TEXT_COLOR_TT,"IconTextColor"):SetFunc(CD_CooldownShow):SetEnabled("IconTime")
 		:AddOption("FNT",FWL.ICON_FONT,		FWL.ICON_TEXT_TT,		"IconFont"):SetFunc(CD_CooldownShow):SetEnabled("IconTime")
-	
+
 	:SetSubCategory(FWL.CD_SPLASH,FW.ICON.GLOW,3)
 		:AddOption("CHK",FWL.CD_SPLASH1,	FWL.CD_SPLASH1_TT,		"Splash")
 		:AddOption("NUM",FWL.CD_SPLASH2,	FWL.CD_SPLASH2_TT,		"SplashFactor"):SetRange(1):SetEnabled("Splash")
-				
-	:SetSubCategory(FWL.TIME_RANGE,FW.ICON.TIME,4)	
+
+	:SetSubCategory(FWL.TIME_RANGE,FW.ICON.TIME,4)
 		:AddOption("NUM",FWL.CD_SPECIFIC6,	FWL.CD_SPECIFIC6_TT,	"Max"):SetRange(5):SetFunc(CD_CooldownShow)
 		:AddOption("NUM",FWL.USE_POWER_OF,	FWL.USE_POWER_OF_TT,	"Loga"):SetRange(0.1,1):SetFunc(CD_CooldownShow)
 		:AddOption("NU2",FWL.MIN_DURATION,	FWL.MIN_DURATION_TT,	"MinRange"):SetRange(0):SetFunc(CD_CooldownFilterChange)
@@ -1746,15 +1746,15 @@ FW:SetMainCategory(FWL.COOLDOWN_TIMER,FW.ICON.CD,4,"COOLDOWN",nil,"Cooldown")
 		:AddOption("CO2",FWL.HEALTHSTONE_NORMAL,	"",	"Healthstone"):SetFunc(CD_CooldownFilterChange):SetSpellList(CD_SpecialCooldown,2,1)
 		:AddOption("CO2",FWL.SS,					"",	"Soulstone"):SetFunc(CD_CooldownFilterChange):SetSpellList(CD_SpecialCooldown,2,1)
 		:AddOption("CO2",FWL.RESURRECT_TIMER,		"",	"ResTimer"):SetFunc(CD_CooldownFilterChange)
-	
-	:SetSubCategory(FWL.BUFFS_DEBUFFS_ON_ME,FW.ICON.FILTER,5,nil,FW.REDUCED_ALPHA)	
+
+	:SetSubCategory(FWL.BUFFS_DEBUFFS_ON_ME,FW.ICON.FILTER,5,nil,FW.REDUCED_ALPHA)
 		:AddOption("CO2",FWL.BUFF,		FWL.CD_SPECIFIC7_TT,	"Buff"):SetFunc(CD_CooldownFilterChange):SetSpellList(SpecialBuffs,2,1)
 		:AddOption("CO2",FWL.ALL_OTHER_BUFFS,	"",				"BuffOther"):SetFunc(CD_CooldownFilterChange):SetEnabled(false)
 		:AddOption("CO2",FWL.DEBUFF,			"",				"Debuff"):SetFunc(CD_CooldownFilterChange)
 		:AddOption("CO2",FWL.ALL_OTHER_DEBUFFS,	"",				"DebuffOther"):SetFunc(CD_CooldownFilterChange):SetEnabled(false)
 		:AddOption("CO2",FWL.WEAPON_ENCHANT,	"",				"Enchant"):SetFunc(CD_CooldownFilterChange)
 
-	:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,6)	
+	:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,6)
 		:AddOption("NUM",FWL.BAR_WIDTH,			"",			"Width"):SetRange(0):SetFunc(CD_CooldownShow)
 		:AddOption("NUM",FWL.BAR_HEIGHT,		"",			"Height"):SetRange(0):SetFunc(CD_CooldownShow)
 		:AddOption("NU2",FWL.ICON_SIZE,FWL.ICON_SIZE_TT,	"IconSize"):SetRange(0):SetFunc(CD_CooldownShow)
@@ -1771,10 +1771,10 @@ FW:SetMainCategory(FWL.COOLDOWN_TIMER,FW.ICON.CD,4,"COOLDOWN",nil,"Cooldown")
 	:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1)
 		:AddOption("INF",FWL.CD_SPLASH_HINT1)
 		:AddOption("INF",FWL.CD_SPLASH_HINT2)
-		
+
 	:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND)
 		:AddOption("CHK",FWL.CD_SPLASH3,	FWL.CD_SPLASH3_TT,	"Enable"):SetFunc(CD_SplashShow)
-		
+
 	:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3)
 		:AddOption("NUM",FWL.CD_SPLASH2,	FWL.CD_SPLASH2_TT,	"SecondSplashMax"):SetRange(0.1)
 		:AddOption("CHK",FWL.SHOW_GLOW, 	FWL.SHOW_GLOW_TT,	"SplashGlow"):SetFunc(CD_SplashShow)
@@ -1784,14 +1784,14 @@ FW:SetMainCategory(FWL.COOLDOWN_TIMER,FW.ICON.CD,4,"COOLDOWN",nil,"Cooldown")
 		:AddOption("INF",FWL.TIME_LEFT_HINT)
 		:AddOption("MS2",FWL.COOLDOWN_LEFT,		"",	"CooldownLeft")
 		:AddOption("MS2",FWL.TIME_LEFT_NOTARGET,"",	"TimeLeftNoTarg")
-		
+
 :SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT")
 	:SetSubCategory(FWL.COOLDOWN_TIMER,FW.ICON.DEFAULT,4)
 		:AddOption("STR",FWL.FRAME_LEVEL,FWL.FRAME_LEVEL_TT,	"CooldownStrata"):SetFunc(CD_CooldownShow)
 		:AddOption("NUM",FWL.MIN_DURATION,	"",					"IgnoreCooldown"):SetRange(2)
 	:SetSubCategory(FWL.SECONDARY_SPLASH,FW.ICON.DEFAULT,4)
 		:AddOption("STR",FWL.FRAME_LEVEL,FWL.FRAME_LEVEL_TT,	"SplashStrata"):SetFunc(CD_SplashShow)
-		
+
 -- globally used
 FW.Default.IgnoreCooldown = 2.99;
 FW.Default.CooldownStrata = FW.Default.Strata;
@@ -1828,7 +1828,7 @@ FW.InstanceDefault.Cooldown = {
 	MinRemaining = 	{[0]=false,0},
 	MaxRemaining = 	{[0]=false,3600},
 
-	Loga = 0.33,	
+	Loga = 0.33,
 	Tags = 6,
 	CustomTags = {[0]=true,"0 1 10 30 60 120 300 600"}, --[[900 1200 1800 2700 3600 5400]]
 

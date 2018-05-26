@@ -15,7 +15,7 @@ if FW.CLASS == "HUNTER" then
 		ST:SetDefaultHasted(0) -- set abilities to not use haste in their durations by default
 
 		:AddSpell(20736,   6,"Crowd",	F.UNIQUE) -- Distracting Shot
-		
+
 		:AddSpell( 1543,  20,"Crowd",	F.UNIQUE+F.NOTARGET) -- Flare
 		:AddSpell( 1130, 300,"Crowd",	F.UNIQUE) -- Hunter's Mark
 		:AddSpell( 1513,  20,"Crowd",	F.UNIQUE) -- Scare Beast
@@ -23,17 +23,17 @@ if FW.CLASS == "HUNTER" then
 		:AddSpell( 6991,  10,"Pet",		F.NOTARGET) -- Feed Pet
 		:AddSpell( 1978,  15,"Default",	F.TICKS) -- Serpent Sting
 		:AddSpell(53301,   2,"Default"):SetTickSpeed(1) -- Explosive Shot
-		
+
 		:AddSpell(82654,  30,"Crowd") -- Widow Venom
 		:AddSpell( 5116,   4,"Crowd") -- Concussive Shot
 		:AddSpell(19503,   4,"Crowd",	F.UNIQUE) -- scatter shot
 		:AddSpell(19386,  30,"Crowd",	F.UNIQUE) -- wyvern sting
 		:AddSpell(34490,   3,"Crowd",	F.UNIQUE) -- silencing shot
 		:AddSpell(50245,   4,"Pet") -- pet pin
-		
+
 		:AddSpell( 3674,  15,"Default",	F.TICKS):SetTickSpeed(2) -- black arrow
 		:AddSpell(53234, 000,"Default",	F.TICKS):SetTickSpeed(1) -- Piercing Shots
-		
+
 		:AddSpell(131894, 30,"Default",F.TICKS):SetTickSpeed(1) -- A Murder of Crows DOES NOT HAVE A DURATION DISPLAYED INGAME
 		-- HAVE TO ADD SOMETHING FOR BINDING SHOT
 
@@ -48,7 +48,7 @@ if FW.CLASS == "HUNTER" then
 		:AddBuff(90364) -- Stamina Buff - Silithid E
 		:AddBuff(24604) -- Critical Strike Buff - Wolf/Dog
 		:AddBuff(90309) -- Critical Strike Buff - Devilsaur
-		
+
 
 		:AddSpell(58604,  10,"Pet") -- Casting Speed Reduction - Core Hound E
 		:AddSpell(50274,   9,"Pet") -- Casting Speed Reduction - Sporebat
@@ -89,7 +89,7 @@ if FW.CLASS == "HUNTER" then
 		:AddBuff(77769):SetStacks(0) -- Trap Launcher
 		:AddBuff(105919) -- Wyrmstalker 4set bonus, Chronohunter
 		:AddBuff(53220) -- Improved Steady Shot
-		
+
 		:AddBuff(93435) -- Roar of Courage
 		:AddBuff(82726):SetTickSpeed(1) -- Fervor
 		:AddBuff(51755) -- Camouflage
@@ -99,7 +99,7 @@ if FW.CLASS == "HUNTER" then
 		:AddSpell(13813,  60,"Crowd",	F.NOTARGET)-- Explosive Trap
 		:AddSpell(13795,  60,"Crowd") -- Immolation Trap
 		:AddSpell( 1499,  60,"Crowd") -- Freezing Trap
-			
+
 		--debuffname
 		:AddDebuff(3355) -- Freezing Trap Effect
 		:AddDebuff(1130) -- Hunter's Mark
@@ -128,7 +128,7 @@ if FW.CLASS == "HUNTER" then
 			local COMBATLOG_OBJECT_AFFILIATION_MINE = COMBATLOG_OBJECT_AFFILIATION_MINE;
 			local band = bit.band;
 			local SNAKE1 = FWL.SNAKE1;
-			
+
 			local function HT_CombatLogEvent(event,...)
 				if select(5,...) == PLAYER then
 					if select(2,...) == "SPELL_AURA_APPLIED" then

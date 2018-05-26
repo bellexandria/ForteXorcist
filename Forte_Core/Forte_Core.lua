@@ -71,14 +71,14 @@ do
 	for i=1,40,1 do tinsert(RAID,"raid"..i);end
 	local PARTY = {};
 	for i=1,4,1 do tinsert(PARTY,"party"..i);end
-	
+
 	function FW:ForGroupMembers(func,...)
 		local ret;
 		if IsInRaid() then
 			for i=1,GetNumGroupMembers(),1 do
 				ret = func(RAID[i],...);
 				if ret then return ret; end
-			end		
+			end
 		else
 			if IsInGroup() then
 				for i=1,GetNumGroupMembers()-1,1 do -- player can't be identified by partyN, but full party count IS 5 members...
@@ -87,7 +87,7 @@ do
 				end
 			end
 			ret = func("player",...);
-			if ret then return ret; end	
+			if ret then return ret; end
 		end
 	end
 end
@@ -114,9 +114,9 @@ do
 	local function FW_BSTR(t,i,j,c,asc,a)
 		local val1 = t[j-1][ c[a] ];
 		local val2 = t[j][ c[a] ];
-		
+
 		if val1 == val2 then
-			if c[a+1] then		
+			if c[a+1] then
 				FW_BSTR(t,i,j,c,asc,a+1);
 			end
 		elseif asc[a] == (val1 > val2) then
@@ -160,7 +160,7 @@ do
 	local function FW_ERASE2(t) -- erases my 2d tables ONLY
 		t.rows = 0; -- lol :p
 	end
-	
+
 	local function FW_FIND(t,v,c) -- find value v in '2d table' t at column c, returns ROW
 		for r=1,t.rows,1 do
 			if t[r][c]==v then
@@ -261,7 +261,7 @@ do -- update frame related stuff uses locals with the smallest scope possible
 	local FW_Updated = {};
 	local FC_DelayedExecQueue = FW:NEW2D();
 	local GetTime = GetTime;
-	
+
 	function FW:RegisterToEvent(event,func)
 		if not FW_Events[event] then
 			FC_UpdateFrame:RegisterEvent(event);
@@ -313,7 +313,7 @@ do -- update frame related stuff uses locals with the smallest scope possible
 				FW:Show(d,0,1,1);
 			end
 		end]]
-		
+
 		--if FW_Events[event] then -- check can be removed in theory... IF NOT ALL EVENTS ARE REGISTERED
 		for k,v in ipairs(FW_Events[event]) do
 			v(event,...);
@@ -321,7 +321,7 @@ do -- update frame related stuff uses locals with the smallest scope possible
 		--end
 	end
 	local FW_Timed = {};
-	
+
 	function FW:RegisterTimedEvent(interval,func)
 		if type(interval) == "string" then
 			if type(FW.Settings[interval]) == "table" then
@@ -361,7 +361,7 @@ do -- update frame related stuff uses locals with the smallest scope possible
 			end
 		end
 	end
-	
+
 	local function FC_OnUpdate(self, elapsed) -- normal onupdate
 		if LastRess and LastRess <= GetTime() then -- delays combat checking when you're ressed, so in case of a combat res or ss use your timers wont be cleared instantly
 			FC_ExtraCombatCheck();
@@ -415,7 +415,7 @@ do -- update frame related stuff uses locals with the smallest scope possible
 			end
 		elseif FW.Settings and FW.Settings.LoadDelay then
 			UILoaded = GetTime() + FW.Settings.LoadDelay;
-		end	
+		end
 	end
 	FC_UpdateFrame:SetScript("OnEvent", FC_OnEvent);
 	FC_UpdateFrame:SetScript("OnUpdate", FC_OnPreUpdate);
@@ -544,7 +544,7 @@ function FW:RoundTo(val,roundto)
 	local f = 100;
 	val = f*val;
 	roundto = f*roundto;
-	
+
 	local remain = val%roundto;
 	val = val - remain;
 	if remain >= roundto*0.5 then
@@ -688,7 +688,7 @@ function FW:TypeName(t,list)
 		if data[1] == t then
 			return data[2];
 		end
-	end	
+	end
 end
 
 FW.Modules = {};
@@ -750,7 +750,7 @@ end
 function FW:FrameScaleCheck(editbox)
 	local num = tonumber(editbox:GetText());
 	if num then
-		if num < 0.2 then 
+		if num < 0.2 then
 			return 0.2;
 		elseif num > 5.0 then
 			return 5.0;
@@ -761,7 +761,7 @@ end
 function FW:FrameAlphaCheck(editbox)
 	local num = tonumber(editbox:GetText());
 	if num then
-		if num < 0.1 then 
+		if num < 0.1 then
 			return 0.1;
 		elseif num > 1.0 then
 			return 1.0;
@@ -817,7 +817,7 @@ do
 	function FW:Changed(unit)
 		FW[unit] = UnitGUID(unit);
 	end
-	
+
 	local GameTooltip = _G.GameTooltip;
 	local GameTooltip_SetDefaultAnchor = _G.GameTooltip_SetDefaultAnchor;
 	function FW:ShowTip(self)
@@ -828,7 +828,7 @@ do
 			GameTooltip:Show();
 		end
 	end
-	
+
 	function FW:ShowSpellTip(self)
 		if FW.Settings.Tips then
 			if self.token == "" then
@@ -878,7 +878,7 @@ do
 			end
 		end
 	end
-	
+
 	local HideUIPanel = HideUIPanel;
 	function FW:HideTip(self)
 		HideUIPanel(GameTooltip);
@@ -933,7 +933,7 @@ local function FW_ScanUnit(unit,update)
 	local _, unitClass = UnitClass(unit);
 	local flag;
 	if UnitIsConnected(unit) then
-		if UnitIsDeadOrGhost(unit) then	
+		if UnitIsDeadOrGhost(unit) then
 			flag = FW.FLAG.DEAD;
 		else
 			flag = FW.FLAG.NORMAL;
@@ -941,7 +941,7 @@ local function FW_ScanUnit(unit,update)
 	else
 		flag = FW.FLAG.OFFLINE;
 	end
-	
+
 	for i,f in ipairs(FW_Scans) do
 		f(unit,unitName,unitClass,flag,update);
 	end
@@ -955,7 +955,7 @@ local function FW_Scan()
 		FX_Saved.RaidStatus[k][1] = FW.FLAG.LEFT;
 	end
 	FW:ForGroupMembers(FW_ScanUnit,update);
-	FX_Saved.Update = update; 
+	FX_Saved.Update = update;
 	-- updating raw data complete
 end
 
@@ -1127,7 +1127,7 @@ end
 local function fixTimerSettings(settings)
 	if settings then
 		-- fix downgrade-upgrade bug...
-		if type(settings["Blink"]) == "boolean" then 
+		if type(settings["Blink"]) == "boolean" then
 			settings["BlinkEnable"] = settings["Blink"] or true;
 			settings["Blink"] = 3;
 		end
@@ -1138,7 +1138,7 @@ local function fixTimerSettings(settings)
 			settings["Spark"] = 0.7;
 			settings["SparkColor"]  = nil;
 		end
-		
+
 		if type(settings["CastSpark"]) == "boolean" then
 			settings["CastSparkEnable"] = settings["CastSpark"] or true;
 			settings["CastSpark"] = 0.3;
@@ -1147,13 +1147,13 @@ local function fixTimerSettings(settings)
 			settings["TicksEnable"] = settings["Ticks"] or true;
 			settings["Ticks"] = 0.3;
 		end
-		
+
 		-- fix raid icon setting
 		if type(settings["RaidTargets"]) == "boolean" then
 			settings["RaidTargetsEnable"] = settings["RaidTargets"] or false;
 			settings["RaidTargets"] = settings["RaidTargetsAlpha"] or 0.7;
 		end
-		
+
 		if settings["Filter"] then
 			-- fix old unknown spells that got saved as numbers
 			for k,v in pairs(settings["Filter"]) do
@@ -1212,7 +1212,7 @@ local function fixOptions1975(settings)
 		settings["RAID"] = nil;
 		settings["PARTY"] = nil;
 		for k, v in pairs(settings) do
-			
+
 			if type(v) == "table" then
 				--COLOR type options
 				_,_,f = strfind(k,"(.+)Color$");
@@ -1263,7 +1263,7 @@ local function fixOptions1975(settings)
 						--FW:Show("found "..k);
 						t1 = settings[f];
 						t2 = settings[k];
-						
+
 						settings[f] = {t1};
 						settings[f][0] = t2;
 						settings[k] = nil;
@@ -1309,45 +1309,45 @@ local function IsOldModuleLoaded()
 			loaded = true;
 		end
 	end
-	
+
 	return loaded;
 end
 
 local function FW_Variables()
 	FW:UnregisterToEvent("PLAYER_ENTERING_WORLD",	FW_Variables);
-	
+
 	local t = GetTime();
-	
+
 	FC_Saved = _G.FC_Saved; -- sets the local upval again
 	FX_Saved = _G.FX_Saved; -- sets the local upval again
-	
+
 	if FW:Size(FX_Saved) == 0 then -- only copy if empty!!
 		FW_CopyNew(FC_Saved,FX_Saved); -- rename saved table and keep old table in tact for now
 	end
 	FX_Saved.RESETTING = nil;
-	
+
 	FW.Saved = FX_Saved; -- use to access the saved table globally
-	
+
 	FW:RegisterSpecialSaved("Profiles",false,{Active=1,Characters={},Instances={{}},Data={{name=FW:FullName()}}, Links={}});
 	FW:RegisterSpecialSaved("VERSION",false,"");
 	FW:RegisterSpecialSaved("RAID",false,false);
 	FW:RegisterSpecialSaved("GROUPED",false,false);
 
 	FW:RegisterSpecialSaved("CATEGORIES",false,{});
-	
+
 	--FW:RegisterSpecialSaved("Speccs",false,{});
 	FW:RegisterSpecialSaved("Exceptions",false,{});
 	FW:RegisterSpecialSaved("Update",false,0);
-	
+
 	FW:RegisterSpecialSaved("RaidStatus",true,{});	 -- need a last seen table
-	
+
 	FW:RegisterSpecialSaved("Timers",true,{}); -- old style
 	FW:RegisterSpecialSaved("Cooldowns",true,{}); -- old style
 
 	FW:RegisterSpecialSaved("Healthstone",true,{}); -- new style
 
 	FW_CopyNew(FW.Exceptions,FX_Saved.Exceptions);
-	
+
 	--FX_Saved.VERSION = "v1.959.1"; -- REMOVE IF NOT TESTING!!!!!
 	if IsOldModuleLoaded() then
 		EnableAddOn("Forte_Class");
@@ -1361,23 +1361,23 @@ local function FW_Variables()
 		FW.Settings = {};
 		return;
 	end
-	
+
 	if FX_Saved.VERSION ~= VERSION then -- version change
-	
+
 		-- !!! COMPATIBILITY FIXES - ONLY DONE ONCE SO MAKE SURE ALL PROFILES GET UPDATED AT ONCE !!! --
 		-- always use real values for defaults in modules, since these defaults/modules may not be loaded
 
 		if FX_Saved.VERSION ~= "" then
 			-- this check is to fix the v1.975(.1) bug and will check if the format is really pre-v1.975
 			if not FX_Saved.Profiles.Instances or FW:Size(FX_Saved.Profiles.Instances) == 0 then
-			
+
 				if FX_Saved.VERSION < "v1.90" then
 					local err = "|cffff0000You are updating from a too old version. If you want to keep your settings and make this work, install and run v1.958 first and then this version. If you don't care about keeping your old settings they can be reset now. ForteXorcist will then restart as if it were a fresh install.|r\n\n|cffffcc00Do you want to reset ForteXorcist now?|r";
 					_G.StaticPopupDialogs["FX_MULTI_PURPOSE"].button1 = "Okay, wipe my settings";
 					_G.StaticPopupDialogs["FX_MULTI_PURPOSE"].button2 = "No, I will install v1.958";
 					_G.StaticPopupDialogs["FX_MULTI_PURPOSE"].OnAccept = Commands["resetall"];
 					_G.StaticPopup_Show("FX_MULTI_PURPOSE","A MESSAGE FROM FORTEXORCIST\n\n"..err);
-			
+
 					FW:UnregisterAllEvents();
 					FW.Settings = {};
 					return;
@@ -1393,7 +1393,7 @@ local function FW_Variables()
 				if FX_Saved.VERSION < "v1.959.5" then
 					FX_Saved.GotORA = nil; -- no longer used
 					FX_Saved.Warlocks = nil; -- no longer used
-					
+
 					FX_Saved.Healthstone = {}; -- reset
 					FX_Saved.Cooldowns = {}; -- reset
 				end
@@ -1408,7 +1408,7 @@ local function FW_Variables()
 								FX_Saved.Profiles[p]["GlobalSparkEnable"] = FX_Saved.Profiles[p]["GlobalSpark"] or FW.Default.GlobalSparkEnable;
 								FX_Saved.Profiles[p]["GlobalSpark"] = FW.Default.GlobalSpark;
 							end
-							
+
 							fixTimerSettings(FX_Saved.Profiles[p]["Timer"]);
 							if FX_Saved.Profiles[p]["CustomInstances"] and FX_Saved.Profiles[p]["CustomInstances"]["Timer"] then
 								for clone,data in ipairs(FX_Saved.Profiles[p]["CustomInstances"]["Timer"]) do
@@ -1416,7 +1416,7 @@ local function FW_Variables()
 								end
 							end
 							fixCooldownSettings(FX_Saved.Profiles[p]["Cooldown"]);
-							
+
 							-- set ignore cd time to 2.99 instead of 3.00
 							FX_Saved.Profiles[p]["IgnoreCooldown"] = 2.99;
 						end
@@ -1438,7 +1438,7 @@ local function FW_Variables()
 					if FX_Saved.Profiles then
 						for p,d in pairs( FX_Saved.Profiles ) do
 							FX_Saved.Profiles[p]["AnimateScroll"] = false;
-							
+
 							fixFilterRenames(FX_Saved.Profiles[p]["Timer"]);
 							if FX_Saved.Profiles[p]["CustomInstances"] and FX_Saved.Profiles[p]["CustomInstances"]["Timer"] then
 								for clone,data in ipairs(FX_Saved.Profiles[p]["CustomInstances"]["Timer"]) do
@@ -1471,12 +1471,12 @@ local function FW_Variables()
 				if FX_Saved.VERSION < "v1.975" then
 					if FX_Saved.Profiles then
 						for p,d in pairs( FX_Saved.Profiles ) do
-							
+
 							FX_Saved.Profiles[p].OptionsSubHeaderBackdrop = nil;
 							FX_Saved.Profiles[p].OptionsHeaderBackdrop = nil;
-						
-							fixOptions1975(FX_Saved.Profiles[p]);	
-						
+
+							fixOptions1975(FX_Saved.Profiles[p]);
+
 							if FX_Saved.Profiles[p]["Timer"] then -- move and fix
 								local temp = {Active=1,Instance="Timer",Instances={}, Links={}, Data={}};
 								local index = FW:InstanceCreate(FWL.SPELL_TIMER or "Spell Timer",temp,FX_Saved.Profiles[p]["Timer"]);
@@ -1533,7 +1533,7 @@ local function FW_Variables()
 				end
 			end -- end of fix for v1.975(.1) bug
 			-- add new compatibility fixes here:
-			
+
 			if FX_Saved.VERSION < "v1.975.7" then
 				for instance,settings in ipairs( FX_Saved.Profiles.Instances ) do
 					if settings.RebirthStart then
@@ -1549,7 +1549,7 @@ local function FW_Variables()
 					if settings.Timer then
 						for i,s in ipairs( settings.Timer.Instances ) do
 							renameOption("FailColor","Fail",s);
-							
+
 							renameOption("DrainColor","Drain",s);
 							renameOption("MagicColor","Default",s);
 							renameOption("CurseColor","Shared1",s);
@@ -1567,7 +1567,7 @@ local function FW_Variables()
 							renameOption("DebuffsOtherColor","TargetDebuffOther",s);
 							renameOption("HealColor","Heal",s);
 							renameOption("FriendlyBuffColor","Buff",s);
-							
+
 							renameOption("TotemFireColor","TotemFire",s);
 							renameOption("TotemEarthColor","TotemEarth",s);
 							renameOption("TotemWaterColor","TotemWater",s);
@@ -1601,14 +1601,14 @@ local function FW_Variables()
 							renameOption("PotionColor","Potion",s);
 							renameOption("PowerupColor","Powerup",s);
 							renameOption("ResTimerColor","ResTimer",s);
-							
+
 							renameOption("BuffColor","Buff",s);
 							renameOption("BuffOtherColor","BuffOther",s);
 							renameOption("DebuffColor","Debuff",s);
 							renameOption("DebuffOtherColor","DebuffOther",s);
-							
+
 							renameOption("EnchantColor","Enchant",s);
-							
+
 							renameOption("RuneBloodColor","RuneBlood",s);
 							renameOption("RuneDeathColor","RuneDeath",s);
 							renameOption("RuneFrostColor","RuneFrost",s);
@@ -1622,20 +1622,20 @@ local function FW_Variables()
 		end
 		-- !!! END COMPATIBILITY FIXES !!! --
 		FX_Saved.VERSION = VERSION;
-	end 
+	end
 	STATES.GROUPED = FX_Saved.GROUPED;
 	STATES.RAID = FX_Saved.RAID;
-	
+
 	FW:RegisterFrame("FWOptions",FW:NewOptionsPanel()); -- needs to be done at least before FW_InitConfig!!!
-	
+
 	FW_InitConfig(); -- set the right profile
-	
+
 	if FW.Settings.ShowStartupText then
 		FW:Show(FW:Title().." - /fx for options",0,1,0);
-		FW:Show("Class Module: "..FW.ClassModules.." - Modules: "..FW:Size(FW.Modules),0,1,0);	
+		FW:Show("Class Module: "..FW.ClassModules.." - Modules: "..FW:Size(FW.Modules),0,1,0);
 	end
 	FW:Debug("Warning: Debug mode is on!");
-	
+
 	if FX_Saved.Update > t then -- pc rebooted, have to clear all timers
 		FW_Reset();
 	else
@@ -1725,7 +1725,7 @@ local function FW_RelevantGlyph()
 		end
 	end
 end
-	
+
 local function FW_RelevantSetBonus()
 	--FW:Show( "SET SCAN" );
 	for k, v in pairs(FW.SetBonus) do
@@ -1745,7 +1745,7 @@ end
 
 function FW:SecToTimeD(t)
 	if FW.Settings.TimeFormat then
-		if t >= 60 then 
+		if t >= 60 then
 			return math.floor(t/60)..":"..strformat("%02d",t%60);
 		else
 			return strformat("%.1f",t);
@@ -2133,7 +2133,7 @@ function FW:InstanceCreate(name,root,data) -- create new profile or clone
 	local index = #root.Data;
 	tinsert(root.Instances,{--[[index=index]]});
 	FW_CopyNew(data,root.Instances[index]);
-	
+
 	FW:LinkOnCreate(index,root);
 
 	return index;
@@ -2151,14 +2151,14 @@ function FW:UseProfile(index,onload)
 	FW.Saved.Profiles.Characters[FW:FullName()] = index;
 	FW.Settings = FX_Saved.Profiles.Instances[index];
 	FW_CopyNew(FW.Default,FW.Settings);
-	
+
 	FW_InitClones();
 	FW:RefreshFrames(); -- also updates the settings tables of clones, so make sure this is called before doing anything with them
 	if not onload then
 		FW_RefreshAllFilters();
 		FW:BuildOptions();
 		FW:RefreshOptions();
-	end	
+	end
 end
 
 function FW:InstanceNameToIndex(name,root,case) -- case insensitive by default
@@ -2294,7 +2294,7 @@ FW:RegisterDelayedLoadEvent(FW_ScanBagsChilled);
 FW:RegisterScan(FW_RaidStatusScan);
 FW:RegisterEnterPartyRaid( function(joined) if joined then FW_VersionCheck();end end );
 --FW:RegisterEnterPartyRaid( function(joined) if joined then FW_GetSpeccInfo();end end );
-	
+
 -- done when all addon variables are loaded
 FW:RegisterVariablesEvent(function()
 	FW:RegisterToEvent("UPDATE_BINDINGS",			FW_UpdateBindings);
@@ -2308,14 +2308,14 @@ FW:RegisterVariablesEvent(function()
 
 	--FW:RegisterToEvent("INSPECT_TALENT_READY",		function() FW_MakeSpeccInfo(1); end);
 	FW:RegisterToEvent("CHAT_MSG_ADDON",			FW_AddonMessageReceived);
-	
+
 	if not IsAddonMessagePrefixRegistered("FX2") then
 		RegisterAddonMessagePrefix("FX2");
 	end
 	if not IsAddonMessagePrefixRegistered("oRA3") then
 		RegisterAddonMessagePrefix("oRA3");
 	end
-	
+
 	FW:RegisterToEvent("UNIT_PET", function(event,arg1) if arg1 == "player" then FW:Changed("pet");end end);
 
 	FW:RegisterToEvent("GLYPH_ADDED", 	function() FW:RegisterThrottle(FW_RelevantGlyph); end);
@@ -2325,18 +2325,18 @@ FW:RegisterVariablesEvent(function()
 	FW:RegisterToEvent("GROUP_ROSTER_UPDATE",FW_TimedRaidParty);
 
 	FW:RegisterToEvent("BAG_UPDATE",FW_ScanBagsChilled);
-	
+
 	FW:RegisterToEvent("UI_SCALE_CHANGED",FW.RefreshFrames);
 	--FW:RegisterToEvent("UI_SCALE_CHANGED",function() FW:Show("scale"); end);
 
 	FW:RegisterTimedEvent("UpdateInterval",		FW_TimedRaidParty);
 	FW:RegisterTimedEvent("UpdateInterval",		FW_Scan);
 	FW:RegisterTimedEvent("Chill",				FW_ExecuteThrottle);
-	
+
 	FW:RegisterToEvent("PLAYER_TALENT_UPDATE",	FW_RelevantTalent);
 	--FW:RegisterToEvent("PLAYER_TALENT_UPDATE",	function() FW_MakeSpeccInfo(nil); end);
 	--FW:RegisterToEvent("PLAYER_TALENT_UPDATE",	function() FW_SendSpeccInfo(nil); end);
-	
+
 	FW:RegisterToEvent("UPDATE_SHAPESHIFT_FORM", FW_RelevantStance);
 end);
 
@@ -2352,7 +2352,7 @@ SLASH_FORTEXORCIST1 = "/fw";
 SLASH_FORTEXORCIST2 = "/fortewarlock";
 SLASH_FORTEXORCIST3 = "/fx";
 SLASH_FORTEXORCIST4 = "/fortexorcist";
-	
+
 FW:AddCommand("commands",
 	function()
 		for k,v in pairs(Commands) do
@@ -2376,7 +2376,7 @@ FW:AddCommand("version",
 		end
 	end
 );
-	
+
 local function FW_ResetOptionsFrame()
 	FW.Frames["FWOptions"]:Reset();
 end
@@ -2432,7 +2432,7 @@ FW:AddCommand("resetfont",
 );
 
 FW:RegisterMessage(FW.GET_HEALTHSTONE,
-	function() 
+	function()
 		if FW.LastHSCheck + 5 < GetTime() then
 			FW.LastHSCheck = GetTime();
 			FW_CheckHealthstone();
@@ -2541,7 +2541,7 @@ FW.Default = {
 	},
 	OptionsHeaderTexture = "Interface\\AddOns\\Forte_Core\\Textures\\Otravi",
 	OptionsSubHeaderTexture = "Interface\\AddOns\\Forte_Core\\Textures\\Minimalist",
-	
+
 	TimerSpellsTooltip = true,
 };
 FW:SetDefaultFont("Interface\\AddOns\\Forte_Core\\Fonts\\GOTHIC.TTF", 11);

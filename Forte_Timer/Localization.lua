@@ -36,7 +36,7 @@ if GetLocale() == "frFR" then
 	FWL.ST_HINT2 = "Right-clicking a debuff icon will fill in that spell in the custom filter field.";
 	FWL.ST_HINT3 = "When the timer is locked you will click through it and the automatic hiding will work.";
 
-	FWL.ST_BASIC1_TT = "Visually enable the spell timer.";		
+	FWL.ST_BASIC1_TT = "Visually enable the spell timer.";
 	FWL.ST_BASIC3_TT = "Showing the header can be usefull for setting up the timer, but there's no reason not to hide it. You can still drag the timer from the header spot if the header itself is hidden.";
 
 	FWL.NORMAL_TEXT = "Normal text";
@@ -60,14 +60,14 @@ if GetLocale() == "frFR" then
 	FWL.MAXIMIZE_SPACE_TT = "Maximizes the space used for the unit/spell texts. As a result, these texts will no longer be displayed in the exact center of the bars. This can be usefull if you have very short bars.";
 	FWL.COUNTDOWN_ON_RIGHT = "Count down on right";
 	FWL.COUNTDOWN_ON_RIGHT_TT = "You can display the countdown text on the right or on the left of the timer bars.";
-	
+
 	FWL.ONEMAX = "Adapt to one maximum";
 	FWL.ONEMAX_TT = "Adapt all bars to one maximum. In other words, all the bars will use the duration of the spell with the longest duration currently on the timer. This may make it easier to time spellcasts.";
 	FWL.FORCEMAX = "Force maximum time";
 	FWL.FORCEMAX_TT = "Forces the maximum time setting on all bars, even if the longest timer has a shorter duration.";
 	FWL.MAXTIME = "Maximum time";
 	FWL.MAXTIME_TT = "Maximum time that's displayed on a bar. This option is mostly there for making the 'one maximum' setting more practical.";
-	
+
 	FWL.DISPLAY_MODES7 = "Group by unit";
 	FWL.DISPLAY_MODES7_TT = "Groups timers belonging to the same units together.";
 	FWL.DISPLAY_MODES8 = "Show unit #";
@@ -99,7 +99,7 @@ if GetLocale() == "frFR" then
 	FWL.DISPLAY_TYPES10_TT = "Show your pet's spells in the Spell Timer.";
 	FWL.DISPLAY_TYPES11 = "No hiding on bosses";
 	FWL.DISPLAY_TYPES11_TT = "Enable this option to keep all your longer spells visible on bosses.";
-	
+
 	FWL.FADING1 = "Blink expiring bars";
 	FWL.FADING1_TT = "When enabled, bars expiring in X seconds will start to blink. First slow, fast in the end. A nice indication of expiring bars, without changing the actual color.";
 	FWL.FADING2 = "Fade out bars";
@@ -125,7 +125,7 @@ if GetLocale() == "frFR" then
 	FWL.EXTRA5_TT = "Synchronize spell timer durations to the actual debuff/buff durations of their targets. This is needed for example for debuffs that can reset their duration through other abilities. The addon has never done this before, but currently debuff/buff information seems much more reliable.";
 	FWL.EXTRA6 = "Remove mob timers after combat";
 	FWL.EXTRA6_TT = "Every time you exit combat the addon will remove remaining timers belonging to NPCs. May be useful to disable this in some cases.";
-	
+
 	FWL.HIGHLIGHT = "Highlight new";
 	FWL.FAIL = "Fail";
 	FWL.MAGIC_DOT = "Magic dot";
@@ -153,9 +153,9 @@ if GetLocale() == "frFR" then
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "Delay target debuff check";
 	FWL.DELAY_DOT_TICKS_INIT = "Delay dot ticks init";
 	FWL.DELAY_DOT_TICKS = "Delay dot ticks";
-	
+
 	FWL.TIME_LEFT = "Announce fade time";
-	
+
 	FWL.NORMAL_TYPE = "Normal Type";
 	FWL.NORMAL_TYPE_TT = "Normal Spell Types";
 	FWL.SHARED_TYPE = "Shared Type (1)";
@@ -167,19 +167,19 @@ if GetLocale() == "frFR" then
 	FWL.TICKS_TT = "Show remaining DoT ticks on the bars.";
 	FWL.TICKS_NEXT = "Next Tick only";
 	FWL.TICKS_NEXT_TT = "Only show the next Tick on the bars.";
-	
+
 	FWL.DRAIN = "Drain";
 	FWL.DRAIN_TT = "Show Drain and some other Channeling spells.";
 	FWL.CHANNEL = "Channel / Drain";
 	FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "Fade";
 	FWL.BREAK = "Break";
 	FWL.RESIST = "Resist";
-	
+
 	FWL.TICKS_COLOR = "Tick color";
 	FWL.TICKS_COLOR_TT = "Set the tick colors to any color you like.";
-	
+
 	FWL.TIMER_OUTWARDS = "Highest timers outwards";
 	FWL.TIMER_OUTWARDS_TT = "Bars will be sorted with the longest remaining times the furthest from the spell timer header/anchor.";
 	FWL.TEST_BARS = "Enable Test Bars";
@@ -193,7 +193,7 @@ if GetLocale() == "frFR" then
 
 	FWL.UNIQUE_TYPE = "Unique Type";
 	FWL.UNIQUE_TYPE_TT = "Types of spells that can only be cast on one target at a time. For example most crowd control spells.";
-	
+
 	FWL.BAR_BG_ALPHA = "Empty bar alpha";
 	FWL.BAR_BG_ALPHA_TT = "The alpha the 'empty' part of a timer bar will have.";
 	FWL.TIMER_FORMATS = "Additional layout";
@@ -229,7 +229,7 @@ if GetLocale() == "frFR" then
 	FWL.TIMER_SORT_ORDER_TT =  "Customize the order in which the different spell types appear on the Spell Timer. The most left tag will appear the closest to the header/anchor. This setting is only used when 'Group by unit' is enabled.\n|cff00ff00buff|r are your self (powerup) buffs.\n|cff00ff00selfdebuff|r are the debuffs on yourself.\n|cff00ff00debuff|r are the raid debuffs on your current target.\n|cff00ff00cooldown|r are your cooldowns.\n|cff00ff00notarget|r are spells that don't have a target (or still need to find/correct their target).\n|cff00ff00target|r are all the other spells that have been cast on units.";
 
 	FWL.TIMER_SPARK_TT = "Show sparks at the appropriate place in the bars.";
-	
+
 	FWL.SHARED_TYPE2 = "Shared Type (2)";
 	FWL.SHARED_TYPE2_TT = "Types of spells that allow only one spell of this kind up on one target (for example Banes).";
 
@@ -270,11 +270,11 @@ if GetLocale() == "frFR" then
 	FWL.TIMER_SHOW_UKNOWN_TT = "Show bars for 'unknown' units. This group of bars is created when FX detects that a spell was cast, but can't tell what unit it belongs to yet.";
 	FWL.TIMER_SHOW_YOU_TT = "Show the spells that are only directly related to yourself.";
 	FWL.TIMER_RAID_DEBUFFS_TT = "Show the raid debuffs on your current target.";
-	
+
 	FWL.FLIP_TAG = "Flip tag location";
 	FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 	FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 	FWL.CAST_GCD = "Include Global Cooldown";
 	FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -292,7 +292,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.ST_HINT2 = "Right-clicking a debuff icon will fill in that spell in the custom filter field.";
 --[[>>]]FWL.ST_HINT3 = "When the timer is locked you will click through it and the automatic hiding will work.";
 
-	FWL.ST_BASIC1_TT = "Разрешить отображения таймера заклинаний.";		
+	FWL.ST_BASIC1_TT = "Разрешить отображения таймера заклинаний.";
 	FWL.ST_BASIC3_TT = "Отображение заголовка может быть полезно при настройке таймера, но нет никакой причиные не скрыть его. вы все равно можете перетянуть таймер из места заголовка, даже если сам заголовок скрыт.";
 
 	FWL.NORMAL_TEXT = "Обычный текст";
@@ -316,7 +316,7 @@ elseif GetLocale() == "ruRU" then
 	FWL.MAXIMIZE_SPACE_TT = "Увеличивает размер, используемый для имен элементов/заклинаний. Как результат, эти тексты не будут отображаться в середине панелей. Может быть полезно при использовании очень коротких панелей.";
 	FWL.COUNTDOWN_ON_RIGHT = "Обратный отсчет справа";
 	FWL.COUNTDOWN_ON_RIGHT_TT = "Вы можете отображать текст обратного отсчета справа или слева панелей таймеров.";
-	
+
 	FWL.ONEMAX = "Привести к максимальной";
 --[[>>]]FWL.ONEMAX_TT = "Привести размер всех панелей к максимальной. In other words, all the bars will use the duration of the spell with the longest duration currently on the timer. Это поможет легче отслеживать время чтения заклинаний.";
 --[[>>]]FWL.FORCEMAX = "Force maximum time";
@@ -381,7 +381,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.EXTRA5_TT = "Synchronize spell timer durations to the actual debuff/buff durations of their targets. This is needed for example for debuffs that can reset their duration through other abilities. The addon has never done this before, but currently debuff/buff information seems much more reliable.";
 --[[>>]]FWL.EXTRA6 = "Remove mob timers after combat";
 --[[>>]]FWL.EXTRA6_TT = "Every time you exit combat the addon will remove remaining timers belonging to NPCs. May be useful to disable this in some cases.";
-	
+
 	FWL.HIGHLIGHT = "Выделение";
 	FWL.FAIL = "Неудача";
 	FWL.MAGIC_DOT = "Магический дот";
@@ -409,7 +409,7 @@ elseif GetLocale() == "ruRU" then
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "Задержка проверки дебаффов цели";
 	FWL.DELAY_DOT_TICKS_INIT = "Задержка инициализации тиков дотов";
 	FWL.DELAY_DOT_TICKS = "Задержка тиков дотов";
-	
+
 --[[>>]]FWL.TIME_LEFT = "Announce fade time";
 
 --[[>>]]FWL.NORMAL_TYPE = "Normal Type";
@@ -424,7 +424,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.TICKS_TT = "Show remaining DoT ticks on the bars.";
 --[[>>]]FWL.TICKS_NEXT = "Next Tick only";
 --[[>>]]FWL.TICKS_NEXT_TT = "Only show the next Tick on the bars.";
-	
+
 --[[>>]]FWL.DRAIN = "Drain";
 --[[>>]]FWL.DRAIN_TT = "Show Drain spells that benefit from haste";
 --[[>>]]FWL.CHANNEL = "Channel / Drain";
@@ -451,7 +451,7 @@ elseif GetLocale() == "ruRU" then
 
 --[[>>]]FWL.UNIQUE_TYPE = "Unique Type";
 --[[>>]]FWL.UNIQUE_TYPE_TT = "Types of spells that can only be cast on one target at a time. For example most crowd control spells.";
-	
+
 --[[>>]]FWL.BAR_BG_ALPHA = "Empty bar alpha";
 --[[>>]]FWL.BAR_BG_ALPHA_TT = "The alpha the 'empty' part of a timer bar will have.";
 --[[>>]]FWL.TIMER_FORMATS = "Additional layout";
@@ -486,7 +486,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.TIMER_SORT_ORDER_TT =  "Customize the order in which the different spell types appear on the Spell Timer. The most left tag will appear the closest to the header/anchor. This setting is only used when 'Group by unit' is enabled.\n|cff00ff00buff|r are your self (powerup) buffs.\n|cff00ff00selfdebuff|r are the debuffs on yourself.\n|cff00ff00debuff|r are the raid debuffs on your current target.\n|cff00ff00cooldown|r are your cooldowns.\n|cff00ff00notarget|r are spells that don't have a target (or still need to find/correct their target).\n|cff00ff00target|r are all the other spells that have been cast on units.";
 
 --[[>>]]FWL.TIMER_SPARK_TT = "Show sparks at the appropriate place in the bars.";
-	
+
 --[[>>]]FWL.SHARED_TYPE2 = "Shared Type (2)";
 --[[>>]]FWL.SHARED_TYPE2_TT = "Types of spells that allow only one spell of this kind up on one target (for example Banes).";
 
@@ -531,7 +531,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.FLIP_TAG = "Flip tag location";
 --[[>>]]FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 --[[>>]]FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 --[[>>]]FWL.CAST_GCD = "Include Global Cooldown";
 --[[>>]]FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -549,7 +549,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.ST_HINT2 = "右键单击debuff图标过滤.";
 --[[>>]]FWL.ST_HINT3 = "计时条锁定时点击穿过.";
 
-	FWL.ST_BASIC1_TT = "计时条可视.";		
+	FWL.ST_BASIC1_TT = "计时条可视.";
 	FWL.ST_BASIC3_TT = "显示标题栏对设置计时条很有帮助,但最好还是隐藏了它,它隐藏后依然能够通过拖拽它移动计时条.";
 
 	FWL.NORMAL_TEXT = "一般文字";
@@ -580,7 +580,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.FORCEMAX_TT = "所有的计时条都强制最大计时上限，哪怕计时上限长于最大的计时时间.";
 	FWL.MAXTIME = "上限时间";
 	FWL.MAXTIME_TT = "计时条显示的上限时间.";
-	
+
 	FWL.DISPLAY_MODES7 = "按对象号分类";
 	FWL.DISPLAY_MODES7_TT = "将一个对象的计时条排在一起显示.";
 	FWL.DISPLAY_MODES8 = "显示对象号";
@@ -602,7 +602,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.DISPLAY_TYPES5_TT = "失败法术仍在计时条显示 (例如抵抗,免疫之类). 很有用.";
 	FWL.DISPLAY_TYPES6 = "失败法术显示时间";
 	FWL.DISPLAY_TYPES6_TT = "失败法术在计时条上显示时间.";
-	
+
 	FWL.DISPLAY_TYPES7 = "显示伤害法术";
 	FWL.DISPLAY_TYPES7_TT = "计时条中显示你的伤害法术.";
 	FWL.DISPLAY_TYPES8 = "显示治疗";
@@ -640,7 +640,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.EXTRA6 = "战斗结束后移除计时条";
 	FWL.EXTRA6_TT = "每次离开战斗将NPC的计时条移除，也许有用吧.";
 
-	
+
 	FWL.HIGHLIGHT = "高亮";
 	FWL.FAIL = "失败";
 	FWL.MAGIC_DOT = "DOT";
@@ -668,9 +668,9 @@ elseif GetLocale() == "zhCN" then
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "目标debuff检查延迟";
 	FWL.DELAY_DOT_TICKS_INIT = "DOT初始化延迟";
 	FWL.DELAY_DOT_TICKS = "DoT延迟";
-	
+
 	FWL.TIME_LEFT = "显示法术剩余时间";
-	
+
 	FWL.NORMAL_TYPE = "普通";
 	FWL.NORMAL_TYPE_TT = "普通模式";
 	FWL.SHARED_TYPE = "公用模式";
@@ -678,29 +678,29 @@ elseif GetLocale() == "zhCN" then
 	FWL.OTHER_DEBUFFS = "其他 Debuffs";
 	FWL.OTHER_DEBUFFS_TT = "他人的重要debuff，或者不是由你的法术直接触发的debuff，只对当前目标有效.";
 	FWL.CC_TT = "控制或沉默法术";
-	
+
 	FWL.TICKS = "显示DoT跳数";
 	FWL.TICKS_TT = "显示DoT剩余跳数.";
 	FWL.TICKS_NEXT = "显示下一跳";
 	FWL.TICKS_NEXT_TT = "只显示计时条的的下一跳.";
-	
+
 	FWL.DRAIN = "吸取法术";
 	FWL.DRAIN_TT = "显示受到急速效果加成的吸取法术";
 --[[>>]]FWL.CHANNEL = "Channel / Drain";
 --[[>>]]FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "消退";
 	FWL.BREAK = "打断";
 	FWL.RESIST = "抵抗";
 
 	FWL.TICKS_COLOR = "跳数颜色";
 	FWL.TICKS_COLOR_TT = "设置跳数颜色.";
-	
+
 	FWL.TIMER_OUTWARDS = "最长持续时间";
 	FWL.TIMER_OUTWARDS_TT = "计时条记录最长的法术持续时间.";
 	FWL.TEST_BARS = "启用测试计时条";
 	FWL.TEST_BARS_TT = "测试计时条.";
-	
+
 	FWL.CAST_GLOW = "施法时间发光";
 --[[>>]]FWL.CAST_GLOW_TT = "计时条显示该法术施放的准备时间或者是施放后的公共CD，帮助计算施法时间，公共CD只有启用'"..FWL.ONEMAX.."' 和冷却计时条时显示.";
 
@@ -744,7 +744,7 @@ elseif GetLocale() == "zhCN" then
 --[[>>]]FWL.TIMER_SORT_ORDER_TT =  "Customize the order in which the different spell types appear on the Spell Timer. The most left tag will appear the closest to the header/anchor. This setting is only used when 'Group by unit' is enabled.\n|cff00ff00buff|r are your self (powerup) buffs.\n|cff00ff00selfdebuff|r are the debuffs on yourself.\n|cff00ff00debuff|r are the raid debuffs on your current target.\n|cff00ff00cooldown|r are your cooldowns.\n|cff00ff00notarget|r are spells that don't have a target (or still need to find/correct their target).\n|cff00ff00target|r are all the other spells that have been cast on units.";
 
 --[[>>]]FWL.TIMER_SPARK_TT = "Show sparks at the appropriate place in the bars.";
-	
+
 --[[>>]]FWL.SHARED_TYPE2 = "Shared Type (2)";
 --[[>>]]FWL.SHARED_TYPE2_TT = "Types of spells that allow only one spell of this kind up on one target (for example Banes).";
 
@@ -789,7 +789,7 @@ elseif GetLocale() == "zhCN" then
 --[[>>]]FWL.FLIP_TAG = "Flip tag location";
 --[[>>]]FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 --[[>>]]FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 --[[>>]]FWL.CAST_GCD = "Include Global Cooldown";
 --[[>>]]FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -802,12 +802,12 @@ elseif GetLocale() == "zhTW" then
 	FWL.SHOW_HEADER = "顯示標題欄";
 	FWL.DISPLAY_TYPES = "顯示類型";
 	FWL.TIMER_HIDING = "隱藏";
-	
+
 	FWL.ST_HINT1 = "設置好計時條後可以鎖定並隱藏標題欄.";
 	FWL.ST_HINT2 = "按右鍵debuff圖示過濾.";
 --[[>>]]FWL.ST_HINT3 = "計時條鎖定時點擊穿過.";
 
-	FWL.ST_BASIC1_TT = "計時條可視.";		
+	FWL.ST_BASIC1_TT = "計時條可視.";
 	FWL.ST_BASIC3_TT = "顯示標題欄對設置計時條很有幫助,但最好還是隱藏了它,它隱藏後依然能夠通過拖拽它移動計時條.";
 
 	FWL.NORMAL_TEXT = "一般文字";
@@ -897,7 +897,7 @@ elseif GetLocale() == "zhTW" then
 	FWL.EXTRA6 = "戰鬥結束後移除計時條";
 	FWL.EXTRA6_TT = "每次離開戰鬥將NPC的計時條移除，也許有用吧.";
 
-	
+
 	FWL.HIGHLIGHT = "高亮";
 	FWL.FAIL = "失敗";
 	FWL.MAGIC_DOT = "DOT";
@@ -940,24 +940,24 @@ elseif GetLocale() == "zhTW" then
 	FWL.TICKS_TT = "顯示DoT剩餘跳數.";
 	FWL.TICKS_NEXT = "顯示下一跳";
 	FWL.TICKS_NEXT_TT = "只顯示計時條的的下一跳.";
-	
+
 	FWL.DRAIN = "吸取法術";
 	FWL.DRAIN_TT = "顯示受到急速效果加成的吸取法術";
 --[[>>]]FWL.CHANNEL = "Channel / Drain";
 --[[>>]]FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "消退";
 	FWL.BREAK = "打斷";
 	FWL.RESIST = "抵抗";
 
 	FWL.TICKS_COLOR = "跳數顏色";
 	FWL.TICKS_COLOR_TT = "設置跳數顏色.";
-	
+
 	FWL.TIMER_OUTWARDS = "最長持續時間";
 	FWL.TIMER_OUTWARDS_TT = "計時條記錄最長的法術持續時間.";
 	FWL.TEST_BARS = "啟用測試計時條";
 	FWL.TEST_BARS_TT = "測試計時條.";
-	
+
 	FWL.CAST_GLOW = "施法時間發光";
 --[[>>]]FWL.CAST_GLOW_TT = "計時條顯示該法術施放的準備時間或者是施放後的公共CD，幫助計算施法時間，公共CD只有啟用'"..FWL.ONEMAX.."' 和冷卻計時條時顯示.";
 
@@ -966,7 +966,7 @@ elseif GetLocale() == "zhTW" then
 
 	FWL.UNIQUE_TYPE = "單獨類型";
 	FWL.UNIQUE_TYPE_TT = "只能在同一時間對一個目標使用的法術. 比如大多數控制技能.";
-	
+
 --[[>>]]FWL.BAR_BG_ALPHA = "Empty bar alpha";
 --[[>>]]FWL.BAR_BG_ALPHA_TT = "The alpha the 'empty' part of a timer bar will have.";
 --[[>>]]FWL.TIMER_FORMATS = "Additional layout";
@@ -1001,7 +1001,7 @@ elseif GetLocale() == "zhTW" then
 --[[>>]]FWL.TIMER_SORT_ORDER_TT =  "Customize the order in which the different spell types appear on the Spell Timer. The most left tag will appear the closest to the header/anchor. This setting is only used when 'Group by unit' is enabled.\n|cff00ff00buff|r are your self (powerup) buffs.\n|cff00ff00selfdebuff|r are the debuffs on yourself.\n|cff00ff00debuff|r are the raid debuffs on your current target.\n|cff00ff00cooldown|r are your cooldowns.\n|cff00ff00notarget|r are spells that don't have a target (or still need to find/correct their target).\n|cff00ff00target|r are all the other spells that have been cast on units.";
 
 --[[>>]]FWL.TIMER_SPARK_TT = "Show sparks at the appropriate place in the bars.";
-	
+
 --[[>>]]FWL.SHARED_TYPE2 = "Shared Type (2)";
 --[[>>]]FWL.SHARED_TYPE2_TT = "Types of spells that allow only one spell of this kind up on one target (for example Banes).";
 
@@ -1046,7 +1046,7 @@ elseif GetLocale() == "zhTW" then
 --[[>>]]FWL.FLIP_TAG = "Flip tag location";
 --[[>>]]FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 --[[>>]]FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 --[[>>]]FWL.CAST_GCD = "Include Global Cooldown";
 --[[>>]]FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -1063,7 +1063,7 @@ elseif GetLocale() == "deDE" then
 	FWL.ST_HINT2 = "Rechtsklick auf ein Debufficon fügt diesen in das Filter anpassen Feld ein.";
 --[[>>]]FWL.ST_HINT3 = "Wenn die Timer gesperrt sind klickst du durch sie hindurch.";
 
-	FWL.ST_BASIC1_TT = "Aktiviert die Anzeige der Spell Timer.";		
+	FWL.ST_BASIC1_TT = "Aktiviert die Anzeige der Spell Timer.";
 	--[[>>]]FWL.ST_BASIC3_TT = "Showing the header can be usefull for setting up the timer, but there's no reason not to hide it. You can still drag the timer from the header spot if the header itself is hidden.";
 
 	FWL.NORMAL_TEXT = "Normaler Text";
@@ -1087,14 +1087,14 @@ elseif GetLocale() == "deDE" then
 	FWL.MAXIMIZE_SPACE_TT = "Maximiert den Platz des Einheiten/Spell Textes. Dadurch wird der Text nicht mehr exakt in der Mitte der Leiste angezeigt. Dies kann hilfreich sein wenn du sehr kurze Leisten eingestellt hast.";
 	FWL.COUNTDOWN_ON_RIGHT = "Zeittext Rechts";
 	FWL.COUNTDOWN_ON_RIGHT_TT = "Der Zeittext kann auf der linken oder rechten Seite der Leisten angezeigt werden.";
-	
+
 	FWL.ONEMAX = "An ein Maximum anpassen";
 	FWL.ONEMAX_TT = "Passt alle Leisten an einen maximalen Wert an. Mit anderen Worten, alle Leisten nutzen zur Anzeige die Laufzeit des Spells mit der längsten Laufzeit. Dies macht es einfacher, Spells zu timen.";
 	FWL.FORCEMAX = "Erzwinge maximale Zeit";
 	FWL.FORCEMAX_TT = "Erzwingt die 'Maximale Zeit' Einstellung auf allen Leisten auch wenn der längste Timer eine kürzere Laufzeit hat.";
 	FWL.MAXTIME = "Maximale Zeit";
 	FWL.MAXTIME_TT = "Maximale Zeit die in einer Leiste angezeigt wird. Durch diese Einstellung wird die '"..FWL.ONEMAX.."' Einstellung etwas praktischer.";
-	
+
 	FWL.DISPLAY_MODES7 = "Gruppiere nach Einheiten-ID";
 	FWL.DISPLAY_MODES7_TT = "Gruppiert die Timer nach Einheiten der selben ID.";
 	FWL.DISPLAY_MODES8 = "Zeige Einheiten-ID";
@@ -1126,7 +1126,7 @@ elseif GetLocale() == "deDE" then
 	FWL.DISPLAY_TYPES10_TT = "Zeigt die Spells deines Pet's im Spell Timer.";
 	FWL.DISPLAY_TYPES11 = "Kein ausblenden bei Bossen";
 	FWL.DISPLAY_TYPES11_TT = "Aktiviere dies um Spells mit längerer Laufzeit nicht bei Bossen auszublenden.";
-	
+
 	FWL.FADING1 = "Blinkende endende Leisten";
 	FWL.FADING1_TT = "Wenn aktiviert blinken Leisten, die in X Sekunden auslaufen werden. Sie blinken erst langsam und am Ende schnell. Eine schöne Hervorhebung von auslaufenden Leisten ohne die aktuelle Farbe zu ändern.";
 	FWL.FADING2 = "Sanft ausblenden";
@@ -1152,7 +1152,7 @@ elseif GetLocale() == "deDE" then
 	--[[>>]]FWL.EXTRA5_TT = "Synchronisiere Spell Timer Laufzeiten mit den aktuellen Debuff/Buff Laufzeiten ihrer Ziele. Dies wird benötigt für zum Beispiel Debuffs, die ihre Laufzeit durch andere Fähigkeiten zurücksetzen können. Das Addon beendet diese nicht vorher aber aktuelle Debuff/Buff Informationen sind scheinbar etwas zuverlässiger. (Korrekt übersetzt? originaler Text:  The addon has never done this before, but currently debuff/buff information seems much more reliable.)";
 	FWL.EXTRA6 = "Entferne Mob Timer nach Kampf";
 	FWL.EXTRA6_TT = "Immer wenn du nicht mehr im Kampf bist entfernt das Addon verbleibende Timer, die NPCs betreffen. Es kann sinnvoll sein, dies in manchen Situationen zu deaktivieren.";
-	
+
 	FWL.HIGHLIGHT = "Hervorheben";
 	FWL.FAIL = "Fehlschlag";
 	FWL.MAGIC_DOT = "Magischer DoT";
@@ -1180,9 +1180,9 @@ elseif GetLocale() == "deDE" then
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "Verzögerung Ziel Debuffprüfung";
 	FWL.DELAY_DOT_TICKS_INIT = "Verzögerung DoT Ticks start";
 	FWL.DELAY_DOT_TICKS = "Verzögerung DoT Ticks";
-	
+
 	FWL.TIME_LEFT = "Ansagen der Laufzeit";
-	
+
 	FWL.NORMAL_TYPE = "Normale Typen";
 	FWL.NORMAL_TYPE_TT = "Normale Spell Typen";
 	FWL.SHARED_TYPE = "Gemeinsame Typen (1)";
@@ -1195,19 +1195,19 @@ elseif GetLocale() == "deDE" then
 	FWL.TICKS_TT = "Zeige verbleibende DoT Ticks auf den Leisten";
 	FWL.TICKS_NEXT = "Nur nächster Tick";
 	FWL.TICKS_NEXT_TT = "Zeigt nur den nächsten verbleibenden Tick auf den Leisten.";
-	
+
 	--[[>>]]FWL.DRAIN = "Drain";
 	--[[>>]]FWL.DRAIN_TT = "Zeige Drain und einige andere Kannalisierende Spells.";
 --[[>>]]FWL.CHANNEL = "Channel / Drain";
 --[[>>]]FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "Auslaufend";
 	FWL.BREAK = "Unterbrochen";
 	FWL.RESIST = "Resistent";
-	
+
 	FWL.TICKS_COLOR = "Tick Farbe";
 	FWL.TICKS_COLOR_TT = "Setze die Tickfarben auf die Farbe die du angezeigt bekommen möchtest.";
-	
+
 	FWL.TIMER_OUTWARDS = "Längste Timer ganz oben";
 	FWL.TIMER_OUTWARDS_TT = "Leisten werden nach der Laufzeit sortiert, die längste Laufzeit ist am weitesten von der Kopfzeile/dem Ankerpunkt entfernt.";
 	FWL.TEST_BARS = "Aktiviere Testleisten";
@@ -1256,7 +1256,7 @@ elseif GetLocale() == "deDE" then
 --[[>>]]FWL.TIMER_SORT_ORDER_TT =  "Customize the order in which the different spell types appear on the Spell Timer. The most left tag will appear the closest to the header/anchor. This setting is only used when 'Group by unit' is enabled.\n|cff00ff00buff|r are your self (powerup) buffs.\n|cff00ff00selfdebuff|r are the debuffs on yourself.\n|cff00ff00debuff|r are the raid debuffs on your current target.\n|cff00ff00cooldown|r are your cooldowns.\n|cff00ff00notarget|r are spells that don't have a target (or still need to find/correct their target).\n|cff00ff00target|r are all the other spells that have been cast on units.";
 
 --[[>>]]FWL.TIMER_SPARK_TT = "Show sparks at the appropriate place in the bars.";
-	
+
 --[[>>]]FWL.SHARED_TYPE2 = "Shared Type (2)";
 --[[>>]]FWL.SHARED_TYPE2_TT = "Types of spells that allow only one spell of this kind up on one target (for example Banes).";
 
@@ -1301,7 +1301,7 @@ elseif GetLocale() == "deDE" then
 --[[>>]]FWL.FLIP_TAG = "Flip tag location";
 --[[>>]]FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 --[[>>]]FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 --[[>>]]FWL.CAST_GCD = "Include Global Cooldown";
 --[[>>]]FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -1319,7 +1319,7 @@ elseif GetLocale() == "koKR" then
 	FWL.ST_HINT2 = "디버프 아이콘을 오른클릭하면 세부설정을 할 수 있습니다.";
 --[[>>]]FWL.ST_HINT3 = "주문 타이머을 잠그면 타이머 뒤를 클릭할 수 있습니다.";
 
-	FWL.ST_BASIC1_TT = "주문 타이머를 표시합니다.";		
+	FWL.ST_BASIC1_TT = "주문 타이머를 표시합니다.";
 	FWL.ST_BASIC3_TT = "주문 타이머의 헤더를 노출하면 설정하기엔 편하지만 숨기지 않을 이유도 없지요. 헤더를 숨겨도 헤더가 있는 위치에 마우스를 올려 끌면 주문 타이머의 위치를 변경할 수 있습니다.";
 
 	FWL.NORMAL_TEXT = "일반 글씨";
@@ -1343,14 +1343,14 @@ elseif GetLocale() == "koKR" then
 	FWL.MAXIMIZE_SPACE_TT = "유닛과 주문 글씨에 사용되는 공간을 최대화합니다. 결과적으로 글씨는 타이머 바의 정중앙에 배치되지 않을 것입니다. 타이머바가 짧다면 이 설정을 활용하세요.";
 	FWL.COUNTDOWN_ON_RIGHT = "카운트다운 글씨 우측 배치";
 	FWL.COUNTDOWN_ON_RIGHT_TT = "체크를 하면 카운트다운 글씨가 우측에 배치됩니다.";
-	
+
 	FWL.ONEMAX = "시간이 가장 긴 바를 기준으로 정렬";
 	FWL.ONEMAX_TT = "시간이 가장 긴 바를 기준으로 모든 바가 정렬이 됩니다.";
 	FWL.FORCEMAX = "최대시간 고정";
 	FWL.FORCEMAX_TT = "모든 바에 설정한 시간이 최대 시간이었던 것처럼 표시합니다.";
 	FWL.MAXTIME = "최대시간";
-	FWL.MAXTIME_TT = "바 하나에 표시될 수 있는 최대 시간을 설정합니다. 이 옵션은 [최대 시간 고정]을 좀 더 유용하게 만들기 위해 제공됩니다.";	
-	
+	FWL.MAXTIME_TT = "바 하나에 표시될 수 있는 최대 시간을 설정합니다. 이 옵션은 [최대 시간 고정]을 좀 더 유용하게 만들기 위해 제공됩니다.";
+
 	FWL.DISPLAY_MODES7 = "같은 유닛(대상/주시/기타) 별로 그룹 형성";
 	FWL.DISPLAY_MODES7_TT = "같은 유닛에 포함된 타이머 바는 한 그룹으로 묶습니다.";
 	FWL.DISPLAY_MODES8 = "유닛 ID 를 함께 표시";
@@ -1359,7 +1359,7 @@ elseif GetLocale() == "koKR" then
 	FWL.DISPLAY_MODES9_TT = "대상의 이름 대신 시전한 주문의 이름을 바에 표시합니다.";
 	FWL.DISPLAY_MODES10 = "이름 태그와 헤더를 표시(툴팁 참고)";
 	FWL.DISPLAY_MODES10_TT = "'"..FWL.DISPLAY_MODES7.."'옵션이 활성화되어 있으면 각 바 그룹에 이름 태그가 나타날 것입니다.";
-		
+
 	FWL.DISPLAY_TYPES1 = "일시적인 강화효과 표시";
 	FWL.DISPLAY_TYPES1_TT = "타이머로 이익이 되는 일시적인 강화효과를 표시합니다. ";
 	FWL.DISPLAY_TYPES2 = "공유하는 디버프 효과 표시";
@@ -1382,7 +1382,7 @@ elseif GetLocale() == "koKR" then
 	FWL.DISPLAY_TYPES10_TT = "소환수의 주문이나 기술을 표시합니다.";
 	FWL.DISPLAY_TYPES11 = "보스에게 걸린것은 숨기지 않음";
 	FWL.DISPLAY_TYPES11_TT = "보스에게 건 모든 주문은 사리지지 않습니다.";
-	
+
 	FWL.FADING1 = "종료 깜빡임 알림";
 	FWL.FADING1_TT = "주문 타이머 바가 종료되기 3초 전부터 깜빡이기 시작합니다. 처음엔 천천히 동작하다가 후엔 점점 빨라질 것입니다. 실제로 색을 바꾸지 않아도 종료를 미리 알아챌 수 있는 좋은 효과입니다.";
 	FWL.FADING2 = "바 서서히 사라짐";
@@ -1435,9 +1435,9 @@ elseif GetLocale() == "koKR" then
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "대상 디버프 추적 지연시간";
 	FWL.DELAY_DOT_TICKS_INIT = "초기 지속효과 틱 지연";
 	FWL.DELAY_DOT_TICKS = "지속효과 틱 지연";
-	
+
 	FWL.TIME_LEFT = "사라짐 시간 알림";
-	
+
 	FWL.NORMAL_TYPE = "일반 형태";
 	FWL.NORMAL_TYPE_TT = "일반적으로 사용되는 대다수의 주문이나 기술을 말합니다.";
 	FWL.SHARED_TYPE = "공유 형태(1)";
@@ -1450,19 +1450,19 @@ elseif GetLocale() == "koKR" then
 	FWL.TICKS_TT = "타이머 바에 지속 효과의 틱을 표시합니다.";
 	FWL.TICKS_NEXT = "다음 틱만 표시";
 	FWL.TICKS_NEXT_TT = "타이머 바에 다음에 적용될 틱만 표시합니다.";
-	
+
 	FWL.DRAIN = "흡수 및 채널링 형태";
 	FWL.DRAIN_TT = "흡수 계열 주문을 표시합니다.";
 --[[>>]]FWL.CHANNEL = "Channel / Drain";
 --[[>>]]FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "사라짐";
 	FWL.BREAK = "풀림";
 	FWL.RESIST = "저항";
-	
+
 	FWL.TICKS_COLOR = "틱 색상";
 	FWL.TICKS_COLOR_TT = "틱을 표시하는 색상을 지정합니다.";
-	
+
 	FWL.TIMER_OUTWARDS = "높은 순서대로 타이머 재정렬";
 	FWL.TIMER_OUTWARDS_TT = "타이머 바들 중 가장 길게 시간이 남은 것이 헤더로 부터 가장 먼 곳에 우선 배치되어 정렬됩니다.";
 	FWL.TEST_BARS = "사용 가능한 테스트 바";
@@ -1504,14 +1504,14 @@ elseif GetLocale() == "koKR" then
 	FWL.EXPIRED_TT = "종료된 타이머 바의 색상을 지정합니다.";
 
 	FWL._RIGHTCLICK_FOR_OPTIONS = "(오른쪽 클릭 옵션 열기)"
-	
+
 	FWL.CLONES_WORKING = "복사본 기능은 현재 제대로 작동하고 있지 않습니다. 무엇이 표시되어야할 지 변경할 수 없습니다. 추후 업데이트 될 것입니다.";
 	FWL.SHOW_WITHOUT_UNIT = "유닛 구분과 무관하게 표시";
 	FWL.TIMER_SORT_ORDER = "주문형태 분류순서";
 	FWL.TIMER_SORT_ORDER_TT =  "서로 다른 주문 형태를 임의의 순서로 분류하여 주문 타이머에 표시합니다. 가장 왼쪽에 위치한 태그는 헤더/앵커에 가장 가깝게 표시될 것입니다.이 설정은 '그룹 별로 유닛 표시' 설정이 활성화되었을 때만 제대로 작동합니다. \n|cff00ff00버프|r 은 자신에게 걸린 강화 효과를 의미합니다.\n|cff00ff00걸린디버프|r 는 자신에게 걸린 디버프를 의미합니다.\n|cff00ff00디버프|r 는 자신의 현재 대상에 걸린 디버프를 의미합니다.\n|cff00ff00쿨다운|r 은 자신의 디버프를 의미합니다.\n|cff00ff00대상없음|r 은 대상이 없는 주문이나 대상을 찾거나 수정해야할 필요가 있는 주문이 표시 됩니다.\n|cff00ff00대상|r 은 각 유닛들에게 시전된 기타 모든 주문을 의미합니다.";
 
 	FWL.TIMER_SPARK_TT = "바 사이에 적절한 공간에 스파크 효과를 표시합니다.";
-	
+
 	FWL.SHARED_TYPE2 = "공유형태(2)";
 	FWL.SHARED_TYPE2_TT = "오로지 한 대상에 한종류의 형태만 허용이 되는 주문 계열을 의미합니다. (예를 들면, 파멸).";
 
@@ -1556,7 +1556,7 @@ elseif GetLocale() == "koKR" then
 --[[>>]]FWL.FLIP_TAG = "Flip tag location";
 --[[>>]]FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 --[[>>]]FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 --[[>>]]FWL.CAST_GCD = "Include Global Cooldown";
 --[[>>]]FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 
@@ -1573,7 +1573,7 @@ else	-- standard english version
 	FWL.ST_HINT2 = "Right-clicking a debuff icon will fill in that spell in the custom filter field.";
 	FWL.ST_HINT3 = "When the timer is locked you will click through it and the automatic hiding will work.";
 
-	FWL.ST_BASIC1_TT = "Visually enable the spell timer.";		
+	FWL.ST_BASIC1_TT = "Visually enable the spell timer.";
 	FWL.ST_BASIC3_TT = "Showing the header can be usefull for setting up the timer, but there's no reason not to hide it. You can still drag the timer from the header spot if the header itself is hidden.";
 
 	FWL.NORMAL_TEXT = "Normal text";
@@ -1597,14 +1597,14 @@ else	-- standard english version
 	FWL.MAXIMIZE_SPACE_TT = "Maximizes the space used for the unit/spell texts. As a result, these texts will no longer be displayed in the exact center of the bars. This can be usefull if you have very short bars.";
 	FWL.COUNTDOWN_ON_RIGHT = "Count down on right";
 	FWL.COUNTDOWN_ON_RIGHT_TT = "You can display the countdown text on the right or on the left of the timer bars.";
-	
+
 	FWL.ONEMAX = "Adapt to one maximum";
 	FWL.ONEMAX_TT = "Adapt all bars to one maximum. In other words, all the bars will use the duration of the spell with the longest duration currently on the timer. This may make it easier to time spellcasts.";
 	FWL.FORCEMAX = "Force maximum time";
 	FWL.FORCEMAX_TT = "Forces the maximum time setting on all bars, even if the longest timer has a shorter duration.";
 	FWL.MAXTIME = "Maximum time";
 	FWL.MAXTIME_TT = "Maximum time that's displayed on a bar. This option is mostly there for making the 'one maximum' setting more practical.";
-	
+
 	FWL.DISPLAY_MODES7 = "Group by unit";
 	FWL.DISPLAY_MODES7_TT = "Groups timers belonging to the same units together.";
 	FWL.DISPLAY_MODES8 = "Show unit #";
@@ -1613,7 +1613,7 @@ else	-- standard english version
 	FWL.DISPLAY_MODES9_TT = "This will display the names of your spells on the timer bars, instead of the target name.";
 	FWL.DISPLAY_MODES10 = "Show name tags/headers";
 	FWL.DISPLAY_MODES10_TT = "With the '"..FWL.DISPLAY_MODES7.."' option on, unit name tags will appear for each bar group.";
-	
+
 	FWL.DISPLAY_TYPES1 = "Show powerup buffs";
 	FWL.DISPLAY_TYPES1_TT = "The timer will also display beneficial powerup buffs.";
 	FWL.DISPLAY_TYPES2 = "Show Vulnerability";
@@ -1636,7 +1636,7 @@ else	-- standard english version
 	FWL.DISPLAY_TYPES10_TT = "Show your pet's spells in the Spell Timer.";
 	FWL.DISPLAY_TYPES11 = "No hiding on bosses";
 	FWL.DISPLAY_TYPES11_TT = "Enable this option to keep all your longer spells visible on bosses.";
-	
+
 	FWL.FADING1 = "Blink expiring bars";
 	FWL.FADING1_TT = "When enabled, bars expiring in X seconds will start to blink. First slow, fast in the end. A nice indication of expiring bars, without changing the actual color.";
 	FWL.FADING2 = "Fade out bars";
@@ -1662,7 +1662,7 @@ else	-- standard english version
 	FWL.EXTRA5_TT = "Synchronize spell timer durations to the actual debuff/buff durations of their targets. This is needed for example for debuffs that can reset their duration through other abilities. The addon has never done this before, but currently debuff/buff information seems much more reliable.";
 	FWL.EXTRA6 = "Remove mob timers after combat";
 	FWL.EXTRA6_TT = "Every time you exit combat the addon will remove remaining timers belonging to NPCs. May be useful to disable this in some cases.";
-	
+
 	FWL.HIGHLIGHT = "Highlight new";
 	FWL.FAIL = "Fail";
 	FWL.MAGIC_DOT = "Magic dot";
@@ -1690,9 +1690,9 @@ else	-- standard english version
 	FWL.DELAY_TARGET_DEBUFF_CHECK = "Delay target debuff check";
 	FWL.DELAY_DOT_TICKS_INIT = "Delay dot ticks init";
 	FWL.DELAY_DOT_TICKS = "Delay dot ticks";
-	
+
 	FWL.TIME_LEFT = "Announce fade time";
-	
+
 	FWL.NORMAL_TYPE = "Normal Type";
 	FWL.NORMAL_TYPE_TT = "Normal Spell Types";
 	FWL.SHARED_TYPE = "Shared Type (1)";
@@ -1705,19 +1705,19 @@ else	-- standard english version
 	FWL.TICKS_TT = "Show remaining DoT ticks on the bars.";
 	FWL.TICKS_NEXT = "Next Tick only";
 	FWL.TICKS_NEXT_TT = "Only show the next Tick on the bars.";
-	
+
 	FWL.DRAIN = "Drain";
 	FWL.DRAIN_TT = "Show Drain and some other Channeling spells.";
 	FWL.CHANNEL = "Channel / Drain";
 	FWL.CHANNEL_TT = "Show Channelled spells. This also includes Drains.";
-	
+
 	FWL.FADE = "Fade";
 	FWL.BREAK = "Break";
 	FWL.RESIST = "Resist";
-	
+
 	FWL.TICKS_COLOR = "Tick color";
 	FWL.TICKS_COLOR_TT = "Set the tick colors to any color you like.";
-	
+
 	FWL.TIMER_OUTWARDS = "Highest timers outwards";
 	FWL.TIMER_OUTWARDS_TT = "Bars will be sorted with the longest remaining times the furthest from the spell timer header/anchor.";
 	FWL.TEST_BARS = "Enable Test Bars";
@@ -1731,7 +1731,7 @@ else	-- standard english version
 
 	FWL.UNIQUE_TYPE = "Unique Type";
 	FWL.UNIQUE_TYPE_TT = "Types of spells that can only be cast on one target at a time. For example most crowd control spells.";
-	
+
 	FWL.BAR_BG_ALPHA = "Empty bar alpha";
 	FWL.BAR_BG_ALPHA_TT = "The alpha the 'empty' part of a timer bar will have.";
 	FWL.TIMER_FORMATS = "Additional layout";
@@ -1808,11 +1808,11 @@ else	-- standard english version
 	FWL.TIMER_SHOW_UKNOWN_TT = "Show bars for 'unknown' units. This group of bars is created when FX detects that a spell was cast, but can't tell what unit it belongs to yet.";
 	FWL.TIMER_SHOW_YOU_TT = "Show the spells that are only directly related to yourself.";
 	FWL.TIMER_RAID_DEBUFFS_TT = "Show the raid debuffs on your current target.";
-	
+
 	FWL.FLIP_TAG = "Flip tag location";
 	FWL.FLIP_TAG_TT = "Change the name tag/label location from before its bars, to after its bars. If this is on the top or the bottom of the group depends on the group expansion direction.";
 	FWL.NAMING_GROUPING = "Naming and Grouping";
-	
+
 	FWL.CAST_GCD = "Include Global Cooldown";
 	FWL.CAST_GCD_TT = "In addition to real cast times, also show the time the Global Cooldown would take up after casting.";
 end

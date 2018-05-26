@@ -29,7 +29,7 @@ if GetLocale() == "ruRU" then
 	FWL.FATHOM_GUARD_SHARKKIS = "Хранительница глубин Карибдис";
 	FWL.FATHOM_GUARD_CARIBDIS = "Хранительница глубин Карибдис";
 	FWL.FATHOM_GUARD_TIDALVESS = "Хранитель глубин Волниис";
-	
+
 	--[[>>]]FWL._RELIC = " (Relic)";
 	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -40,7 +40,7 @@ if GetLocale() == "ruRU" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 -- FR
 elseif GetLocale() == "frFR" then
 	--units
@@ -52,7 +52,7 @@ elseif GetLocale() == "frFR" then
 	FWL.FATHOM_GUARD_SHARKKIS = "Garde-fonds Squallis";
 	FWL.FATHOM_GUARD_CARIBDIS = "Garde-fonds Caribdis";
 	FWL.FATHOM_GUARD_TIDALVESS = "Garde-fonds Marevess";
-	
+
 	--[[>>]]FWL._RELIC = " (Relic)";
 	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -63,7 +63,7 @@ elseif GetLocale() == "frFR" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 -- DE
 elseif GetLocale() == "deDE" then
 	--units
@@ -75,7 +75,7 @@ elseif GetLocale() == "deDE" then
 	FWL.FATHOM_GUARD_SHARKKIS = "Tiefenwächter Haikis";
 	FWL.FATHOM_GUARD_CARIBDIS = "Tiefenwächter Caribdis";
 	FWL.FATHOM_GUARD_TIDALVESS = "Tiefenwächter Flutvess";
-	
+
 	FWL._RELIC = " (Relikt)";
 	FWL._EFFECT = " (Effekt)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -86,7 +86,7 @@ elseif GetLocale() == "deDE" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 -- SPANISH By Intxixu - SPQR - Tyrande
 elseif GetLocale() == "esES" then
 	--units
@@ -98,7 +98,7 @@ elseif GetLocale() == "esES" then
 	FWL.FATHOM_GUARD_SHARKKIS = "Guardia de las profundidades de Sharkkis";
 	FWL.FATHOM_GUARD_CARIBDIS = " Guardia de las profundidades de Caribdis";
 	FWL.FATHOM_GUARD_TIDALVESS = " Guardia de las profundidades de Tidalvess";
-	
+
 	--[[>>]]FWL._RELIC = " (Relic)";
 	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -109,7 +109,7 @@ elseif GetLocale() == "esES" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 elseif GetLocale() == "zhCN" then
 	--units
 	FWL.HELLFIRE_CHANNELER = "地狱火导魔者"
@@ -120,7 +120,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.FATHOM_GUARD_SHARKKIS = "深水卫士沙克基斯";
 	FWL.FATHOM_GUARD_CARIBDIS = "深水卫士卡莉蒂丝";
 	FWL.FATHOM_GUARD_TIDALVESS = "深水卫士泰达维斯";
-	
+
 	--[[>>]]FWL._RELIC = " (Relic)";
 	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -131,7 +131,7 @@ elseif GetLocale() == "zhCN" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 -- tradition Chinese
 elseif GetLocale() == "zhTW" then
 	--units
@@ -143,7 +143,7 @@ elseif GetLocale() == "zhTW" then
 	FWL.FATHOM_GUARD_SHARKKIS = "深淵守衛沙卡奇斯";
 	FWL.FATHOM_GUARD_CARIBDIS = "深淵守衛卡利迪斯";
 	FWL.FATHOM_GUARD_TIDALVESS = "深淵守衛提達費斯";
-	
+
 	--[[>>]]FWL._RELIC = " (Relic)";
 	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
@@ -154,7 +154,7 @@ elseif GetLocale() == "zhTW" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 elseif GetLocale() == "koKR" then
 	--units
 	FWL.HELLFIRE_CHANNELER = "지옥불 역술사"
@@ -167,7 +167,7 @@ elseif GetLocale() == "koKR" then
 	FWL.FATHOM_GUARD_TIDALVESS = "심연의 경비병 타이달베스";
 
 	--[[>>]]FWL._RELIC = " (Relic)";
-	--[[>>]]FWL._EFFECT = " (Effect)";	
+	--[[>>]]FWL._EFFECT = " (Effect)";
 	--[[>>]]FWL._HOLY = " (Holy)";
 	--[[>>]]FWL._FIRE = " (Fire)";
 	--[[>>]]FWL._FROST = " (Frost)";
@@ -176,7 +176,7 @@ elseif GetLocale() == "koKR" then
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
 	--[[>>]]FWL._GLYPH = " (Glyph)";
-	
+
 else -- standard english version
 	--units
 	FWL.HELLFIRE_CHANNELER = "Hellfire Channeler";
@@ -187,7 +187,7 @@ else -- standard english version
 	FWL.FATHOM_GUARD_SHARKKIS = "Fathom-Guard Sharkkis";
 	FWL.FATHOM_GUARD_CARIBDIS = "Fathom-Guard Caribdis";
 	FWL.FATHOM_GUARD_TIDALVESS = "Fathom-Guard Tidalvess";
-	
+
 	FWL._RELIC = " (Relic)";
 	FWL._EFFECT = " (Effect)";
 	FWL._HOLY = " (Holy)";
@@ -198,15 +198,15 @@ else -- standard english version
 	FWL._NATURE = " (Nature)";
 	FWL._BUFF = " (Buff)";
 	FWL._GLYPH = " (Glyph)";
-	
+
 end
-	
+
 -- THESE ARE INTERFACE STRINGS ONLY AND TRANSLATING THEM IS OPTIONAL
 
 -- French
 if GetLocale() == "frFR" then
 	FWL.MODULE_NONE = "|cffff0000None|r";
-	
+
 	FWL.UPDATE_NOW = "Update Now";
 	FWL.LAST_CHECK = "\n\nLast check: %d seconds ago.";
 	FWL.SCROLL_TO_ = "Scroll to ";
@@ -297,9 +297,9 @@ if GetLocale() == "frFR" then
 
 	FWL.DEFAULT = "[restore default]";
 	FWL.POSITION = "[reset position]";
-	
+
 --[[>>]]FWL._EDITBOX_TRANSPARENCY = " Use the editbox to set the transparency.";
-	
+
 	-- all the other text and tips belonging to core itself
 	FWL.ADVANCED_HINT1 = "You will usually not have to change anything here. It's only for problem solving.";
 	FWL.ADVANCED_HINT2 = "Changes to 'update intervals' only apply after reloading.";
@@ -346,7 +346,7 @@ if GetLocale() == "frFR" then
 	FWL.CHILL_SPEED = "Throttle speed";
 	FWL.ANIMATE_SCROLL = "Animate auto-scrolling";
 	FWL.ANIMATE_SCROLL_TT = "Animates the scrolling and showing of the options. This may give you a better feeling of 'where you are' in the options menu (and it looks kinda cool).";
-	
+
 	FWL.OPTIONS_SCALE = "Options scale";
 	FWL.OPTIONS_SCALE_TT = "Change the scale of the Options frame";
 	FWL.TOGGLE_OPTIONS = "Toggle Options";
@@ -354,13 +354,13 @@ if GetLocale() == "frFR" then
 	FWL.OPTIONS_COLUMNS_TT = "Change the number of columns of the options frame.";
 	FWL.OPTIONS_HEIGHT = "Option Height";
 	FWL.OPTIONS_HEIGHT_TT = "Change the height of the options frame.";
-	
+
 	FWL.BLOCK_SHARDS = "Safely block shard reagents";
 	FWL.BLOCK_SHARDS_TT = "Hides the shard count on your action buttons. Requires a reload of your interface to apply. Currently supported: Bartender4 and Standard UI.";
 
 	FWL.GLOBAL_LOCK = "Global Frame Lock";
 	FWL.GLOBAL_LOCK_TT = "Lock all the frames belonging to the addon. Some frames may have their own locking option though.";
-	
+
 	FWL.SOUND = "Sound";
 	FWL.SOUND_HINT1 = "Click the little trumpet icons to hear the sounds. Use the second editbox to adjust the volume.";
 	FWL.RANGE_MAX = "Range: %s to %s";
@@ -370,10 +370,10 @@ if GetLocale() == "frFR" then
 	FWL.CLICK_TO_EDIT = "[click to edit]";
 	FWL.CLICK_TO_EDIT_TT = "Press ENTER to confirm your change. Press ESC to discard your change.";
 	FWL.CLICK_TO_COPY = "[click to select, Ctrl+C to copy]";
-	
+
 	FWL.DEMONIC = "Demonic";
 	FWL.FEL = "Fel";
-	
+
 	FWL.SPARK_MATCH = "Spark matches bar";
 	FWL.SPARK_MATCH_TT = "The color of the sparks will match the color of the bars.";
 	FWL.SPARK_COLOR = "Spark color";
@@ -382,7 +382,7 @@ if GetLocale() == "frFR" then
 	FWL.FADING = "Fading";
 	FWL.TIME_LEFT_HINT = "Announce fade time for your spells by left-clicking a Timer icon.";
 	FWL.TIME_LEFT_NOTARGET = "Announce fade time (no target)";
-	
+
 	FWL.PROFILES_HINT1 = "The AddOn saved what profile you were using on this character last time.";
 	FWL.PROFILES_HINT2 = "This makes it easy to share profiles among different characters.";
 
@@ -394,9 +394,9 @@ if GetLocale() == "frFR" then
 	FWL.FILTER_COLOR = "|cff00ffffcolor|r";
 	FWL.FILTER_NORMAL = "|cff00ff00show|r";
 	FWL.FILTER_ALWAYS = "|cffff8000always|r";
-	
+
 	FWL.UNLOCK = "Unlock (enable dragging)";
-	
+
 	FWL.UNLOCK_TT = "This module's frame is Locked. Click to Unlock this frame, so it can be dragged around.";
 	FWL.LOCK_TT = "This module's frame is Unlocked. Click to Lock this frame, so it can no longer be dragged around.";
 
@@ -435,7 +435,7 @@ if GetLocale() == "frFR" then
 
 	FWL.TOGGLE_FILTER_LIST = "Toggle Filter List";
 	FWL.BACKDROP = "Backdrop";
-	
+
 	FWL.FILTER_DEBUFFS_ON_ME = "|cffff4400on me|r";
 	FWL.FRAME_LEVEL = "Frame level (strata)";
 	FWL.FRAME_LEVEL_TT = "Frame level of this module. Valid are, from lowest to highest level:\n|cff00ff00BACKGROUND\nLOW\nMEDIUM\nHIGH\nDIALOG\nFULLSCREEN\nFULLSCREEN_DIALOG\nTOOLTIP|r";
@@ -466,10 +466,10 @@ if GetLocale() == "frFR" then
 	FWL.MY_SPELLS = "My Spells";
 	FWL.RAID_DEBUFFS = "Raid Debuffs (my target only)";
 	FWL.ALL_OTHER_COOLDOWNS = "All other Cooldowns";
-	
+
 	FWL.BREAK_FADE = "Break/Fade";
 	FWL.BREAK_FADE_HINT1 = "The time you set in the fade string defines when it is displayed.";
-	
+
 	FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 	FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
@@ -509,7 +509,7 @@ if GetLocale() == "frFR" then
 
 	FWL.FLIP_BAR = "Flip bar direction";
 	FWL.FLIP_BAR_TT = "Flip the timer bar direction.";
-	
+
 	FWL.LINKED_NONE = "Linked in None";
 	FWL.LINKED_PROFILES = "Linked in Profiles";
 	FWL.LINKED_CLONES = "Linked in Clones";
@@ -522,7 +522,7 @@ if GetLocale() == "frFR" then
 	FWL.CROSS_PROFILE_CORRECT_TT = "Goes through your linked profile groups and applies the same setting to all linked options.";
 	FWL.CROSS_CLONE_CORRECT = "Cross-clone correct now!";
 	FWL.CROSS_CLONE_CORRECT_TT = "Goes through your linked clone groups and applies the same setting to all linked clones.";
-	
+
 	FWL.TIMER_HIDE = "Hide when out of combat";
 	FWL.TIMER_HIDE_TT = "Hide the frame when you get out of combat.";
 	FWL.WHERE_TO_SHOW = "Where to show";
@@ -531,7 +531,7 @@ if GetLocale() == "frFR" then
 	FWL.WEAPON_ENCHANT_OFFHAND = "Weapon Enchant (off-hand)";
 	FWL.WEAPON_ENCHANT_RANGED = "Weapon Enchant (ranged)";
 	FWL.WEAPON_ENCHANT = "Weapon Enchant";
-	
+
 -- Russian
 elseif GetLocale() == "ruRU" then
 
@@ -625,7 +625,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.USE_COLOR_PICKER = "Click the colored square to open up the color picker. If there's a slider on the right, you can also change the transparency. You can also use the editbox to enter a color value in R G B A (red green blue alpha) format. This also allows for easier copying.";
 --[[>>]]FWL.USE_COLOR_PICKER2 = "Uncheck to hide completely. Click the colored square to open up the color picker. If there's a slider on the right, you can also change the transparency. You can also use the editbox to enter a color value in R G B A (red green blue alpha) format. This also allows for easier copying.";
 
-	
+
 	FWL.USE_TEXTURE = "Наведите указатель на левую текстурированную полоску и выберите текстуру из выпадающего меню. Вы также можете использовать любую текстуру, указав путь к ней.";
 	FWL.USE_FONT = "Наведите указатель на левую панель со шрифтами и выберите шрифт из выпадающего меню. Центральное поле ввода может быть использовано для изменения размера шрифта. Вы также можете использовать любой другой шрифт, указав путь к нему.";
 	FWL.USE_EDITBOX = "Не забудьте нажать Enter для подтверждения изменений в полях ввода!";
@@ -718,7 +718,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.SPARK_COLOR_TT = "Set the spark colors to any color you like. You can also use this to hide the sparks by choosing an alpha of 0.";
 
 	FWL.FADING = "Угасать";
---[[>>]]FWL.TIME_LEFT_HINT = "Announce fade time for your spells by left-clicking a Timer icon.";	
+--[[>>]]FWL.TIME_LEFT_HINT = "Announce fade time for your spells by left-clicking a Timer icon.";
 --[[>>]]FWL.TIME_LEFT_NOTARGET = "Announce fade time (no target)";
 
 --[[>>]]FWL.PROFILES_HINT1 = "The AddOn saved what profile you were using on this character last time.";
@@ -728,7 +728,7 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.GENERAL_MO6_TT = "You can right-click the icons in some modules to open the options menu at the right customization filter.";
 
 --[[>>]]FWL.FILTER_NORMAL = "|cffffff00show|r";
---[[>>]]FWL.FILTER_ALWAYS = "|cffff8000always|r";	
+--[[>>]]FWL.FILTER_ALWAYS = "|cffff8000always|r";
 
 --[[>>]]FWL.UNLOCK = "Unlock (enable dragging)";
 --[[>>]]FWL.UNLOCK_TT = "This module's frame is Locked. Click to Unlock this frame, so it can be dragged around.";
@@ -769,7 +769,7 @@ elseif GetLocale() == "ruRU" then
 
 --[[>>]]FWL.TOGGLE_FILTER_LIST = "Toggle Filter List";
 --[[>>]]FWL.BACKDROP = "Backdrop";
-	
+
 --[[>>]]FWL.FILTER_DEBUFFS_ON_ME = "|cffff4400on me|r";
 --[[>>]]FWL.FRAME_LEVEL = "Frame level (strata)";
 --[[>>]]FWL.FRAME_LEVEL_TT = "Frame level of this module. Valid are, from lowest to highest level:\n|cff00ff00BACKGROUND\nLOW\nMEDIUM\nHIGH\nDIALOG\nFULLSCREEN\nFULLSCREEN_DIALOG\nTOOLTIP|r";
@@ -803,7 +803,7 @@ elseif GetLocale() == "ruRU" then
 
 --[[>>]]FWL.BREAK_FADE = "Прервано/Рассеивается";
 --[[>>]]FWL.BREAK_FADE_HINT1 = "Время отображение строки рассеивания.";
-	
+
 --[[>>]]FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 --[[>>]]FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
@@ -811,7 +811,7 @@ elseif GetLocale() == "ruRU" then
 
 --[[>>]]FWL.BASIC_LAYOUT = "Basic layout";
 	FWL.ICON_FONT = "Шрифт значка";
-	
+
 --[[>>]]FWL._CLICK_FILTER = " [click to toggle filter list]";
 
 --[[>>]]FWL.LINK_HINT1 = "To link/unlink profiles or clones, SHIFT or CONTROL-click the tab of the instance to be linked.";
@@ -840,10 +840,10 @@ elseif GetLocale() == "ruRU" then
 --[[>>]]FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 --[[>>]]FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 --[[>>]]FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "Перевернуть направление панели";
 	FWL.FLIP_BAR_TT = "Перевернуть направление панели таймера.";
-	
+
 --[[>>]]FWL.LINKED_NONE = "Linked in None";
 --[[>>]]FWL.LINKED_PROFILES = "Linked in Profiles";
 --[[>>]]FWL.LINKED_CLONES = "Linked in Clones";
@@ -958,7 +958,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.USE_FILTER = "首先键入你想过滤的法术或者物品 (auto-fills). 然后你可以选择设置正常显示 (normal选项), 隐藏不显示 (ignore选项) 或改变其颜色 (custom选项). 选择第三项后右边会出现颜色设置按钮.";
 	FWL.USE_COLOR_PICKER = "点颜色打开调色板，右侧滑条调整透明度，可以直接在下方输入RGBA数值.";
 	FWL.USE_COLOR_PICKER2 = "取消.";
-	
+
 	FWL.USE_TEXTURE = "鼠标划过材质条可以在出现菜单中选择材质. 输入材质路径可以设置为其他材质."
 	FWL.USE_FONT = "鼠标划过字体框可以在出现菜单中选择字体.中间的编辑框可以设定字体大小.输入字体路径可以设置为其他字体.";
 	FWL.USE_EDITBOX = "改变后需要按'回车'键确认更改!!!";
@@ -966,7 +966,7 @@ elseif GetLocale() == "zhCN" then
 
 	FWL.DEFAULT = "[恢复默认]";
 	FWL.POSITION = "[位置重置]";
-	
+
 --[[>>]]FWL._EDITBOX_TRANSPARENCY = " Use the editbox to set the transparency.";
 
 	-- all the other text and tips belonging to core itself
@@ -1028,7 +1028,7 @@ elseif GetLocale() == "zhCN" then
 
 	FWL.GLOBAL_LOCK = "锁定全部窗口";
 	FWL.GLOBAL_LOCK_TT = "锁定这个插件的全部窗口，有的窗口可以单独锁定和解锁.";
-	
+
 	FWL.SOUND = "声音";
 
 	FWL.SOUND_HINT1 = "点击小号图标测试声音，下面的编辑框可以调整音量.";
@@ -1041,26 +1041,26 @@ elseif GetLocale() == "zhCN" then
 	FWL.CLICK_TO_COPY = "[点击选中, Ctrl+C 拷贝]";
 
 	FWL.DEMONIC = "恶魔";
-	FWL.FEL = "魔能";	
-	
+	FWL.FEL = "魔能";
+
 	FWL.SPARK_MATCH = "bar颜色闪动";
 	FWL.SPARK_MATCH_TT = "闪光的颜色与bar颜色一样.";
 	FWL.SPARK_COLOR = "闪光颜色";
 	FWL.SPARK_COLOR_TT = "设定闪光颜色，将alpha设为0可以隐藏闪光.";
-	
+
 	FWL.FADING = "渐隐";
-	FWL.TIME_LEFT_HINT = "点击法术图标显示法术剩余时间.";	
+	FWL.TIME_LEFT_HINT = "点击法术图标显示法术剩余时间.";
 	FWL.TIME_LEFT_NOTARGET = "显示法术剩余时间 (非目标)";
 
 	FWL.PROFILES_HINT1 = "保存你此人物最新的设置文件";
 	FWL.PROFILES_HINT2 = "方便人物之间的设置共享.";
 
-	FWL.GENERAL_MO6 = "右击编辑图标"; 
+	FWL.GENERAL_MO6 = "右击编辑图标";
 	FWL.GENERAL_MO6_TT = "一些框体下你可以右击图标编辑过滤";
 
 	FWL.FILTER_NORMAL = "|cffffff00显示|r";
-	FWL.FILTER_ALWAYS = "|cffff8000保持|r";	
-	
+	FWL.FILTER_ALWAYS = "|cffff8000保持|r";
+
 	FWL.UNLOCK = "解锁 (拖动可以)";
 	FWL.UNLOCK_TT = "窗口锁定，点击解锁可以拖动.";
 	FWL.LOCK_TT = "窗口未锁，点击锁定无法拖动.";
@@ -1100,7 +1100,7 @@ elseif GetLocale() == "zhCN" then
 
 	FWL.TOGGLE_FILTER_LIST = "过滤表开关";
 	FWL.BACKDROP = "背景";
-	
+
 --[[>>]]FWL.FILTER_DEBUFFS_ON_ME = "|cffff4400on me|r";
 --[[>>]]FWL.FRAME_LEVEL = "Frame level (strata)";
 --[[>>]]FWL.CLONE = "Clone";
@@ -1133,7 +1133,7 @@ elseif GetLocale() == "zhCN" then
 
 	FWL.BREAK_FADE = "打断/失效";
 	FWL.BREAK_FADE_HINT1 = "失效信息持续时间.";
-	
+
 --[[>>]]FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 --[[>>]]FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
@@ -1170,10 +1170,10 @@ elseif GetLocale() == "zhCN" then
 --[[>>]]FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 --[[>>]]FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 --[[>>]]FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "冷却计时方向";
 	FWL.FLIP_BAR_TT = "转换冷却计时的移动方向.";
-	
+
 --[[>>]]FWL.LINKED_NONE = "Linked in None";
 --[[>>]]FWL.LINKED_PROFILES = "Linked in Profiles";
 --[[>>]]FWL.LINKED_CLONES = "Linked in Clones";
@@ -1192,15 +1192,15 @@ elseif GetLocale() == "zhCN" then
 --[[>>]]FWL.WHERE_TO_SHOW = "Where to show";
 
 	FWL.WEAPON_ENCHANT_MAIN = "主手武器增强";
-	FWL.WEAPON_ENCHANT_OFFHAND = "副手武器增强";	
+	FWL.WEAPON_ENCHANT_OFFHAND = "副手武器增强";
 --[[>>]]FWL.WEAPON_ENCHANT_RANGED = "Weapon Enchant (ranged)";
 	FWL.WEAPON_ENCHANT = "武器增强";
-	
+
 	-- register extra fonts
 	FW:RegisterFont("Fonts\\ZYHei.TTF","中易黑");
 	FW:RegisterFont("Fonts\\ZYKai_T.TTF","中易楷");
 	FW:SetDefaultFont("Fonts\\ZYHei.TTF",11);
-	
+
 elseif GetLocale() == "zhTW" then
 
 	FWL.UPDATE_NOW = "刷新";
@@ -1299,7 +1299,7 @@ elseif GetLocale() == "zhTW" then
 
 	FWL.DEFAULT = "[恢復默認]";
 	FWL.POSITION = "[位置重置]";
-	
+
 --[[>>]]FWL._EDITBOX_TRANSPARENCY = " Use the editbox to set the transparency.";
 
 	-- all the other text and tips belonging to core itself
@@ -1372,27 +1372,27 @@ elseif GetLocale() == "zhTW" then
 	FWL.CLICK_TO_EDIT = "[點擊編輯]";
 --[[>>]]FWL.CLICK_TO_EDIT_TT = "Press ENTER to confirm your change. Press ESC to discard your change.";
 	FWL.CLICK_TO_COPY = "[點擊選中, Ctrl+C 拷貝]";
-	
+
 	FWL.DEMONIC = "惡魔";
 	FWL.FEL = "魔能";
-	
+
 	FWL.SPARK_MATCH = "bar顏色閃動";
 	FWL.SPARK_MATCH_TT = "閃光的顏色與bar顏色一樣.";
 	FWL.SPARK_COLOR = "閃光顏色";
 	FWL.SPARK_COLOR_TT = "設定閃光顏色，將alpha設為0可以隱藏閃光.";
-	
+
 	FWL.FADING = "漸隱";
-	FWL.TIME_LEFT_HINT = "點擊法術圖示顯示法術剩餘時間.";	
+	FWL.TIME_LEFT_HINT = "點擊法術圖示顯示法術剩餘時間.";
 	FWL.TIME_LEFT_NOTARGET = "顯示法術剩餘時間 (非目標)";
-	
+
 	FWL.PROFILES_HINT1 = "保存你此人物最新的設置檔";
 	FWL.PROFILES_HINT2 = "方便人物之間的設置共用.";
 
-	FWL.GENERAL_MO6 = "右擊編輯圖示"; 
+	FWL.GENERAL_MO6 = "右擊編輯圖示";
 	FWL.GENERAL_MO6_TT = "一些框體下你可以右擊圖示編輯過濾";
 
 	FWL.FILTER_NORMAL = "|cffffff00顯示|r";
-	FWL.FILTER_ALWAYS = "|cffff8000保持|r";	
+	FWL.FILTER_ALWAYS = "|cffff8000保持|r";
 
 	FWL.UNLOCK = "解鎖 (拖動可以)";
 	FWL.UNLOCK_TT = "視窗鎖定，點擊解鎖可以拖動.";
@@ -1433,7 +1433,7 @@ elseif GetLocale() == "zhTW" then
 
 	FWL.TOGGLE_FILTER_LIST = "過濾表開關";
 	FWL.BACKDROP = "背景";
-	
+
 --[[>>]]FWL.FILTER_DEBUFFS_ON_ME = "|cffff4400on me|r";
 --[[>>]]FWL.FRAME_LEVEL = "Frame level (strata)";
 --[[>>]]FWL.FRAME_LEVEL_TT = "Frame level of this module. Valid are, from lowest to highest level:\n|cff00ff00BACKGROUND\nLOW\nMEDIUM\nHIGH\nDIALOG\nFULLSCREEN\nFULLSCREEN_DIALOG\nTOOLTIP|r";
@@ -1466,13 +1466,13 @@ elseif GetLocale() == "zhTW" then
 --[[>>]]FWL.ALL_OTHER_COOLDOWNS = "All other Cooldowns";
 	FWL.BREAK_FADE = "打斷/失效";
 	FWL.BREAK_FADE_HINT1 = "失效資訊持續時間.";
-	
+
 --[[>>]]FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 --[[>>]]FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
 --[[>>]]FWL.CONFIRM_DELETE_CLONE = "Are you sure you want to delete the clone '%s' (%s)?";
 
---[[>>]]FWL.BASIC_LAYOUT = "Basic layout";	
+--[[>>]]FWL.BASIC_LAYOUT = "Basic layout";
 	FWL.ICON_FONT = "冷卻字體";
 
 --[[>>]]FWL._CLICK_FILTER = " [click to toggle filter list]";
@@ -1503,10 +1503,10 @@ elseif GetLocale() == "zhTW" then
 --[[>>]]FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 --[[>>]]FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 --[[>>]]FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "冷卻計時方向";
 	FWL.FLIP_BAR_TT = "轉換冷卻計時的移動方向.";
-	
+
 --[[>>]]FWL.LINKED_NONE = "Linked in None";
 --[[>>]]FWL.LINKED_PROFILES = "Linked in Profiles";
 --[[>>]]FWL.LINKED_CLONES = "Linked in Clones";
@@ -1528,16 +1528,16 @@ elseif GetLocale() == "zhTW" then
 	FWL.WEAPON_ENCHANT_OFFHAND = "副手武器增強";
 --[[>>]]FWL.WEAPON_ENCHANT_RANGED = "Weapon Enchant (ranged)";
 	FWL.WEAPON_ENCHANT = "武器增強";
-	
+
 	-- register extra fonts
 	FW:RegisterFont("Fonts\\bLEI00D.TTF","聊天字體");
 	FW:RegisterFont("Fonts\\bHEI01B.TTF","戰鬥字體");
 	FW:SetDefaultFont("Fonts\\bLEI00D.TTF",11);
-	
+
 -- DE by DeaTHCorE (found a error? have a better translation? send me a email at dhaft@gmx.de)
 elseif GetLocale() == "deDE" then
 	FWL.MODULE_NONE = "|cffff0000Nichts|r";
-	
+
 	FWL.UPDATE_NOW = "Aktualisieren";
 	FWL.LAST_CHECK = "\n\nAktualisiert vor: %d Sekunden...";
 	FWL.SCROLL_TO_ = "Scrolle zu ";
@@ -1628,9 +1628,9 @@ elseif GetLocale() == "deDE" then
 
 	FWL.DEFAULT = "[Auf Standard zurücksetzen]";
 	FWL.POSITION = "[Position zurücksetzen]";
-	
+
 --[[>>]]FWL._EDITBOX_TRANSPARENCY = " Use the editbox to set the transparency.";
-	
+
 	-- all the other text and tips belonging to core itself
 	FWL.ADVANCED_HINT1 = "Hier mußt du normalwerweise nichts ändern. Die Einstellungen sind nur für Problemlösungen.";
 	FWL.ADVANCED_HINT2 = "Änderungen der 'Aktualisierungsintervalle' werden erst nach einem Relog wirksam.";
@@ -1677,7 +1677,7 @@ elseif GetLocale() == "deDE" then
 	--[[>>]]FWL.CHILL_SPEED = "Throttle speed";
 	FWL.ANIMATE_SCROLL = "Animiere Auto-Scroll";
 	FWL.ANIMATE_SCROLL_TT = "Animiert das Scrollen und Anzeigen der Einstellungen. Dies gibt dir einen besseren Eindruck von 'Wo bin ich' in den Einstellungen (und es ist einfach cool).";
-	
+
 	FWL.OPTIONS_SCALE = "Skalierung Einstellungsfenster";
 	FWL.OPTIONS_SCALE_TT = "Ändert die Skalierung der Einstellungsfenster.";
 	FWL.TOGGLE_OPTIONS = "Einstellungen umschalten";
@@ -1685,13 +1685,13 @@ elseif GetLocale() == "deDE" then
 	FWL.OPTIONS_COLUMNS_TT = "Ändert die Anzahl der Spalten der Einstellungsfenster.";
 	FWL.OPTIONS_HEIGHT = "Höhe";
 	FWL.OPTIONS_HEIGHT_TT = "Ändert die Höhe der Einstellungsfenster.";
-	
+
 	FWL.BLOCK_SHARDS = "Splitterzähler verbergen";
 	FWL.BLOCK_SHARDS_TT = "Verbirgt den Zähler der Seelensplitter an den Aktionsbuttons. Benötigt ein Reload der UI. Aktuell unterstützt: Bartender4 und Standard UI.";
 
 	FWL.GLOBAL_LOCK = "Fenster Global sperren";
 	FWL.GLOBAL_LOCK_TT = "Sperrt alle Fenster des Addons. Manche Fenster haben ihre eigene Sperren Funktion.";
-	
+
 	FWL.SOUND = "Sound";
 	FWL.SOUND_HINT1 = "Klicke das kleine Trompetenicon um den Sound zu hören.\nVerwende das zweite Eingabefeld zum einstellen der Lautstärke.\n";
 	FWL.RANGE_MAX = "Wertebereich: %s bis %s";
@@ -1701,10 +1701,10 @@ elseif GetLocale() == "deDE" then
 	FWL.CLICK_TO_EDIT = "[Klick zum ändern]";
 	FWL.CLICK_TO_EDIT_TT = "Drücke ENTER zum bestätigen der Anderungen. Drücke ESC um die Änderungen zu verwerfen.";
 	FWL.CLICK_TO_COPY = "[Klick zum auswählen, Ctrl+C zum kopieren]";
-	
+
 	FWL.DEMONIC = "Dämonischer";
 	FWL.FEL = "Teuflischer";
-	
+
 	FWL.SPARK_MATCH = "Leuchtspur in Leistenfarbe";
 	FWL.SPARK_MATCH_TT = "Die Farbe der Leuchtspur hat die selbe Farbe wie die Leiste.";
 	FWL.SPARK_COLOR = "Leuchtspur Farbe";
@@ -1713,7 +1713,7 @@ elseif GetLocale() == "deDE" then
 	FWL.FADING = "Laufzeiten";
 	FWL.TIME_LEFT_HINT = "Ansagen der Laufzeit deiner Zauber bei Linksklick auf das Timericon.";
 	FWL.TIME_LEFT_NOTARGET = "Ansagen der Laufzeit (kein Ziel)";
-	
+
 	FWL.PROFILES_HINT1 = "Das Addon speichert, welches Profil du auf diesem Character zuletzt verwendet hast.";
 	FWL.PROFILES_HINT2 = "Dies vereinfacht es, Profile mit verschiedenen Characteren zu teilen.";
 
@@ -1726,9 +1726,9 @@ elseif GetLocale() == "deDE" then
 	FWL.FILTER_NORMAL = "|cffffff00zeigen|r";
 	FWL.FILTER_ALWAYS = "|cffff8000immer|r";
 
-	
+
 	FWL.UNLOCK = "Entsperren (aktiviert Verschieben)";
-	
+
 	FWL.UNLOCK_TT = "Dieses Modulfenster ist gesperrt. Klicke zum entsperren, dann kann es verschoben werden.";
 	FWL.LOCK_TT = "Dieses Modulfenster ist entsperrt. Klicke zum sperren, so kann es nicht mehr verschoben werden.";
 
@@ -1801,7 +1801,7 @@ elseif GetLocale() == "deDE" then
 
 	FWL.BREAK_FADE = "Unterbrochen/Endet";
 	FWL.BREAK_FADE_HINT1 = "Die Zeit die du in der Textzeile einsetzt bestimmt wann sie angezeigt wird. (Korrekte übersetzung? Originaltext: The time you set in the fade string defines when it is displayed.)";
-	
+
 --[[>>]]FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 --[[>>]]FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
@@ -1838,10 +1838,10 @@ elseif GetLocale() == "deDE" then
 --[[>>]]FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 --[[>>]]FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 --[[>>]]FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "Tausche Leistenrichtung";
 	FWL.FLIP_BAR_TT = "Tauscht die Richtung der Leiste.";
-	
+
 --[[>>]]FWL.LINKED_NONE = "Linked in None";
 --[[>>]]FWL.LINKED_PROFILES = "Linked in Profiles";
 --[[>>]]FWL.LINKED_CLONES = "Linked in Clones";
@@ -1863,7 +1863,7 @@ elseif GetLocale() == "deDE" then
 	FWL.WEAPON_ENCHANT_OFFHAND = "Waffenverzauberung (Nebenhand)";
 --[[>>]]FWL.WEAPON_ENCHANT_RANGED = "Waffenverzauberung (ranged)";
 	FWL.WEAPON_ENCHANT = "Waffenverzauberung";
-	
+
 elseif GetLocale() == "koKR" then
 
 	FWL.MODULE_NONE = "|cffff0000None|r";
@@ -1958,9 +1958,9 @@ elseif GetLocale() == "koKR" then
 
 	FWL.DEFAULT = "[기본값 복원]";
 	FWL.POSITION = "[위치 초기화]";
-	
+
 	FWL._EDITBOX_TRANSPARENCY = " 입력칸을 활용하여 투명도를 설정합니다.";
-	
+
 	-- all the other text and tips belonging to core itself
 	FWL.ADVANCED_HINT1 = "평상시에는 손을 대지 되는 설정입니다. 문제가 발생할 때만 사용하기를 권장합니다.";
 	FWL.ADVANCED_HINT2 = "[업데이트 간격] 설정이 적용이 되려면 재시작이나 다시읽기(/reload) 명령어를 입력해 주어야 합니다.";
@@ -2007,7 +2007,7 @@ elseif GetLocale() == "koKR" then
 	FWL.CHILL_SPEED = "진정 속도";
 	FWL.ANIMATE_SCROLL = "부드러운 스크롤 효과";
 	FWL.ANIMATE_SCROLL_TT = "설정창을 이동할때 부드러운 스크롤 효과를 줍니다. 추후에 위치를 파악할 때 도움이 됩니다.";
-	
+
 	FWL.OPTIONS_SCALE = "애드온 설정 창 스케일";
 	FWL.OPTIONS_SCALE_TT = "설정 창의 스케일 조절";
 	FWL.TOGGLE_OPTIONS = "토글 설정";
@@ -2021,7 +2021,7 @@ elseif GetLocale() == "koKR" then
 
 	FWL.GLOBAL_LOCK = "광역 프레임 잠금";
 	FWL.GLOBAL_LOCK_TT = "이 애드온과 관련 모든 프레임을 잠급니다. 일부 프레임의 경우 각 잠그기 설정에 따라 풀려있을 수도 있습니다.";
-	
+
 	FWL.SOUND = "소리 효과";
 	FWL.SOUND_HINT1 = "트럼펫 아이콘을 클릭하면 설정한 소리 효과를 들을 수 있습니다. 두번째 수정칸은 볼륨입니다.";
 	FWL.RANGE_MAX = "최대 범위: %s 에서 %s";
@@ -2031,7 +2031,7 @@ elseif GetLocale() == "koKR" then
 	FWL.CLICK_TO_EDIT = "[선택 수정]";
 	FWL.CLICK_TO_EDIT_TT = "엔터를 치면 수정한 내용을 입력합니다. ESC를 치면 이전 값으로 되돌아갑니다.";
 	FWL.CLICK_TO_COPY = "[선택, Ctrl+C 복사]";
-	
+
 	FWL.DEMONIC = "악마";
 	FWL.FEL = "지옥";
 
@@ -2043,7 +2043,7 @@ elseif GetLocale() == "koKR" then
 	FWL.FADING = "주문의 소멸 알림";
 	FWL.TIME_LEFT_HINT = "타이머 아이콘을 클릭하면 주문의 사라지는 시간을 알릴 수 있습니다.";
 	FWL.TIME_LEFT_NOTARGET = "사라지는 시간 알림 (대상 없음)";
-	
+
 	FWL.PROFILES_HINT1 = "애드온은 해당 캐릭터를 통해 마지막으로 사용한 프로필을 저장합니다.";
 	FWL.PROFILES_HINT2 = "이 방법을 통해서 서로 다른 캐릭터들 간에 프로필 공유를 좀 더 쉽게 할 수 있도록 만듭니다.";
 
@@ -2055,9 +2055,9 @@ elseif GetLocale() == "koKR" then
 	FWL.FILTER_COLOR = "|cff00ffff임의색상|r";
 	FWL.FILTER_NORMAL = "|cff00ff00출력|r";
 	FWL.FILTER_ALWAYS = "|cffff8000항상표시|r";
-	
+
 	FWL.UNLOCK = "잠금해제 (이동 가능)";
-	
+
 	FWL.UNLOCK_TT = "이 모듈의 프레임은 잠겼습니다. 클릭을 하여 잠금을 풀면 이동이 가능하게 됩니다.";
 	FWL.LOCK_TT = "이 모듈의 프레임은 잠금이 풀려있는 상태입니다. 클릭을 하여 잠그면 이둥이 불가능하게 됩니다.";
 
@@ -2129,7 +2129,7 @@ elseif GetLocale() == "koKR" then
 	FWL.ALL_OTHER_COOLDOWNS = "모든 기타 쿨다운";
 	FWL.BREAK_FADE = "풀림/소멸";
 	FWL.BREAK_FADE_HINT1 = "사라짐 영역에 설정한 시간이 언제 표시될지를 결정합니다.";
-	
+
 	FWL.GENERAL_TIPS7 = "이 프레임의 가장 위쪽에 위치한 + 버튼을 누르면 새로운 프로필을 생성합니다.";
 
 	FWL.CONFIRM_DELETE_PROFILE = "정말로 %s (%s) 프로필을 삭제 하시겠습니까?";
@@ -2137,7 +2137,7 @@ elseif GetLocale() == "koKR" then
 
 	FWL.BASIC_LAYOUT = "Basic layout";
 	FWL.ICON_FONT = "아이콘 폰트";
-	
+
 --[[>>]]FWL._CLICK_FILTER = " [click to toggle filter list]";
 
 --[[>>]]FWL.LINK_HINT1 = "To link/unlink profiles or clones, SHIFT or CONTROL-click the tab of the instance to be linked.";
@@ -2166,10 +2166,10 @@ elseif GetLocale() == "koKR" then
 --[[>>]]FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 --[[>>]]FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 --[[>>]]FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "좌/우 반대로 표시";
 	FWL.FLIP_BAR_TT = "쿨다운 바의 흐름이 반대로 바뀝니다";
-	
+
 --[[>>]]FWL.LINKED_NONE = "Linked in None";
 --[[>>]]FWL.LINKED_PROFILES = "Linked in Profiles";
 --[[>>]]FWL.LINKED_CLONES = "Linked in Clones";
@@ -2191,14 +2191,14 @@ elseif GetLocale() == "koKR" then
 	FWL.WEAPON_ENCHANT_OFFHAND = "무기 강화 (보조 장비)";
 --[[>>]]FWL.WEAPON_ENCHANT_RANGED = "무기 강화 (ranged)";
 	FWL.WEAPON_ENCHANT = "무기강화";
-	
+
 	-- register extra fonts
 	FW:RegisterFont("Fonts\\K_Damage","MD으뜸M");
 	FW:SetDefaultFont("Fonts\\K_Damage",12);
 else
 
 	FWL.MODULE_NONE = "|cffff0000None|r";
-	
+
 	FWL.UPDATE_NOW = "Update Now";
 	FWL.LAST_CHECK = "\n\nLast check: %d seconds ago.";
 	FWL.SCROLL_TO_ = "Scroll to ";
@@ -2289,9 +2289,9 @@ else
 
 	FWL.DEFAULT = "[restore default]";
 	FWL.POSITION = "[reset position]";
-	
+
 	FWL._EDITBOX_TRANSPARENCY = " Use the editbox to set the transparency.";
-	
+
 	-- all the other text and tips belonging to core itself
 	FWL.ADVANCED_HINT1 = "You will usually not have to change anything here. It's only for problem solving.";
 	FWL.ADVANCED_HINT2 = "Changes to 'update intervals' only apply after reloading.";
@@ -2338,7 +2338,7 @@ else
 	FWL.CHILL_SPEED = "Throttle speed";
 	FWL.ANIMATE_SCROLL = "Animate auto-scrolling";
 	FWL.ANIMATE_SCROLL_TT = "Animates the scrolling and showing of the options. This may give you a better feeling of 'where you are' in the options menu (and it looks kinda cool).";
-	
+
 	FWL.OPTIONS_SCALE = "Options scale";
 	FWL.OPTIONS_SCALE_TT = "Change the scale of the Options frame";
 	FWL.TOGGLE_OPTIONS = "Toggle Options";
@@ -2346,13 +2346,13 @@ else
 	FWL.OPTIONS_COLUMNS_TT = "Change the number of columns of the options frame.";
 	FWL.OPTIONS_HEIGHT = "Option Height";
 	FWL.OPTIONS_HEIGHT_TT = "Change the height of the options frame.";
-	
+
 	FWL.BLOCK_SHARDS = "Safely block shard reagents";
 	FWL.BLOCK_SHARDS_TT = "Hides the shard count on your action buttons. Requires a reload of your interface to apply. Currently supported: Bartender4 and Standard UI.";
 
 	FWL.GLOBAL_LOCK = "Global Frame Lock";
 	FWL.GLOBAL_LOCK_TT = "Lock all the frames belonging to the addon. Some frames may have their own locking option though.";
-	
+
 	FWL.SOUND = "Sound";
 	FWL.SOUND_HINT1 = "Click the little trumpet icons to hear the sounds. Use the second editbox to adjust the volume.";
 	FWL.RANGE_MAX = "Range: %s to %s";
@@ -2362,10 +2362,10 @@ else
 	FWL.CLICK_TO_EDIT = "[click to edit]";
 	FWL.CLICK_TO_EDIT_TT = "Press ENTER to confirm your change. Press ESC to discard your change.";
 	FWL.CLICK_TO_COPY = "[click to select, Ctrl+C to copy]";
-	
+
 	FWL.DEMONIC = "Demonic";
 	FWL.FEL = "Fel";
-	
+
 	FWL.SPARK_MATCH = "Spark matches bar";
 	FWL.SPARK_MATCH_TT = "The color of the sparks will match the color of the bars.";
 	FWL.SPARK_COLOR = "Spark color";
@@ -2374,7 +2374,7 @@ else
 	FWL.FADING = "Fading";
 	FWL.TIME_LEFT_HINT = "Announce fade time for your spells by left-clicking a Timer icon.";
 	FWL.TIME_LEFT_NOTARGET = "Announce fade time (no target)";
-	
+
 	FWL.PROFILES_HINT1 = "The AddOn saved what profile you were using on this character last time.";
 	FWL.PROFILES_HINT2 = "This makes it easy to share profiles among different characters.";
 
@@ -2386,9 +2386,9 @@ else
 	FWL.FILTER_COLOR = "|cff00ffffcolor|r";
 	FWL.FILTER_NORMAL = "|cff00ff00show|r";
 	FWL.FILTER_ALWAYS = "|cffff8000always|r";
-	
+
 	FWL.UNLOCK = "Unlock (enable dragging)";
-	
+
 	FWL.UNLOCK_TT = "This module's frame is Locked. Click to Unlock this frame, so it can be dragged around.";
 	FWL.LOCK_TT = "This module's frame is Unlocked. Click to Lock this frame, so it can no longer be dragged around.";
 
@@ -2427,7 +2427,7 @@ else
 
 	FWL.TOGGLE_FILTER_LIST = "Toggle Filter List";
 	FWL.BACKDROP = "Backdrop";
-	
+
 	FWL.FILTER_DEBUFFS_ON_ME = "|cffff4400on me|r";
 	FWL.FRAME_LEVEL = "Frame level (strata)";
 	FWL.FRAME_LEVEL_TT = "Frame level of this module. Valid are, from lowest to highest level:\n|cff00ff00BACKGROUND\nLOW\nMEDIUM\nHIGH\nDIALOG\nFULLSCREEN\nFULLSCREEN_DIALOG\nTOOLTIP|r";
@@ -2458,10 +2458,10 @@ else
 	FWL.MY_SPELLS = "My Spells";
 	FWL.RAID_DEBUFFS = "Raid Debuffs (my target only)";
 	FWL.ALL_OTHER_COOLDOWNS = "All other Cooldowns";
-	
+
 	FWL.BREAK_FADE = "Break/Fade";
 	FWL.BREAK_FADE_HINT1 = "The time you set in the fade string defines when it is displayed.";
-	
+
 	FWL.GENERAL_TIPS7 = "Click the ' + new' tab at the top of this frame to create a new profile.";
 
 	FWL.CONFIRM_DELETE_PROFILE = "Are you sure you want to delete the profile '%s' (%s)?";
@@ -2498,10 +2498,10 @@ else
 	FWL.ALWAYS_LINK_PROFILE_TT = "When you create a new profile it will be linked to the profile that you copied and all its options are automatically linked.";
 	FWL.ALWAYS_LINK_CLONE = "Always link new clones";
 	FWL.ALWAYS_LINK_CLONE_TT = "When you create a new clone it will be linked to the clone that you copied and all its options are automatically linked.";
-	
+
 	FWL.FLIP_BAR = "Flip bar direction";
 	FWL.FLIP_BAR_TT = "Flip the timer bar direction.";
-	
+
 	FWL.LINKED_NONE = "Linked in None";
 	FWL.LINKED_PROFILES = "Linked in Profiles";
 	FWL.LINKED_CLONES = "Linked in Clones";
@@ -2514,7 +2514,7 @@ else
 	FWL.CROSS_PROFILE_CORRECT_TT = "Goes through your linked profile groups and applies the same setting to all linked options.";
 	FWL.CROSS_CLONE_CORRECT = "Cross-clone correct now!";
 	FWL.CROSS_CLONE_CORRECT_TT = "Goes through your linked clone groups and applies the same setting to all linked clones.";
-	
+
 	FWL.TIMER_HIDE = "Hide when out of combat";
 	FWL.TIMER_HIDE_TT = "Hide the frame when you get out of combat.";
 	FWL.WHERE_TO_SHOW = "Where to show";

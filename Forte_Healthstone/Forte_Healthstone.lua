@@ -20,9 +20,9 @@ local function HS_HealthstoneShow(self,auto)
 	FW:InitFrameVars(FWHSFrame);
 	if not auto then HealthstoneShow = 1;end
 	if FW.Settings.HealthstoneEnable and (not FW.Settings.HealthstoneAuto or STATES.GROUPED) then
-	
+
 		if HealthstoneShow or not FWHSFrame:IsShown() then
-		
+
 			FWHSBackground:ClearAllPoints();
 			if not FW.STATES.INCOMBAT then
 				HealthstoneShow = nil;
@@ -31,32 +31,32 @@ local function HS_HealthstoneShow(self,auto)
 
 				FWHSFrame:SetWidth(FW.Settings.HealthstoneWidth+2*FW.BORDER);
 				FWHSFrame:SetScale(FW.Settings.FWHSFrame.scale);
-				
+
 				FWHSBackground:SetWidth(FW.Settings.HealthstoneWidth+2*FW.BORDER);
 				FWHSBackground:SetScale(FW.Settings.FWHSFrame.scale);
-				
+
 				FWHSFrame:SetFrameStrata(FW.Settings.HealthstoneStrata);
 				FWHSBackground:SetFrameStrata(FW.Settings.HealthstoneStrata);
-			
+
 				FW:CorrectPosition(FWHSFrame);
 			end
 			FWHSFrame:SetAlpha(FW.Settings.FWHSFrame.alpha);
 			FWHSBackground:SetAlpha(FW.Settings.FWHSFrame.alpha);
-			
+
 
 			FWHSBackground:SetBackdropColor(unpack(FW.Settings.HealthstoneBgColor));
 			FWHSBackground:SetBackdropBorderColor(unpack(FW.Settings.HealthstoneBgColor));
 
 			FWHSFrameAmount1:SetFont(unpack(FW.Settings.HealthstoneFont));
 			FWHSFrameAmount2:SetFont(unpack(FW.Settings.HealthstoneFont));
-			
+
 			local r,g,b = unpack(FW.Settings.HealthstoneTextColor);
 			for i=1,NUM_HS,1 do
 				_G["FWHSBar"..i]:ClearAllPoints();
-				
+
 				_G["FWHSBar"..i.."Name"]:SetFont(unpack(FW.Settings.HealthstoneFont));
 				_G["FWHSBar"..i.."Amount"]:SetFont(unpack(FW.Settings.HealthstoneFont));
-				
+
 				_G["FWHSBar"..i]:SetWidth(FW.Settings.HealthstoneWidth);
 				_G["FWHSBar"..i]:SetHeight(FW.Settings.HealthstoneHeight);
 				_G["FWHSBar"..i]:SetStatusBarTexture(FW.Settings.HealthstoneTexture);
@@ -66,7 +66,7 @@ local function HS_HealthstoneShow(self,auto)
 
 				_G["FWHSBar"..i.."Spark"]:SetWidth(FW.Settings.HealthstoneHeight);
 				_G["FWHSBar"..i.."Spark"]:SetHeight(FW.Settings.HealthstoneHeight*2);
-				
+
 				if FW.Settings.GlobalSpark[0] then
 					_G["FWHSBar"..i.."Spark"]:SetAlpha(FW.Settings.GlobalSpark[1]);
 					_G["FWHSBar"..i.."Spark"]:Show();
@@ -74,7 +74,7 @@ local function HS_HealthstoneShow(self,auto)
 					_G["FWHSBar"..i.."Spark"]:Hide();
 				end
 			end
-			
+
 			if FW.Settings.HealthstoneExpand then
 				FWHSBackground:SetPoint("BOTTOMRIGHT", FWHSFrame, "BOTTOMRIGHT", 0, 0);
 				FWHSBar1:SetPoint("BOTTOMLEFT", FWHSBackground, "BOTTOMLEFT", FW.BORDER, 18);
@@ -91,7 +91,7 @@ local function HS_HealthstoneShow(self,auto)
 				end
 			end
 		end
-	else 
+	else
 		if (HealthstoneShow or FWHSFrame:IsShown()) and not FW.STATES.INCOMBAT then
 			HealthstoneShow = nil;
 			FWHSFrame:Hide();
@@ -129,12 +129,12 @@ local function HS_DrawHealthstone()
 			_G["FWHSBar"..i.."Amount"]:SetText(t1);
 			Bar:SetValue(val);
 			_G["FWHSBar"..i.."Spark"]:SetPoint("CENTER", Bar, "LEFT", val*Bar:GetWidth(), 0);
-			
+
 			if FW.Settings.GlobalSpark[0] then
 				r,g,b = FW:FixIntensity(r,g,b);
 				_G["FWHSBar"..i.."Spark"]:SetVertexColor(r,g,b);
 			end
-			
+
 			n=n+1;
 			Bar:Show();
 		else
@@ -152,7 +152,7 @@ local function HS_SetHSButton()
 	local t1 = FW:BestHealthstone();
 	local t2 = FW:GotHealthstone();
 
-	FWHSFrameAmount1:SetText("x"..t2);	
+	FWHSFrameAmount1:SetText("x"..t2);
 	if not FW.STATES.INCOMBAT then -- update the use function in case it wasnt loaded properly due to combat or whatever
 		FWHSButton:SetAttribute("*item2", t1 );
 	end
@@ -172,18 +172,18 @@ local erase = FW.ERASE;
 local function HS_ProcessHealthstone()
 	if FWHSFrame:IsShown() then
 		hs:erase();
-		
+
 		local unknown = 0
 		local active = 0;
 		local stones = 0;
 		local missing = 0;
-		
+
 		local str_missing = "";
 		--local str_stones = "";
 		local str_unknown = "";
-		
+
 		for name, data in pairs(FW.Saved.RaidStatus) do
-			if data[1] >= FW.FLAG.NORMAL then 
+			if data[1] >= FW.FLAG.NORMAL then
 				if data[4] and type(data[4])=="string" then -- only count people that are online and have fx
 					active = active + 1;
 					local hs = FW.Saved.Healthstone[name];
@@ -222,7 +222,7 @@ end
 
 function FW:HSFrame_OnClick(button)
 	if FW:Moved() then return; end
-	
+
 	if button == "LeftButton" then
 		if FW.Settings.HealthstoneDetails then
 			if FW.Settings.HealthstoneUnknown then
@@ -230,7 +230,7 @@ function FW:HSFrame_OnClick(button)
 			else
 				FW.Settings.HealthstoneUnknown = true;
 			end
-		
+
 		else
 			FW.Settings.HealthstoneDetails = true;
 			FW.Settings.HealthstoneUnknown = false;
@@ -257,18 +257,18 @@ function FW:HealthstoneOnload()
 	FW:RegisterButtonPress("HS_GETUPDATE","FWSWButton","LeftButton");
 	FW:RegisterButtonPress("HS_CREATESOULWELL","FWSWButton","RightButton");
 	FW:RegisterButtonPress("HS_OPTIONS","FWHSFrame","RightButton");
-	
+
 	FW:RegisterVariablesEvent(function()
 		FW:RegisterTimedEvent("HealthstoneInterval",	HS_ProcessHealthstone);
 		FW:RegisterTimedEvent("HealthstoneInterval",	function() FWHSFrame:Update(1); end);
 	end);
-	
+
 	FW:RegisterOnEnterCombat(HS_SetHSButton); -- Hopefully set correct spell just before the buttons are locked if loading up in combat, if it failed during loading the button somehow
 
 	FW:RegisterEnterPartyRaid( function(joined) if joined then FW:HealthstoneCheck();end end );
-	
+
 	FW:RegisterMessage(FW.SEND_HEALTHSTONE,
-		function(m,f) 
+		function(m,f)
 			local _,_,t1 = string.find(m,"^(%d+)$");
 			t1=tonumber(t1);
 			if t1 then
@@ -283,29 +283,29 @@ FW:SetMainCategory(FWL.HEALTHSTONE_SPY,FW.ICON.HS,7,"HEALTHSTONE","FWHSFrame");
 	FW:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1);
 		FW:AddOption("INF",FWL.COMBAT_HINT);
 		FW:AddOption("INF",FWL.ORA_HINT);
-		
+
 	FW:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND);
 		FW:AddOption("CHK",FWL.ENABLE,		FWL.HS_ENABLE_TT,	"HealthstoneEnable"):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("CHK",FWL.AUTO_HIDE,	FWL.AUTO_HIDE_TT,	"HealthstoneAuto"):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("CHK",FWL.AUTO_MINIMIZE,	FWL.AUTO_MINIMIZE_TT,	"HealthstoneDetailsAuto");
 		FW:AddOption("CHK",FWL.SHOW_BARS,	FWL.SHOW_BARS_TT,	"HealthstoneDetails");
 		FW:AddOption("CHK",FWL.EXPAND_UP,	FWL.EXPAND_UP_TT,	"HealthstoneExpand"):SetFunc(HS_HealthstoneShow);
-		
-	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);	
+
+	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);
 		FW:AddOption("CHK","Show players with no info","","HealthstoneUnknown");
 
-	FW:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,4);	
+	FW:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,4);
 		FW:AddOption("NUM",FWL.BAR_WIDTH,			"",	"HealthstoneWidth"):SetRange(0):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("NUM",FWL.BAR_HEIGHT,			"",	"HealthstoneHeight"):SetRange(0):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("NUM",FWL.BAR_SPACING,			"",	"HealthstoneSpace"):SetRange(0):SetFunc(HS_HealthstoneShow);
-		
-	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);	
+
+	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);
 		FW:AddOption("COL",FWL.LITTLE_HS,			"",	"HealthstoneMinColor");
 		FW:AddOption("COL",FWL.MANY_HS,				"",	"HealthstoneMaxColor");
 		FW:AddOption("COL",FWL.LITTLE_UNKNOWN,		"",	"HealthstoneUnknownMinColor");
 		FW:AddOption("COL",FWL.MANY_UNKNOWN,		"",	"HealthstoneUnknownMaxColor");
-		
-	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);	
+
+	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);
 		FW:AddOption("COL",FWL.BAR_TEXT,			"",	"HealthstoneTextColor"):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("COL",FWL.FRAME_BACKGROUND,	"",	"HealthstoneBgColor"):SetFunc(HS_HealthstoneShow);
 		FW:AddOption("FNT",FWL.BAR_FONT,			"",	"HealthstoneFont"):SetFunc(HS_HealthstoneShow);
@@ -317,7 +317,7 @@ FW:SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT");
 		--FW:AddOption("NUM",FWL.HEALTHSTONE_CHECK_TIME,		"",	"HealthstoneCheckTime",nil,10);
 		FW:AddOption("NUM",FWL.HEALTHSTONE_DRAW_INTERVAL,	"",	"HealthstoneInterval"):SetRange(0.5,5);
 
-		
+
 FW.Default.HealthstoneInterval = 2;
 --FW.Default.HealthstoneCheckTime = 60;
 FW.Default.HealthstoneStrata = FW.Default.Strata;

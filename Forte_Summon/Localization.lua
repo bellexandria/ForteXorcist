@@ -24,19 +24,19 @@ if GetLocale() == "frFR" then
 
 	--zones
 	FWL.COILFANG_RESERVOIR = "Caverne du sanctuaire du Serpent";
-	
+
 -- RU by Papo
 elseif GetLocale() == "ruRU" then
 
 	--zones
 	FWL.COILFANG_RESERVOIR = "Кривой Клык: Змеиное святилище";
 
--- DE 
+-- DE
 elseif GetLocale() == "deDE" then
 
 	--zones
 	FWL.COILFANG_RESERVOIR = "Höhle des Schlangenschreins";
-	
+
 -- SPANISH
 elseif GetLocale() == "esES" then
 
@@ -48,13 +48,13 @@ elseif GetLocale() == "zhCN" then
 
 	--zones
 	FWL.COILFANG_RESERVOIR = "毒蛇神殿";
-	
+
 -- tradition chinese
 elseif GetLocale() == "zhTW" then
 
 	--zones
 	FWL.COILFANG_RESERVOIR = "毒蛇神殿洞穴";
-	
+
 -- ENGLISH
 else
 
@@ -101,7 +101,7 @@ if GetLocale() == "frFR" then
 	FWL.UPDATE_INTERVAL_SUMMON = "Update interval summon assistant";
 
 	FWL.SUMMON_PLAYER_ = "Summon player ";
-	
+
 -- Russian
 elseif GetLocale() == "ruRU" then
 
@@ -254,7 +254,7 @@ elseif GetLocale() == "deDE" then
 	FWL.UPDATE_INTERVAL_SUMMON = "Aktualisierungsintervall";
 
 	FWL.SUMMON_PLAYER_ = "Beschwöre Spieler ";
-	
+
 -- korean
 elseif GetLocale() == "koKR" then
 	FWL.CAST_RITUAL_OF_SUMMONING = "소환 의식 시전";
@@ -288,8 +288,8 @@ elseif GetLocale() == "koKR" then
 	FWL.FAR_ = "너무 멀리 있음";
 	FWL._ALL = "모두 위치";
 
---[[>>]]FWL.UPDATE_INTERVAL_SUMMON = "Update interval summon assistant";	
-	
+--[[>>]]FWL.UPDATE_INTERVAL_SUMMON = "Update interval summon assistant";
+
 --[[>>]]FWL.SUMMON_PLAYER_ = "Summon player ";
 else
 

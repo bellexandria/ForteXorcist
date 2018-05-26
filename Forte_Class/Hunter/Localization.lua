@@ -24,7 +24,7 @@ if FW.CLASS == "HUNTER" then
 	-- FR
 	elseif GetLocale() == "frFR" then
 		FWL.SNAKE1 = "Viper";
-	-- DE 
+	-- DE
 	elseif GetLocale() == "deDE" then
 		FWL.SNAKE1 = "Viper";
 	-- SPANISH

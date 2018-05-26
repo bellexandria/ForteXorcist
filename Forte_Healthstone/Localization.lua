@@ -38,13 +38,13 @@ if GetLocale() == "frFR" then
 
 	FWL.HEALTHSTONE_CHECK_TIME = "Healthstone check";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "Healthstone draw interval";
-	
-	FWL.YOU_HAVE_ = "You have: %s";	
+
+	FWL.YOU_HAVE_ = "You have: %s";
 	FWL.MISSING_ = "Missing: %s";
 	FWL.MADE_BY_ = "Made by: %s";
-	
+
 	FWL.USE_HEALTHSTONE = "Use Healthstone";
-	
+
 	FWL.TOTAL = "Total";
 
 	FWL.ONLY_TOTAL = "Only show total";
@@ -75,11 +75,11 @@ elseif GetLocale() == "ruRU" then
 
 	FWL.HEALTHSTONE_CHECK_TIME = "Проверка камней здоровья";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "Интервал отображения камней здоровья";
-	
-	FWL.YOU_HAVE_ = "У вас: %s";	
+
+	FWL.YOU_HAVE_ = "У вас: %s";
 	FWL.MISSING_ = "Не хватает: %s";
 	FWL.MADE_BY_ = "Изготовитель: %s";
-	
+
 --[[>>]]FWL.USE_HEALTHSTONE = "Use Healthstone";
 --[[>>]]FWL.TOTAL = "Total";
 
@@ -109,13 +109,13 @@ elseif GetLocale() == "zhCN" then
 
 	FWL.HEALTHSTONE_CHECK_TIME = "治疗石检查";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "治疗石扫描间隔";
-	
+
 	FWL.YOU_HAVE_ = "你现有: %s";
 	FWL.MISSING_ = "缺少: %s";
 	FWL.MADE_BY_ = "制作人: %s";
 
 	FWL.USE_HEALTHSTONE = "使用治疗石";
-	
+
 	FWL.TOTAL = "共计";
 
 	--[[>>]]FWL.ONLY_TOTAL = "Only show total";
@@ -144,15 +144,15 @@ elseif GetLocale() == "zhTW" then
 	FWL.HS_ENABLE_TT = "啟用糖果助手.";
 	FWL.HEALTHSTONE_CHECK_TIME = "治療石檢查";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "治療石掃描間隔";
-	
+
 	FWL.YOU_HAVE_ = "你現有: %s";
 	FWL.MISSING_ = "缺失: %s";
 	FWL.MADE_BY_ = "製造者: %s";
-	
+
 	FWL.USE_HEALTHSTONE = "使用治療石";
-	
+
 	FWL.TOTAL = "總數";
-	
+
 	--[[>>]]FWL.ONLY_TOTAL = "Only show total";
 	--[[>>]]FWL.ONLY_TOTAL_TT = "Only show the bar with the total number of Healthstones.";
 
@@ -180,13 +180,13 @@ elseif GetLocale() == "deDE" then
 
 	FWL.HEALTHSTONE_CHECK_TIME = "Gesundheitssteine prüfen";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "Gesundheitssteine-Aktualisierungsintervall";
-	
-	FWL.YOU_HAVE_ = "Im Besitz: %s";	
+
+	FWL.YOU_HAVE_ = "Im Besitz: %s";
 	FWL.MISSING_ = "Fehlende %s";
 	FWL.MADE_BY_ = "Hergestellt von: %s";
-	
+
 	FWL.USE_HEALTHSTONE = "Benutze Gesundheitsstein";
-	
+
 	FWL.TOTAL = "Gesamt";
 
 	FWL.ONLY_TOTAL = "Zeige nur Gesamt";
@@ -216,13 +216,13 @@ elseif GetLocale() == "koKR" then
 
 	FWL.HEALTHSTONE_CHECK_TIME = "생명석 체크";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "생명석 획득 간격";
-	
-	FWL.YOU_HAVE_ = "소유: %s";	
+
+	FWL.YOU_HAVE_ = "소유: %s";
 	FWL.MISSING_ = "없음 %s";
 	FWL.MADE_BY_ = "만든이: %s";
-	
+
 	FWL.USE_HEALTHSTONE = "생명석 사용";
-	
+
 	FWL.TOTAL = "합계";
 
 --[[>>]]FWL.ONLY_TOTAL = "Only show total";
@@ -232,7 +232,7 @@ elseif GetLocale() == "koKR" then
 --[[>>]]FWL.UNKNOWN_ = "Unknown: %s";
 --[[>>]]FWL.LITTLE_UNKNOWN = "Little unknown";
 --[[>>]]FWL.MANY_UNKNOWN = "Many unknown";
-	
+
 -- ENGLISH
 else
 	FWL.GET_HS_UPDATE = "Get an update of healthstone status now. Will only fully work when someone with the addon is promoted! Right-click to summon a Soulwell.";
@@ -252,18 +252,18 @@ else
 
 	FWL.HEALTHSTONE_CHECK_TIME = "Healthstone check";
 	FWL.HEALTHSTONE_DRAW_INTERVAL = "Healthstone draw interval";
-	
-	FWL.YOU_HAVE_ = "You have: %s";	
+
+	FWL.YOU_HAVE_ = "You have: %s";
 	FWL.MISSING_ = "Missing: %s";
 	FWL.MADE_BY_ = "Made by: %s";
-	
+
 	FWL.USE_HEALTHSTONE = "Use Healthstone";
-	
+
 	FWL.TOTAL = "Total";
 
 	FWL.ONLY_TOTAL = "Only show total";
 	FWL.ONLY_TOTAL_TT = "Only show the bar with the total number of Healthstones.";
-	
+
 	FWL.NO_INFO = "No info";
 	FWL.UNKNOWN_ = "Unknown: %s";
 	FWL.LITTLE_UNKNOWN = "Little unknown";

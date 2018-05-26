@@ -19,7 +19,7 @@
 --[[if FW.CLASS == "PALADIN" then
 	local FWL = FW.L;
 	FWL.GOAK = GetSpellInfo(86669);
-	
+
 	-- Russian
 	if GetLocale() == "ruRU" then
 		FWL.HOLY = " (Holy)";
@@ -30,7 +30,7 @@
 		FWL.HOLY = " (Holy)";
 		FWL.PROT = " (Protection)";
 		FWL.RETR = " (Retribution)";
-	-- DE 
+	-- DE
 	elseif GetLocale() == "deDE" then
 		FWL.HOLY = " (Holy)";
 		FWL.PROT = " (Protection)";
@@ -55,16 +55,15 @@
 		FWL.HOLY = " (Holy)";
 		FWL.PROT = " (Protection)";
 		FWL.RETR = " (Retribution)";
-		
+
 	-- ENGLISH
 	else
 		FWL.HOLY = " (Holy)";
 		FWL.PROT = " (Protection)";
 		FWL.RETR = " (Retribution)";
 	end
-	
+
 	FWL.GOAK_HOLY = FWL.GOAK..FWL.HOLY;
 	FWL.GOAK_PROT = FWL.GOAK..FWL.PROT;
 	FWL.GOAK_RETR = FWL.GOAK..FWL.RETR;
 end]]
-	

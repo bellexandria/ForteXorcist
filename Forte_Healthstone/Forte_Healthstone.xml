@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Script file="Forte_Healthstone.lua"/>
-	
+
 	<StatusBar name="FWHSBarTemplate" virtual="true" minValue="0" maxValue="1" defaultValue="1" hidden="true">
 		<Size>
 			<AbsDimension x="100" y="12"/>
@@ -77,7 +77,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		<BarTexture file="Interface\PaperDollInfoFrame\UI-Character-Skills-Bar"/>
 		<BarColor r=".64" g=".21" b=".93"/>
 	</StatusBar>
-	
+
 	<Frame name="FWHSFrame" movable="true" toplevel="true" parent="UIParent" hidden="false">
 		<Size>
 			<AbsDimension x="106" y="20" />
@@ -124,10 +124,10 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 						self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 						self:SetAttribute("type1" ,"spell");
 						self:SetAttribute("spell", FW:SpellName(6201) );
-						
-						self:SetAttribute("*type2", "item");			
+
+						self:SetAttribute("*type2", "item");
 						self:SetAttribute("*item2", (FW:ItemName( FW.ID_HEALTHSTONE )) );
-							
+
 						self.title="";
 						self.tip="";
 					</OnLoad>
@@ -192,7 +192,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				<HighlightTexture file="Interface\AddOns\Forte_Core\Textures\SW2"/>
 			</Button>
 		</Frames>
-		
+
 		<Scripts>
 			<OnLoad>
 				FW:HealthstoneOnload();
@@ -204,7 +204,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			<OnMouseDown>
 				FW:StartMoving(self,button);
 			</OnMouseDown>
-		</Scripts> 
+		</Scripts>
 	</Frame>
 	<Frame name="FWHSBackground" parent="UIParent" hidden="false">
 		<Size>

@@ -68,7 +68,7 @@ local hastebuffs = {
 		[FW:SpellName(59889)] = 1.15, -- Borrowed Time
 	},
 	["WARLOCK"] = {
-		
+
 	},
 	["DRUID"] = {
 		[FW:SpellName(16886)] = 1.15, -- Nature's Grace
@@ -149,7 +149,7 @@ local function CA_CheckGlobalCooldown()
 end
 
 local function CA_StatsUpdate2()
-	--[[local haste = CA_AddSpecialHaste( 1.0 + GetCombatRatingBonus(20)*0.01 ); 
+	--[[local haste = CA_AddSpecialHaste( 1.0 + GetCombatRatingBonus(20)*0.01 );
 	-- some things that increase casting speed, but not actual haste
 	local newhaste = 1.0/haste;
 	if CA_SpellHaste ~= newhaste then -- doesn't work
@@ -178,7 +178,7 @@ function CA:Unique(unit)
 	if FW.Saved.Exceptions[name] then
 		return FW.Saved.Exceptions[name];
 	end
-	
+
 	if UnitPlayerControlled(unit) then
 		return 2; -- unique player / pet
 	elseif UnitClassification(unit) == "rareelite" or UnitClassification(unit) == "worldboss" then
@@ -242,20 +242,20 @@ end
 local origend;
 local function CA_SelfChannelUpdate(spell)
 	-- *** new drain code ***
-	if ST and ST.Drain[spell] --[[and not FW.Settings.TimerTest]] then 
+	if ST and ST.Drain[spell] --[[and not FW.Settings.TimerTest]] then
 		local i = ST.ST:find(spell,8);
 		if i then
 			local spellName, _, _, _, startTime, endTime = UnitChannelInfo("player");
 			if endTime then -- silly bug
 			endTime = endTime*0.001;
 			startTime = startTime*0.001;
-			
+
 			if origend > endTime then -- interrupt fix
 				endTime = origend - math.ceil((origend - endTime)/ST.Tick[spellName])*ST.Tick[spellName];
 			else
 				origend = endTime;
 			end
-			ST.ST[i][1] = endTime; 
+			ST.ST[i][1] = endTime;
 			ST.ST[i][3] = endTime-startTime;
 			end
 		end
@@ -268,7 +268,7 @@ end
 local function CA_SelfChannelStart(spell)
 	--FW:Debug("Channel Start");
 	local spellName, _, _, texture, startTime, endTime = UnitChannelInfo("player");
-	
+
 	if not CA_IsChannel[spellName] then -- if marked as special channel it's already taken care off
 		local target = UnitName("target"); -- simple target
 		startTime = startTime*0.001;
@@ -277,7 +277,7 @@ local function CA_SelfChannelStart(spell)
 		origend = endTime;
 		-- *** new drain code ***
 		if ST and ST.Drain[spellName] then
-			
+
 			local i = CA_SelfQueue:find(spellName,1);
 			if i then
 				ST.ST:remove(ST.ST:find(ST.DRAIN,6,spellName,8));
@@ -332,7 +332,7 @@ local function CA_SelfRemove(n)
 		end
 		-----------------------------------------------------------
 	end
-	CA_SelfQueue:remove(n); 
+	CA_SelfQueue:remove(n);
 end
 
 --0 currently casting, 1 'successfully' casted, -1 maybe cancelled
@@ -344,15 +344,15 @@ local function CA_SelfCancel(spell)
 		CA_SelfQueue[i][4] = GetTime() + FW.Settings.CancelDelay;
 	end
 end
---[["ABSORB" 
-"BLOCK" 
-"DEFLECT" 
-"DODGE" 
-"EVADE" 
-"IMMUNE" 
-"MISS" 
-"PARRY" 
-"REFLECT" 
+--[["ABSORB"
+"BLOCK"
+"DEFLECT"
+"DODGE"
+"EVADE"
+"IMMUNE"
+"MISS"
+"PARRY"
+"REFLECT"
 "RESIST" ]]
 local CA_CombatEventToMiss = {
 	--caster
@@ -396,7 +396,7 @@ local function CA_SelfDelay(spell)
 	if endTime then
 		local i = CA_SelfQueue:find2(spell,1,0,2);
 		if i then
-			
+
 			-----------------------------------------------------------
 			for n, f in ipairs(FW_OnSelfCastDelay) do
 				f( spell, endTime - CA_SelfQueue[i][3] );
@@ -466,9 +466,9 @@ function CA:Duration(s,p,u) -- RETURNS DURATION UNAFFECTED BY HASTE spell, combo
 		end
 
 		-- % change based on talents removed
-		
+
 		-- set max duration in pvp
-		if u == 2 then 
+		if u == 2 then
 			local pvp = ST.DurationPVP[s];
 			if pvp and dura>pvp then
 				dura=pvp;
@@ -496,7 +496,7 @@ local function CA_SelfSucces(delay,n)
 	-- makes it skip the remove if it has a return value, used in channeling spells
 	if CA_IsChannel[spell] then
 		CA_SelfQueue[n][1] = spell.." (C)"; -- rename to channeling
-		CA_SelfQueue[n][2] = 0; -- 
+		CA_SelfQueue[n][2] = 0; --
 		CA_SelfQueue[n][4] = 0; -- set this spell to not finished again
 	else
 		CA_SelfQueue:remove(n);
@@ -510,13 +510,13 @@ local function CA_SelfEnd(arg2)
 	local i=1;
 	while i <= CA_SelfQueue.rows do
 		local spell = CA_SelfQueue[i][1];
-		
+
 		if CA_SelfQueue[i][4]~=1 and (not arg2 or spell==arg2) then
 			local s = CA_SelfQueue[i][9];
 			if ST and ST.Track[s] and ST.Track[s][1] == 0 then
 				CA_SelfQueue[i][2] = 1;
 				CA_SelfQueue[i][4] = GetTime() + FW.Settings.Delay;
-				
+
 			-- put weird exceptions below!
 			--[[elseif spell == summonchannel then
 				CA_SelfQueue[i][2] = 1;
@@ -529,7 +529,7 @@ local function CA_SelfEnd(arg2)
 		else
 			i=i+1;
 		end
-	end		
+	end
 	for i,f in ipairs(FW_OnSelfCastEnd) do
 		f(arg2); -- spell
 	end
@@ -545,7 +545,7 @@ local function CA_SelfChannelEnd(spell)
 	-- solution: a spell already channeling, will always be queued at slot [1], so if this isnt a channeling spell ignore this event!
 
 	-- *** new drain code ***
-	if ST and ST.Drain[spell] then 
+	if ST and ST.Drain[spell] then
 		local i = ST.ST:find(spell,8);
 		if i then
 			ST:Fade(i,1);
@@ -553,7 +553,7 @@ local function CA_SelfChannelEnd(spell)
 		end
 	end
 	-- *** end new drain code ***
-	
+
 	if CA_SelfQueue.rows > 0 and strfind(CA_SelfQueue[1][1]," %(C%)$") then CA_SelfEnd();end
 end
 
@@ -579,7 +579,7 @@ local function CA_SelfSent(spell,rank,target)
 end
 
 -- target debuffs scan is now delayed just as much as the cast success (due to resist checking)
--- this should make the cast success trigger before any debuffs are added 
+-- this should make the cast success trigger before any debuffs are added
 
 local function CA_TimedSpellSuccess()
 	local i=1;
@@ -589,7 +589,7 @@ local function CA_TimedSpellSuccess()
 		if t4 > 0 and t4 < t then
 			if state == 1 then
 				--FW:Show(t-t4);
-				CA_SelfSucces(t-t4+FW.Settings.Delay,i); 
+				CA_SelfSucces(t-t4+FW.Settings.Delay,i);
 			elseif state == -1 then
 				CA_SelfRemove(i);
 			end
@@ -604,9 +604,9 @@ local function CA_TimedClearCastBuffer()
 		LastCast = GetTime();
 	elseif LastCast ~= 0 and GetTime() - LastCast >= 3 then
 		--FW:Debug("CLEARING BUFFER "..CA_SelfQueue.rows);
-		
+
 		CA_SelfQueue:erase();
-		
+
 		LastCast = 0;
 	end
 end
@@ -701,7 +701,7 @@ end
 
 function CA:CastShow(key,target)
 	if bit.band(1,FW.Settings[key][0]) ~= 0 then
-		FW:ToGroup(strformat(FW:FixStringFormat(FW.Settings[key][1]),target or "")); 
+		FW:ToGroup(strformat(FW:FixStringFormat(FW.Settings[key][1]),target or ""));
 	end
 	if bit.band(2,FW.Settings[key][0]) ~= 0 then
 		FW:ToChannel(strformat(FW:FixStringFormat(FW.Settings[key][1]),target or ""));
@@ -715,7 +715,7 @@ local ORA3_COOLDOWN = FW.ORA3_COOLDOWN;
 local function CA_VariablesLoaded()
 	ST = FW:Module("Timer");
 	CD = FW:Module("Cooldown");
-	
+
 	FW:RegisterToEvent("UNIT_SPELLCAST_INTERRUPTED",
 	function(event,arg1,arg2)
 		--FW:Show(event.." arg1 "..arg1);
@@ -730,7 +730,7 @@ local function CA_VariablesLoaded()
 		end
 	end);
 	FW:RegisterToEvent("UNIT_SPELLCAST_DELAYED",
-	function(event,arg1,arg2) 
+	function(event,arg1,arg2)
 		if arg1 == "player" then
 			CA_SelfDelay(arg2);
 		end
@@ -741,9 +741,9 @@ local function CA_VariablesLoaded()
 			CA_SelfSent(arg2,arg3,arg4);
 		end
 	end);
-	FW:RegisterToEvent("UNIT_SPELLCAST_START",		
-	function(event,arg1,arg2) 
-		if arg1 == "player" then 
+	FW:RegisterToEvent("UNIT_SPELLCAST_START",
+	function(event,arg1,arg2)
+		if arg1 == "player" then
 			CA_SelfStart(arg2);
 		end
 	end);
@@ -783,7 +783,7 @@ local function CA_VariablesLoaded()
 
 	FW:RegisterToEvent("COMBAT_RATING_UPDATE",CA_StatsUpdate);
 	--FW:RegisterTimedEvent("UpdateInterval",CA_StatsUpdate); -- backup check
-	
+
 	FW:RegisterTimedEvent("UpdateInterval",CA_TimedClearCastBuffer);
 	-- also check if you actually get cast success events from party/raid members now!!!
 	--[[if not _G["oRA3"] and not CD then -- using ora3 or cooldown module over this
@@ -821,12 +821,12 @@ local function CA_VariablesLoaded()
 			end)
 		end
 	end]]
-		
+
 	do
 		local PLAYER = FW.PLAYER;
 		local FW = FW;
 		local select = select;
-		
+
 		local function CA_CombatLogEvent(event,...)
 			if select(5,...) == PLAYER then
 				if select(2,...) == "SPELL_MISSED" then
@@ -870,7 +870,7 @@ FW:SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT");
 		FW:AddOption("NUM",FWL.DELAY_MAX_FAIL,		"","Delay"):SetRange(0.01,1);
 		FW:AddOption("NUM",FWL.DELAY_MAX_FASTCAST,	"","CancelDelay"):SetRange(0.1,1);
 		FW:AddOption("STR","Additional unit tokens","In addition to target and party/raid tokens use only these for casting. Fewer tokens means it's more likely the FX will find the correct target you have casted on instantly. If you remove any tokens make sure that you really won't use those (in macros for example). Using tokens that are not listed here means that FX may not be able to figure out what unit is cast on right away, so be careful.","UseTokens"):SetSpan(2):SetFunc(CA_UpdateTokens);
-		
+
 FW.Default.Delay = 0.05; -- maximum delay between cast success event and evade/resist/immune event (seems to be system lag only)
 FW.Default.CancelDelay = 0.5; -- maximum delay between a possible fastcast macro generated fail and the actual success (server lag)
 FW.Default.DisableFocus = false;

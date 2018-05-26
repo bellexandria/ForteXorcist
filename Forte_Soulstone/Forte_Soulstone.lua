@@ -53,45 +53,45 @@ local function SS_SoulstoneShow(self,auto) -- with auto set, will only refresh t
 	FW:InitFrameVars(FWSSFrame);
 	if not auto then SoulstoneShow = 1;end
 	if FW.Settings.SoulstoneEnable and (not FW.Settings.SoulstoneAuto or STATES.GROUPED) then
-	
+
 		if (SoulstoneShow or not FWSSFrame:IsShown()) then
-			
+
 			FWSSBackground:ClearAllPoints();
 			if not STATES.INCOMBAT then
 				SoulstoneShow = nil;
 				FWSSFrame:Show();
 				FWSSBackground:Show();
-				
+
 				FWSSFrame:SetWidth(FW.Settings.SoulstoneWidth+2*FW.BORDER);
 				FWSSFrame:SetScale(FW.Settings.FWSSFrame.scale);
-				
+
 				FWSSBackground:SetWidth(FW.Settings.SoulstoneWidth+2*FW.BORDER);
 				FWSSBackground:SetScale(FW.Settings.FWSSFrame.scale);
-				
+
 				FWSSFrame:SetFrameStrata(FW.Settings.SoulstoneStrata);
 				FWSSBackground:SetFrameStrata(FW.Settings.SoulstoneStrata);
-				
+
 				FW:CorrectPosition(FWSSFrame);
 			end
 			FWSSBackground:SetAlpha(FW.Settings.FWSSFrame.alpha);
 			FWSSFrame:SetAlpha(FW.Settings.FWSSFrame.alpha);
-			
+
 			FWSSBackground:SetBackdropColor(unpack(FW.Settings.SoulstoneBgColor));
 			FWSSBackground:SetBackdropBorderColor(unpack(FW.Settings.SoulstoneBgColor));
-			
+
 			FWSSFrameAmount:SetFont(unpack(FW.Settings.SoulstoneFont));
 			FWSSFrameTime:SetFont(unpack(FW.Settings.SoulstoneFont));
 
 			local r,g,b = unpack(FW.Settings.SoulstoneTextColor);
-			
+
 			for i=1,NUM_SOULSTONES,1 do
 				_G["FWSSBar"..i]:ClearAllPoints();
-				
+
 				_G["FWSSBar"..i.."Name"]:SetFont(unpack(FW.Settings.SoulstoneFont));
 				_G["FWSSBar"..i.."Time"]:SetFont(unpack(FW.Settings.SoulstoneFont));
 				_G["FWSSBar"..i.."Warlock"]:SetFont(unpack(FW.Settings.SoulstoneFont));
 				_G["FWSSBar"..i.."Cooldown"]:SetFont(unpack(FW.Settings.SoulstoneFont));
-			
+
 				_G["FWSSBar"..i]:SetWidth(FW.Settings.SoulstoneWidth);
 				_G["FWSSBar"..i]:SetHeight(FW.Settings.SoulstoneHeight);
 				_G["FWSSBar"..i]:SetStatusBarTexture(FW.Settings.SoulstoneTexture);
@@ -104,7 +104,7 @@ local function SS_SoulstoneShow(self,auto) -- with auto set, will only refresh t
 
 				_G["FWSSBar"..i.."Spark"]:SetWidth(FW.Settings.SoulstoneHeight);
 				_G["FWSSBar"..i.."Spark"]:SetHeight(FW.Settings.SoulstoneHeight*2);
-				
+
 				if FW.Settings.GlobalSpark[0] then
 					_G["FWSSBar"..i.."Spark"]:SetAlpha(FW.Settings.GlobalSpark[1]);
 					_G["FWSSBar"..i.."Spark"]:Show();
@@ -115,14 +115,14 @@ local function SS_SoulstoneShow(self,auto) -- with auto set, will only refresh t
 			if FW.Settings.SoulstoneExpand then
 				FWSSBackground:SetPoint("BOTTOMRIGHT", FWSSFrame, "BOTTOMRIGHT", 0, 0);
 				FWSSBar1:SetPoint("BOTTOMLEFT", FWSSBackground, "BOTTOMLEFT", FW.BORDER, 18);
-				
+
 				for i=2,NUM_SOULSTONES,1 do
 					_G["FWSSBar"..i]:SetPoint("BOTTOMLEFT", _G["FWSSBar"..(i-1)], "TOPLEFT", 0, FW.Settings.SoulstoneSpace);
 				end
 			else
 				FWSSBackground:SetPoint("TOPLEFT", FWSSFrame, "TOPLEFT", 0, 0);
 				FWSSBar1:SetPoint("TOPLEFT", FWSSBackground, "TOPLEFT", FW.BORDER, -18);
-				
+
 				for i=2,NUM_SOULSTONES,1 do
 					_G["FWSSBar"..i]:SetPoint("TOPLEFT", _G["FWSSBar"..(i-1)], "BOTTOMLEFT", 0, -FW.Settings.SoulstoneSpace);
 				end
@@ -139,7 +139,7 @@ end
 
 local function ColorVal(v,flag,flag2)
 	if flag2 == FW.FLAG.NORMAL then
-	
+
 		if flag == FW.FLAG.RES then
 			return unpack(FW.Settings.ReadyColor);
 		elseif flag == FW.FLAG.TIME then
@@ -153,9 +153,9 @@ local function ColorVal(v,flag,flag2)
 		elseif flag == FLAG_SHAMAN then
 			return unpack(FW.Settings.ShamanColor);
 		end
-		
+
 	elseif flag2 == FW.FLAG.DI then
-	
+
 		if flag == FW.FLAG.TIME or flag == FW.FLAG.DI then
 			return unpack(FW.Settings.ReadyColor);
 		elseif flag == FLAG_WARLOCK then
@@ -179,7 +179,7 @@ local function ColorVal(v,flag,flag2)
 		elseif flag == FLAG_SHAMAN then
 			return FW:MixColors(FW.Settings.Mix,FW.Settings.DeadColor,FW.Settings.ShamanColor);
 		end
-		
+
 	elseif flag2 == FW.FLAG.OFFLINE then
 
 		if flag == FW.FLAG.TIME then
@@ -202,7 +202,7 @@ local function SS_DrawDetails()
 	local Bar;
 	for i=1, NUM_SOULSTONES, 1 do
 		Bar = _G["FWSSBar"..i];
-		
+
 		if FW.Settings.Details and (not FW.Settings.SoulstoneDetailsAuto or STATES.GROUPED) and i <= FW.Settings.SoulstoneMax and i <= ss.rows then
 			local t1,t2,t3,t4,t5,_,t7,t8 = unpack(ss[i]);
 			local r,g,b = ColorVal(t1,t4,t8);
@@ -218,12 +218,12 @@ local function SS_DrawDetails()
 			_G["FWSSBar"..i.."Time"]:SetText(t3);
 			_G["FWSSBar"..i.."Warlock"]:SetText(t5);
 			_G["FWSSBar"..i.."Cooldown"]:SetText(t7);
-			
+
 			if FW.Settings.GlobalSpark[0] then
 				r,g,b = FW:FixIntensity(r,g,b);
 				_G["FWSSBar"..i.."Spark"]:SetVertexColor(r,g,b);
 			end
-			
+
 			_G["FWSSBar"..i.."Spark"]:SetPoint("CENTER", Bar, "LEFT", t1*Bar:GetWidth(), 0);
 			n = n + 1;
 			Bar:Show();
@@ -276,7 +276,7 @@ local function SS_ProcessSoulstone()
 				if data[1] >= FW.FLAG.OFFLINE then
 					local class_flag = SS_ShowCooldown(data[3]);
 					if not FW.Saved.Cooldowns[name] and class_flag and (FW.Settings.ShowAll and STATES.RAID or class_flag == FLAG_WARLOCK) then
-					
+
 						if data[4] or class_flag == FLAG_WARLOCK then -- got FX, ora3 or is warlock
 							t1=FWL.SHORT_READY;
 						else
@@ -292,11 +292,11 @@ local function SS_ProcessSoulstone()
 		local s1, s2, s3, s4, s5, _ = 0,0,"","","ffffff";
 		for i=1, ss.rows, 1 do
 			_,_,t3,t4,_,t6 = unpack(ss[i]);
-			if t4 == FW.FLAG.TIME then 
-				s2 = s2 + 1; s1 = s1 + 1; 
+			if t4 == FW.FLAG.TIME then
+				s2 = s2 + 1; s1 = s1 + 1;
 				if s3 == "" then s3 = t3; end
-			elseif t4 == FW.FLAG.RES or t4 == FW.FLAG.DI then 
-				s1 = s1 + 1; 
+			elseif t4 == FW.FLAG.RES or t4 == FW.FLAG.DI then
+				s1 = s1 + 1;
 			end
 			if t6 == 1 then s5 = "00ff00";end -- resser
 
@@ -324,7 +324,7 @@ local function SS_IsFresh(t,d)
 end
 
 local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
-	
+
 	--FW:Show(unit.." "..unitName.." "..unitClass);
 	if flag == FW.FLAG.OFFLINE then
 		if FW.Saved.Timers[unitName] then
@@ -344,7 +344,7 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 		if t1 then
 			cd_end = t1;
 			cd_dura = duration;
-			
+
 			caster = (caster and UnitName(caster)) or FWL.UNKNOWN;
 			if not FW.Saved.Timers[unitName] then
 				FW.Saved.Timers[unitName] = {t1-update,update,FW.FLAG.TIME,caster,SS_IsResser(unitClass),FW.FLAG.NORMAL}; -- timer, last update, flag, caster, isresser
@@ -374,16 +374,16 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 						FW:Show(strformat(FWL.DI_FADE,unitName),unpack(FW.Settings.SoulstoneMsgColor));
 					end
 				end
-				
+
 				FW.Saved.Timers[unitName][6] = flag;
 				FW.Saved.Timers[unitName][1] = t1-update;
 				if FW.Saved.Timers[unitName][1] < 0 then FW.Saved.Timers[unitName][1] = 0; end
 			end
-			
+
 		elseif flag == FW.FLAG.DI then
 			if not FW.Saved.Timers[unitName] then
 				FW.Saved.Timers[unitName] = {DI_TIME,update,FW.FLAG.DI,FWL.UNKNOWN,SS_IsResser(unitClass),FW.FLAG.DI}; -- timer, last update, flag, caster, isresser
-			
+
 				if FW.Settings.SoulstoneMsgColor[0] then
 					FW:Show(strformat(FWL.DI_GAIN,unitName),unpack(FW.Settings.SoulstoneMsgColor));
 				end
@@ -392,14 +392,14 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 				FW.Saved.Timers[unitName][6] = FW.FLAG.DI;
 				FW.Saved.Timers[unitName][1] = FW.Saved.Timers[unitName][1] + FW.Saved.Timers[unitName][2] - update;
 				if FW.Saved.Timers[unitName][1] < 0 then FW.Saved.Timers[unitName][1] = 0; end
-			end		
-		
+			end
+
 		else
-			if FW.Saved.Timers[unitName] then			
+			if FW.Saved.Timers[unitName] then
 				if UnitIsDead(unit) or UnitBuff(unit,spirit) then -- ss can be used to res
 				-- currently, players that die with a ss on, and no longer show the buff, often don't show as dead yet...
 				-- fix by delaying the death check?
-					
+
 					if FW.Saved.Timers[unitName][3] ~= FW.FLAG.RES then
 						-- message
 						if FW.Settings.SoulstoneMsgColor[0] then
@@ -416,18 +416,18 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 						-- end of message
 						FW.Saved.Timers[unitName][1] = SS_RES;
 						FW.Saved.Timers[unitName][3] = FW.FLAG.RES;
-						
+
 						FW:PlaySound("SoulstoneFadeSound");
 					end
-					
+
 					FW.Saved.Timers[unitName][1] = FW.Saved.Timers[unitName][1] + FW.Saved.Timers[unitName][2] - update;
 					if FW.Saved.Timers[unitName][1] < 0 then FW.Saved.Timers[unitName][1] = 0; end
-					
+
 				elseif UnitIsEnemy(unit,"player") or UnitIsCharmed(unit) or UnitIsCharmed("player") then -- avoid weird stuff
-				
+
 					FW.Saved.Timers[unitName][1] = FW.Saved.Timers[unitName][1] + FW.Saved.Timers[unitName][2] - update; -- should keep the timer 'running'
 					if FW.Saved.Timers[unitName][1] < 0 then FW.Saved.Timers[unitName][1] = 0; end
-					
+
 				else
 					if FW.Saved.Timers[unitName][3] == FW.FLAG.TIME then
 						-- message
@@ -450,13 +450,13 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 						end
 					end
 					FW.Saved.Timers[unitName] = nil;
-					
+
 				end
-			end	
+			end
 		end
 	end
 	if FW.Saved.Timers[unitName] then FW.Saved.Timers[unitName][2] = update; end
-	
+
 	if FW.Saved.Cooldowns[unitName] then
 		if FW.Saved.Cooldowns[unitName][1]-update < 0 then --  remove cooldown if his cooldown is done doh
 			if FW.Saved.RaidStatus[unitName][3] == "WARLOCK" then
@@ -477,12 +477,12 @@ end
 
 local function SS_ReceivedTimer(msg)
 	local t1,player,t3,t4,t5,t6 = strsplit("|",msg);
-	
+
 	if t1 == "T" then
 		if not FW.Saved.Timers[player] or (FW.Saved.Timers[player][4] == FWL.UNKNOWN and t5 ~= FWL.UNKNOWN) then
 			FW.Saved.Timers[player] = {tonumber(t3),GetTime(),tonumber(t4),t5,tonumber(t6),FW.FLAG.NORMAL}; -- timer, last update, flag, caster, isresser
 		end
-	elseif t1 == "C" then	
+	elseif t1 == "C" then
 		local t = tonumber(t3)+GetTime();
 		if not FW.Saved.Cooldowns[player] then
 			FW.Saved.Cooldowns[player] = {t,tonumber(t4)}; -- timer, last update
@@ -498,7 +498,7 @@ local function SS_SendTimers()
 	local t;
 	local now = GetTime();
 	for name, data in pairs(FW.Saved.Timers) do
-		t = data[1]+data[2]-now; 
+		t = data[1]+data[2]-now;
 		if t > 0 then
 			FW:SendData(SYNC_REPLY.."T "..name.."|"..strformat("%.1f",t).."|"..data[3].."|"..data[4].."|"..data[5]);
 		end
@@ -542,7 +542,7 @@ function FW:SSFrame_OnClick(button)
 		end
 		SS_DrawDetails();
 		FW:RefreshOptionsNoStyle();
-		
+
 	else
 		FW:ScrollTo(FWL.SOULSTONE_TRACKER);
 	end
@@ -557,29 +557,29 @@ function FW:SoulstoneOnload()
 	--FW:RegisterButtonPress("SS_CREATESOULSTONE","FWSSButton","LeftButton");
 	FW:RegisterButtonPress("SS_USESOULSTONE","FWSSButton","LeftButton");
 	FW:RegisterButtonPress("SS_USESOULSTONESELF","FWSSButton","Alt-RightButton");
-	FW:RegisterButtonPress("SS_OPTIONS","FWSSFrame","RightButton");	
-	
+	FW:RegisterButtonPress("SS_OPTIONS","FWSSFrame","RightButton");
+
 	FW:RegisterScan(SS_SoulstoneScan);
-	
+
 	FW:RegisterVariablesEvent(function()
 		FW:RegisterTimedEvent("UpdateInterval",		SS_ProcessSoulstone);
 		FW:RegisterTimedEvent("UpdateInterval",		function() FWSSFrame:Update(1); end);
 	end);
-	
+
 	FW:RegisterOnEnterCombat(SS_SetSSButton); -- Hopefully set correct spell just before the buttons are locked if loading up in combat
-	
+
 	FW:RegisterEnterPartyRaid(function(joined) if joined then SS_GetTimers();end end);
-	
+
 	FW:AddCommand("synch",SS_GetTimers);
-	
+
 	FW:RegisterMessage(SYNC_REQUEST,SS_SendTimers,nil);
 	FW:RegisterMessage(SYNC_REPLY,
-		function(m) 
+		function(m)
 			SS_ReceivedTimer(m);
 			return 1;
 		end,
 	nil);
-	
+
 
 	FW:RegisterORAMessage("^1^SCooldown^N(%d-)^N(%d-)^^",
 		function(a1,a2,f)
@@ -595,7 +595,7 @@ end
 FW:SetMainCategory(FWL.SOULSTONE_TRACKER,FW.ICON.SS,5,"SOULSTONE","FWSSFrame");
 	FW:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1);
 		FW:AddOption("INF",FWL.COMBAT_HINT);
-		
+
 	FW:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND);
 		FW:AddOption("CHK",FWL.ENABLE,		FWL.SS_ENABLE_TT,	"SoulstoneEnable"):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("CHK",FWL.AUTO_HIDE,	FWL.AUTO_HIDE_TT,	"SoulstoneAuto"):SetFunc(SS_SoulstoneShow);
@@ -603,17 +603,17 @@ FW:SetMainCategory(FWL.SOULSTONE_TRACKER,FW.ICON.SS,5,"SOULSTONE","FWSSFrame");
 		FW:AddOption("CHK",FWL.SHOW_BARS,	FWL.SHOW_BARS_TT,	"Details");
 		FW:AddOption("CHK",FWL.EXPAND_UP,	FWL.EXPAND_UP_TT,	"SoulstoneExpand"):SetFunc(SS_SoulstoneShow);
 
-	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);	
+	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);
 		FW:AddOption("CHK",FWL.SHOW_ALL_ABILITIES,	FWL.SHOW_ALL_ABILITIES_TT,	"ShowAll");
 		FW:AddOption("CHK",FWL.SHOW_READY,			FWL.SHOW_READY_TT,			"ShowReady");
-	
-	FW:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,4);	
+
+	FW:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,4);
 		FW:AddOption("NUM",FWL.BAR_WIDTH,		"",	"SoulstoneWidth"):SetRange(0):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("NUM",FWL.BAR_HEIGHT,		"",	"SoulstoneHeight"):SetRange(0):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("NUM",FWL.BAR_SPACING,		"",	"SoulstoneSpace"):SetRange(0):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("NUM",FWL.MAX_SHOWN,		"",	"SoulstoneMax"):SetRange(0,NUM_SOULSTONES);
 
-	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);	
+	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);
 		FW:AddOption("COL",FWL.SS_FULL,			"",	"SoulstoneMaxColor");
 		FW:AddOption("COL",FWL.SS_EMPTY,		"",	"SoulstoneMinColor");
 		FW:AddOption("COL",FWL.RESURRECT,		"",	"ReadyColor");
@@ -625,7 +625,7 @@ FW:SetMainCategory(FWL.SOULSTONE_TRACKER,FW.ICON.SS,5,"SOULSTONE","FWSSFrame");
 		FW:AddOption("COL",FWL.PALADIN,			"",	"PaladinColor");
 		FW:AddOption("COL",FWL.SHAMAN,			"",	"ShamanColor");
 
-	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);	
+	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);
 		FW:AddOption("COL",FWL.BAR_TEXT,		"",	"SoulstoneTextColor"):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("COL",FWL.FRAME_BACKGROUND,"",	"SoulstoneBgColor"):SetFunc(SS_SoulstoneShow);
 		FW:AddOption("FNT",FWL.BAR_FONT,		"",	"SoulstoneFont"):SetFunc(SS_SoulstoneShow);
@@ -634,18 +634,18 @@ FW:SetMainCategory(FWL.SOULSTONE_TRACKER,FW.ICON.SS,5,"SOULSTONE","FWSSFrame");
 FW:SetMainCategory(FWL.SELF_MESSAGES);
 	FW:SetSubCategory(FWL.SOULSTONE_TRACKER,FW.ICON.BASIC,2);
 		FW:AddOption("CO2",FWL.SOULSTONE_MESSAGES_COLOR,		FWL.SHOW_SOULSTONE_MESSAGES_TT,"SoulstoneMsgColor");
-	
+
 FW:SetMainCategory(FWL.SOUND);
 	FW:SetSubCategory(FWL.SOULSTONE_TRACKER,FW.ICON.DEFAULT,2);
 		FW:AddOption("SND",FWL.EXPIRED,"","SoulstoneFadeSound");
 		FW:AddOption("SND",FWL.READY,"","SoulstoneReadySound");
-		
+
 FW:SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT");
 	FW:SetSubCategory(FWL.SOULSTONE_TRACKER,FW.ICON.DEFAULT,5);
 		FW:AddOption("STR",FWL.FRAME_LEVEL,FWL.FRAME_LEVEL_TT,	"SoulstoneStrata"):SetFunc(SS_SoulstoneShow);
 
 FW.Default.SoulstoneStrata = FW.Default.Strata;
-		
+
 FW.Default.Mix = 0.5;
 FW.Default.WarlockColor =		{0.58,0.51,0.79};
 FW.Default.ReadyColor = 		{1.00,1.00,0.00};

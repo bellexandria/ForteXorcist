@@ -26,13 +26,13 @@ if FW.CLASS == "DRUID" then
 	FWL.MANGLE = GetSpellInfo(33876);
 	FWL.SKULL_BASH = GetSpellInfo(80964);
 	FWL.SWIPE = GetSpellInfo(779);
-	
+
 	-- French
 	if GetLocale() == "frFR" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-	
+
 	-- Russian
 	elseif GetLocale() == "ruRU" then
 	--[[>>]]FWL._FERAL = " (Feral)";
@@ -45,31 +45,31 @@ if FW.CLASS == "DRUID" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-	
+
 	-- SPANISH
 	elseif GetLocale() == "esES" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-	
+
 	-- Simple Chinese
 	elseif GetLocale() == "zhCN" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-	
+
 	-- tradition Chinese
 	elseif GetLocale() == "zhTW" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-	
+
 	-- Korea
 	elseif GetLocale() == "koKR" then
 	--[[>>]]FWL._FERAL = " (Feral)";
 	--[[>>]]FWL._BEAR = " (Bear)";
 	--[[>>]]FWL._CAT = " (Cat)";
-		
+
 	-- ENGLISH
 	else
 		FWL._FERAL = " (Feral)";
@@ -86,7 +86,7 @@ if FW.CLASS == "DRUID" then
 	FWL.SKULL_BASH_CAT = FWL.SKULL_BASH..FWL._CAT;
 	FWL.SWIPE_BEAR = FWL.SWIPE..FWL._BEAR;
 	FWL.SWIPE_CAT = FWL.SWIPE..FWL._CAT;
-	
+
 	-- THESE ARE INTERFACE STRINGS ONLY AND TRANSLATING THEM IS OPTIONAL
 
 end

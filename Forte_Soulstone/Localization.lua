@@ -27,7 +27,7 @@ if GetLocale() == "frFR" then
 	FWL.SHOW_ALL_ABILITIES = "Show all class abilities (oRA3)";
 	FWL.SHOW_ALL_ABILITIES_TT = "When enabled, you will be able to see all class ability cooldowns supported by oRA3.";
 	FWL.SHOW_READY = "Show ready abilities";
-	FWL.SHOW_READY_TT = "This will set the tracker to not only show abilities on cooldown, but also any abilities that are ready."; 
+	FWL.SHOW_READY_TT = "This will set the tracker to not only show abilities on cooldown, but also any abilities that are ready.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "Show soulstone messages";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "Shows messages for expired soulstones and similar.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "Soulstone messages";
@@ -38,7 +38,7 @@ if GetLocale() == "frFR" then
 	FWL.WARLOCK = "Warlock";
 	FWL.DRUID = "Druid";
 	FWL.PALADIN = "Paladin";
-	FWL.SHAMAN = "Shaman";	
+	FWL.SHAMAN = "Shaman";
 	FWL.DEAD_OFFLINE_MIXING_TT = "The class color is mixed with the dead or offline color with this ratio. 1.0 means the color will be completely class color. 0.0 means the color will be the dead or offline color only.";
 
 	FWL.SS_ENABLE_TT = "Enable the Soulstone Tracker.";
@@ -62,9 +62,9 @@ if GetLocale() == "frFR" then
 	FWL.FLAG_ANKH = "<Ankh>";
 
 	FWL.DELAY_MAX_SS_BUFF = "Delay max soulstone buff";
-	
+
 	FWL.USE_SOULSTONE = "Use Soulstone";
-	
+
 	FWL.EXPIRED = "Expired";
 	FWL.READY = "Ready";
 
@@ -75,7 +75,7 @@ elseif GetLocale() == "ruRU" then
 	FWL.SHOW_ALL_ABILITIES = "Показывать способности всех классов (oRA3)";
 	FWL.SHOW_ALL_ABILITIES_TT = "Когда включено, вы сможете видеть кулдауны способностей всех классов, поддерживаемые oRA3.";
 	FWL.SHOW_READY = "Показывать готовые способности";
-	FWL.SHOW_READY_TT = "Задает отображение не только способностей на кулдауне, но и готовых."; 
+	FWL.SHOW_READY_TT = "Задает отображение не только способностей на кулдауне, но и готовых.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "Показывать сообщения Камней душ";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "Показывает сообщения о истекших Камнях душ и тому подобные.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "Сообщения Камней душ";
@@ -86,7 +86,7 @@ elseif GetLocale() == "ruRU" then
 	FWL.WARLOCK = "Чернокнижник";
 	FWL.DRUID = "Друид";
 	FWL.PALADIN = "Паладин";
-	FWL.SHAMAN = "Шаман";	
+	FWL.SHAMAN = "Шаман";
 	FWL.DEAD_OFFLINE_MIXING_TT = "Цвет класса будет смешан с цветом мертвых/вышедших из игры с этим коэффициентом. 1.0 значит, что цвет будет полностью цветом класса. 0.0 значит, что цвет будет полностью цветом мертвых/вышедших из сети.";
 
 	FWL.SS_ENABLE_TT = "Включить монитор Камней душ.";
@@ -110,7 +110,7 @@ elseif GetLocale() == "ruRU" then
 	FWL.FLAG_ANKH = "<Крест>";
 
 	FWL.DELAY_MAX_SS_BUFF = "Максимальная длительность Камня души";
-	
+
 	--[[>>]]FWL.USE_SOULSTONE = "Use Soulstone";
 
 	--[[>>]]FWL.EXPIRED = "Expired";
@@ -123,7 +123,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.SHOW_ALL_ABILITIES = "显示其他职业技能CD(oRA3)";
 	FWL.SHOW_ALL_ABILITIES_TT = "开启此功能,你可以看见oRA3支持的其他职业技能的CD.";
 	FWL.SHOW_READY = "显示可用技能";
-	FWL.SHOW_READY_TT = "此功能不仅显示CD中的技能,而且显示CD完成后的技能."; 
+	FWL.SHOW_READY_TT = "此功能不仅显示CD中的技能,而且显示CD完成后的技能.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "显示灵魂石信息";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "显示过期或者相似的灵魂石信息.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "灵魂石信息";
@@ -134,7 +134,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.WARLOCK = "术士";
 	FWL.DRUID = "德鲁伊";
 	FWL.PALADIN = "圣骑士";
-	FWL.SHAMAN = "萨满祭司";	
+	FWL.SHAMAN = "萨满祭司";
 	FWL.DEAD_OFFLINE_MIXING_TT = "职业颜色和死亡/掉线颜色按此比例混合. 1.0表示完全为职业颜色. 0.0 表示完全为死亡/掉线颜色.";
 
 	FWL.SS_ENABLE_TT = "开始灵魂石助手.";
@@ -158,7 +158,7 @@ elseif GetLocale() == "zhCN" then
 	FWL.FLAG_ANKH = "<十字章>";
 
 	FWL.DELAY_MAX_SS_BUFF = "灵魂石buff最大延迟";
-	
+
 	FWL.USE_SOULSTONE = "使用灵魂石";
 
 	--[[>>]]FWL.EXPIRED = "Expired";
@@ -171,7 +171,7 @@ elseif GetLocale() == "zhTW" then
 	FWL.SHOW_ALL_ABILITIES = "顯示其他職業技能CD(oRA3)";
 	FWL.SHOW_ALL_ABILITIES_TT = "開啟此功能,你可以看見oRA3支援的其他職業技能的CD.";
 	FWL.SHOW_READY = "顯示可用技能";
-	FWL.SHOW_READY_TT = "此功能不僅顯示CD中的技能,而且顯示CD完成後的技能."; 
+	FWL.SHOW_READY_TT = "此功能不僅顯示CD中的技能,而且顯示CD完成後的技能.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "顯示靈魂石資訊";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "顯示過期或者相似的靈魂石資訊.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "靈魂石資訊";
@@ -182,7 +182,7 @@ elseif GetLocale() == "zhTW" then
 	FWL.WARLOCK = "術士";
 	FWL.DRUID = "德魯伊";
 	FWL.PALADIN = "聖騎士";
-	FWL.SHAMAN = "薩滿祭司";	
+	FWL.SHAMAN = "薩滿祭司";
 	FWL.DEAD_OFFLINE_MIXING_TT = "職業顏色和死亡/掉線顏色按此比例混合. 1.0表示完全為職業顏色. 0.0 表示完全為死亡/掉線顏色.";
 
 	FWL.SS_ENABLE_TT = "開始靈魂石助手.";
@@ -218,7 +218,7 @@ elseif GetLocale() == "deDE" then
 	FWL.SHOW_ALL_ABILITIES = "Zeige Alle Fähigkeiten (oRA/CTRA)";
 	FWL.SHOW_ALL_ABILITIES_TT = "Wenn aktiviert werden alle Cooldowns der Fähigkeiten, welche von oRA/CTRA unterstützt werden, angezeigt.";
 	FWL.SHOW_READY = "Zeige verfügbare Fähigkeiten";
-	FWL.SHOW_READY_TT = "Hierdurch werden nicht die Fähigkeiten auf Cooldown angezeigt sondern alle bereiten Fähigkeiten."; 
+	FWL.SHOW_READY_TT = "Hierdurch werden nicht die Fähigkeiten auf Cooldown angezeigt sondern alle bereiten Fähigkeiten.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "Zeige Seelenstein Nachrichten";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "Zeigt Nachrichten für abgelaufene Seelensteine usw.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "Seelenstein Nachrichten";
@@ -229,7 +229,7 @@ elseif GetLocale() == "deDE" then
 	FWL.WARLOCK = "Hexer";
 	FWL.DRUID = "Druide";
 	FWL.PALADIN = "Paladin";
-	FWL.SHAMAN = "Shamane";	
+	FWL.SHAMAN = "Shamane";
 	FWL.DEAD_OFFLINE_MIXING_TT = "Die Klassenfarbe wird mit der Tod/Offline-Farbe in diesem Verhältnis gemischt. 1.0 Farbe bleibt komplett die Klassenfarbe, 0.0 Farbe ist komplett die Tod/Offline-Farbe.";
 
 	FWL.SS_ENABLE_TT = "Aktiviere den Seelenstein Tracker.";
@@ -258,7 +258,7 @@ elseif GetLocale() == "deDE" then
 
 	FWL.EXPIRED = "Abgelaufen";
 	FWL.READY = "Bereit";
-	
+
 -- korean
 elseif GetLocale() == "koKR" then
 
@@ -266,7 +266,7 @@ elseif GetLocale() == "koKR" then
 	FWL.SHOW_ALL_ABILITIES = "모든 가능클래스 보기 (oRA)";
 	FWL.SHOW_ALL_ABILITIES_TT = "oRA/CTRA 애드온을 사용한다면 공유 가능한 스킬을 사용하는 클래스간의 쿨타임을 공유할수 있습니다.";
 	FWL.SHOW_READY = "사용가능한 주문이나 기술 보기";
-	FWL.SHOW_READY_TT = "쿨다운 뿐만 아니라 준비된 기술이나 주문도 추적합니다."; 
+	FWL.SHOW_READY_TT = "쿨다운 뿐만 아니라 준비된 기술이나 주문도 추적합니다.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "영혼석 메시지 보기";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "영혼석에 관한 메세지를 전달받습니다.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "영혼석 메시지";
@@ -277,7 +277,7 @@ elseif GetLocale() == "koKR" then
 	FWL.WARLOCK = "흑마법사";
 	FWL.DRUID = "드루이드";
 	FWL.PALADIN = "성기사";
-	FWL.SHAMAN = "주술사";	
+	FWL.SHAMAN = "주술사";
 	FWL.DEAD_OFFLINE_MIXING_TT = "직업 색상에 대한 설정을 합니다. 1.0 일 경우 기존 고유의 직업 색깔을 그대로 사용하며 0.0 일 경우 죽음이나 오프라인일때 색상을 사용합니다.";
 
 	FWL.SS_ENABLE_TT = "영혼석 추적기 사용하기";
@@ -301,19 +301,19 @@ elseif GetLocale() == "koKR" then
 	FWL.FLAG_ANKH = "<윤회>";
 
 	FWL.DELAY_MAX_SS_BUFF = "영혼석 버프의 최대 지연시간";
-	
-	FWL.USE_SOULSTONE = "영혼석 사용";	
-	
+
+	FWL.USE_SOULSTONE = "영혼석 사용";
+
 	FWL.EXPIRED = "종료";
 	FWL.READY = "준비됨";
-	
+
 -- ENGLISH
 else
 	FWL.SOULSTONE_TRACKER = "Soulstone Tracker";
 	FWL.SHOW_ALL_ABILITIES = "Show all class abilities (oRA3)";
 	FWL.SHOW_ALL_ABILITIES_TT = "When enabled, you will be able to see all class ability cooldowns supported by oRA3.";
 	FWL.SHOW_READY = "Show ready abilities";
-	FWL.SHOW_READY_TT = "This will set the tracker to not only show abilities on cooldown, but also any abilities that are ready."; 
+	FWL.SHOW_READY_TT = "This will set the tracker to not only show abilities on cooldown, but also any abilities that are ready.";
 	FWL.SHOW_SOULSTONE_MESSAGES = "Show soulstone messages";
 	FWL.SHOW_SOULSTONE_MESSAGES_TT = "Shows messages for expired soulstones and similar.";
 	FWL.SOULSTONE_MESSAGES_COLOR = "Soulstone messages";
@@ -324,7 +324,7 @@ else
 	FWL.WARLOCK = "Warlock";
 	FWL.DRUID = "Druid";
 	FWL.PALADIN = "Paladin";
-	FWL.SHAMAN = "Shaman";	
+	FWL.SHAMAN = "Shaman";
 	FWL.DEAD_OFFLINE_MIXING_TT = "The class color is mixed with the dead or offline color with this ratio. 1.0 means the color will be completely class color. 0.0 means the color will be the dead or offline color only.";
 
 	FWL.SS_ENABLE_TT = "Enable the Soulstone Tracker.";
@@ -348,9 +348,9 @@ else
 	FWL.FLAG_ANKH = "<Ankh>";
 
 	FWL.DELAY_MAX_SS_BUFF = "Delay max soulstone buff";
-	
+
 	FWL.USE_SOULSTONE = "Use Soulstone";
-	
+
 	FWL.EXPIRED = "Expired";
 	FWL.READY = "Ready";
 end

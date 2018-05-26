@@ -17,6 +17,5 @@
 
 --[[>> still needs translating]]
 --[[if FW.CLASS == "MONK" then
-	
+
 end]]
-	

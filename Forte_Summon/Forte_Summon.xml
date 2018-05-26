@@ -1,14 +1,14 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Script file="Forte_Summon.lua"/>
-	
+
 	<Button name="FWSUBarTemplate" virtual="true" hidden="true">
 		<Size>
 			<AbsDimension x="100" y="12"/>
 		</Size>
 		<NormalTexture name="$parentNormalTexture" file="Interface\PaperDollInfoFrame\UI-Character-Skills-Bar"/>
 		<Layers>
-			<Layer level="OVERLAY">	
+			<Layer level="OVERLAY">
 				<FontString name="$parentName" inherits="GameFontHighlightSmall" justifyH="CENTER" hidden="false">
 					<Anchors>
 						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
@@ -71,7 +71,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				self:SetAttribute("type2" ,"menu");
 				self.menu = FW.IgnoreClick;
-			
+
 			</OnLoad>
 			<OnEnter>
 				self.over = 1;
@@ -85,7 +85,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			</OnLeave>
 		</Scripts>
 	</Button>
-	
+
 	<Frame name="FWSUFrame" movable="true" toplevel="true" parent="UIParent" hidden="true">
 		<Size>
 			<AbsDimension x="106" y="20" />
@@ -111,7 +111,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 								<AbsDimension x="-4" y="-10"/>
 							</Offset>
 						</Anchor>
-						
+
 					</Anchors>
 				</FontString>
 			</Layer>
@@ -158,7 +158,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			<OnLoad>
 				FW:SummonOnload();
 			</OnLoad>
-		</Scripts> 
+		</Scripts>
 	</Frame>
 	<Frame name="FWSUBackground" parent="UIParent" hidden="true">
 		<Size>

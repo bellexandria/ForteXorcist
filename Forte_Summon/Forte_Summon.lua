@@ -37,13 +37,13 @@ local SUMMON_PRIOR = {
 local STATES = FW.STATES;
 
 --[[local INSTANCE_COORDS = {
-	
+
 };
 
-function FW:Test() 
+function FW:Test()
 	FW:Show(Zone..";"..SubZone..";"..RealZone);
 	--FW:Show(select(1,GetCursorPosition())..","..select(2,GetCursorPosition()));
-	
+
 end]]
 
 local SUMMON_DISTANCE = {0.05,0.05,0.1,0.1}; -- the two old continents and outlands
@@ -55,31 +55,31 @@ local function SU_SummonShow(self,hide) -- with hide set, will force the frame t
 		FWSUFrame:Show();
 		FWSUBackground:Show();
 		FWSUBackground:ClearAllPoints();
-		
-		
+
+
 		FWSUFrame:SetWidth(FW.Settings.SummonWidth+2*FW.BORDER);
 		FWSUBackground:SetWidth(FW.Settings.SummonWidth+2*FW.BORDER);
 		FWSUFrame:SetScale(FW.Settings.FWSUFrame.scale);
 		FWSUBackground:SetScale(FW.Settings.FWSUFrame.scale);
-		
+
 		FW:CorrectPosition(FWSUFrame);
-		
+
 		FWSUFrame:SetFrameStrata(FW.Settings.SummonStrata);
 		FWSUBackground:SetFrameStrata(FW.Settings.SummonStrata);
-		
+
 		FWSUBackground:SetBackdropColor(unpack(FW.Settings.SummonBgColor));
 		FWSUBackground:SetBackdropBorderColor(unpack(FW.Settings.SummonBgColor));
-		
+
 		FWSUFrameAmount:SetFont(unpack(FW.Settings.SummonFont));
 		FWSUFrameInfo:SetFont(unpack(FW.Settings.SummonFont));
-		
+
 		local r,g,b = unpack(FW.Settings.SummonTextColor);
 		for i=1,NUM_SUMMONS,1 do
 			_G["FWSUBar"..i]:ClearAllPoints();
-			
+
 			_G["FWSUBar"..i.."Name"]:SetFont(unpack(FW.Settings.SummonFont));
 			_G["FWSUBar"..i.."Info"]:SetFont(unpack(FW.Settings.SummonFont));
-			
+
 			_G["FWSUBar"..i]:SetWidth(FW.Settings.SummonWidth);
 			_G["FWSUBar"..i]:SetHeight(FW.Settings.SummonHeight);
 			_G["FWSUBar"..i.."NormalTexture"]:SetTexture(FW.Settings.SummonTexture);
@@ -89,14 +89,14 @@ local function SU_SummonShow(self,hide) -- with hide set, will force the frame t
 		if FW.Settings.SummonExpand then
 			FWSUBackground:SetPoint("BOTTOMRIGHT", FWSUFrame, "BOTTOMRIGHT", 0, 0);
 			FWSUBar1:SetPoint("BOTTOMLEFT", FWSUBackground, "BOTTOMLEFT", FW.BORDER, 18);
-			
+
 			for i=2,NUM_SUMMONS,1 do
 				_G["FWSUBar"..i]:SetPoint("BOTTOMLEFT", _G["FWSUBar"..(i-1)], "TOPLEFT", 0, FW.Settings.SummonSpace);
 			end
 		else
 			FWSUBackground:SetPoint("TOPLEFT", FWSUFrame, "TOPLEFT", 0, 0);
 			FWSUBar1:SetPoint("TOPLEFT", FWSUBackground, "TOPLEFT", FW.BORDER, -18);
-			
+
 			for i=2,NUM_SUMMONS,1 do
 				_G["FWSUBar"..i]:SetPoint("TOPLEFT", _G["FWSUBar"..(i-1)], "BOTTOMLEFT", 0, -FW.Settings.SummonSpace);
 			end
@@ -109,7 +109,7 @@ end
 
 
 local function ColorVal(flag,prior)
-	
+
 	if flag == SUMMON_PRIOR.NORMAL then
 		if prior > 1 then prior = 1; end
 		return FW:MixColors(prior,FW.Settings.SummonCloseColor,FW.Settings.SummonFarColor);
@@ -135,13 +135,13 @@ local function SU_DrawSummon()
 			if t6 ~= SUMMON_PRIOR.IGNORE then break; else index=index+1 end
 		end
 		if FW.Settings.SummonDetails and i <= FW.Settings.SummonMax and index <= su.rows then
-			
+
 			local r,g,b = ColorVal(t6,t4);
-			
+
 			_G["FWSUBar"..i.."Name"]:SetText(t1);
 			_G["FWSUBar"..i.."Info"]:SetText(t7);
 			_G["FWSUBar"..i.."NormalTexture"]:SetVertexColor(r,g,b);
-		
+
 			if UnitIsUnit("target",t2) then
 				Bar:SetAttribute("type1" ,"spell");
 				Bar:SetAttribute("spell", summon);
@@ -150,7 +150,7 @@ local function SU_DrawSummon()
 				Bar:SetAttribute("unit",t2);
 			end
 			Bar.unit = t2;
-			
+
 			n=n+1;
 			Bar:Show();
 		else
@@ -175,7 +175,7 @@ end
 local function SU_ClearSummon() -- remove everybody that's added with normal priority and people outside the raid
 	local i=1;
 	while i <= su.rows do
-		if su[i][6] == SUMMON_PRIOR.NORMAL then 
+		if su[i][6] == SUMMON_PRIOR.NORMAL then
 			su:remove(i);
 		elseif not FW:NameToID(su[i][1]) then
 			su:remove(i);
@@ -254,7 +254,7 @@ local function SU_InInstance(name,index)
 		else
 			return false;
 		end
-		
+
 	else
 		return true;
 	end
@@ -270,7 +270,7 @@ local function SU_InMyInstance(name,index)
 	end
 	-- zone matches, but is this unit actually inside the instance?
 	return SU_InInstance(name,index);
-	
+
 end
 
 local function SU_AddSummon(unit)
@@ -286,11 +286,11 @@ local function SU_AddSummon(unit)
 		end
 		return;
 	end
-	
+
 	-- automatic adding
 	if not UnitIsDeadOrGhost(unit) and UnitIsConnected(unit) and not UnitIsUnit(unit,"player") and not CheckInteractDistance(unit, 4) then -- alive,connected and outside follow range
 		if pc then -- outside instance
-		
+
 			if FW.Settings.SummonOldMode and SU_InInstance(unitName,cIndex) then
 				return;
 			else -- this unit isnt in an instance
@@ -309,7 +309,7 @@ local function SU_AddSummon(unit)
 					end
 				end
 			end
-		else -- inside instance 
+		else -- inside instance
 			if not FW.Settings.SummonOldMode or SU_InMyInstance(unitName,cIndex) then
 				Nis30y = Nis30y + 1;
 				if UnitIsVisible(unit) then
@@ -323,9 +323,9 @@ local function SU_AddSummon(unit)
 				end
 			else -- not inside my instance, ignore
 				return;
-			end		
+			end
 		end
-		
+
 		su:insert(unitName, unit,(FW:IsWarlock(unit) or 2),prior,GetTime(),SUMMON_PRIOR.NORMAL,unitName);
 	end
 	if cIndex then Coordinates:remove(cIndex); end-- speed up searching player coordinates a bit, deleting the player i've done
@@ -364,15 +364,15 @@ local function SU_SummonWhisper(event,arg1,arg2)
 		elseif arg1==strlower(FW.Settings.SummonKeyword[1]) then
 			SU_QueueSummon(t1);
 			FW:Whisper(FWL.SUMMON_REQUEST,arg2);
-		end		
+		end
 	end
 end
 local function SU_SummonCastStart(player,target,from)
 	--FW:Debug("Summon Start msg: "..target.." by "..player);
-	
+
 	-- don't do anything when i get more summon targets for one player, lag may cause a warlock's target to update too slow, and showns as summoning it's old target
 	if not ActiveSummons[player] or player == from then
-		
+
 		ActiveSummons[player] = target;
 
 		-- Move this player to bottom
@@ -387,7 +387,7 @@ end
 local function SU_SummonCastCancel(player,target,from)
 	--FW:Debug("Summon Cancel msg: "..target.." by "..player);
 	ActiveSummons[player] = nil;
-	
+
 	local index = su:find(target,1);
 	-- change this player back to normal, if nobody else was summoning him / has summoned him
 	if index and (su[index][6] ~= SUMMON_PRIOR.IGNORE or player == from) then -- don't change mainprior if ignored already
@@ -405,11 +405,11 @@ end
 
 local function SU_SummonCastEnd(player,target,from)
 	--FW:Debug("Summon End msg: "..target.." by "..player);
-	
+
 	ActiveSummons[player] = nil;
-	
+
 	local index = su:find(target,1);
-	
+
 	if index and (su[index][6] ~= SUMMON_PRIOR.IGNORE or player == from) then -- don't change mainprior if ignored already
 
 		for key, val in pairs(ActiveSummons) do -- don't change prior if being summoned by another warlock
@@ -440,7 +440,7 @@ function FW:SUFrame_OnClick(button)
 		end
 		SU_DrawSummon();
 		FW:RefreshOptionsNoStyle();
-		
+
 	else
 		FW:ScrollTo(FWL.SUMMON_ASSISTANT);
 	end
@@ -467,7 +467,7 @@ function FW:SummonOnload()
 	-- includes a quick 2.00 fix!
 	FWSUFrame.Update = SU_SummonShow;
 	FW:RegisterFrame("FWSUFrame",FWSUFrame,1);
-		
+
 	FW:RegisterButtonPress("SU_SUMMON","FWSUButton","LeftButton");
 	FW:RegisterButtonPress("SU_SUMMON1","FWSUBar1","LeftButton");
 	FW:RegisterButtonPress("SU_SUMMON2","FWSUBar2","LeftButton");
@@ -489,8 +489,8 @@ function FW:SummonOnload()
 	FW:RegisterToEvent("CHAT_MSG_WHISPER",		SU_SummonWhisper);
 	FW:RegisterToEvent("PLAYER_TARGET_CHANGED",	SU_DrawSummon);-- change summon buttons to summon or select
 
-	
-	
+
+
 	--[[FW:RegisterOtherCasts();
 	local function ss(s,u,t)
 		if s == summon or s == meeting then
@@ -510,24 +510,24 @@ function FW:SummonOnload()
 			return true;
 		end
 	end]]
-	
+
 	FW:RegisterOnLeaveCombat(SU_SummonShow);
 	FW:RegisterOnEnterCombat(function() FWSUFrame:Update(1);end);
-	
+
 	--[[FW:RegisterMessage(FW.SU_CAST_START,
-		function(m,f) 
+		function(m,f)
 			local _,_,t1,t2 = string.find(m,"^(.-) (.+)$");
 			if t1 and t2 then SU_SummonCastStart(t1,t2,f); end
 		end,
 	1);
 	FW:RegisterMessage(FW.SU_CAST_CANCEL,
-		function(m,f) 
+		function(m,f)
 			local _,_,t1,t2 = string.find(m,"^(.-) (.+)$");
 			if t1 and t2 then SU_SummonCastCancel(t1,t2,f); end
 		end,
 	1);
 	FW:RegisterMessage(FW.SU_CAST_END,
-		function(m,f) 
+		function(m,f)
 			local _,_,t1,t2 = string.find(m,"^(.-) (.+)$");
 			if t1 and t2 then SU_SummonCastEnd(t1,t2,f); end
 		end,
@@ -539,42 +539,42 @@ FW:SetMainCategory(FWL.SUMMON_ASSISTANT,FW.ICON.SU,8,"SUMMON","FWSUFrame");
 	FW:SetSubCategory(FWL.GENERAL_TIPS,FW.ICON.HINT,1);
 		FW:AddOption("INF",FWL.SU_HINT1);
 		FW:AddOption("INF",FWL.SU_HINT2);
-	
+
 	FW:SetSubCategory(FWL.BASIC,FW.ICON.BASIC,2,FW.EXPAND)
 		FW:AddOption("CHK",FWL.ENABLE,			FWL.SU_ENABLE_TT,	"SummonEnable"):SetFunc(SU_SummonShow);
 		FW:AddOption("CHK",FWL.SHOW_BARS,		FWL.SHOW_BARS_TT,	"SummonDetails");
 		FW:AddOption("CHK",FWL.EXPAND_UP,		FWL.EXPAND_UP_TT,	"SummonExpand"):SetFunc(SU_SummonShow);
-	
-	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);	
+
+	FW:SetSubCategory(FWL.SPECIFIC,FW.ICON.SPECIFIC,3);
 		FW:AddOption("CHK",FWL.SHOW_CLOSE,		FWL.SHOW_CLOSE_TT,	"SummonCloser");
 		FW:AddOption("MSG",FWL.QUEUE_SUMMON,	FWL.QUEUE_SUMMON_TT,"SummonKeyword");
 		--FW:AddOption("CHK",FWL.SHOW_MEETING_STONE,	FWL.SHOW_MEETING_STONE_TT,	"SummonMeetingStone");
-		
+
 	FW:SetSubCategory(FWL.SIZING,FW.ICON.SIZE,4);
 		FW:AddOption("NUM",FWL.BAR_WIDTH,		"",	"SummonWidth"):SetRange(0):SetFunc(SU_SummonShow);
 		FW:AddOption("NUM",FWL.BAR_HEIGHT,		"",	"SummonHeight"):SetRange(0):SetFunc(SU_SummonShow);
 		FW:AddOption("NUM",FWL.BAR_SPACING,		"",	"SummonSpace"):SetRange(0):SetFunc(SU_SummonShow);
-		FW:AddOption("NUM",FWL.MAX_SHOWN,		"",	"SummonMax"):SetRange(0,NUM_SUMMONS);	
+		FW:AddOption("NUM",FWL.MAX_SHOWN,		"",	"SummonMax"):SetRange(0,NUM_SUMMONS);
 
-	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);	
+	FW:SetSubCategory(FWL.BAR_COLORING,FW.ICON.FILTER,5);
 		FW:AddOption("COL",FWL.PLAYER_FAR,		"",	"SummonFarColor");
 		FW:AddOption("COL",FWL.PLAYER_CLOSE,	"",	"SummonCloseColor");
 		FW:AddOption("COL",FWL.BEING_SUMMONED,	"",	"SummoningColor");
 		FW:AddOption("COL",FWL.WHISPERED,		"",	"WhisperColor");
 
-	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);	
+	FW:SetSubCategory(FWL.APPEARANCE,FW.ICON.APPEARANCE,6);
 		FW:AddOption("COL",FWL.BAR_TEXT,		"",	"SummonTextColor"):SetFunc(SU_SummonShow);
 		FW:AddOption("COL",FWL.FRAME_BACKGROUND,"",	"SummonBgColor"):SetFunc(SU_SummonShow);
 		FW:AddOption("FNT",FWL.BAR_FONT,		"",	"SummonFont"):SetFunc(SU_SummonShow);
 		FW:AddOption("TXT",FWL.BAR_TEXTURE,		"",	"SummonTexture"):SetFunc(SU_SummonShow);
-		
+
 FW:SetMainCategory(FWL.ADVANCED,FW.ICON.DEFAULT,99,"DEFAULT");
 	FW:SetSubCategory(FWL.SUMMON_ASSISTANT,FW.ICON.DEFAULT,8);
 		FW:AddOption("STR",FWL.FRAME_LEVEL,FWL.FRAME_LEVEL_TT,	"SummonStrata"):SetFunc(SU_SummonShow);
 		FW:AddOption("NUM",FWL.UPDATE_INTERVAL_SUMMON,	"",	"SummonInterval"):SetRange(0.5,5);
 		FW:AddOption("CHK",FWL.OLD_SUMMONING_MODE,	FWL.OLD_SUMMONING_MODE_TT,	"SummonOldMode");
 
-		
+
 FW.Default.SummonInterval = 1;
 FW.Default.SummonStrata = FW.Default.Strata;
 

@@ -22,7 +22,7 @@ if FW.CLASS == "WARRIOR" then
 	if GetLocale() == "ruRU" then
 	-- FR missing
 	elseif GetLocale() == "frFR" then
-	-- DE 
+	-- DE
 	elseif GetLocale() == "deDE" then
 	-- SPANISH
 	elseif GetLocale() == "esES" then

@@ -28,12 +28,12 @@ if FW.CLASS == "MAGE" then
 	if GetLocale() == "frFR" then
 		FWL.POLYMORPH_BREAK = "Polymorph Break";
 		FWL.POLYMORPH_FADE = "Polymorph Fade";
-		
+
 	-- Russian
 	elseif GetLocale() == "ruRU" then
 	--[[>>]]FWL.POLYMORPH_BREAK = "Polymorph Break";
 	--[[>>]]FWL.POLYMORPH_FADE = "Polymorph Fade";
-		
+
 	-- simplified chinese
 	elseif GetLocale() == "zhCN" then
 		FWL.POLYMORPH_BREAK = "变形术打断";
@@ -43,17 +43,17 @@ if FW.CLASS == "MAGE" then
 	elseif GetLocale() == "zhTW" then
 		FWL.POLYMORPH_BREAK = "變形術打斷";
 		FWL.POLYMORPH_FADE = "變形術消退";
-		
+
 	-- DE by DeaTHCorE (found a error? have a better translation? send me a email at dhaft@gmx.de)
 	elseif GetLocale() == "deDE" then
 	--[[>>]]FWL.POLYMORPH_BREAK = "Polymorph Break";
 	--[[>>]]FWL.POLYMORPH_FADE = "Polymorph Fade";
-		
+
 	--Korean
 	elseif GetLocale() == "koKR" then
 		FWL.POLYMORPH_BREAK = "변이 깨짐";
 		FWL.POLYMORPH_FADE = "변이 풀림";
-		
+
 	-- ENGLISH
 	else	-- standard english version
 		FWL.POLYMORPH_BREAK = "Polymorph Break";
@@ -61,4 +61,3 @@ if FW.CLASS == "MAGE" then
 
 	end
 end
-	
