@@ -241,7 +241,7 @@ Critical strike chance increase (general)
 Critical strike chance increase (spell)
 
     * Mage Enduring Winter: Tier 6 frost talent, 3 ranks, gives frost talent spells a 100% chance to apply the Winter's Chill debuff @ max rank, increasing spell critical strike chance by 1% per stack, stacks up to 5 times.
-    * Mage Improved Scorch: Tier 4 fire talent, 3 ranks, gives Scorch a 100% chance to apply the Improved Scorch debuff (or applications of the Improved Scorch debuff if glyphed) @ max rank, increasing spell critical strike chance by 1% per stack, stacks up to 5 times.
+    * Mage Improved Scorch: Tier 4 fire talent, 3 ranks, gives Scorch a 100% chance to apply the Improved Scorch debuff @ max rank, increasing spell critical strike chance by 1% per stack, stacks up to 5 times.
     * Warlock Improved Shadow Bolt: Tier 1 Destruction talent, 5 ranks, causes Shadow Bolt to increase spell critical strike damage against the target by 5% @ max rank.
 ]]
 --FW.STACK_DAMAGE_BLEED = 3;
@@ -306,7 +306,7 @@ Hit chance increase (spell)
 
 Attack interval increase (melee)
 
-    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold, glyphed Howling Blast and glyphed Scourge Strike. Increases casting time and melee and ranged attack intervals by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
+    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold. Increases casting time and melee and ranged attack intervals by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
     * Druid Infected Wounds: Tier 8 Feral Combat talent, 3 ranks, causes Mangle, Maul and Shred to apply the Infected Wound debuff, which stacks 2 times, and increases melee attack interval by 10% per application @ max rank, also reduces movement speed.
     * Mage Slow (mage): Tier 7 Arcane talent ability, increases melee and ranged attack intervals by 60%, also increases casting time, each mage can only have one Slow spell active at a time.
     * Paladin Judgements of the Just: Tier 9 Protection talent, 2 ranks, causes Judgements to increase melee attack intervals 20% @ max rank.
@@ -314,7 +314,7 @@ Attack interval increase (melee)
 
 Attack interval increase (ranged)
 
-    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold, glyphed Howling Blast and glyphed Scourge Strike. Increases casting time and melee and ranged attack intervals by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
+    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold. Increases casting time and melee and ranged attack intervals by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
     * Mage Slow (mage): Tier 7 Arcane talent ability, increases melee and ranged attack intervals by 60%, also increases casting time.
     * Warrior Thunder Clap: Increases melee and ranged attack intervals by 10%.
 
@@ -327,7 +327,7 @@ Attack power reduction (melee)
 
 Casting time increase
 
-    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold, glyphed Howling Blast and glyphed Scourge Strike. Increases casting, melee and ranged speed by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
+    * Death knight Frost Fever: Caused by Icy Touch, Hungering Cold. Increases casting, melee and ranged speed by 14% (20% fully talented with Improved Icy Touch, a tier 1 Frost talent with 3 ranks).
     * Mage Slow (mage): Tier 7 Arcane talent ability, +30%, also increases attack intervals, each mage can only have one Slow spell active at a time.
     * Rogue Mind-Numbing Poison: +30%, each weapon can only have one poison applied to it at a time.
     * Warlock Curse of Tongues: +30% @ max rank, each warlock can only have one active curse per target.
@@ -638,14 +638,6 @@ function ST:SetTickSpeed(tick,spell)
 	return self;
 end
 
-function ST:SetHastedGlyph(requires_glyph)
-	requires_glyph = FW:SpellName(requires_glyph);
-	if not FW.Glyph[requires_glyph] then FW.Glyph[requires_glyph] = 0; end
-	if not Track[current_spell]["hg"] then Track[current_spell]["hg"] = {};end
-	Track[current_spell]["hg"][requires_glyph] = 1;
-	return self;
-end
-
 function ST:SetHastedStance(requires_stace)
 	if not Track[current_spell]["hs"] then Track[current_spell]["hs"] = {};end
 	if not Track[current_spell]["hs"][requires_stace] then Track[current_spell]["hs"][requires_stace] = 1;end
@@ -670,14 +662,6 @@ function ST:SetSpellModTlnt(tal,modis)  -- modis table
 	if not FW.Talent[tal] then FW.Talent[tal] = 0; end
 	if not Track[current_spell]["t"] then Track[current_spell]["t"] = {};end
 	Track[current_spell]["t"][tal] = modis;
-	return self;
-end
-
-function ST:SetSpellModGlph(gl,modi)
-	gl = FW:SpellName(gl);
-	if not FW.Glyph[gl] then FW.Glyph[gl] = 0; end
-	if not Track[current_spell]["g"] then Track[current_spell]["g"] = {};end
-	Track[current_spell]["g"][gl] = modi;
 	return self;
 end
 
@@ -724,14 +708,6 @@ function ST:SetCooldownModTlnt(tal,data)  -- data table
 	return self;
 end
 
-function ST:SetCooldownModGlph(gl,modi)
-	gl = FW:SpellName(gl);
-	if not FW.Glyph[gl] then FW.Glyph[gl] = 0; end
-	if not TrackCooldowns[current_spell]["g"] then TrackCooldowns[current_spell]["g"] = {};end
-	TrackCooldowns[current_spell]["g"][gl] = modi;
-	return self;
-end
-
 local function ST_CooldownDuration(s)
 	local dura = 0;
 	-- duration adjustments
@@ -752,14 +728,6 @@ local function ST_CooldownDuration(s)
 					if FW.SetBonus[k] >= n then
 						dura = dura + a;
 					end
-				end
-			end
-		end
-		-- change based on glyphs
-		if TrackCooldowns[s]["g"] then
-			for k, v in pairs(TrackCooldowns[s]["g"]) do
-				if FW.Glyph[k] and FW.Glyph[k] > 0 then
-					dura = dura + v;
 				end
 			end
 		end

@@ -40,7 +40,7 @@ if FW.CLASS == "WARLOCK" then
 		:AddSpell( 5740,   8,"Default",	F.AOE_DMG):SetTickSpeed(2) -- Rain of Fire
 
 		:AddSpell(80240,  15,"Bane") -- Havoc THIS IS NOW ALSO A SELF BUFF WITH 3 STACKS
-		:AddSpell(  980,  24,"Bane",	F.TICKS):SetTickSpeed(2):SetSpellModGlph(56241,4) -- Agony
+		:AddSpell(  980,  24,"Bane",	F.TICKS):SetTickSpeed(2) -- Agony
 		:AddSpell(  603,  60,"Bane",	F.TICKS):SetTickSpeed(15) -- Doom
 
 		:AddSpell( 1490, 300,"Curse",	F.SHARED) -- Curse of the Elements
@@ -73,7 +73,7 @@ if FW.CLASS == "WARLOCK" then
 		:AddSpell( 6358,  30,"Pet") -- Seduction
 		:AddSpell(115268, 30,"Pet") -- Mesmerize
 
-		:AddCooldown(17962,012):SetCooldownModGlph(56235,-2) -- Conflag
+		:AddCooldown(17962,012) -- Conflag
 		:AddCooldown(105174,015) -- Hand of Gul'dan NEED TO LOOK AT THIS
 
 		--buffname

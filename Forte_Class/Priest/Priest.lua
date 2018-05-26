@@ -28,7 +28,7 @@ if FW.CLASS == "PRIEST" then
  		:AddSpell(  589,  18,"Default",	F.TICKS+F.REFRESH):SetSpellModSetB("Absolution Regalia",2,3) -- Shadow Word: Pain
 		:AddSpell(34914,  15,"Default",	F.TICKS):SetSpellModSetB("Velen's/Zabra's Regalia",2,6) -- Vampiric Touch
  		:AddSpell(34433,  12,"Pet",		F.SUMMON) -- Shadowfiend
- 		:AddSpell( 8122,   8,"Crowd",	F.AOE):SetSpellModGlph(56177,2) -- Psychic Scream
+ 		:AddSpell( 8122,   8,"Crowd",	F.AOE) -- Psychic Scream
  		:AddSpell( 9484,  50,"Crowd",	F.UNIQUE) -- Shackle Undead
 		--:AddSpell(  453,  15,"Crowd",	F.UNIQUE) -- Mind Soothe
 		:AddSpell(   17,  15,"Buff",	F.BUFF) -- Power Word: Shield

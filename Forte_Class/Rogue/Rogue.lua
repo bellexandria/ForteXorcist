@@ -9,8 +9,6 @@ if FW.CLASS == "ROGUE" then
 	local CA = FW:Module("Casting");
 	local CD = FW:Module("Cooldown");
 
-	--FW:SetCustomName(89775,FWL.HEMORRHAGE_GLYPH);
-
 	if ST then
 		local F = ST.F;
 		ST:SetDefaultHasted(0) -- set abilities to not use haste in their durations by default

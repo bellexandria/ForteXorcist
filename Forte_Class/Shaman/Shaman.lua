@@ -19,8 +19,8 @@ if FW.CLASS == "SHAMAN" then
 		:AddChannel(61882, 0, 1) -- Earthquake
 
 		-- Elemental Spells
-		:AddSpell( 8050,  21,"Default",	F.TICKS):SetSpellModGlph(55447,9) -- Flame Shock
-		:AddSpell( 8056,   8,"Default"):SetSpellModGlph(55443,2) -- Frost Shock
+		:AddSpell( 8050,  21,"Default",	F.TICKS) -- Flame Shock
+		:AddSpell( 8056,   8,"Default") -- Frost Shock
 
 		-- Enhancement Spells
 		:AddSpell(51533,  30,"Pet",		F.SUMMON) -- Feral Spirit

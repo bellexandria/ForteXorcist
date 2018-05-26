@@ -418,12 +418,6 @@ function CA:HasteFactor(s) -- spell
 			if ST.Track[s]["hs"][FW.Stance] then
 				return CA_SpellHaste;
 			end
-		elseif ST.Track[s]["hg"] then -- hasted duration with glyph
-			for k, v in pairs(ST.Track[s]["hg"]) do
-				if FW.Glyph[k] and FW.Glyph[k] > 0 then
-					return CA_SpellHaste;
-				end
-			end
 		end
 	end
 	return 1;
@@ -455,14 +449,6 @@ function CA:Duration(s,p,u) -- RETURNS DURATION UNAFFECTED BY HASTE spell, combo
 		-- change based on combopoints
 		if ST.Track[s]["c"] and p then
 			dura = dura + (ST.Track[s]["c"][p] or 0);
-		end
-		-- change based on glyphs
-		if ST.Track[s]["g"] then
-			for k, v in pairs(ST.Track[s]["g"]) do
-				if FW.Glyph[k] and FW.Glyph[k] > 0 then
-					dura = dura + v;
-				end
-			end
 		end
 
 		-- % change based on talents removed

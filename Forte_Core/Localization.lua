@@ -39,7 +39,6 @@ if GetLocale() == "ruRU" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 -- FR
 elseif GetLocale() == "frFR" then
@@ -62,7 +61,6 @@ elseif GetLocale() == "frFR" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 -- DE
 elseif GetLocale() == "deDE" then
@@ -85,7 +83,6 @@ elseif GetLocale() == "deDE" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 -- SPANISH By Intxixu - SPQR - Tyrande
 elseif GetLocale() == "esES" then
@@ -108,7 +105,6 @@ elseif GetLocale() == "esES" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 elseif GetLocale() == "zhCN" then
 	--units
@@ -130,7 +126,6 @@ elseif GetLocale() == "zhCN" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 -- tradition Chinese
 elseif GetLocale() == "zhTW" then
@@ -153,7 +148,6 @@ elseif GetLocale() == "zhTW" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 elseif GetLocale() == "koKR" then
 	--units
@@ -175,7 +169,6 @@ elseif GetLocale() == "koKR" then
 	--[[>>]]FWL._SHADOW = " (Shadow)";
 	--[[>>]]FWL._NATURE = " (Nature)";
 	--[[>>]]FWL._BUFF = " (Buff)";
-	--[[>>]]FWL._GLYPH = " (Glyph)";
 
 else -- standard english version
 	--units
@@ -197,7 +190,6 @@ else -- standard english version
 	FWL._SHADOW = " (Shadow)";
 	FWL._NATURE = " (Nature)";
 	FWL._BUFF = " (Buff)";
-	FWL._GLYPH = " (Glyph)";
 
 end
 

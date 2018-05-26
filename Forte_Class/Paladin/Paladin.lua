@@ -19,8 +19,8 @@ if FW.CLASS == "PALADIN" then
 		ST:SetDefaultHasted(1)
 
 		-- Holy Spells
-		:AddSpell(53563,   1, "Buff",	F.BUFF):SetSpellModGlph(63865,30) -- Beacon of Light
-		:AddSpell(26573,  10, "Default",F.AOE_DMG):SetTickSpeed(1):SetSpellModGlph(54928,2) -- Consecration
+		:AddSpell(53563,   1, "Buff",	F.BUFF) -- Beacon of Light
+		:AddSpell(26573,  10, "Default",F.AOE_DMG):SetTickSpeed(1) -- Consecration
 		--:AddSpell(31842,15, "Default",F.NOTARGET) -- Divine Illumination
 		:AddSpell( 2812,   4, "Crowd",	F.BUFF) -- Denounce
 		:AddSpell(  633,  15, "Default") -- Improved Lay on Hands

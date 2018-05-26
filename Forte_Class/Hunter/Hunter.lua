@@ -37,7 +37,7 @@ if FW.CLASS == "HUNTER" then
 		:AddSpell(131894, 30,"Default",F.TICKS):SetTickSpeed(1) -- A Murder of Crows DOES NOT HAVE A DURATION DISPLAYED INGAME
 		-- HAVE TO ADD SOMETHING FOR BINDING SHOT
 
-		:AddCooldown(781,025):SetCooldownModGlph(56844,-5) -- Disengage
+		:AddCooldown(781,025) -- Disengage
 
 		-- pet buffs/debuffs
 		--:AddSpell(19615, 0,010,0,"Default") -- Frenzy Effect on pet
@@ -85,7 +85,6 @@ if FW.CLASS == "HUNTER" then
 		:AddBuff(53304) -- Sniper Training
 		:AddBuff(34839) -- Master Tactician
 		:AddBuff(70728) -- Exploit Weakness (t10)
-		:AddBuff(63087) -- Glyph of Raptor Strike
 		:AddBuff(77769):SetStacks(0) -- Trap Launcher
 		:AddBuff(105919) -- Wyrmstalker 4set bonus, Chronohunter
 		:AddBuff(53220) -- Improved Steady Shot

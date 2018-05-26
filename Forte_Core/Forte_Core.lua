@@ -723,7 +723,6 @@ FW.Ready = {};
 
 FW.SetBonus = {};
 FW.Talent = {};
-FW.Glyph = {};
 
 FW.SpellInfo = {};-- id [,casttime,minrange,maxrange]
 
@@ -1709,23 +1708,6 @@ local function FW_RelevantStance()
 	--FW:Show("STANCE "..FW.Stance);
 end
 
--- glyph API changed in 4.0.1
-local GetGlyphLink = GetGlyphLink;
-local function FW_RelevantGlyph()
-	--FW:Show("check");
-	for k, v in pairs(FW.Glyph) do
-		FW.Glyph[k] = 0;
-	end
-	local val;
-	for i = 1, 9, 1 do
-		val = GetGlyphLink(i,GetActiveSpecGroup());
-		if val and val ~= "" then
-			val = select(3,strfind(val,"%[(.+)%]"));
-			FW.Glyph[val] = 1;
-		end
-	end
-end
-
 local function FW_RelevantSetBonus()
 	--FW:Show( "SET SCAN" );
 	for k, v in pairs(FW.SetBonus) do
@@ -2282,7 +2264,6 @@ FW:RegisterToEvent("VARIABLES_LOADED",FW_Variables);
 FW:RegisterDelayedLoadEvent(FW_Scan);
 FW:RegisterDelayedLoadEvent(FW_RelevantSetBonus);
 FW:RegisterDelayedLoadEvent(FW_RelevantTalent);
-FW:RegisterDelayedLoadEvent(FW_RelevantGlyph);
 FW:RegisterDelayedLoadEvent(FW_RelevantStance);
 FW:RegisterDelayedLoadEvent(FW_TimedRaidParty);
 FW:RegisterDelayedLoadEvent(FW_PartyRaid);
@@ -2317,10 +2298,6 @@ FW:RegisterVariablesEvent(function()
 	end
 
 	FW:RegisterToEvent("UNIT_PET", function(event,arg1) if arg1 == "player" then FW:Changed("pet");end end);
-
-	FW:RegisterToEvent("GLYPH_ADDED", 	function() FW:RegisterThrottle(FW_RelevantGlyph); end);
-	FW:RegisterToEvent("GLYPH_REMOVED", function() FW:RegisterThrottle(FW_RelevantGlyph); end);
-	FW:RegisterToEvent("GLYPH_UPDATED", function() FW:RegisterThrottle(FW_RelevantGlyph); end);
 
 	FW:RegisterToEvent("GROUP_ROSTER_UPDATE",FW_TimedRaidParty);
 
