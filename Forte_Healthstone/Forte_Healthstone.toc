@@ -1,5 +1,5 @@
-## Interface: 50001
-## Author: Xus (Xussie of Kazzak EU)
+## Interface: 70300
+## Author: Xus (Xussie-Kazzak [EU]) & Belle (Bellexandria-Exodar [US])
 ## Title: Forte|c919482c9Healthstone|r
 ## Notes: Forte Healthstone Module
 ## SavedVariables:

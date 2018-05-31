@@ -1,5 +1,5 @@
-## Interface: 50001
-## Author: Xus (Xussie of Kazzak EU)
+## Interface: 70300
+## Author: Xus (Xussie-Kazzak [EU]) & Belle (Bellexandria-Exodar [US])
 ## Title: Forte|c939482c9Soulstone|r
 ## Notes: Forte Soulstone Module
 ## SavedVariables:
