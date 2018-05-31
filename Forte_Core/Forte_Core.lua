@@ -2027,7 +2027,9 @@ end
 
 function FW:ToGroup(msg)
 	if not FW.Settings["OutputRaid"] then return; end
-	if IsInRaid() then
+	if IsInInstance() then
+		SendChatMessage(msg,"INSTANCE_CHAT");
+	elseif IsInRaid() then
 		SendChatMessage(msg,"RAID");
 	elseif GetNumGroupMembers() > 0 then
 		SendChatMessage(msg,"PARTY");
