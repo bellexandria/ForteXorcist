@@ -1630,8 +1630,8 @@ local function FW_Variables()
 	FW_InitConfig(); -- set the right profile
 
 	if FW.Settings.ShowStartupText then
-		FW:Show(FW:Title().." - /fx for options",0,1,0);
-		FW:Show("Class Module: "..FW.ClassModules.." - Modules: "..FW:Size(FW.Modules),0,1,0);
+		FW:Show(FW:Title().." - /fx for options",0.8,0.6,1);
+		FW:Show("Class Module: "..FW.ClassModules.." - Modules: "..FW:Size(FW.Modules),0.8,0.6,1);
 	end
 	FW:Debug("Warning: Debug mode is on!");
 
