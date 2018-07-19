@@ -1,4 +1,4 @@
-## Interface: 70300
+## Interface: 80000
 ## Author: Xus (Xussie-Kazzak [EU]) & Belle (Bellexandria-Exodar [US])
 ## Title: Forte|c949482c9Summon|r
 ## Notes: Forte Summon Module

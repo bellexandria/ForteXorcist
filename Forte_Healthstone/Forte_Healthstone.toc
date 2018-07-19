@@ -1,4 +1,4 @@
-## Interface: 70300
+## Interface: 80000
 ## Author: Xus (Xussie-Kazzak [EU]) & Belle (Bellexandria-Exodar [US])
 ## Title: Forte|c919482c9Healthstone|r
 ## Notes: Forte Healthstone Module
