@@ -32,6 +32,7 @@ if FW.CLASS == "MONK" then
 		:AddSpell(124081,  16,"Heal",F.HOT):SetTickSpeed(2) -- Zen Sphere
 		:AddSpell(115151,  20,"Buff",F.BUFF) -- Renewing Mist
 		:AddSpell(119611,  18,"Heal",F.HOT) -- Renewing Mist
+		:AddSpell(124682,  6,"Heal",F.HOT) -- Enveloping Mist
 
 		:AddBuff(115213) -- Avert Harm
 		:AddBuff(121125):SetStacks(0) -- Death Note
@@ -49,6 +50,7 @@ if FW.CLASS == "MONK" then
 		:AddBuff(116740) -- Tigereye Brew
 		:AddBuff(122470) -- Touch of Karma
 		:AddBuff(116841) -- Tiger's Lust
+		:AddBuff(193884) -- Soothing Mist
 
 		:AddBuff(116849) -- Life Cocoon
 		:AddBuff(115294):SetTickSpeed(1) -- Mana Tea
