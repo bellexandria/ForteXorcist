@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Added the Demon Hunter Module
+- Updates for 7.3.5 Legion patch compatability
+- Fixed sound channels for new api
+- Updated Classes for 8.0.0 Battle for Azeroth pre-patch
+
+## Legacy Releases
+
 ### [v1.980.8] - 2012-09-27
 
 - Rogue: Updated class module.
