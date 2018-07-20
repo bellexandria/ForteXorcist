@@ -21,3 +21,5 @@ move-folders:
     ForteXorcist/Forte_Timer: Forte_Timer
 
 manual-changelog: CHANGELOG.md
+
+license-output: LICENSE
