@@ -1,0 +1,23 @@
+move-folders:
+    ForteXorcist/Forte_Casting: Forte_Casting
+    ForteXorcist/Forte_Class: Forte_Class
+    ForteXorcist/Forte_Cooldown: Forte_Cooldown
+    ForteXorcist/Forte_Core: Forte_Core
+    ForteXorcist/Forte_DeathKnight: Forte_DeathKnight
+    ForteXorcist/Forte_Druid: Forte_Druid
+    ForteXorcist/Forte_Hunter: Forte_Hunter
+    ForteXorcist/Forte_Mage: Forte_Mage
+    ForteXorcist/Forte_Paladin: Forte_Paladin
+    ForteXorcist/Forte_Priest: Forte_Priest
+    ForteXorcist/Forte_Rogue: Forte_Rogue
+    ForteXorcist/Forte_Shaman: Forte_Shaman
+    ForteXorcist/Forte_Vehicle: Forte_Vehicle
+    ForteXorcist/Forte_Warlock: Forte_Warlock
+    ForteXorcist/Forte_Warrior: Forte_Warrior
+    ForteXorcist/Forte_Healthstone: Forte_Healthstone
+    ForteXorcist/Forte_Soulstone: Forte_Soulstone
+    ForteXorcist/Forte_Summon: Forte_Summon
+    ForteXorcist/Forte_Talent: Forte_Talent
+    ForteXorcist/Forte_Timer: Forte_Timer
+
+manual-changelog: CHANGELOG.md
