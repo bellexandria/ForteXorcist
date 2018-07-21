@@ -1891,7 +1891,7 @@ function FW:SendHealthstone(id)
   SendAddonMessage("FX2",FW.SEND_HEALTHSTONE..id,"RAID");--can completely ignore this yourself
 end
 
-function FW:FindSpellOnUnitByName(unit, spellName)
+function FW:FindSpellBuffOnUnitByName(unit, spellName)
   -- TODO 8.0: query for just one buff not iterate through all
   local detected
   for i = 1, BUFF_MAX_DISPLAY do

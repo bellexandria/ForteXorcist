@@ -339,7 +339,7 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
     end
   else
     -- check for SoulStone
-    local _, _, _, _, duration, t1, caster = FW:FindSpellOnUnitByName(unit, buffss);
+    local _, _, _, _, duration, t1, caster = FW:FindSpellBuffOnUnitByName(unit, buffss);
     local cd_end,cd_dura;
     if t1 then
       cd_end = t1;
