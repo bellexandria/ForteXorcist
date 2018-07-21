@@ -129,7 +129,7 @@ if FW.CLASS == "WARLOCK" then
     if not unitClass or not unitName then return; end
     t1 = strlower(FW.Settings.BloodPact[1]);
     if strfind(t1,strlower(unitName)) or strfind(t1,strlower(unitClass)) or strfind(t1,"all") or (unit == "player" and strfind(t1,"self")) then
-      t2 = UnitBuff(unit,bp);
+      t2 = FW:FindSpellOnUnitByName(unit,bp);
       if BP[unitName] ~= t2 then
         if FW.Settings.BloodPact[0] then
           if t2 then

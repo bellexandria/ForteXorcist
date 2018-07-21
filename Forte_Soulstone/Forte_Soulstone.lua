@@ -315,9 +315,11 @@ local function SS_ProcessSoulstone()
   end
 end
 
-local buffss = FW:SpellName(20707);
-local divint = FW:SpellName(114153); -- MOP
-local spirit = FW:SpellName(20711);
+local buffss = FW:SpellName(20707); -- Soulstone
+local spirit = FW:SpellName(20711); -- Spirit of Redemption
+local reinca = FW:SpellName(20608); -- Reincarnation
+local raisal = FW:SpellName(61999); -- Raise Ally
+local rebirt = FW:SpellName(20484); -- Rebirth
 
 local function SS_IsFresh(t,d)
   return t >= d - 10;
@@ -336,10 +338,8 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
       end
     end
   else
-    if flag == FW.FLAG.NORMAL and UnitBuff(unit,divint) then
-      flag = FW.FLAG.DI;
-    end
-    local _, _, _, _, _, duration, t1, caster = UnitBuff(unit,buffss);
+    -- check for SoulStone
+    local _, _, _, _, duration, t1, caster = FW:FindSpellOnUnitByName(unit, buffss);
     local cd_end,cd_dura;
     if t1 then
       cd_end = t1;
