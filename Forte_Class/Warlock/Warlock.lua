@@ -11,13 +11,6 @@ if FW.CLASS == "WARLOCK" then
   local CA = FW:Module("Casting");
   local CD = FW:Module("Cooldown");
 
-  FW:RegisterSet("Voidheart Raiment",28963,28968,28966,28967,28964);
-  FW:RegisterSet("Vestments of the Faceless Shroud",
-  76339,76340,76341,76342,76343,
-  78776,78797,78816,78844,78825,
-  78681,78702,78721,78749,78730);
-
-
   if ST then
     local F = ST.F;
     ST:SetDefaultHasted(1)
@@ -33,8 +26,8 @@ if FW.CLASS == "WARLOCK" then
     -- RAIN OF FIRE IS NOT CHANNELED IN DESTRUCTION
 
     -- 108647 -- Burning Embers
-    :AddSpell(  348,  15,"Default",  F.TICKS+F.REFRESH):SetStacks(0):SetSpellModSetB("Voidheart Raiment",4,3) -- Immolate, refresh by Fel Flame
-    :AddSpell(  172,  18,"Default",  F.TICKS+F.REFRESH):SetTickSpeed(2):SetSpellModSetB("Voidheart Raiment",4,3)-- Corruption, refresh by Life Drain, Drain Soul, Haunt
+    :AddSpell(  348,  15,"Default",  F.TICKS+F.REFRESH):SetStacks(0) -- Immolate, refresh by Fel Flame
+    :AddSpell(  172,  18,"Default",  F.TICKS+F.REFRESH):SetTickSpeed(2) -- Corruption, refresh by Life Drain, Drain Soul, Haunt
     :AddSpell(30108,  15,"Default",  F.TICKS+F.REFRESH):SetTickSpeed(2)-- Unstable Affliction, refresh by Fel Flame
 
     :AddSpell( 5740,   8,"Default",  F.AOE_DMG):SetTickSpeed(2) -- Rain of Fire
@@ -53,8 +46,8 @@ if FW.CLASS == "WARLOCK" then
     :AddSpell( 5484,   8,"Crowd",  F.AOE) -- Howl of Terror
 
     :AddSpell( 1098, 300,"Pet",    F.CHARM) -- Enslave Demon
-    :AddSpell( 1122,  60,"Pet",    F.SUMMON):SetSpellModSetB("Vestments of the Faceless Shroud",2,30) -- Infernal
-    :AddSpell(18540,  60,"Pet",    F.SUMMON):SetSpellModSetB("Vestments of the Faceless Shroud",2,30) -- Doomguard
+    :AddSpell( 1122,  60,"Pet",    F.SUMMON) -- Infernal
+    :AddSpell(18540,  60,"Pet",    F.SUMMON) -- Doomguard
 
     :AddSpell(111859, 20,"Pet",    F.SUMMON) -- Grimoire: Imp
     :AddSpell(111895, 20,"Pet",    F.SUMMON) -- Grimoire: Voidwalker
