@@ -16,19 +16,19 @@
 --[[>> still needs translating]]
 
 --[[if FW.CLASS == "PRIEST" then
-	local FWL = FW.L;
-	if GetLocale() == "ruRU" then
-	-- FR
-	elseif GetLocale() == "frFR" then
-	-- DE
-	elseif GetLocale() == "deDE" then
-	-- SPANISH
-	elseif GetLocale() == "esES" then
-	-- Simple Chinese
-	elseif GetLocale() == "zhCN" then
-	-- tradition Chinese
-	elseif GetLocale() == "zhTW" then
-	-- ENGLISH
-	else
-	end
+  local FWL = FW.L;
+  if GetLocale() == "ruRU" then
+  -- FR
+  elseif GetLocale() == "frFR" then
+  -- DE
+  elseif GetLocale() == "deDE" then
+  -- SPANISH
+  elseif GetLocale() == "esES" then
+  -- Simple Chinese
+  elseif GetLocale() == "zhCN" then
+  -- tradition Chinese
+  elseif GetLocale() == "zhTW" then
+  -- ENGLISH
+  else
+  end
 end]]

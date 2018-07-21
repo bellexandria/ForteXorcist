@@ -1,17 +1,17 @@
 --ForteXorcist v1.980.8 by Xus 28-09-2012 for 5.0
 
 if FW.CLASS == "DEMONHUNTER" then
-	local FW = FW;
-	local FWL = FW.L;
-	local DH = FW:ClassModule("DemonHunter");
+  local FW = FW;
+  local FWL = FW.L;
+  local DH = FW:ClassModule("DemonHunter");
 
-	local ST = FW:Module("Timer");
-	local CA = FW:Module("Casting");
-	local CD = FW:Module("Cooldown");
+  local ST = FW:Module("Timer");
+  local CA = FW:Module("Casting");
+  local CD = FW:Module("Cooldown");
 
-	if ST then
-		local F = ST.F;
-		ST:SetDefaultHasted(0) -- set abilities to not use haste in their durations by default
+  if ST then
+    local F = ST.F;
+    ST:SetDefaultHasted(0) -- set abilities to not use haste in their durations by default
 
     -- Havoc Spells
     :AddDebuff(198813) -- Vengeful Retreat
@@ -48,12 +48,12 @@ if FW.CLASS == "DEMONHUNTER" then
     :AddSpell(217832,  60, "Crowd", F.UNIQUE):SetDurationPVP(10) -- Imprison
 
     :AddMeleeBuffs()
-	end
-	if CD then
-		CD:AddMeleePowerupCooldowns();
-	end
-	-- if CA then
-	--
-	-- end
+  end
+  if CD then
+    CD:AddMeleePowerupCooldowns();
+  end
+  -- if CA then
+  --
+  -- end
 
 end
