@@ -92,7 +92,7 @@ local hastetalents = {
 local function CA_AddSpecialHasteBuffs(group,haste)
   if hastebuffs[group] then
     for k, v in pairs(hastebuffs[group]) do
-      if UnitAura("player",k) then -- WATCH OUT WITH CUSTOM NAMES, THIS WON'T WORK IF THE ORIGINAL UNITAURA ISNT USED
+      if FW:FindSpellAuraOnUnitByName("player",k) then -- WATCH OUT WITH CUSTOM NAMES, THIS WON'T WORK IF THE ORIGINAL UNITAURA ISNT USED
         haste = haste * v;
       end
     end

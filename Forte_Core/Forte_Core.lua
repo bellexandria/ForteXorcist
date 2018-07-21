@@ -1905,6 +1905,20 @@ function FW:FindSpellBuffOnUnitByName(unit, spellName)
   return name, rank, icon, count, debuffType, duration, expirationTime, unitCaster
 end
 
+function FW:FindSpellAuraOnUnitByName(unit, spellName)
+  -- TODO 8.0: query for just one buff not iterate through all
+  local detected
+  for i = 1, BUFF_MAX_DISPLAY do
+    name, rank, icon, count, dispellType, duration, expirationTime, caster, isStealable, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, unkBool, nameplateShowAll, timeMod = UnitAura(unit, i);
+      if not name then break end
+      if name == spellName then
+        detected = true
+      break
+    end
+  end
+  return name, rank, icon, count, dispellType, duration, expirationTime, caster, isStealable, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, unkBool, nameplateShowAll, timeMod
+end
+
 ---------------------------------------------------------------------------
 -- register functions
 ---------------------------------------------------------------------------

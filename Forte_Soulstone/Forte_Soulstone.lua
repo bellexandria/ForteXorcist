@@ -396,7 +396,7 @@ local function SS_SoulstoneScan(unit,unitName,unitClass,flag,update)
 
     else
       if FW.Saved.Timers[unitName] then
-        if UnitIsDead(unit) or UnitBuff(unit,spirit) then -- ss can be used to res
+        if UnitIsDead(unit) or FW:FindSpellBuffOnUnitByName(unit,spirit) then -- ss can be used to res
         -- currently, players that die with a ss on, and no longer show the buff, often don't show as dead yet...
         -- fix by delaying the death check?
 
