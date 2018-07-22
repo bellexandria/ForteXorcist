@@ -15,7 +15,7 @@ local UnitName = FW.FullUnitName;
 local strformat = string.format;
 local erase = FW.ERASE;
 local UnitAura = UnitAura;
-local SendAddonMessage = SendAddonMessage;
+local SendAddonMessage = C_ChatInfo.SendAddonMessage;
 
 local LastCast = 0;
 

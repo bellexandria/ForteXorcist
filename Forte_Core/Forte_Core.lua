@@ -1877,7 +1877,7 @@ end
 function FW:SendData(msg)
   FW_AddonMessage(msg,FW.PLAYER);
   if FW.STATES.GROUPED then
-    SendAddonMessage("FX2",msg,"RAID");
+    C_ChatInfo.SendAddonMessage("FX2",msg,"RAID");
   end
 end
 --------------------------------------------
@@ -1888,7 +1888,7 @@ local function FW_CheckHealthstone()
 end
 
 function FW:SendHealthstone(id)
-  SendAddonMessage("FX2",FW.SEND_HEALTHSTONE..id,"RAID");--can completely ignore this yourself
+  C_ChatInfo.SendAddonMessage("FX2",FW.SEND_HEALTHSTONE..id,"RAID");--can completely ignore this yourself
 end
 
 function FW:FindSpellBuffOnUnitByName(unit, spellName)

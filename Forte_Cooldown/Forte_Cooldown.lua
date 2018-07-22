@@ -43,7 +43,7 @@ local pow = math.pow;
 local _G = _G;
 local type = type;
 local strformat = string.format;
-local SendAddonMessage = SendAddonMessage;
+local SendAddonMessage = C_ChatInfo.SendAddonMessage;
 
 local erase = FW.ERASE;
 local UnitAura = FW.UnitAura;
